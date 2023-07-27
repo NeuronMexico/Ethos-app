@@ -1,47 +1,53 @@
-# Resolve react_native_pods.rb with node to allow for hoisting
-require Pod::Executable.execute_command('node', ['-p',
-  'require.resolve(
-    "react-native/scripts/react_native_pods.rb",
-    {paths: [process.argv[1]]},
-  )', __dir__]).strip
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, min_ios_version_supported
+platform :ios, '13.0'
+install! 'cocoapods', :deterministic_uuids => false
 prepare_react_native_project!
 
-# If you are using a `react-native-flipper` your iOS build will fail when `NO_FLIPPER=1` is set.
-# because `react-native-flipper` depends on (FlipperKit,...) that will be excluded
-#
-# To fix this you can also exclude `react-native-flipper` using a `react-native.config.js`
-# ```js
-# module.exports = {
-#   dependencies: {
-#     ...(process.env.NO_FLIPPER ? { 'react-native-flipper': { platforms: { ios: null } } } : {}),
-# ```
-flipper_config = ENV['NO_FLIPPER'] == "1" ? FlipperConfiguration.disabled : FlipperConfiguration.enabled
+production = ENV["PRODUCTION"] == "1"
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
+project 'ethos',{
+  'Debug' => :debug,
+  'ProdDebug' => :debug,
+  'Release' => :release,
+  'ProdRelease' => :release
+}
 
 target 'ethos' do
   config = use_native_modules!
+  debugs =['Debug','ProdDebug']
 
   # Flags change depending on the env values.
   flags = get_default_flags()
+  
+  use_frameworks! :linkage => :static
+
+  $RNFirebaseAsStaticFramework = true
+
+  # Convert all permission pods into static libraries
+  pre_install do |installer|
+    Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+
+    installer.pod_targets.each do |pod|
+      if pod.name.eql?('RNPermissions') || pod.name.start_with?('Permission-')
+        def pod.build_type;
+          # Uncomment the line corresponding to your CocoaPods version
+          Pod::BuildType.static_library # >= 1.9
+          # Pod::Target::BuildType.static_library # < 1.9
+        end
+      end
+    end
+  end
 
   use_react_native!(
+    :production => production,
     :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    :hermes_enabled => flags[:hermes_enabled],
     :fabric_enabled => flags[:fabric_enabled],
-    # Enables Flipper.
-    #
-    # Note that if you have use_frameworks! enabled, Flipper will not work and
-    # you should disable the next line.
-    :flipper_configuration => flipper_config,
-    # An absolute path to your application root.
+    # Hermes is now enabled by default. Disable by setting this flag to false.
+    # Upcoming versions of React Native may rely on get_default_flags(), but
+    # we make it explicit here to aid in the React Native upgrade process.
+    :hermes_enabled => true,
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
@@ -50,11 +56,39 @@ target 'ethos' do
     # Pods for testing
   end
 
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable the next line.
+  # use_flipper!(configurations: debugs)
+
+  def fix_config(config)
+    # https://github.com/CocoaPods/CocoaPods/issues/8891
+    if config.build_settings['DEVELOPMENT_TEAM'].nil?
+      config.build_settings['DEVELOPMENT_TEAM'] = 'P73SNWUPJ7'
+    end
+  end
+
   post_install do |installer|
-    # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    installer.pods_project.build_configurations.each do |config|
+      config.build_settings["CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES"] = true
+    end
+
+    installer.generated_projects.each do |project|
+      project.build_configurations.each do |config|
+          fix_config(config)
+      end
+      project.targets.each do |target|
+        target.build_configurations.each do |config|
+          fix_config(config)
+        end
+      end
+    end
+
     react_native_post_install(
       installer,
-      config[:reactNativePath],
+      # Set `mac_catalyst_enabled` to `true` in order to apply patches
+      # necessary for Mac Catalyst builds
       :mac_catalyst_enabled => false
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
