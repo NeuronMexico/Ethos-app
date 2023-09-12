@@ -5,6 +5,7 @@ export * from './Touchable';
 export * from './SafeArea';
 export * from './FadeInImage';
 export * from './Card';
+export * from './CheckBox';
 
 export {
   Text,

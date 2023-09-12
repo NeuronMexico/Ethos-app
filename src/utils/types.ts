@@ -16,4 +16,5 @@ export type PreviewStackParams = {
   Text: undefined;
   Touchable: undefined;
   FadeInImage: undefined;
+  CheckBox: undefined;
 };
