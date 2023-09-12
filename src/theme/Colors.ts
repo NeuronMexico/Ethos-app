@@ -11,6 +11,19 @@ const Colors = {
   PurpleCrystal: '#E7E8EA',
   DrWhite: '#F9FAFB',
   Carbon: '#333333',
+  GlowingBrakeDisc: '#EF4444',
+  LiquidLava: '#F97316',
+  GoldenRod: '#FACC15',
+  TurquoisePanic: '#2DD4BF',
+  DodgerBlue: '#3B82F6',
+  BlueHepatica: '#6366F1',
+  SchiaparelliPink: '#EC4899',
+  MunchOnMelon: '#F43F5E',
+  AppleIIMagenta: '#D946EF',
+  PurpleHoneyCreeper: '#8B5CF6',
+  HuelvenoHorizon: '#0EA5E9',
+  GreenTeal: '#10B981',
+  GrowingNature: '#84CC16',
 };
 
 export default Colors;
