@@ -10,7 +10,7 @@ const CheckboxScreen: React.FC = () => {
   return (
     <SafeArea>
       <Text
-        text="CheckboxField"
+        text="Checkbox"
         typography="title"
         marginHorizontal={Theme.Sizes.Padding}
         marginTop={Theme.Sizes.MarginTop}
