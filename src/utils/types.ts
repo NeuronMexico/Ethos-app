@@ -17,4 +17,5 @@ export type PreviewStackParams = {
   Touchable: undefined;
   FadeInImage: undefined;
   CheckBox: undefined;
+  RadioButton: undefined;
 };

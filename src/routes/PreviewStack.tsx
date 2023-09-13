@@ -9,6 +9,7 @@ import TouchableScreen from 'screens/preview/TouchableScreen';
 import FadeInImageScreen from 'screens/preview/FadeInImageScreen';
 import CardScreen from 'screens/preview/CardScreen';
 import CheckboxScreen from 'screens/preview/CheckboxScreen';
+import RadioButtonScreen from 'screens/preview/RadioButtonScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -22,6 +23,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="FadeInImage" component={FadeInImageScreen} />
     <Stack.Screen name="Card" component={CardScreen} />
     <Stack.Screen name="CheckBox" component={CheckboxScreen} />
+    <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
   </Stack.Navigator>
 );
 
