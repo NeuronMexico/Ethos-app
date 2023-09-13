@@ -24,4 +24,5 @@ export type PreviewStackParams = {
   SwitchField: undefined;
   CheckBoxGroup: undefined;
   SwitchGroup: undefined;
+  Tab: undefined;
 };
