@@ -17,6 +17,7 @@ import SwitchFieldScreen from 'screens/preview/SwitchFieldScreen';
 import CheckBoxGroupScreen from 'screens/preview/CheckBoxGroupScreen';
 import SwitchGroupScreen from 'screens/preview/SwitchGroupScreen';
 import TabScreen from 'screens/preview/TabScreen';
+import ButtonScreen from 'screens/preview/ButtonScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -38,6 +39,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="CheckBoxGroup" component={CheckBoxGroupScreen} />
     <Stack.Screen name="SwitchGroup" component={SwitchGroupScreen} />
     <Stack.Screen name="Tab" component={TabScreen} />
+    <Stack.Screen name="Button" component={ButtonScreen} />
   </Stack.Navigator>
 );
 
