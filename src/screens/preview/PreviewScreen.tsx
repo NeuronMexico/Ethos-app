@@ -19,6 +19,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="FadeInImage" onPress={() => navigate('FadeInImage')} />
       <Button title="CheckBox" onPress={() => navigate('CheckBox')} />
       <Button title="RadioButton" onPress={() => navigate('RadioButton')} />
+      <Button title="CheckBoxField" onPress={() => navigate('CheckBoxField')} />
     </SafeAreaView>
   );
 };
