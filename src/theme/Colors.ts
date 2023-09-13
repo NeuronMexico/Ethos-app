@@ -24,6 +24,7 @@ const Colors = {
   HuelvenoHorizon: '#0EA5E9',
   GreenTeal: '#10B981',
   GrowingNature: '#84CC16',
+  GreatFalls: '#9FA4AF',
 };
 
 export default Colors;

@@ -17,6 +17,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="Text" onPress={() => navigate('Text')} />
       <Button title="Touchable" onPress={() => navigate('Touchable')} />
       <Button title="FadeInImage" onPress={() => navigate('FadeInImage')} />
+      <Button title="CheckBox" onPress={() => navigate('CheckBox')} />
     </SafeAreaView>
   );
 };
