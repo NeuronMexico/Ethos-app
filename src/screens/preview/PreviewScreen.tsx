@@ -21,6 +21,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="RadioButton" onPress={() => navigate('RadioButton')} />
       <Button title="CheckBoxField" onPress={() => navigate('CheckBoxField')} />
       <Button title="RadioButtonField" onPress={() => navigate('RadioButtonField')} />
+      <Button title="Button" onPress={() => navigate('Button')} />
     </SafeAreaView>
   );
 };
