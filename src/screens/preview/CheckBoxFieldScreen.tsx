@@ -24,7 +24,14 @@ const CheckBoxFieldScreen: React.FC = () => {
         <CheckboxField label="Label" selected={selected} onChange={setSelected} typography="header" />
 
         <Text text="Custom font" typography="subtitle" marginVertical={8} />
-        <CheckboxField label="Label" selected={selected} onChange={setSelected} fontWeight="Light" fontSize={20} />
+        <CheckboxField
+          label="Label"
+          selected={selected}
+          onChange={setSelected}
+          fontWeight="Light"
+          fontSize={20}
+          textColor="red"
+        />
 
         <Text text="Type filled" typography="subtitle" marginVertical={8} />
         <CheckboxField label="Label" selected={selected} onChange={setSelected} type="filled" />
@@ -49,6 +56,17 @@ const CheckBoxFieldScreen: React.FC = () => {
           onChange={setSelected}
           size={30}
           checkmarkSize={20}
+        />
+
+        <Text text="Right position" typography="subtitle" marginVertical={8} />
+        <CheckboxField
+          label="Label"
+          selected={selected}
+          onChange={setSelected}
+          position="right"
+          circular
+          borderColor={Theme.Colors.SpringBouquet}
+          borderWidth={2}
         />
 
         <Text text="Custom label" typography="subtitle" marginVertical={8} />

@@ -20,4 +20,6 @@ export type PreviewStackParams = {
   RadioButton: undefined;
   CheckBoxField: undefined;
   RadioButtonField: undefined;
+  Switch: undefined;
+  SwitchField: undefined;
 };
