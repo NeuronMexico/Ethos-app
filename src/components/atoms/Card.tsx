@@ -1,5 +1,5 @@
 import React, { ForwardedRef, ReactNode, forwardRef } from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
+import { ColorValue, StyleSheet, ViewStyle } from 'react-native';
 import Theme from 'theme';
 import { Container } from './Container';
 import { Touchable } from './Touchable';
@@ -13,7 +13,7 @@ interface Props {
   flex?: boolean | number;
   disabled?: boolean;
   column?: boolean;
-  backgroundColor?: string;
+  backgroundColor?: ColorValue;
   center?: boolean;
   disabledEffect?: boolean;
 }
