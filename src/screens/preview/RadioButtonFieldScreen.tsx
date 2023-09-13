@@ -26,19 +26,21 @@ const RadioButtonFieldScreen: React.FC = () => {
         <Text text="Custom font" typography="subtitle" marginVertical={8} />
         <RadioButtonField label="Label" selected={selected} onChange={setSelected} fontWeight="Light" fontSize={20} />
 
-        <Text text="Custom label" typography="subtitle" marginVertical={8} />
+        <Text text="With value" typography="subtitle" marginVertical={8} />
         <RadioButtonField
-          label=""
+          label="Label"
           selected={selected}
           onChange={setSelected}
-          customLabel={(
-            <Text marginLeft={8}>
-              <Text text="Label" />
-              <Text text=" with" typography="header" />
-              <Text text=" different" typography="subtitle" />
-              <Text text=" fonts" fontWeight="Light" />
-            </Text>
-          )}
+          value="$799.00"
+        />
+
+        <Text text="With caption" typography="subtitle" marginVertical={8} />
+        <RadioButtonField
+          label="Label"
+          selected={selected}
+          onChange={setSelected}
+          value="$799.00"
+          caption="Caption"
         />
       </Container>
     </SafeArea>
