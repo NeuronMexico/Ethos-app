@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Container, SafeArea, Text, CheckBoxField,
+  Container, SafeArea, Text, CheckboxField,
 } from 'components';
 import Theme from 'theme';
 
@@ -18,13 +18,13 @@ const CheckBoxFieldScreen: React.FC = () => {
       />
       <Container style={{ paddingHorizontal: Theme.Sizes.Padding }}>
         <Text text="Default component" typography="subtitle" marginVertical={8} />
-        <CheckBoxField label="Label" selected={selected} onChange={setSelected} />
+        <CheckboxField label="Label" selected={selected} onChange={setSelected} />
 
         <Text text="Custom typography" typography="subtitle" marginVertical={8} />
-        <CheckBoxField label="Label" selected={selected} onChange={setSelected} typography="header" />
+        <CheckboxField label="Label" selected={selected} onChange={setSelected} typography="header" />
 
         <Text text="Custom font" typography="subtitle" marginVertical={8} />
-        <CheckBoxField
+        <CheckboxField
           label="Label"
           selected={selected}
           onChange={setSelected}
@@ -34,13 +34,13 @@ const CheckBoxFieldScreen: React.FC = () => {
         />
 
         <Text text="Type filled" typography="subtitle" marginVertical={8} />
-        <CheckBoxField label="Label" selected={selected} onChange={setSelected} type="filled" />
+        <CheckboxField label="Label" selected={selected} onChange={setSelected} type="filled" />
 
         <Text text="Circular" typography="subtitle" marginVertical={8} />
-        <CheckBoxField label="Label" selected={selected} onChange={setSelected} circular />
+        <CheckboxField label="Label" selected={selected} onChange={setSelected} circular />
 
         <Text text="Custom border" typography="subtitle" marginVertical={8} />
-        <CheckBoxField
+        <CheckboxField
           label="Label"
           selected={selected}
           onChange={setSelected}
@@ -50,7 +50,7 @@ const CheckBoxFieldScreen: React.FC = () => {
         />
 
         <Text text="Custom sizes" typography="subtitle" marginVertical={8} />
-        <CheckBoxField
+        <CheckboxField
           label="Label"
           selected={selected}
           onChange={setSelected}
@@ -59,7 +59,7 @@ const CheckBoxFieldScreen: React.FC = () => {
         />
 
         <Text text="Right position" typography="subtitle" marginVertical={8} />
-        <CheckBoxField
+        <CheckboxField
           label="Label"
           selected={selected}
           onChange={setSelected}
@@ -70,7 +70,7 @@ const CheckBoxFieldScreen: React.FC = () => {
         />
 
         <Text text="Custom label" typography="subtitle" marginVertical={8} />
-        <CheckBoxField
+        <CheckboxField
           label=""
           selected={selected}
           onChange={setSelected}

@@ -5,7 +5,7 @@ import { FontWeightTypes, TypographyTypes } from '../atoms/CustomText';
 import { Container } from '../atoms/Container';
 import { Touchable } from '../atoms/Touchable';
 
-export interface CheckBoxFieldProps extends CheckBoxProps {
+interface Props extends CheckBoxProps {
   label: string;
   onChange: (value: boolean) => void;
   fontWeight?: FontWeightTypes;
@@ -17,7 +17,7 @@ export interface CheckBoxFieldProps extends CheckBoxProps {
   position?: 'left' | 'right';
 }
 
-const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
+const CheckboxField: React.FC<Props> = ({
   label,
   selected = false,
   onChange,
@@ -34,7 +34,7 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
   type,
   customLabel,
   position = 'left',
-}: CheckBoxFieldProps) => {
+}: Props) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (
@@ -83,4 +83,4 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
   );
 };
 
-export { CheckBoxField };
+export { CheckboxField };

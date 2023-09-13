@@ -1,5 +1,4 @@
 export * from './TouchableText';
-export * from './CheckBoxField';
+export * from './CheckboxField';
 export * from './RadioButtonField';
 export * from './SwitchField';
-export * from './CheckBoxGroup';
