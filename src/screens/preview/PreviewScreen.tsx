@@ -20,6 +20,11 @@ const PreviewScreen: React.FC = () => {
       <Button title="CheckBox" onPress={() => navigate('CheckBox')} />
       <Button title="RadioButton" onPress={() => navigate('RadioButton')} />
       <Button title="CheckBoxField" onPress={() => navigate('CheckBoxField')} />
+      <Button title="RadioButtonField" onPress={() => navigate('RadioButtonField')} />
+      <Button title="Switch" onPress={() => navigate('Switch')} />
+      <Button title="SwitchField" onPress={() => navigate('SwitchField')} />
+      <Button title="CheckBoxGroup" onPress={() => navigate('CheckBoxGroup')} />
+      <Button title="SwitchGroup" onPress={() => navigate('SwitchGroup')} />
       <Button title="Tab" onPress={() => navigate('Tab')} />
     </SafeAreaView>
   );
