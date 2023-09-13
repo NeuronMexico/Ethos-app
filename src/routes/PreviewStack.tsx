@@ -11,6 +11,7 @@ import CardScreen from 'screens/preview/CardScreen';
 import CheckboxScreen from 'screens/preview/CheckboxScreen';
 import RadioButtonScreen from 'screens/preview/RadioButtonScreen';
 import CheckBoxFieldScreen from 'screens/preview/CheckBoxFieldScreen';
+import RadioButtonFieldScreen from 'screens/preview/RadioButtonFieldScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -26,6 +27,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="CheckBox" component={CheckboxScreen} />
     <Stack.Screen name="RadioButton" component={RadioButtonScreen} />
     <Stack.Screen name="CheckBoxField" component={CheckBoxFieldScreen} />
+    <Stack.Screen name="RadioButtonField" component={RadioButtonFieldScreen} />
   </Stack.Navigator>
 );
 
