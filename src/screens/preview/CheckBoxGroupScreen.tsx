@@ -61,7 +61,7 @@ const CheckBoxGroupScreen: React.FC = () => {
           <CheckBoxGroup options={options} onChange={setOptions} type="filled" />
 
           <Text text="Circular" typography="subtitle" marginVertical={8} />
-          <CheckBoxGroup label="Label" options={options} onChange={setOptions} circular />
+          <CheckBoxGroup options={options} onChange={setOptions} circular />
 
           <Text text="Custom border" typography="subtitle" marginVertical={8} />
           <CheckBoxGroup
