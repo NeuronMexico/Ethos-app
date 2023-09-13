@@ -9,7 +9,7 @@ import { Touchable } from './Touchable';
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
-interface Props {
+export interface CheckBoxProps {
   selected: boolean;
   onChange?: (active: boolean) => void;
   size?: number;
@@ -20,7 +20,7 @@ interface Props {
   borderWidth?: number;
 }
 
-const CheckBox: React.FC<Props> = ({
+const CheckBox: React.FC<CheckBoxProps> = ({
   selected,
   onChange,
   size = 20,

@@ -1,9 +1,11 @@
 import React, { ReactNode } from 'react';
-import { Text, TextStyle, StyleProp } from 'react-native';
+import {
+  Text, TextStyle, StyleProp, NativeSyntheticEvent, TextLayoutEventData,
+} from 'react-native';
 import Theme from 'theme';
 import { typographyLightStyle } from './textStyles';
 
-export type TypographyTypes = 'header' | 'title' | 'subtitle' | 'body';
+export type TypographyTypes = 'header' | 'title' | 'subtitle' | 'body' | 'caption';
 
 export type FontWeightTypes = 'Black' | 'Bold' | 'ExtraBold' | 'ExtraLight' | 'Light' | 'Medium' | 'Regular'
 | 'Semibold' | 'Thin';
@@ -32,6 +34,7 @@ export interface CustomTextProps {
   marginVertical?: number;
   adjustsFontSizeToFit?: boolean;
   onPress?: () => void;
+  onTextLayout?: (event: NativeSyntheticEvent<TextLayoutEventData>) => void;
 }
 
 const CustomText: React.FC<CustomTextProps> = ({
@@ -56,6 +59,7 @@ const CustomText: React.FC<CustomTextProps> = ({
   marginVertical,
   adjustsFontSizeToFit,
   onPress,
+  onTextLayout,
 }: CustomTextProps) => {
   const style = typographyLightStyle;
 
@@ -65,6 +69,7 @@ const CustomText: React.FC<CustomTextProps> = ({
     case 'title': textStyle.push(style.title); break;
     case 'subtitle': textStyle.push(style.subtitle); break;
     case 'body': textStyle.push(style.body); break;
+    case 'caption': textStyle.push(style.caption); break;
     default: break;
   }
 
@@ -77,6 +82,7 @@ const CustomText: React.FC<CustomTextProps> = ({
     if (fontWeight) selectedWeight = fontWeight;
     else if (typography === 'header') selectedWeight = 'Semibold';
     else if (typography === 'title') selectedWeight = 'Bold';
+    else if (typography === 'caption') selectedWeight = 'Medium';
 
     textStyle.push({
       fontFamily: Theme.Fonts[selectedWeight],
@@ -103,6 +109,7 @@ const CustomText: React.FC<CustomTextProps> = ({
       allowFontScaling={allowFontScaling}
       adjustsFontSizeToFit={adjustsFontSizeToFit}
       onPress={onPress}
+      onTextLayout={onTextLayout}
     >
       {text || children}
     </Text>
