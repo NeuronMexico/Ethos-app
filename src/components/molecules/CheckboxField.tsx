@@ -1,25 +1,29 @@
 import React, { ReactElement, useState } from 'react';
+import { ColorValue } from 'react-native';
 import { CheckBox, CheckBoxProps, Text } from 'components/atoms';
 import { FontWeightTypes, TypographyTypes } from '../atoms/CustomText';
 import { Container } from '../atoms/Container';
 import { Touchable } from '../atoms/Touchable';
 
-interface Props extends CheckBoxProps {
+export interface CheckBoxFieldProps extends CheckBoxProps {
   label: string;
   onChange: (value: boolean) => void;
   fontWeight?: FontWeightTypes;
   fontSize?: number;
+  textColor?: ColorValue;
   typography?: TypographyTypes;
   marginVertical?: number;
   customLabel?: ReactElement;
+  position?: 'left' | 'right';
 }
 
-const CheckboxField: React.FC<Props> = ({
+const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
   label,
   selected = false,
   onChange,
   typography = 'caption',
   fontWeight,
+  textColor,
   fontSize,
   marginVertical = 8,
   borderColor,
@@ -29,13 +33,15 @@ const CheckboxField: React.FC<Props> = ({
   size,
   type,
   customLabel,
-}: Props) => {
+  position = 'left',
+}: CheckBoxFieldProps) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (
     <Container style={{ marginVertical }}>
       <Touchable onPress={() => onChange(!selected)} opacityEffect>
         <Container row center={centerText}>
+          {position === 'left' && (
           <CheckBox
             selected={selected}
             borderColor={borderColor}
@@ -45,14 +51,30 @@ const CheckboxField: React.FC<Props> = ({
             size={size}
             type={type}
           />
-          {customLabel || (
-          <Text
-            text={label}
-            typography={typography}
-            marginLeft={8}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
-            onTextLayout={({ nativeEvent: { lines } }) => setCenterText(lines.length <= 1)}
+          )}
+          <Container flex={position === 'right'}>
+            {customLabel || (
+            <Text
+              text={label}
+              typography={typography}
+              textColor={textColor}
+              marginLeft={position === 'left' ? 8 : 0}
+              marginRight={position === 'right' ? 8 : 0}
+              fontSize={fontSize}
+              fontWeight={fontWeight}
+              onTextLayout={({ nativeEvent: { lines } }) => setCenterText(lines.length <= 1)}
+            />
+            )}
+          </Container>
+          {position === 'right' && (
+          <CheckBox
+            selected={selected}
+            borderColor={borderColor}
+            borderWidth={borderWidth}
+            checkmarkSize={checkmarkSize}
+            circular={circular}
+            size={size}
+            type={type}
           />
           )}
         </Container>
@@ -61,4 +83,4 @@ const CheckboxField: React.FC<Props> = ({
   );
 };
 
-export { CheckboxField };
+export { CheckBoxField };
