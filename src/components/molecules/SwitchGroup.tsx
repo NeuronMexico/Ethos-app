@@ -23,9 +23,11 @@ const SwitchGroup: React.FC<Props> = ({
   return (
     <Container>
       {options.map(({ label, active }, index) => (
-        <Container style={{ borderBottomWidth: index < options.length - 1 ? 1 : 0, borderColor: Theme.Colors.PlaceboBlue }}>
+        <Container
+          key={index}
+          style={{ borderBottomWidth: index < options.length - 1 ? 1 : 0, borderColor: Theme.Colors.PlaceboBlue }}
+        >
           <SwitchField
-            key={index}
             label={label}
             active={active}
             onChange={(value) => {
