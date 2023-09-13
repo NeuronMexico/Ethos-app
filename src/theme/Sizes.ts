@@ -3,6 +3,7 @@ const Sizes = {
   Title: 20,
   Subtitle: 15,
   Body: 16,
+  Caption: 13,
 
   Padding: 16,
   MarginTop: 25,

@@ -6,6 +6,7 @@ export * from './SafeArea';
 export * from './FadeInImage';
 export * from './Card';
 export * from './CheckBox';
+export * from './RadioButton';
 
 export {
   Text,

@@ -26,6 +26,11 @@ const typographyLightStyle = StyleSheet.create({
     color: Theme.Colors.DarkSoul,
     lineHeight: 21,
   },
+  caption: {
+    fontSize: Theme.Sizes.Caption,
+    fontFamily: Theme.Fonts.Medium,
+    color: Theme.Colors.DarkSoul,
+  },
 });
 
 export { typographyLightStyle };
