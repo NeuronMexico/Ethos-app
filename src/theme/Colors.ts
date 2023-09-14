@@ -25,6 +25,8 @@ const Colors = {
   GreenTeal: '#10B981',
   GrowingNature: '#84CC16',
   GreatFalls: '#9FA4AF',
+  SparklingFrost: '#D2D5DA',
+  NimbusCloud: '#C7C9CD',
 };
 
 export default Colors;

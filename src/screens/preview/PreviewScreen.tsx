@@ -27,6 +27,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="SwitchGroup" onPress={() => navigate('SwitchGroup')} />
       <Button title="Tab" onPress={() => navigate('Tab')} />
       <Button title="Button" onPress={() => navigate('Button')} />
+      <Button title="Input" onPress={() => navigate('Input')} />
     </SafeAreaView>
   );
 };
