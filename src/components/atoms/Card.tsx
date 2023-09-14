@@ -6,7 +6,9 @@ import { Touchable } from './Touchable';
 
 interface Props {
   children: ReactNode;
+  bottomChild?: ReactNode;
   style?: ViewStyle;
+  bottomStyle?: ViewStyle;
   borderRadius?: number;
   padding?: number;
   onPress?: () => void;
@@ -21,13 +23,15 @@ interface Props {
 const Card = forwardRef(({
   children,
   style,
+  bottomChild,
+  bottomStyle,
   borderRadius = 12,
   padding = 16,
   onPress,
   flex,
   disabled,
   column,
-  backgroundColor = Theme.Colors.HeartOfIce,
+  backgroundColor = Theme.Colors.PlaceboBlue,
   center,
   disabledEffect = true,
 }: Props, ref: ForwardedRef<any>) => {
@@ -46,6 +50,27 @@ const Card = forwardRef(({
       ]}
     >
       {children}
+      {
+        bottomChild && (
+          <Container
+            width="100%"
+            backgroundColor={Theme.Colors.DarkSoul}
+            style={{
+              borderBottomLeftRadius: 24,
+              borderBottomRightRadius: 24,
+              borderTopLeftRadius: 12,
+              borderTopRightRadius: 12,
+              alignContent: 'center',
+              justifyContent: 'center',
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+              ...bottomStyle,
+            }}
+          >
+            {bottomChild}
+          </Container>
+        )
+      }
     </Container>
   );
 
