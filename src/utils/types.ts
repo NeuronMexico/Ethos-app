@@ -28,4 +28,5 @@ export type PreviewStackParams = {
   Button: undefined;
   Input: undefined;
   Picker: undefined;
+  DateTimePicker: undefined;
 };
