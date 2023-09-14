@@ -132,7 +132,6 @@ const PickerScreen: React.FC = () => {
             prefixIcon={<PickerPrefixIcon />}
             paddingLeft={8}
             paddingVertical={6}
-            caption="Caption"
           />
 
           <Text text="Picker with caption" typography="subtitle" marginTop={8} />
