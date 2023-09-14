@@ -46,7 +46,7 @@ interface Props {
   prefixIcon?: ReactElement;
   suffixIcon?: ReactElement;
   customLabelColor?: ColorValue;
-  borderlessBackgroundColor?: ColorValue;
+  backgroundColor?: ColorValue;
   useBottomSheetInput?: boolean;
   borderless?: boolean;
 }
@@ -79,7 +79,7 @@ const Input = forwardRef(({
   fontSize = 16,
   prefixIcon,
   suffixIcon,
-  borderlessBackgroundColor = Theme.Colors.DrWhite,
+  backgroundColor,
   useBottomSheetInput,
   borderless = true,
 }: Props, ref: ForwardedRef<any>) => {
@@ -203,7 +203,12 @@ const Input = forwardRef(({
           marginBottom={4}
         />
       )}
-      <Animated.View style={{ ...borderlessStyle, backgroundColor: borderlessBackgroundColor, borderColor }}>
+      <Animated.View style={{
+        ...borderlessStyle,
+        backgroundColor: backgroundColor || borderless ? Theme.Colors.DrWhite : Theme.Colors.White,
+        borderColor,
+      }}
+      >
         <Container row>
           {prefixIcon && (
           <Container middle width={24} style={{ marginLeft: 16 }}>
