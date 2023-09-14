@@ -26,4 +26,5 @@ export type PreviewStackParams = {
   SwitchGroup: undefined;
   Tab: undefined;
   Button: undefined;
+  Input: undefined;
 };

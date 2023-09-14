@@ -8,6 +8,7 @@ export * from './Card';
 export * from './CheckBox';
 export * from './RadioButton';
 export * from './Switch';
+export * from './Input';
 
 export {
   Text,
