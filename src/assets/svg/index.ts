@@ -4,6 +4,11 @@ export * from './EyeIcon';
 export * from './EyeSlashIcon';
 export * from './ChevronDownIcon';
 export * from './CalendarIcon';
+export * from './PhoneIcon';
+export * from './MoneyIcon';
+export * from './PadlockIcon';
+export * from './MoreIcon';
+export * from './LessIcon';
 
 export {
   TICKET_ICON,
