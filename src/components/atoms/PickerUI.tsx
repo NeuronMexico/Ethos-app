@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ColorValue, ViewStyle } from 'react-native';
+import { ColorValue } from 'react-native';
 import { Container, Text } from 'components';
 import Theme from 'theme';
 import { FontWeightTypes } from './CustomText';
@@ -14,7 +14,6 @@ export interface PickerUIProps {
   placeholder: string;
   prefixIcon?: ReactElement;
   suffixIcon: ReactElement;
-  width?: ViewStyle['width'];
   paddingLeft?: number;
   paddingRight?: number;
   paddingVertical?: number;
@@ -31,7 +30,6 @@ const PickerUI: React.FC<PickerUIProps> = ({
   placeholder = '',
   prefixIcon,
   suffixIcon,
-  width = '100%',
   paddingLeft = 16,
   paddingRight = 16,
   paddingVertical = 12,
@@ -42,7 +40,6 @@ const PickerUI: React.FC<PickerUIProps> = ({
     row
     center
     style={{
-      width,
       borderRadius,
       paddingLeft,
       paddingRight,

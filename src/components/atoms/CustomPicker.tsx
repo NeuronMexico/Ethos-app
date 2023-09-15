@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  ActionSheetIOS, Platform, SafeAreaView, StyleSheet,
+  ActionSheetIOS, Platform, SafeAreaView, StyleSheet, ViewStyle,
 } from 'react-native';
 import { Picker, PickerProps } from '@react-native-picker/picker';
 import Collapsible from 'react-native-collapsible';
@@ -26,6 +26,7 @@ export interface CustomPickerProps extends Omit<PickerUIProps, 'suffixIcon'> {
   marginTop?: number;
   androidMode?: PickerProps['mode'];
   iconSize?: number;
+  width?: ViewStyle['width'];
 }
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
@@ -44,13 +45,13 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   fontSize,
   fontWeight,
   borderless,
-  width,
   iconSize = 24,
   prefixIcon,
   paddingLeft,
   paddingRight,
   paddingVertical,
   caption,
+  width = '100%',
 }) => {
   const { t } = useTranslation();
 
@@ -86,7 +87,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   }, [value, options]);
 
   return (
-    <Container style={{ marginTop }}>
+    <Container style={{ marginTop, width }}>
       {!!label && (
       <Text
         text={label}
@@ -124,7 +125,6 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         </Picker>
         )}
         <PickerUI
-          width={width}
           placeholder={placeholder}
           backgroundColor={backgroundColor}
           borderRadius={borderRadius}

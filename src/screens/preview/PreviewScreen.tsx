@@ -30,6 +30,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="Input" onPress={() => navigate('Input')} />
       <Button title="MultipleTextButton" onPress={() => navigate('MultipleTextButton')} />
       <Button title="Picker" onPress={() => navigate('Picker')} />
+      <Button title="DateTimePicker" onPress={() => navigate('DateTimePicker')} />
     </SafeAreaView>
   );
 };
