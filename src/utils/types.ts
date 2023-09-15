@@ -30,4 +30,5 @@ export type PreviewStackParams = {
   MultipleTextButton: undefined;
   Picker: undefined;
   DateTimePicker: undefined;
+  ButtonGroup: undefined;
 };

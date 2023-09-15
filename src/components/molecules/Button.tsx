@@ -7,7 +7,7 @@ import { CustomText, FontWeightTypes } from '../atoms/CustomText';
 
 interface Props extends TouchableProps {
   label?: string;
-  backgroundColor?: string;
+  backgroundColor?: ColorValue;
   borderColor?: string;
   textColor?: ColorValue;
   icon?: ReactElement;
