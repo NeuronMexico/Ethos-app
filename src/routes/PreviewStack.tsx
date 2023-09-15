@@ -19,7 +19,7 @@ import SwitchGroupScreen from 'screens/preview/SwitchGroupScreen';
 import TabScreen from 'screens/preview/TabScreen';
 import ButtonScreen from 'screens/preview/ButtonScreen';
 import InputScreen from 'screens/preview/InputScreen';
-import MultipleTextButtonScreen from 'screens/preview/MultipleTextButton';
+import MultipleTextButtonScreen from 'screens/preview/MultipleTextButtonScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 

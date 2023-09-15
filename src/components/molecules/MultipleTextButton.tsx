@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { ColorValue, ViewStyle } from 'react-native';
 import Theme from 'theme';
 import { Touchable, TouchableProps } from '../atoms/Touchable';
@@ -9,27 +9,29 @@ interface Props extends TouchableProps {
   title?: string;
   label?: string;
   rightText?: string;
+  icon?: ReactElement;
   backgroundColor?: string;
   borderColor?: string;
   textColor?: ColorValue;
   labelColor?: ColorValue;
   rightTextColor?: ColorValue;
   fontSize?: number;
-  paddingVertical?: number;
   paddingHorizontal?: number;
+  paddingVertical?: number;
   borderRadius?: number;
   width?: ViewStyle['width'];
   height?: ViewStyle['height'];
-  thin?: boolean;
   fontWeight?: FontWeightTypes
   borderStyle?: boolean;
   barColor?: ColorValue;
+  alignContent?: 'space-around' | 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-evenly' | undefined;
 }
 
 const MultipleTextButton: React.FC<Props> = ({
   title,
   label,
   onPress,
+  icon,
   disabled,
   marginBottom,
   marginHorizontal,
@@ -42,19 +44,19 @@ const MultipleTextButton: React.FC<Props> = ({
   androidRippleColor = Theme.Colors.White,
   borderColor,
   fontSize,
-  paddingHorizontal,
-  paddingVertical,
+  paddingHorizontal = 16,
+  paddingVertical = 16,
   fontWeight = 'Bold',
   borderRadius = 100,
   width,
   height,
-  thin,
   rounded,
   borderStyle,
   rightText,
   rightTextColor,
   barColor,
   labelColor = Theme.Colors.DarkSoul,
+  alignContent = 'space-around',
 }: Props) => (
   <Container style={{
     width: width || '100%',
@@ -72,8 +74,8 @@ const MultipleTextButton: React.FC<Props> = ({
       <Container
         backgroundColor={backgroundColor}
         style={{
-          paddingHorizontal,
-          paddingVertical: paddingVertical || (thin && 12) || 18,
+          paddingHorizontal: alignContent ? paddingHorizontal : 0,
+          paddingVertical,
           borderWidth: borderColor ? 2 : 0,
           borderStyle: borderStyle ? 'dashed' : 'solid',
           borderColor,
@@ -85,12 +87,12 @@ const MultipleTextButton: React.FC<Props> = ({
         <Container
           row
           style={{
-            width,
-            justifyContent: 'space-around',
+            justifyContent: alignContent,
             display: 'flex',
           }}
         >
-          <Container row>
+          <Container row center>
+            {icon}
             {barColor && (
             <Container
               backgroundColor={barColor}
@@ -98,7 +100,6 @@ const MultipleTextButton: React.FC<Props> = ({
                 width: 11,
                 height: 40,
                 borderRadius: 10,
-                marginRight: 10,
               }}
             />
             )}
@@ -112,6 +113,7 @@ const MultipleTextButton: React.FC<Props> = ({
                 fontSize={fontSize}
                 textAlign="left"
                 numberOfLines={2}
+                marginLeft={15}
               />
               )}
               {label && (
@@ -122,6 +124,7 @@ const MultipleTextButton: React.FC<Props> = ({
                 textColor={labelColor}
                 fontSize={13}
                 textAlign="left"
+                marginLeft={15}
               />
               )}
             </Container>
