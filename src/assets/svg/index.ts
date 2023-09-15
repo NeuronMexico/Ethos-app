@@ -9,6 +9,7 @@ export * from './MoneyIcon';
 export * from './PadlockIcon';
 export * from './MoreIcon';
 export * from './LessIcon';
+export * from './ChevronLeftIcon';
 
 export {
   TICKET_ICON,

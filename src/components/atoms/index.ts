@@ -12,6 +12,7 @@ export * from './RadioButton';
 export * from './Switch';
 export * from './Input';
 export * from './PickerUI';
+export * from './BackButton';
 
 export {
   Text,
