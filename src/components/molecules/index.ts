@@ -6,3 +6,4 @@ export * from './CheckBoxGroup';
 export * from './SwitchGroup';
 export * from './Button';
 export * from './ButtonGroup';
+export * from './MultipleTextButton';

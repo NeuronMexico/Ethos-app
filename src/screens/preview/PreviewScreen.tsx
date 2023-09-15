@@ -29,6 +29,7 @@ const PreviewScreen: React.FC = () => {
         <Button title="Tab" onPress={() => navigate('Tab')} />
         <Button title="Button" onPress={() => navigate('Button')} />
         <Button title="Input" onPress={() => navigate('Input')} />
+        <Button title="MultipleTextButton" onPress={() => navigate('MultipleTextButton')} />
         <Button title="Picker" onPress={() => navigate('Picker')} />
         <Button title="DateTimePicker" onPress={() => navigate('DateTimePicker')} />
         <Button title="ButtonGroup" onPress={() => navigate('ButtonGroup')} />

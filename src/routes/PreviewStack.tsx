@@ -19,6 +19,7 @@ import SwitchGroupScreen from 'screens/preview/SwitchGroupScreen';
 import TabScreen from 'screens/preview/TabScreen';
 import ButtonScreen from 'screens/preview/ButtonScreen';
 import InputScreen from 'screens/preview/InputScreen';
+import MultipleTextButtonScreen from 'screens/preview/MultipleTextButtonScreen';
 import PickerScreen from 'screens/preview/PickerScreen';
 import DateTimePickerScreen from 'screens/preview/DateTimePickerScreen';
 import ButtonGroupScreen from 'screens/preview/ButtonGroupScreen';
@@ -45,6 +46,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="Tab" component={TabScreen} />
     <Stack.Screen name="Button" component={ButtonScreen} />
     <Stack.Screen name="Input" component={InputScreen} />
+    <Stack.Screen name="MultipleTextButton" component={MultipleTextButtonScreen} />
     <Stack.Screen name="Picker" component={PickerScreen} />
     <Stack.Screen name="DateTimePicker" component={DateTimePickerScreen} />
     <Stack.Screen name="ButtonGroup" component={ButtonGroupScreen} />
