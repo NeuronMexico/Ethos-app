@@ -27,6 +27,7 @@ const Colors = {
   GreatFalls: '#9FA4AF',
   SparklingFrost: '#D2D5DA',
   NimbusCloud: '#C7C9CD',
+  DreamyCloud: '#E5E7EB',
 };
 
 export default Colors;
