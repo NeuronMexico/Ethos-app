@@ -1,5 +1,10 @@
 {
   "language": {
     "tag": "es"
+  },
+  "global": {
+    "select": "Selecciona",
+    "cancel": "Cancelar",
+    "accept": "Aceptar"
   }
 }

@@ -29,6 +29,7 @@ const PreviewScreen: React.FC = () => {
       <Button title="Button" onPress={() => navigate('Button')} />
       <Button title="Input" onPress={() => navigate('Input')} />
       <Button title="MultipleTextButton" onPress={() => navigate('MultipleTextButton')} />
+      <Button title="Picker" onPress={() => navigate('Picker')} />
     </SafeAreaView>
   );
 };

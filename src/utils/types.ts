@@ -28,4 +28,5 @@ export type PreviewStackParams = {
   Button: undefined;
   Input: undefined;
   MultipleTextButton: undefined;
+  Picker: undefined;
 };

@@ -11,13 +11,14 @@ interface TabProps {
   tabs: string[];
   initialTab: number;
   onTabChange: (tabIndex: number) => void;
+  inverted?: boolean;
   style?: ViewStyle;
 }
 
 const window = Dimensions.get('window');
 
 const Tab: React.FC<TabProps> = ({
-  tabs, initialTab, onTabChange, style,
+  tabs, initialTab, onTabChange, inverted = false, style,
 }) => {
   const { tab, bottomLine, tabLine } = styles;
 
@@ -73,14 +74,24 @@ const Tab: React.FC<TabProps> = ({
             <Text
               text={value}
               textAlign="center"
+              textColor={inverted ? Theme.Colors.PlaceboBlue : Theme.Colors.DarkSoul}
               fontWeight={activeTab === index ? 'Bold' : 'Regular'}
               numberOfLines={1}
             />
           </TouchableOpacity>
         ))}
       </Container>
-      <Container style={bottomLine}>
-        <Animated.View style={[tabLine, { width: tabWidths[activeTab], transform: [{ translateX }] }]} />
+      <Container style={{
+        ...bottomLine,
+        ...inverted && { backgroundColor: Theme.Colors.DarkSoul },
+      }}
+      >
+        <Animated.View style={[{
+          ...tabLine,
+          ...inverted && { backgroundColor: Theme.Colors.PlaceboBlue },
+        },
+        { width: tabWidths[activeTab], transform: [{ translateX }] }]}
+        />
       </Container>
     </Container>
   );
