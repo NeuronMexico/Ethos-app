@@ -36,7 +36,6 @@ const PreviewScreen: React.FC = () => {
         <Button title="ButtonGroup" onPress={() => navigate('ButtonGroup')} />
         <Button title="OptionButton" onPress={() => navigate('OptionButton')} />
         <Button title="BackButton" onPress={() => navigate('BackButton')} />
-        <Button title="OptionButton" onPress={() => navigate('OptionButton')} />
       </ScrollView>
     </SafeAreaView>
   );
