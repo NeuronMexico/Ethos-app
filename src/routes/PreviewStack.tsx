@@ -20,6 +20,7 @@ import TabScreen from 'screens/preview/TabScreen';
 import ButtonScreen from 'screens/preview/ButtonScreen';
 import InputScreen from 'screens/preview/InputScreen';
 import PickerScreen from 'screens/preview/PickerScreen';
+import { BottomSheetScreen } from 'screens/preview/BottomSheetScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -44,6 +45,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="Button" component={ButtonScreen} />
     <Stack.Screen name="Input" component={InputScreen} />
     <Stack.Screen name="Picker" component={PickerScreen} />
+    <Stack.Screen name="BottomSheet" component={BottomSheetScreen} />
   </Stack.Navigator>
 );
 
