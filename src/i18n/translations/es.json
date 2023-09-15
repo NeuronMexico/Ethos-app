@@ -2,6 +2,12 @@
   "language": {
     "tag": "es"
   },
+  "tabBar": {
+    "ethosCredit": "ethos crédito",
+    "cards": "Tarjetas",
+    "expenses": "Mis gastos",
+    "benefits": "Beneficios"
+  },
   "global": {
     "select": "Selecciona",
     "cancel": "Cancelar",

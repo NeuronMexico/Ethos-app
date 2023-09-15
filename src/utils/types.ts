@@ -8,6 +8,19 @@ export type AuthStackParams = {
   Login: undefined;
 };
 
+export type AppStackParams = {
+  TabNavigator: undefined;
+  GlobalStack: undefined;
+};
+
+export type TabParams = {
+  EthosCreditStack: undefined;
+  CardsStack: undefined;
+  TransactionsStack: undefined;
+  ExpensesStack: undefined;
+  BenefitsStack: undefined;
+};
+
 export type PreviewStackParams = {
   Preview: undefined;
   Container: undefined;

@@ -28,6 +28,7 @@ const Colors = {
   SparklingFrost: '#D2D5DA',
   NimbusCloud: '#C7C9CD',
   DreamyCloud: '#E5E7EB',
+  Encore: '#6D7280',
 };
 
 export default Colors;
