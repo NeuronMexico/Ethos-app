@@ -34,6 +34,7 @@ const PreviewScreen: React.FC = () => {
         <Button title="DateTimePicker" onPress={() => navigate('DateTimePicker')} />
         <Button title="BottomSheet" onPress={() => navigate('BottomSheet')} />
         <Button title="ButtonGroup" onPress={() => navigate('ButtonGroup')} />
+        <Button title="ProfilePhoto" onPress={() => navigate('ProfilePhoto')} />
       </ScrollView>
     </SafeAreaView>
   );
