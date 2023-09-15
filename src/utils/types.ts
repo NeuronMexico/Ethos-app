@@ -32,4 +32,5 @@ export type PreviewStackParams = {
   BottomSheet: undefined;
   DateTimePicker: undefined;
   ButtonGroup: undefined;
+  BackButton: undefined;
 };
