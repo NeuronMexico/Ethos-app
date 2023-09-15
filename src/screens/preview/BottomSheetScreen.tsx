@@ -129,4 +129,4 @@ const BottomSheetScreen: React.FC = () => {
   );
 };
 
-export { BottomSheetScreen };
+export default BottomSheetScreen;

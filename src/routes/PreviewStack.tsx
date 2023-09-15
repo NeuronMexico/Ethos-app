@@ -20,7 +20,7 @@ import TabScreen from 'screens/preview/TabScreen';
 import ButtonScreen from 'screens/preview/ButtonScreen';
 import InputScreen from 'screens/preview/InputScreen';
 import PickerScreen from 'screens/preview/PickerScreen';
-import { BottomSheetScreen } from 'screens/preview/BottomSheetScreen';
+import BottomSheetScreen from 'screens/preview/BottomSheetScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
