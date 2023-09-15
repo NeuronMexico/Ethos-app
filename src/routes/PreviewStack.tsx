@@ -21,6 +21,7 @@ import ButtonScreen from 'screens/preview/ButtonScreen';
 import InputScreen from 'screens/preview/InputScreen';
 import PickerScreen from 'screens/preview/PickerScreen';
 import DateTimePickerScreen from 'screens/preview/DateTimePickerScreen';
+import ButtonGroupScreen from 'screens/preview/ButtonGroupScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -46,6 +47,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="Input" component={InputScreen} />
     <Stack.Screen name="Picker" component={PickerScreen} />
     <Stack.Screen name="DateTimePicker" component={DateTimePickerScreen} />
+    <Stack.Screen name="ButtonGroup" component={ButtonGroupScreen} />
   </Stack.Navigator>
 );
 
