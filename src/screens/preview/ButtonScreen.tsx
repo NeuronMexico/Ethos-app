@@ -41,7 +41,6 @@ const ButtonScreen: React.FC = () => {
             onPress={() => {}}
             marginBottom={10}
             marginTop={30}
-            backgroundColor={Theme.Colors.WhiteSmoke}
           />
           <Button label="colorless" onPress={() => {}} marginBottom={10} />
           <Button

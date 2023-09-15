@@ -1,5 +1,6 @@
 import { CustomText as Text } from './CustomText';
 import { CustomPicker as Picker } from './CustomPicker';
+import { CustomDateTimePicker as DateTimePicker } from './CustomDateTimePicker';
 
 export * from './Container';
 export * from './Touchable';
@@ -15,4 +16,5 @@ export * from './PickerUI';
 export {
   Text,
   Picker,
+  DateTimePicker,
 };

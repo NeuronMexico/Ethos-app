@@ -27,6 +27,9 @@ export type PreviewStackParams = {
   Tab: undefined;
   Button: undefined;
   Input: undefined;
+  MultipleTextButton: undefined;
   Picker: undefined;
   BottomSheet: undefined;
+  DateTimePicker: undefined;
+  ButtonGroup: undefined;
 };
