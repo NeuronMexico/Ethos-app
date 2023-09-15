@@ -46,4 +46,5 @@ export type PreviewStackParams = {
   ButtonGroup: undefined;
   BackButton: undefined;
   Header: undefined;
+  DirectAccess: undefined;
 };

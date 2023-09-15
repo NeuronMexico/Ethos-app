@@ -10,6 +10,7 @@ export * from './CardIcon';
 export * from './EthosIcon';
 export * from './ExpensesIcon';
 export * from './TransactionsIcon';
+export * from './ChevronRightIcon';
 
 export {
   TICKET_ICON,

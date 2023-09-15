@@ -8,3 +8,4 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './MultipleTextButton';
 export * from './Header';
+export * from './DirectAccess';
