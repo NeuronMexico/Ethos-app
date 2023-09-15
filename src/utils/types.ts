@@ -31,4 +31,5 @@ export type PreviewStackParams = {
   Picker: undefined;
   DateTimePicker: undefined;
   ButtonGroup: undefined;
+  BankAccountCard: undefined;
 };

@@ -3,7 +3,7 @@ import {
   Container, SafeArea, Text, Button,
 } from 'components';
 import Theme from 'theme';
-import { TICKET_ICON } from 'assets/svg';
+import { TicketIcon } from 'assets/svg';
 import { Animated, ScrollView } from 'react-native';
 
 const ButtonScreen: React.FC = () => {
@@ -76,7 +76,7 @@ const ButtonScreen: React.FC = () => {
             borderColor={Theme.Colors.PlaceboBlue}
             marginBottom={10}
             borderStyle
-            icon={<TICKET_ICON />}
+            icon={<TicketIcon />}
           />
           <Text
             text="Icons and button sizes"
@@ -101,14 +101,14 @@ const ButtonScreen: React.FC = () => {
               borderRadius={15}
               backgroundColor={Theme.Colors.PlaceboBlue}
               marginHorizontal={5}
-              icon={<TICKET_ICON />}
+              icon={<TicketIcon />}
             />
             <Button
               onPress={() => {}}
               width={50}
               height={50}
               marginHorizontal={10}
-              icon={<TICKET_ICON />}
+              icon={<TicketIcon />}
             />
           </Container>
           <Text
@@ -122,7 +122,7 @@ const ButtonScreen: React.FC = () => {
             onPress={() => {}}
             width={65}
             borderStyle
-            icon={<TICKET_ICON />}
+            icon={<TicketIcon />}
             marginHorizontal={5}
             colum
           />
