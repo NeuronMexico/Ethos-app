@@ -18,7 +18,5 @@ export * from './EthosIcon';
 export * from './ExpensesIcon';
 export * from './TransactionsIcon';
 export * from './ChevronRightIcon';
-
-export {
-  TICKET_ICON,
-};
+export * from './LockOpenIcon';
+export * from './LockClosedIcon';
