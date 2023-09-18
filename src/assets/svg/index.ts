@@ -12,3 +12,12 @@ export * from './TicketIcon';
 export * from './TrashIcon';
 export * from './CopyIcon';
 export * from './ChevronLeftIcon';
+export * from './BenefitsIcon';
+export * from './CardIcon';
+export * from './EthosIcon';
+export * from './ExpensesIcon';
+export * from './TransactionsIcon';
+
+export {
+  TICKET_ICON,
+};

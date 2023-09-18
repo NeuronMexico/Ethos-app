@@ -3,4 +3,5 @@ import Easing from './Easing';
 
 export * from './types';
 export * from './functions';
+export * from './constants';
 export { validations, Easing };
