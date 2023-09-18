@@ -9,3 +9,4 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './MultipleTextButton';
 export * from './ProfilePhoto';
+export * from './BankAccountCard';
