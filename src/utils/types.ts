@@ -50,4 +50,5 @@ export type PreviewStackParams = {
   BankAccountCard: undefined;
   BackButton: undefined;
   Header: undefined;
+  DirectAccess: undefined;
 };

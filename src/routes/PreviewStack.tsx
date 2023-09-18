@@ -29,6 +29,7 @@ import ProfilePhotoScreen from 'screens/preview/ProfilePhotoScreen';
 import BankAccountCardScreen from 'screens/preview/BankAccountCardScreen';
 import BackButtonScreen from 'screens/preview/BackButtonScreen';
 import HeaderScreen from 'screens/preview/HeaderScreen';
+import DirectAccessScreen from 'screens/preview/DirectAccessScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -62,6 +63,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="BankAccountCard" component={BankAccountCardScreen} />
     <Stack.Screen name="BackButton" component={BackButtonScreen} />
     <Stack.Screen name="Header" component={HeaderScreen} />
+    <Stack.Screen name="DirectAccess" component={DirectAccessScreen} />
   </Stack.Navigator>
 );
 

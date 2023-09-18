@@ -39,6 +39,7 @@ const PreviewScreen: React.FC = () => {
         <Button title="BankAccountCard" onPress={() => navigate('BankAccountCard')} />
         <Button title="BackButton" onPress={() => navigate('BackButton')} />
         <Button title="Header" onPress={() => navigate('Header')} />
+        <Button title="DirectAccess" onPress={() => navigate('DirectAccess')} />
       </ScrollView>
     </SafeAreaView>
   );
