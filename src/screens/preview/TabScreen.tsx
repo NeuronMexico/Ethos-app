@@ -1,5 +1,6 @@
-import { Container, SafeArea, Text } from 'components';
-import Tab from 'components/organisms/Tab';
+import {
+  Container, SafeArea, Tab, Text,
+} from 'components';
 import React, { useRef } from 'react';
 import { Animated, ScrollView } from 'react-native';
 import Theme from 'theme';

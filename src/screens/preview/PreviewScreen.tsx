@@ -32,7 +32,11 @@ const PreviewScreen: React.FC = () => {
         <Button title="MultipleTextButton" onPress={() => navigate('MultipleTextButton')} />
         <Button title="Picker" onPress={() => navigate('Picker')} />
         <Button title="DateTimePicker" onPress={() => navigate('DateTimePicker')} />
+        <Button title="BottomSheet" onPress={() => navigate('BottomSheet')} />
         <Button title="ButtonGroup" onPress={() => navigate('ButtonGroup')} />
+        <Button title="OptionButton" onPress={() => navigate('OptionButton')} />
+        <Button title="ProfilePhoto" onPress={() => navigate('ProfilePhoto')} />
+        <Button title="BankAccountCard" onPress={() => navigate('BankAccountCard')} />
         <Button title="BackButton" onPress={() => navigate('BackButton')} />
         <Button title="Header" onPress={() => navigate('Header')} />
         <Button title="DirectAccess" onPress={() => navigate('DirectAccess')} />
