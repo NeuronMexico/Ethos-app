@@ -51,4 +51,5 @@ export type PreviewStackParams = {
   BackButton: undefined;
   Header: undefined;
   DirectAccess: undefined;
+  SwipeableSwitch: undefined;
 };
