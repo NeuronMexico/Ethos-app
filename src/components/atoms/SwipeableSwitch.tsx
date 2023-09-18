@@ -63,7 +63,7 @@ const SwipeableSwitch: React.FC<Props> = ({
 
       if (context.completed) {
         newValue = contentWidth + event.translationX;
-      } else {
+      } else if (event.translationX >= 0) {
         translateX.value = event.translationX;
       }
 
