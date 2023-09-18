@@ -5,15 +5,18 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from 'reactRedux';
 import NavContainer from 'routes/NavContainer';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => (
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <SafeAreaProvider>
-        <NavContainer />
-      </SafeAreaProvider>
-    </PersistGate>
-  </Provider>
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <SafeAreaProvider>
+          <NavContainer />
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
+  </GestureHandlerRootView>
 );
 
 export default App;

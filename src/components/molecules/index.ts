@@ -1,5 +1,6 @@
 export * from './TouchableText';
 export * from './CheckBoxField';
+export * from './CustomBottomSheet';
 export * from './RadioButtonField';
 export * from './SwitchField';
 export * from './CheckBoxGroup';
@@ -8,3 +9,5 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './MultipleTextButton';
 export * from './Header';
+export * from './ProfilePhoto';
+export * from './BankAccountCard';
