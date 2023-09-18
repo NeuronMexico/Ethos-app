@@ -41,7 +41,7 @@ const Touchable: React.FC<TouchableProps> = ({
   marginVertical,
   effectEnable = true,
   opacityEffect,
-  androidRippleColor = Theme.Colors.Navy500,
+  androidRippleColor = Theme.Colors.DarkSoul,
   hitSlop,
 }: TouchableProps) => (
   Platform.OS === 'ios' || opacityEffect ? (
