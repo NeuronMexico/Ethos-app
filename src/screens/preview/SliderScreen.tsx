@@ -8,7 +8,7 @@ import Slider from '@react-native-community/slider';
 
 const SliderScreen: React.FC = () => (
   <SafeArea>
-    <Header title="Header" />
+    <Header title="Sliders" />
     <Container style={{
       paddingHorizontal: Theme.Sizes.Padding,
       marginTop: Theme.Sizes.MarginTop,
