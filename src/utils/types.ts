@@ -36,4 +36,5 @@ export type PreviewStackParams = {
   ProfilePhoto: undefined;
   BankAccountCard: undefined;
   BackButton: undefined;
+  Header: undefined;
 };
