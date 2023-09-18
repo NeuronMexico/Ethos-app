@@ -1,5 +1,3 @@
-import TICKET_ICON from './ticket-icon.svg';
-
 export * from './EyeIcon';
 export * from './EyeSlashIcon';
 export * from './ChevronDownIcon';
@@ -9,8 +7,8 @@ export * from './MoneyIcon';
 export * from './PadlockIcon';
 export * from './MoreIcon';
 export * from './LessIcon';
+export * from './EditIcon';
+export * from './TicketIcon';
+export * from './TrashIcon';
+export * from './CopyIcon';
 export * from './ChevronLeftIcon';
-
-export {
-  TICKET_ICON,
-};
