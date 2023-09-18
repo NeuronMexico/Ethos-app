@@ -32,5 +32,6 @@ export type PreviewStackParams = {
   BottomSheet: undefined;
   DateTimePicker: undefined;
   ButtonGroup: undefined;
+  BankAccountCard: undefined;
   BackButton: undefined;
 };
