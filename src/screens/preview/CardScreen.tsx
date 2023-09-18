@@ -2,10 +2,9 @@ import React, { useRef } from 'react';
 import { Alert, Animated, ScrollView } from 'react-native';
 import {
   Button,
-  Card, Container, FadeInImage, SafeArea, Text,
+  Card, Container, FadeInImage, SafeArea, Tab, Text,
 } from 'components';
 import Theme from 'theme';
-import Tab from 'components/organisms/Tab';
 
 // eslint-disable-next-line max-len
 const HOMER_URI = 'https://static.wikia.nocookie.net/lossimpson/images/b/bd/Homer_Simpson.png/revision/latest?cb=20100522180809&path-prefix=es';
