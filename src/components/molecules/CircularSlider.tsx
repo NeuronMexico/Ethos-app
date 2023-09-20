@@ -16,6 +16,9 @@ interface Props {
   value: number;
   meterColor: string;
   onValueChange: (value: number) => void;
+  minimumValue?: number;
+  maximumValue?: number;
+  steps?: number;
 }
 
 const CircularSlider: React.FC<Props> = ({
@@ -23,19 +26,24 @@ const CircularSlider: React.FC<Props> = ({
   value,
   meterColor,
   onValueChange,
+  minimumValue = 0,
+  maximumValue = 1,
+  steps,
 }) => {
   const cx = size / 2;
   const cy = size / 2;
   const initialR = (Math.min(size, size) / 2) * 0.85;
 
-  const [angle, setAngle] = useState(value);
+  const [angle, setAngle] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     if (!isDragging) {
-      setAngle(value);
+      let convertedValue = ((value - minimumValue) / (maximumValue - minimumValue)) * 360;
+      if (value && convertedValue === 360) convertedValue = 359.99;
+      setAngle(convertedValue);
     }
-  }, [value, isDragging]);
+  }, [value, isDragging, minimumValue, maximumValue]);
 
   const polarToCartesian = (polarAngle: number) => ({
     x: cx + initialR * Math.cos(((polarAngle - 90) * Math.PI) / 180),
@@ -55,10 +63,6 @@ const CircularSlider: React.FC<Props> = ({
     }
   };
 
-  const handlePanResponderEnd = () => {
-    setIsDragging(false);
-  };
-
   const endCoord = polarToCartesian(angle);
 
   const pathData = `
@@ -74,19 +78,38 @@ const CircularSlider: React.FC<Props> = ({
     theta *= 180 / Math.PI;
     const fixedTheta = theta + 90;
 
-    const newAngle = Number((fixedTheta - (Math.floor(fixedTheta / 360) * 360)).toPrecision(8));
+    return Number((fixedTheta - (Math.floor(fixedTheta / 360) * 360)).toPrecision(8));
+  };
+
+  const onUpdatePanGesture = (x: number, y: number) => {
+    const newAngle = getAngle(x, y);
+    const convertedValue = minimumValue + (maximumValue - minimumValue) * (newAngle / 360);
 
     setAngle(newAngle);
-    onValueChange(newAngle);
+    onValueChange(convertedValue);
     setIsDragging(true);
   };
 
+  const onEndPanGesture = (x: number, y: number) => {
+    let newAngle = getAngle(x, y);
+    if (steps) {
+      const stepSize = 360 / steps;
+      const nearestStep = Math.round(newAngle / stepSize);
+      newAngle = nearestStep * stepSize;
+    }
+
+    const convertedValue = minimumValue + (maximumValue - minimumValue) * (newAngle / 360);
+    setAngle(newAngle);
+    onValueChange(convertedValue);
+    setIsDragging(false);
+  };
+
   const swipe = Gesture.Pan()
-    .onUpdate((event: GestureUpdateEvent<PanGestureHandlerEventPayload>) => runOnJS(getAngle)(event.x, event.y))
-    .onEnd(() => runOnJS(handlePanResponderEnd)());
+    .onUpdate((event: GestureUpdateEvent<PanGestureHandlerEventPayload>) => runOnJS(onUpdatePanGesture)(event.x, event.y))
+    .onEnd((event: GestureStateChangeEvent<PanGestureHandlerEventPayload>) => runOnJS(onEndPanGesture)(event.x, event.y));
 
   const singleTap = Gesture.Tap()
-    .onStart((event: GestureStateChangeEvent<TapGestureHandlerEventPayload>) => runOnJS(getAngle)(event.x, event.y));
+    .onStart((event: GestureStateChangeEvent<TapGestureHandlerEventPayload>) => runOnJS(onEndPanGesture)(event.x, event.y));
 
   return (
     <GestureDetector gesture={Gesture.Exclusive(swipe, singleTap)}>

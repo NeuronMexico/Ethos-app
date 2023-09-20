@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Container, SafeArea, Header, CircularSlider, AnalogClock,
+  Container, SafeArea, Header, CircularSlider,
 } from 'components';
 import Theme from 'theme';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -11,6 +11,7 @@ const SliderScreen: React.FC = () => {
   const [sliderValue, setSliderValue] = useState(0);
 
   const handleSliderChange = (value: number) => {
+    console.log(value);
     setSliderValue(value);
   };
   return (
@@ -27,6 +28,7 @@ const SliderScreen: React.FC = () => {
           maximumValue={60}
           minimumTrackTintColor={Theme.Colors.SpringBouquet}
           maximumTrackTintColor={Theme.Colors.LightHouse}
+          onValueChange={console.log}
         />
         <View style={styles.container}>
           <CircularSlider
@@ -34,6 +36,9 @@ const SliderScreen: React.FC = () => {
             value={sliderValue}
             meterColor={Theme.Colors.SpringBouquet}
             onValueChange={handleSliderChange}
+            steps={3}
+            minimumValue={1}
+            maximumValue={10}
           />
         </View>
       </Container>
