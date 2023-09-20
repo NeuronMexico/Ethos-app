@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Container, SafeArea, Header, CircularSlider,
+  Container, SafeArea, Header, CircularSlider, AnalogClock,
 } from 'components';
 import Theme from 'theme';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -30,14 +30,12 @@ const SliderScreen: React.FC = () => {
         />
         <View style={styles.container}>
           <CircularSlider
-            width={200}
-            height={200}
+            size={200}
             value={sliderValue}
             meterColor={Theme.Colors.SpringBouquet}
             onValueChange={handleSliderChange}
           />
         </View>
-
       </Container>
     </SafeArea>
   );
