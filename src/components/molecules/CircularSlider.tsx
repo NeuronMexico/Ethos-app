@@ -3,15 +3,15 @@ import {
   View, PanResponder, StyleSheet, TouchableOpacity,
 } from 'react-native';
 import Svg, {
-  Circle, G, Text, Path,
+  Circle, G, Path,
 } from 'react-native-svg';
+import Theme from 'theme';
 
 interface Props {
   width: number;
   height: number;
   value: number;
   meterColor: string;
-  textColor: string;
   onValueChange: (value: number) => void;
 }
 
@@ -20,7 +20,6 @@ const CircularSlider: React.FC<Props> = ({
   height,
   value,
   meterColor,
-  textColor,
   onValueChange,
 }) => {
   const cx = width / 2;
@@ -75,18 +74,25 @@ const CircularSlider: React.FC<Props> = ({
     // eslint-disable-next-line react/jsx-props-no-spreading
     <View style={styles.container} {...panResponder.panHandlers}>
       <Svg width={width} height={height}>
-        <Circle cx={cx} cy={cy} r={initialR} stroke="#F4F4F4" strokeWidth={15} fill="none" />
+        <Circle cx={cx} cy={cy} r={initialR} stroke={Theme.Colors.LightHouse} strokeWidth={15} fill="none" />
         <Path
           d={pathData}
-          stroke={"#61CE80"}
+          stroke={meterColor}
           strokeWidth={15}
           fill="transparent"
         />
-        <G x={endCoord.x - 7.5} y={endCoord.y - 7.5}>
-          <Circle cx={7.5} cy={7.5} r={20} fill={"#FFFFFF"} />
-          <Text x={7.5} y={12} fontSize={14} fill={textColor} textAnchor="middle">
-            {Math.round(angle).toString()}
-          </Text>
+        <G
+          x={endCoord.x - 7.5}
+          y={endCoord.y - 7.5}
+          fill={Theme.Colors.White}
+          filter="drop-shadow(10px 10px 4px rgba(0, 0, 0, 0.20))"
+        >
+          <Circle
+            cx={7.5}
+            cy={7.5}
+            r={15}
+            id="filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.20));"
+          />
         </G>
       </Svg>
       <TouchableOpacity onPress={handlePanResponderMove} style={styles.clickableCircle} />

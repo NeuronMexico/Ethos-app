@@ -33,8 +33,7 @@ const SliderScreen: React.FC = () => {
             width={200}
             height={200}
             value={sliderValue}
-            meterColor="#ff0000" // Cambia estos valores según tus preferencias
-            textColor="#000000"
+            meterColor={Theme.Colors.SpringBouquet}
             onValueChange={handleSliderChange}
           />
         </View>
