@@ -31,6 +31,7 @@ import BackButtonScreen from 'screens/preview/BackButtonScreen';
 import HeaderScreen from 'screens/preview/HeaderScreen';
 import DirectAccessScreen from 'screens/preview/DirectAccessScreen';
 import SliderScreen from 'screens/preview/SliderScreen';
+import SwipeableSwitchScreen from 'screens/preview/SwipeableSwitchScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -66,6 +67,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="Header" component={HeaderScreen} />
     <Stack.Screen name="DirectAccess" component={DirectAccessScreen} />
     <Stack.Screen name="Slider" component={SliderScreen} />
+    <Stack.Screen name="SwipeableSwitch" component={SwipeableSwitchScreen} />
   </Stack.Navigator>
 );
 
