@@ -11,4 +11,5 @@ export * from './MultipleTextButton';
 export * from './Header';
 export * from './DirectAccess';
 export * from './ProfilePhoto';
+export * from './CircularSlider';
 export * from './BankAccountCard';
