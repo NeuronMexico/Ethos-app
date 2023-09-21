@@ -110,6 +110,7 @@ const CircularSlider: React.FC<Props> = ({
             stroke={meterColor}
             strokeWidth={15}
             fill="transparent"
+            strokeLinecap="round"
           />
           <G
             x={endCoord.x - 7.5}
