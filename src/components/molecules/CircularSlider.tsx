@@ -121,6 +121,14 @@ const CircularSlider: React.FC<Props> = ({
               cx={7.5}
               cy={7.5}
               r={15}
+              fill="none"
+              stroke="rgba(0, 0, 0, 0.3)"
+              strokeWidth={0.5}
+            />
+            <Circle
+              cx={7.5}
+              cy={7.5}
+              r={15}
               id="filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.20));"
             />
           </G>
