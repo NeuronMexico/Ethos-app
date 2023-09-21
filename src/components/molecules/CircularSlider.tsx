@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ColorValue } from 'react-native';
 import {
   Gesture,
   GestureDetector, GestureStateChangeEvent, GestureUpdateEvent,
@@ -14,7 +14,7 @@ import Theme from 'theme';
 interface Props {
   size: number;
   value: number;
-  meterColor: string;
+  meterColor: ColorValue;
   onValueChange: (value: number) => void;
   minimumValue?: number;
   maximumValue?: number;
