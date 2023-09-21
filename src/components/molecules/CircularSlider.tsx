@@ -39,9 +39,11 @@ const CircularSlider: React.FC<Props> = ({
 
   useEffect(() => {
     if (!isDragging) {
-      let convertedValue = ((value - minimumValue) / (maximumValue - minimumValue)) * 360;
-      if (value && convertedValue === 360) convertedValue = 359.99;
-      setAngle(convertedValue);
+      if (value >= minimumValue && value <= maximumValue) {
+        let convertedValue = ((value - minimumValue) / (maximumValue - minimumValue)) * 360;
+        if (value && convertedValue === 360) convertedValue = 359.99;
+        setAngle(convertedValue);
+      } else console.error('The value must be between the minimum value and the maximum value');
     }
   }, [value, isDragging, minimumValue, maximumValue]);
 
@@ -49,19 +51,6 @@ const CircularSlider: React.FC<Props> = ({
     x: cx + initialR * Math.cos(((polarAngle - 90) * Math.PI) / 180),
     y: cy + initialR * Math.sin(((polarAngle - 90) * Math.PI) / 180),
   });
-
-  const handlePanResponderMove = ({ nativeEvent: { locationX, locationY } }: any) => {
-    console.log({ locationX, locationY });
-    const x = locationX - cx;
-    const y = locationY - cy;
-    const newAngle = ((Math.atan2(y, x) * 180) / Math.PI + 360) % 360;
-
-    if (newAngle) {
-      setAngle(newAngle);
-      onValueChange(newAngle);
-      setIsDragging(true);
-    }
-  };
 
   const endCoord = polarToCartesian(angle);
 
