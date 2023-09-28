@@ -8,6 +8,10 @@
     "expenses": "Mis gastos",
     "benefits": "Beneficios"
   },
+  "alert": {
+    "invoice": "Folio:",
+    "reference": "Referencia:"
+  },
   "global": {
     "select": "Selecciona",
     "cancel": "Cancelar",
