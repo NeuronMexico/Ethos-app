@@ -1,6 +1,7 @@
 import { CustomText as Text } from './CustomText';
 import { CustomPicker as Picker } from './CustomPicker';
 import { CustomDateTimePicker as DateTimePicker } from './CustomDateTimePicker';
+import { CustomModal as Modal } from './CustomModal';
 
 export * from './Container';
 export * from './Touchable';
@@ -19,4 +20,5 @@ export {
   Text,
   Picker,
   DateTimePicker,
+  Modal,
 };

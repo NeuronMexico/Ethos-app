@@ -20,3 +20,4 @@ export * from './TransactionsIcon';
 export * from './ChevronRightIcon';
 export * from './LockOpenIcon';
 export * from './LockClosedIcon';
+export * from './CheckMarkCircleIcon';

@@ -5,9 +5,13 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PreviewStackParams } from 'utils';
+import { useAlert } from 'context';
+import { Container, Text } from 'components';
 
 const PreviewScreen: React.FC = () => {
   const { navigate } = useNavigation<NativeStackNavigationProp<PreviewStackParams>>();
+
+  const alert = useAlert();
 
   return (
     <SafeAreaView style={styles.flex}>
@@ -42,6 +46,29 @@ const PreviewScreen: React.FC = () => {
         <Button title="DirectAccess" onPress={() => navigate('DirectAccess')} />
         <Button title="Slider" onPress={() => navigate('Slider')} />
         <Button title="SwipeableSwitch" onPress={() => navigate('SwipeableSwitch')} />
+        <Button
+          title="Alert"
+          onPress={() => alert.show({
+            title: 'Title',
+            // All next params are optional
+            reference: '543210',
+            invoice: '12345',
+            date: new Date(),
+            message: 'Message',
+            checkmark: true,
+            extraInfo: (
+              <Container>
+                <Text text="$2,000.00" fontSize={34} fontWeight="Bold" />
+              </Container>
+            ),
+            actions: [
+              { label: 'Primary', onPress: alert.hide, type: 'primary' },
+              { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
+              { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
+              { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
+            ],
+          })}
+        />
       </ScrollView>
     </SafeAreaView>
   );

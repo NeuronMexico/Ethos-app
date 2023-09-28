@@ -30,6 +30,7 @@ const Colors = {
   DreamyCloud: '#E5E7EB',
   Encore: '#6D7280',
   LightHouse: '#F4F4F4',
+  WelshOnion: '#22C55E',
 };
 
 export default Colors;
