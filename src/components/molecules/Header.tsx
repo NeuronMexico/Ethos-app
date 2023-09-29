@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
+import { ColorValue, StyleSheet } from 'react-native';
 import {
   BackButton, Container, Text, Touchable,
 } from 'components';
@@ -10,6 +10,7 @@ interface Props {
   title: string;
   rightIcon?: ReactElement;
   rightAction?: () => void;
+  rightIconContainerBackgroundColor?: ColorValue;
   lidiaAvatar?: boolean;
 }
 
@@ -18,10 +19,11 @@ const Header: React.FC<Props> = ({
   title,
   rightAction,
   rightIcon,
+  rightIconContainerBackgroundColor = Theme.Colors.PlaceboBlue,
   lidiaAvatar,
 }) => (
   // TODO: implement Lidia logic
-  <Container row center style={{ paddingHorizontal: Theme.Sizes.Padding }}>
+  <Container row center height={40} style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 4 }}>
     <Container width={40}>
       {showBackButton && <BackButton />}
     </Container>
@@ -31,7 +33,7 @@ const Header: React.FC<Props> = ({
     <Container width={40}>
       {rightIcon && (
       <Touchable disabled={!rightAction} onPress={() => rightAction?.()}>
-        <Container middle style={styles.rightButtonContainer}>
+        <Container middle style={styles.rightButtonContainer} backgroundColor={rightIconContainerBackgroundColor}>
           {rightIcon}
         </Container>
       </Touchable>
@@ -45,7 +47,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
-    backgroundColor: Theme.Colors.PlaceboBlue,
   },
 });
 
