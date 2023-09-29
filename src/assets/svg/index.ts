@@ -1,3 +1,5 @@
+import DefaultCard from './default-card.svg';
+
 export * from './EyeIcon';
 export * from './EyeSlashIcon';
 export * from './ChevronDownIcon';
@@ -30,3 +32,8 @@ export * from './FileShiedIcon';
 export * from './ScanIcon';
 export * from './MessageDotsIcon';
 export * from './ExportIcon';
+export * from './ShieldIcon';
+
+export {
+  DefaultCard,
+};
