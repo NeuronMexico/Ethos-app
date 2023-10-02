@@ -8,13 +8,51 @@
     "expenses": "Mis gastos",
     "benefits": "Beneficios"
   },
+  "cards": {
+    "card": "Tarjeta",
+    "usedBalance": "Saldo utilizado",
+    "availableBalance": "Saldo disponible",
+    "paymentNoInterest": "Pago para no generar intereses",
+    "paymentDueDate": "Fecha límite de pago",
+    "minimumPayment": "Pago mínimo",
+    "turnOffCard": "Apagar tarjeta",
+    "payCard": "Pagar tarjeta",
+    "digitalCard": "Tarjeta digital",
+    "pin": "NIP",
+    "reportCard": "Reportar tarjeta",
+    "seeMore": "Ver más",
+    "requestPhysicalCard": "Solicitar tarjeta física",
+    "transactions": "Movimientos",
+    "today": "Hoy",
+    "selectLayout": "Selecciona el diseño",
+    "cardCost": "Costo de tarjeta",
+    "shippingCost": "Costo de envío",
+    "total": "Total",
+    "deliveryTime": "Tiempo de entrega 1 día hábil",
+    "cardShipping": "Envío de tarjeta",
+    "chooseShippingAddress": "Elige la dirección a la que enviaremos tu tarjeta",
+    "useSameAsCreditCard": "Usar la misma que tengo registrada en mi cuenta de crédito",
+    "useMyCurrentLocation": "Utilizar mi ubicación actual",
+    "street": "Calle",
+    "externalNumber": "Número exterior",
+    "internalNumber": "Número interior",
+    "postalCode": "Código postal",
+    "neighborhood": "Colonia",
+    "state": "Estado",
+    "city": "Municipio",
+    "contactPhoneNumber": "Teléfono de contacto"
+  },
   "alert": {
     "invoice": "Folio:",
     "reference": "Referencia:"
   },
+  "errors": {
+    "required": "Campo requerido"
+  },
   "global": {
     "select": "Selecciona",
     "cancel": "Cancelar",
-    "accept": "Aceptar"
+    "accept": "Aceptar",
+    "continue": "Continuar"
   }
 }
