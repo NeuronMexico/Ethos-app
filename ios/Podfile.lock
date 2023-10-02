@@ -445,7 +445,9 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.5.0):
     - React-Core
-  - RNGestureHandler (2.12.1):
+  - RNDeviceInfo (10.11.0):
+    - React-Core
+  - RNGestureHandler (2.13.0):
     - React-Core
   - RNLocalize (3.0.2):
     - React-Core
@@ -481,7 +483,7 @@ PODS:
   - RNScreens (3.23.0):
     - React-Core
     - React-RCTImage
-  - RNSVG (13.10.0):
+  - RNSVG (13.13.0):
     - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
@@ -535,6 +537,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
@@ -643,6 +646,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-picker/picker"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
@@ -676,7 +681,7 @@ SPEC CHECKSUMS:
   React-Core: 34da8c952844e21f5a69bf46438fb6bf063900d0
   React-CoreModules: 621243df8863055ff30f3bb2ff71573ffa7b16c8
   React-cxxreact: 4ad1cc861e32fb533dad6ff7a4ea25680fa1c994
-  React-debug: 0bc979d0c274021d9f4bd67853cce22f45730bac
+  React-debug: 3cc6f318439f5829f5f7e7d65d1dd2b6a4b210b0
   React-hermes: 37377d0a56aa0cf55c65248271866ce3268cde3f
   React-jsi: 6de8b0ccc6b765b58e4eee9ee38049dbeaf5c221
   React-jsiexecutor: c7f826e40fa9cab5d37cab6130b1af237332b594
@@ -686,7 +691,7 @@ SPEC CHECKSUMS:
   react-native-config: 86038147314e2e6d10ea9972022aa171e6b1d4d8
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
   react-native-slider: 1cdd6ba29675df21f30544253bf7351d3c2d68c4
-  React-NativeModulesApple: 08795d8cd5b78df3879334304f73f65223a8f338
+  React-NativeModulesApple: e6224de80766eb2255409997028e3376888b45a3
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
   React-RCTAnimation: e44fe5053708c5be762943087c78dc5a6a3c645c
@@ -700,17 +705,18 @@ SPEC CHECKSUMS:
   React-RCTVibration: 35eec7201c8ffdaccdd908a5ec874b7055f975f3
   React-rncore: 46133d523155fc84572338bd6a7c461c1d873efc
   React-runtimeexecutor: d465ba0c47ef3ed8281143f59605cacc2244d5c7
-  React-runtimescheduler: a73c3a76da84003d141e338f0d0387ed0c401873
-  React-utils: 3a0ff8ee4487aab694b913ba2808a71e5ffa21c8
-  ReactCommon: 63baa8bedeb99b7017e264cabefed3d1784e475b
+  React-runtimescheduler: a2ab8bfe62ef1f57524ee8055cd7543eaaae8a86
+  React-utils: 16b4564d3f959974587126fa73fb2ff4b031e9bf
+  ReactCommon: d7e29f4a2bfb8757602f4ea229d57445cc72e419
   RNCAsyncStorage: f47fe18526970a69c34b548883e1aeceb115e3e1
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: b722c23030b744763cf51d80fc22f354653f65e0
-  RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
+  RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
+  RNGestureHandler: 6e4dc6b7ab3a385386d4e36228bd065e5a611394
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNReanimated: 99aa8c96151abbc2d7e737a56ec62aca709f0c92
   RNScreens: 6a8a3c6b808aa48dca1780df7b73ea524f602c63
-  RNSVG: 80584470ff1ffc7994923ea135a3e5ad825546b9
+  RNSVG: ed492aaf3af9ca01bc945f7a149d76d62e73ec82
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
 

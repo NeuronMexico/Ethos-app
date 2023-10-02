@@ -54,6 +54,16 @@
     "select": "Selecciona",
     "cancel": "Cancelar",
     "accept": "Aceptar",
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "share": "Compartir"
+  },
+  "profile": {
+    "titleStack": "Perfil",
+    "codeQR": "Código QR",
+    "editData": "Editar datos",
+    "securityAndLegalNotices": "Seguridad y avisos legales",
+    "bills": "Facturas",
+    "logOut": "Cerrar Sesión",
+    "version": "Versión"
   }
 }

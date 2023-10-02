@@ -2,7 +2,7 @@ import React from 'react';
 import Theme from 'theme';
 import { FadeInImage } from 'components/atoms/FadeInImage';
 import { Container } from 'components/atoms/Container';
-import { CustomText as Text } from 'components/atoms/CustomText';
+import { CustomText } from 'components/atoms/CustomText';
 import { EditIcon } from 'assets/svg';
 
 interface Props {
@@ -10,20 +10,22 @@ interface Props {
   size: number;
   withName?: boolean;
   cantEdit?: boolean
+  withId?: boolean;
 }
 
 const ProfilePhoto: React.FC<Props> = ({
-  fadeIn, size, withName, cantEdit,
+  fadeIn, size, withName, cantEdit, withId,
 }: Props) => {
   // const { photo, name, lastName } = useSelector((state: RootState) => state.profile);
 
   // eslint-disable-next-line max-len
   const photo = 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-  const name = 'Andrés';
-  const lastName = 'L99';
+  const name = 'Mario ';
+  const lastName = 'Bárcenas López';
+  const id = 'M515';
 
   return (
-    <Container width={size} height={size} middle>
+    <Container width="100%" height={size} middle>
       {photo && (
       <FadeInImage
         source={{ uri: photo }}
@@ -33,7 +35,30 @@ const ProfilePhoto: React.FC<Props> = ({
         fadeIn={fadeIn}
       />
       )}
-      {withName && (<Text text={`${name}${lastName}`} fontSize={13} textColor={Theme.Colors.DarkSoul} />)}
+      {withName && (
+      <CustomText
+        text={`${name}${lastName}`}
+        fontWeight="Semibold"
+        typography="subtitle"
+        textColor={Theme.Colors.DarkSoul}
+        fontSize={17}
+        textAlign="left"
+        numberOfLines={1}
+        marginTop={20}
+      />
+      )}
+      {withId && (
+      <CustomText
+        text={id}
+        fontWeight="Semibold"
+        typography="subtitle"
+        textColor={Theme.Colors.DarkSoul}
+        fontSize={17}
+        textAlign="left"
+        numberOfLines={1}
+        marginBottom={20}
+      />
+      )}
       {cantEdit && (
       <Container
         style={{

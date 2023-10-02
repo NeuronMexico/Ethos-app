@@ -7,6 +7,7 @@ import TransactionsController from 'screens/app/Transactions/TransactionsControl
 import ExpensesController from 'screens/app/Expenses/ExpensesController';
 import BenefitsController from 'screens/app/Benefits/BenefitsController';
 import TabBar from './TabBar';
+import ProfileController from 'screens/app/profile/Profile/ProfileController';
 
 const Tab = createBottomTabNavigator<TabParams>();
 
@@ -19,7 +20,7 @@ const TabNavigator: React.FC = () => (
     initialRouteName="EthosCreditStack"
     tabBar={renderTabBar}
   >
-    <Tab.Screen name="EthosCreditStack" component={EthosCreditController} />
+    <Tab.Screen name="EthosCreditStack" component={ProfileController} />
     <Tab.Screen name="CardsStack" component={CardsController} />
     <Tab.Screen name="TransactionsStack" component={TransactionsController} />
     <Tab.Screen name="ExpensesStack" component={ExpensesController} />

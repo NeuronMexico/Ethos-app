@@ -99,7 +99,7 @@ const OptionButton: React.FC<Props> = ({
               typography="subtitle"
               textColor={textColor}
               fontSize={fontSize}
-              marginTop={colum ? 5 : 0}
+              marginTop={colum ? 5 : 8}
               textAlign="center"
               numberOfLines={2}
             />
