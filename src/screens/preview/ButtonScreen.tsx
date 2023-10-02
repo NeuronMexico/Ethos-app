@@ -42,11 +42,11 @@ const ButtonScreen: React.FC = () => {
             marginBottom={10}
             marginTop={30}
           />
-          <Button label="colorless" onPress={() => {}} marginBottom={10} />
+          <Button label="colorless" onPress={() => {}} marginBottom={10} colorless />
           <Button
             label="with text and colored background"
             onPress={() => {}}
-            backgroundColor={Theme.Colors.DarkSoul}
+            backgroundColor={Theme.Colors.SpringBouquet}
             textColor={Theme.Colors.White}
             marginBottom={10}
           />
@@ -62,6 +62,7 @@ const ButtonScreen: React.FC = () => {
             borderColor={Theme.Colors.PlaceboBlue}
             marginBottom={10}
             marginTop={Theme.Sizes.MarginTop}
+            colorless
           />
           <Button
             label="with border style"
@@ -69,6 +70,7 @@ const ButtonScreen: React.FC = () => {
             borderColor={Theme.Colors.PlaceboBlue}
             marginBottom={10}
             borderStyle
+            colorless
           />
           <Button
             label="with icon and borderStyle"
@@ -77,6 +79,7 @@ const ButtonScreen: React.FC = () => {
             marginBottom={10}
             borderStyle
             icon={<TicketIcon />}
+            colorless
           />
           <Text
             text="Icons and button sizes"
@@ -93,6 +96,7 @@ const ButtonScreen: React.FC = () => {
               borderColor={Theme.Colors.PlaceboBlue}
               width={172}
               marginBottom={10}
+              colorless
             />
             <Button
               onPress={() => {}}
@@ -102,6 +106,7 @@ const ButtonScreen: React.FC = () => {
               backgroundColor={Theme.Colors.PlaceboBlue}
               marginHorizontal={5}
               icon={<TicketIcon />}
+              colorless
             />
             <Button
               onPress={() => {}}
@@ -109,6 +114,7 @@ const ButtonScreen: React.FC = () => {
               height={50}
               marginHorizontal={10}
               icon={<TicketIcon />}
+              colorless
             />
           </Container>
           <Text
@@ -125,6 +131,7 @@ const ButtonScreen: React.FC = () => {
             icon={<TicketIcon />}
             marginHorizontal={5}
             colum
+            colorless
           />
         </Container>
       </ScrollView>

@@ -17,12 +17,12 @@ interface Props extends TouchableProps {
   borderRadius?: number;
   width?: ViewStyle['width'];
   height?: ViewStyle['height'];
-  thin?: boolean;
   colum?: boolean;
   fontWeight?: FontWeightTypes;
   borderStyle?: boolean;
   outsideLabel?: boolean;
   outsideWidth?: ViewStyle['width'];
+  colorless?: boolean;
 }
 
 const Button: React.FC<Props> = ({
@@ -35,19 +35,19 @@ const Button: React.FC<Props> = ({
   marginRight,
   marginTop,
   marginVertical,
-  backgroundColor,
-  textColor = Theme.Colors.DarkSoul,
-  androidRippleColor = Theme.Colors.White,
+  colorless,
+  backgroundColor = colorless ? undefined : Theme.Colors.DarkSoul,
+  textColor = colorless ? Theme.Colors.DarkSoul : Theme.Colors.White,
+  androidRippleColor = colorless ? Theme.Colors.DarkSoul : Theme.Colors.White,
   borderColor,
   icon,
   fontSize,
   paddingHorizontal,
-  paddingVertical,
+  paddingVertical = 14,
   fontWeight = 'Bold',
   borderRadius = 100,
   width,
   height,
-  thin,
   colum,
   rounded,
   borderStyle,
@@ -72,7 +72,7 @@ const Button: React.FC<Props> = ({
         backgroundColor={backgroundColor}
         style={{
           paddingHorizontal,
-          paddingVertical: paddingVertical || (thin && 12) || 18,
+          paddingVertical,
           borderWidth: borderColor ? 2 : 0,
           borderStyle: borderStyle ? 'dashed' : 'solid',
           borderColor,
