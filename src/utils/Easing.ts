@@ -1,8 +1,6 @@
-import { Easing } from 'react-native';
+import { Easing } from 'react-native-reanimated';
 
 export default {
-  step0: Easing.step0,
-  step1: Easing.step1,
   linear: Easing.linear,
   ease: Easing.ease,
   quad: Easing.quad,

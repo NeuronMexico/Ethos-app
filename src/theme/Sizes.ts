@@ -6,7 +6,7 @@ const Sizes = {
   Caption: 13,
 
   Padding: 16,
-  MarginTop: 25,
+  MarginTop: 32,
 };
 
 export default Sizes;

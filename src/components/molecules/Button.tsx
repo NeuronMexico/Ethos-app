@@ -19,8 +19,10 @@ interface Props extends TouchableProps {
   height?: ViewStyle['height'];
   thin?: boolean;
   colum?: boolean;
-  fontWeight?: FontWeightTypes
-  borderStyle?: boolean
+  fontWeight?: FontWeightTypes;
+  borderStyle?: boolean;
+  outsideLabel?: boolean;
+  outsideWidth?: ViewStyle['width'];
 }
 
 const Button: React.FC<Props> = ({
@@ -49,9 +51,11 @@ const Button: React.FC<Props> = ({
   colum,
   rounded,
   borderStyle,
+  outsideLabel,
+  outsideWidth,
 }: Props) => (
   <Container style={{
-    width: width || '100%',
+    width: outsideWidth || width || '100%',
     marginBottom,
     marginTop,
     marginLeft,
@@ -74,12 +78,14 @@ const Button: React.FC<Props> = ({
           borderColor,
           borderRadius,
           opacity: disabled ? 0.35 : 1,
+          width,
           height,
+          alignSelf: outsideWidth ? 'center' : 'auto',
         }}
       >
         <Container row={!colum} middle style={{ opacity: disabled ? 0.3 : 1 }}>
           {icon}
-          {label && (
+          {!!label && !outsideLabel && (
           <CustomText
             text={label}
             fontWeight={fontWeight}
@@ -94,6 +100,19 @@ const Button: React.FC<Props> = ({
           )}
         </Container>
       </Container>
+      {!!label && outsideLabel && (
+      <CustomText
+        text={label}
+        fontWeight={fontWeight}
+        typography="subtitle"
+        textColor={textColor}
+        fontSize={fontSize}
+        marginLeft={icon && !colum ? 5 : 0}
+        marginTop={4}
+        textAlign="center"
+        numberOfLines={2}
+      />
+      )}
     </Touchable>
   </Container>
 );

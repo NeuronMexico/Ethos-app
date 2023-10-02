@@ -10,6 +10,7 @@ interface Props {
   onPress?: () => void;
   marginLeft?: number;
   marginTop?: number;
+  borderless?: boolean;
   disabled?: boolean;
 }
 
@@ -17,6 +18,7 @@ const BackButton: React.FC<Props> = ({
   onPress,
   marginLeft,
   marginTop,
+  borderless,
   disabled,
 }: Props) => {
   const { goBack } = useNavigation();
@@ -31,7 +33,7 @@ const BackButton: React.FC<Props> = ({
         rounded
         hitSlop={15}
       >
-        <Container style={styles.container}>
+        <Container style={[styles.container, borderless && { borderWidth: 0 }]}>
           <ChevronLeftIcon />
         </Container>
       </Touchable>

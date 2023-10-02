@@ -15,6 +15,7 @@ export * from './Input';
 export * from './PickerUI';
 export * from './BackButton';
 export * from './SwipeableSwitch';
+export * from './ProgressBar';
 
 export {
   Text,

@@ -15,3 +15,17 @@ export function formatDate(date: string | Date, dateFormat: string = 'MMMM dd, y
     return '';
   }
 }
+
+export function formatQuantity(value: number): string {
+  const options: Intl.NumberFormatOptions = {
+    style: 'currency',
+    currency: 'MXN',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  };
+
+  if (value < 0) {
+    return value.toLocaleString('es-MX', options);
+  }
+  return value.toLocaleString('es-MX', options);
+}

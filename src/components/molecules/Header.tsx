@@ -7,6 +7,7 @@ import Theme from 'theme';
 
 interface Props {
   showBackButton?: boolean;
+  backButtonBorderless?: boolean;
   title: string;
   rightIcon?: ReactElement;
   rightAction?: () => void;
@@ -16,6 +17,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({
   showBackButton = true,
+  backButtonBorderless,
   title,
   rightAction,
   rightIcon,
@@ -25,7 +27,7 @@ const Header: React.FC<Props> = ({
   // TODO: implement Lidia logic
   <Container row center height={40} style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 4 }}>
     <Container width={40}>
-      {showBackButton && <BackButton />}
+      {showBackButton && <BackButton borderless={backButtonBorderless} />}
     </Container>
     <Container middle flex>
       <Text text={title} typography="header" />
