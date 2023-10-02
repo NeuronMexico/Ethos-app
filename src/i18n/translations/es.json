@@ -47,7 +47,8 @@
     "reference": "Referencia:"
   },
   "errors": {
-    "required": "Campo requerido"
+    "required": "Campo requerido",
+    "someWrong": "Algo salió mal"
   },
   "global": {
     "select": "Selecciona",
