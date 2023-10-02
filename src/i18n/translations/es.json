@@ -40,7 +40,9 @@
     "neighborhood": "Colonia",
     "state": "Estado",
     "city": "Municipio",
-    "contactPhoneNumber": "Teléfono de contacto"
+    "contactPhoneNumber": "Teléfono de contacto",
+    "cardInTransit": "Tu tarjeta está en camino",
+    "checkShippingStatus": "¡Revisa el estado del envío en notificaciones!"
   },
   "alert": {
     "invoice": "Folio:",
@@ -48,7 +50,8 @@
   },
   "errors": {
     "required": "Campo requerido",
-    "someWrong": "Algo salió mal"
+    "someWrong": "Algo salió mal",
+    "invalidFormat": "Ingresa un formato válido"
   },
   "global": {
     "select": "Selecciona",

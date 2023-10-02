@@ -80,11 +80,22 @@ const Alert: React.FC<Props> = ({
           )}
           {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
           <Text text={title} typography="title" textAlign="center" marginBottom={8} />
-          {!!message && <Text text={message} marginTop={2} marginBottom={8} typography="header" />}
+          {!!message && (
+          <Text
+            text={message}
+            marginTop={2}
+            marginBottom={8}
+            typography="header"
+            textAlign="center"
+            fontWeight="Medium"
+          />
+          )}
           {checkmark && <Container style={{ marginBottom: 8 }}><CheckMarkCircleIcon /></Container>}
+          {extraInfo && (
           <Container style={{ marginTop: 2, marginBottom: 8 }}>
             {extraInfo}
           </Container>
+          )}
           {actions.map(({ label, onPress, type }, index) => {
             let backgroundColor = Theme.Colors.DarkSoul;
             let textColor = Theme.Colors.White;
@@ -113,7 +124,6 @@ const Alert: React.FC<Props> = ({
                 onPress={onPress}
                 backgroundColor={backgroundColor}
                 textColor={textColor}
-                paddingVertical={14}
                 marginVertical={8}
               />
             );

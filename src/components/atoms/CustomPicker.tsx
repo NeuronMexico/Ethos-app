@@ -97,49 +97,51 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         marginBottom={4}
       />
       )}
-      <Touchable onPress={onPressPicker}>
-        {Platform.OS === 'android' && (
-        <Picker
-          ref={pickerRef}
-          selectedValue={value}
-          onValueChange={onValueChange}
-          style={[StyleSheet.absoluteFill, { opacity: 0 }]}
-          mode={androidMode}
-          dropdownIconRippleColor={Theme.Colors.DarkSoul}
-        >
-          <Picker.Item
-            label={t('global:select')}
-            value=""
-            fontFamily={Theme.Fonts.Regular}
-            color={Theme.Colors.NimbusCloud}
-            enabled={false}
-          />
-          {options.map((element) => (
+      <Container style={{ borderRadius, overflow: 'hidden' }}>
+        <Touchable onPress={onPressPicker}>
+          {Platform.OS === 'android' && (
+          <Picker
+            ref={pickerRef}
+            selectedValue={value}
+            onValueChange={onValueChange}
+            style={[StyleSheet.absoluteFill, { opacity: 0 }]}
+            mode={androidMode}
+            dropdownIconRippleColor={Theme.Colors.DarkSoul}
+          >
             <Picker.Item
-              key={element.value}
-              label={element.label}
-              value={element.value}
-              color={Theme.Colors.DarkSoul}
+              label={t('global:select')}
+              value=""
+              fontFamily={Theme.Fonts.Regular}
+              color={Theme.Colors.NimbusCloud}
+              enabled={false}
             />
-          ))}
-        </Picker>
-        )}
-        <PickerUI
-          placeholder={placeholder}
-          backgroundColor={backgroundColor}
-          borderRadius={borderRadius}
-          borderless={borderless}
-          fontSize={fontSize}
-          fontWeight={fontWeight}
-          value={showingValue}
-          suffixIcon={<ChevronDownIcon width={iconSize} height={iconSize} />}
-          prefixIcon={prefixIcon}
-          paddingLeft={paddingLeft}
-          paddingRight={paddingRight}
-          paddingVertical={paddingVertical}
-          caption={caption}
-        />
-      </Touchable>
+            {options.map((element) => (
+              <Picker.Item
+                key={element.value}
+                label={element.label}
+                value={element.value}
+                color={Theme.Colors.DarkSoul}
+              />
+            ))}
+          </Picker>
+          )}
+          <PickerUI
+            placeholder={placeholder}
+            backgroundColor={backgroundColor}
+            borderRadius={borderRadius}
+            borderless={borderless}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+            value={showingValue}
+            suffixIcon={<ChevronDownIcon width={iconSize} height={iconSize} />}
+            prefixIcon={prefixIcon}
+            paddingLeft={paddingLeft}
+            paddingRight={paddingRight}
+            paddingVertical={paddingVertical}
+            caption={caption}
+          />
+        </Touchable>
+      </Container>
       <Collapsible collapsed={!error}>
         <Text text={error} fontSize={11} fontWeight="Medium" textColor={Theme.Colors.HotCoral} marginTop={4} />
       </Collapsible>
