@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { ColorValue, ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { Container } from 'components';
-import { Easing, MarginPropsInterface } from 'utils';
+import { ReanimatedEasing, MarginPropsInterface } from 'utils';
 import Theme from 'theme';
 
 interface Props extends MarginPropsInterface {
@@ -31,7 +31,7 @@ const ProgressBar: React.FC<Props> = ({
   const progressAnimation = useSharedValue(0);
 
   useEffect(() => {
-    progressAnimation.value = withTiming(progress, { easing: Easing.easeOutExpo, duration: 800 });
+    progressAnimation.value = withTiming(progress, { easing: ReanimatedEasing.easeOutExpo, duration: 800 });
   }, [progress, progressAnimation]);
 
   const animatedStyles = {
