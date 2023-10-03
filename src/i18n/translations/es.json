@@ -2,6 +2,18 @@
   "language": {
     "tag": "es"
   },
+  "home": {
+    "welcome": "Hola, {{name}}",
+    "lastConnection": "Última conexión {{lastConnection}}"
+  },
+  "tabProducts": {
+    "personalProject": "Proyecto personal",
+    "personalProjectDescription": "Nuestra línea de crédito adicional te da el respaldo financiero que necesitas para hacer realidad tu proyecto personal.",
+    "personalProjectButton": "Quiero saber más",
+    "balanceUsed": "Saldo utilizado",
+    "balanceAvailable": "Saldo disponible",
+    "paid": "Pagado {{current}}/{{last}}"
+  },
   "tabBar": {
     "ethosCredit": "ethos crédito",
     "cards": "Tarjetas",

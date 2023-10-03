@@ -53,4 +53,5 @@ export type PreviewStackParams = {
   DirectAccess: undefined;
   Slider: undefined;
   SwipeableSwitch: undefined;
+  Icons: undefined;
 };

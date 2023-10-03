@@ -40,7 +40,7 @@ const EditIcon: React.FC<Props> = ({
       fill={color}
       mask="url(#path-1-outside-1_127_1564)"
     />
-    <Path d="M12.5 7.5L15.5 5.5L18.5 8.5L16.5 11.5L12.5 7.5Z" fill="#191B59" />
+    <Path d="M12.5 7.5L15.5 5.5L18.5 8.5L16.5 11.5L12.5 7.5Z" fill={color} />
   </Svg>
 );
 

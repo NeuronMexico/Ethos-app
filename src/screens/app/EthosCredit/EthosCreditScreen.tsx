@@ -1,25 +1,60 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Container, Text } from 'components';
+import React, { useRef } from 'react';
+import { Animated, ScrollView, StyleSheet } from 'react-native';
+import {
+  Container, ImageCarousel,
+} from 'components';
+import Theme from 'theme';
+import HomeHeader from './components/HomeHeader';
+import HomeTabProducts from './components/HomeTabProducts';
 
 interface Props {
-  prop?: string
+  onPressProfile?: () => void;
+  onPressNotifications?: () => void;
 }
 
 const EthosCreditScreen: React.FC<Props> = (props: Props) => {
-  const { prop } = props;
+  const {
+    onPressProfile,
+    onPressNotifications,
+  } = props;
+  const { container } = styles;
+
+  const offset = useRef(new Animated.Value(0)).current;
 
   return (
-    <Container flex middle>
-      <Text text="EthosCreditScreen" />
+    <Container flex>
+      <HomeHeader onPressProfile={onPressProfile} onPressNotifications={onPressNotifications} />
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={container}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: offset } } }],
+          { useNativeDriver: false },
+        )}
+        scrollEventThrottle={16}
+      >
+        <Container flex>
+          <HomeTabProducts />
+          <Container style={{ marginVertical: 18 }}>
+            <ImageCarousel images={[
+              'https://via.placeholder.com/1200x300.png?text=Mountain',
+              'https://via.placeholder.com/1200x300.png?text=Beach',
+              'https://via.placeholder.com/1200x300.png?text=Forest',
+              'https://via.placeholder.com/1200x300.png?text=Mountain',
+            ]}
+            />
+          </Container>
+        </Container>
+      </ScrollView>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  textStyle: {
-    fontSize: 14
-  }
+  container: {
+    paddingTop: 16,
+    paddingHorizontal: Theme.Sizes.Padding,
+  },
 });
 
 export default EthosCreditScreen;

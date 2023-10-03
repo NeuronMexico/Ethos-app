@@ -12,8 +12,8 @@ interface Props {
 
 const MoreIcon: React.FC<Props> = ({
   color = Theme.Colors.DarkSoul,
-  width = 25,
-  height = 25,
+  width = 24,
+  height = 24,
 }: Props) => (
   <Svg
     width={width}
@@ -32,7 +32,7 @@ const MoreIcon: React.FC<Props> = ({
       <Path
         id="Vector 53"
         d="M12 8L4 8"
-        stroke="white"
+        stroke={color}
         strokeWidth={2}
         strokeLinecap="round"
       />
