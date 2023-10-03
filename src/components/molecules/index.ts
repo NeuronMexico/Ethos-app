@@ -1,6 +1,7 @@
+import { CustomBottomSheet as BottomSheet } from './CustomBottomSheet';
+
 export * from './TouchableText';
 export * from './CheckBoxField';
-export * from './CustomBottomSheet';
 export * from './RadioButtonField';
 export * from './SwitchField';
 export * from './CheckBoxGroup';
@@ -13,3 +14,7 @@ export * from './DirectAccess';
 export * from './ProfilePhoto';
 export * from './CircularSlider';
 export * from './BankAccountCard';
+
+export {
+  BottomSheet,
+};

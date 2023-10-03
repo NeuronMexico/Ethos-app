@@ -1,4 +1,5 @@
 import DefaultCard from './default-card.svg';
+import MedCard from './med-card.svg';
 
 export * from './EyeIcon';
 export * from './EyeSlashIcon';
@@ -36,4 +37,5 @@ export * from './ShieldIcon';
 
 export {
   DefaultCard,
+  MedCard,
 };

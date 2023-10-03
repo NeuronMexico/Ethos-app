@@ -1,7 +1,7 @@
 import {
+  BottomSheet,
   Button, Container, SafeArea, Text,
 } from 'components';
-import { CustomBottomSheet } from 'components/molecules/CustomBottomSheet';
 import React, {
   ReactNode, useRef, useState,
 } from 'react';
@@ -72,7 +72,6 @@ const BottomSheetScreen: React.FC = () => {
               setState(0);
               setRenderComponent(renderDefaultComponent);
             }}
-            thin
           />
 
           <Text text="Default component with 75% of screen" marginVertical={16} />
@@ -85,7 +84,6 @@ const BottomSheetScreen: React.FC = () => {
               setState(0);
               setRenderComponent(renderDefaultComponent);
             }}
-            thin
           />
 
           <Text text="Default component with 50% of screen" marginVertical={16} />
@@ -98,7 +96,6 @@ const BottomSheetScreen: React.FC = () => {
               setState(0);
               setRenderComponent(renderDefaultComponent);
             }}
-            thin
           />
 
           <Text text="Default component with auto adapt of screen" marginVertical={16} />
@@ -111,11 +108,10 @@ const BottomSheetScreen: React.FC = () => {
               setState(0);
               setRenderComponent(renderDefaultComponent);
             }}
-            thin
           />
         </Container>
       </ScrollView>
-      <CustomBottomSheet
+      <BottomSheet
         title="This is a title"
         state={state}
         handleSheetChanges={handleSheetChanges}
@@ -124,7 +120,7 @@ const BottomSheetScreen: React.FC = () => {
         blurBackground
       >
         {renderComponent}
-      </CustomBottomSheet>
+      </BottomSheet>
     </SafeArea>
   );
 };

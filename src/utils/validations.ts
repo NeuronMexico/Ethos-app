@@ -83,7 +83,7 @@ export const cardNumber = (value: string): ValidationInterface => {
 export const cardExpirationDate = (value: string): ValidationInterface => {
   let error: ErrorType;
 
-  const aux = value.replace('/', '');
+  const aux = value.replace(' / ', '');
   if (!value) error = 'required';
   else if (!/^[0-9]+$/.test(aux) || aux.length !== 4) error = 'invalid-format';
 

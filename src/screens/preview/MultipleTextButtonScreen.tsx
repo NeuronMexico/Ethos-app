@@ -73,7 +73,7 @@ const MultipleTextButtonScreen: React.FC = () => {
           labelColor={Theme.Colors.DarkSoul}
           marginBottom={20}
           icon={<Image source={TELCEL_LOGO} />}
-          alignContent="space-start"
+          alignContent="flex-start"
         />
         <MultipleTextButton
           onPress={() => {}}
@@ -84,7 +84,7 @@ const MultipleTextButtonScreen: React.FC = () => {
           labelColor={Theme.Colors.DarkSoul}
           marginBottom={20}
           icon={<FadeInImage source={{ uri: HOMER_URI }} width={50} height={50} />}
-          alignContent="space-start"
+          alignContent="flex-start"
         />
       </Container>
     </SafeArea>
