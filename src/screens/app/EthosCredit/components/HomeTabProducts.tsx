@@ -48,7 +48,7 @@ const HomeTabProducts = () => {
         toValue: condition ? 100 : 150,
         duration: 250,
         useNativeDriver: false,
-        easing: Easing.easeInOut.factory(),
+        easing: Easing.easeInOut,
       }).start();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
