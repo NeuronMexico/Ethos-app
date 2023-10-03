@@ -32,12 +32,15 @@ export function formatQuantity(value: number): string {
   return value.toLocaleString('es-MX', options);
 }
 
-export function calculateSnapPoints(containerRef: RefObject<View>) {
-  containerRef.current?.measure((x, y, width, height) => {
-    const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+export function calculateSnapPoints(containerRef: RefObject<View>): Promise<Array<string>> {
+  return new Promise((resolve) => {
+    containerRef.current?.measure((x, y, width, height) => {
+      const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-    const calculatedPercentage = ((height + 50) / SCREEN_HEIGHT) * 100;
-    const roundedPercentage = Math.round(calculatedPercentage);
-    return [`${roundedPercentage}%`];
+      const calculatedPercentage = ((height + 150) / SCREEN_HEIGHT) * 100;
+      const roundedPercentage = Math.round(calculatedPercentage);
+      console.log({ roundedPercentage, height });
+      resolve([`${roundedPercentage}%`]);
+    });
   });
 }
