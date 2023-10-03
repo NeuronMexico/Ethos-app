@@ -1,4 +1,4 @@
-import { TicketIcon } from 'assets/svg';
+import { BellMarkedIcon } from 'assets/svg';
 import {
   Button, Container, ProfilePhoto, Text, Touchable,
 } from 'components';
@@ -41,7 +41,7 @@ const HomeHeader: React.FC<Props> = ({
         height={38}
         borderRadius={10}
         backgroundColor={Theme.Colors.PlaceboBlue}
-        icon={<TicketIcon />}
+        icon={<BellMarkedIcon />}
         colorless
       />
     </Container>

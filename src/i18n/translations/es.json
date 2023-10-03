@@ -14,6 +14,36 @@
     "balanceAvailable": "Saldo disponible",
     "paid": "Pagado {{current}}/{{last}}"
   },
+  "shortcutsCategories": {
+    "creditCards": "Tarjetas de crédito",
+    "payments": "Cobros",
+    "personalProject": "Proyecto Personal",
+    "services": "Servicios",
+    "ethosCreditBenefits": "Beneficios ethos crédito",
+    "lifestyleBenefits": "Beneficios estilo de vida"
+  },
+  "shortcuts": {
+    "personalDisposition": "Disposición personal",
+    "payCard": "Pagar tarjeta",
+    "scheduledPayments": "Cobros programados",
+    "ethosCreditQR": "QR ethoscrédito",
+    "collectContacts": "Cobrar a contactos",
+    "collectViaCODI": "Cobrar vía CODI",
+    "collectInCash": "Cobrar en efectivo",
+    "personalProject": "Proyecto personal",
+    "electricityAndGas": "Luz y gas",
+    "water": "Agua",
+    "topUps": "Recargas",
+    "entertainment": "Entretenimiento",
+    "governmentPayments": "Pagos estatales y municipales",
+    "tollsAndParkingMeters": "Peaje y parquímetros",
+    "telecommunications": "Telefonía",
+    "catalogSales": "Venta por catálogo",
+    "ethosPlusBenefits": "Beneficios ethos plus",
+    "ethosProBenefits": "Beneficios ethos pro",
+    "2x1Cinema": "2x1 Cine",
+    "petBenefits": "Beneficios mascotas"
+  },   
   "tabBar": {
     "ethosCredit": "ethos crédito",
     "cards": "Tarjetas",
