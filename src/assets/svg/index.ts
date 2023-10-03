@@ -29,6 +29,7 @@ export * from './ExportIcon';
 export * from './EyeIcon';
 export * from './EyeSlashIcon';
 export * from './FacebookIcon';
+export * from './FaceIDIcon';
 export * from './FileIcon';
 export * from './FileShiedIcon';
 export * from './FileUploadIcon';
