@@ -1,7 +1,13 @@
 import { Container } from 'components/atoms';
-import React from 'react';
-import { Animated, ColorValue, StyleSheet } from 'react-native';
+import React, { useEffect } from 'react';
+import { ColorValue, StyleSheet } from 'react-native';
+import Animated, {
+  Extrapolate,
+  interpolate, interpolateColor,
+  useAnimatedStyle, useSharedValue, withTiming,
+} from 'react-native-reanimated';
 import Theme from 'theme';
+import { ReanimatedEasing } from 'utils';
 
 interface Props {
   totalDots: number;
@@ -25,15 +31,7 @@ const DotIndicator = ({
   const renderDots = () => Array.from({ length: totalDots }).map((_, i) => {
     const isActive = i === currentIndex;
 
-    const dotStyle = {
-      width: isActive ? ACTIVE_DOT_SIZE : DOT_SIZE,
-      height: DOT_SIZE,
-      marginHorizontal: MARGIN_HORIZONTAL,
-      borderRadius: isActive ? ACTIVE_DOT_SIZE / 2 : DOT_SIZE / 2,
-      backgroundColor: isActive ? activeColor : inactiveColor,
-    };
-
-    return <Animated.View key={i} style={[styles.dot, dotStyle]} />;
+    return <Dot key={i} isActive={isActive} inactiveColor={inactiveColor} activeColor={activeColor} />;
   });
 
   return (
@@ -41,6 +39,35 @@ const DotIndicator = ({
       {renderDots()}
     </Container>
   );
+};
+
+interface DotProps {
+  isActive: boolean;
+  inactiveColor: ColorValue;
+  activeColor: ColorValue;
+}
+
+const Dot: React.FC<DotProps> = ({ isActive, inactiveColor, activeColor }) => {
+  const animation = useSharedValue(isActive ? 1 : 0);
+
+  useEffect(() => {
+    animation.value = withTiming(isActive ? 1 : 0, {
+      easing: ReanimatedEasing.easeOutExpo,
+      duration: 1000,
+    });
+  }, [isActive, animation]);
+
+  const animatedStyles = {
+    dotStyle: useAnimatedStyle(() => ({
+      width: interpolate(animation.value, [0, 1], [DOT_SIZE, ACTIVE_DOT_SIZE], Extrapolate.CLAMP),
+      height: DOT_SIZE,
+      marginHorizontal: MARGIN_HORIZONTAL,
+      borderRadius: interpolate(animation.value, [0, 1], [DOT_SIZE / 2, ACTIVE_DOT_SIZE / 2], Extrapolate.CLAMP),
+      backgroundColor: interpolateColor(animation.value, [0, 1], [inactiveColor as string, activeColor as string]),
+    })),
+  };
+
+  return <Animated.View style={[styles.dot, animatedStyles.dotStyle]} />;
 };
 
 const styles = StyleSheet.create({
