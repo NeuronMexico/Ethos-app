@@ -1,5 +1,7 @@
 import { format } from 'date-fns';
 import localeEs from 'date-fns/locale/es';
+import { RefObject } from 'react';
+import { Dimensions, View } from 'react-native';
 
 export function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => {
@@ -28,4 +30,14 @@ export function formatQuantity(value: number): string {
     return value.toLocaleString('es-MX', options);
   }
   return value.toLocaleString('es-MX', options);
+}
+
+export function calculateSnapPoints(containerRef: RefObject<View>) {
+  containerRef.current?.measure((x, y, width, height) => {
+    const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+    const calculatedPercentage = ((height + 50) / SCREEN_HEIGHT) * 100;
+    const roundedPercentage = Math.round(calculatedPercentage);
+    return [`${roundedPercentage}%`];
+  });
 }

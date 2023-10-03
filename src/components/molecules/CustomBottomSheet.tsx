@@ -1,7 +1,7 @@
 import React, {
   ReactNode, useEffect, useMemo, useRef,
 } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { Container, Text } from 'components';
@@ -9,7 +9,7 @@ import Theme from 'theme';
 import { BlurView } from '@react-native-community/blur';
 
 export interface BottomSheetProps {
-  title: string;
+  title?: string;
   state?: number;
   handleSheetChanges: (index: number) => void;
   children?: ReactNode;
@@ -18,6 +18,7 @@ export interface BottomSheetProps {
   snapPoints?: Array<string | number>;
   initialState?: number;
   blurBackground?: boolean;
+  titleAlign?: TextStyle['textAlign'];
 }
 
 const CustomBottomSheet: React.FC<BottomSheetProps> = ({
@@ -29,6 +30,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
   initialState = -1,
   enablePanDownToClose = true,
   blurBackground,
+  titleAlign = 'center',
 }) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -45,7 +47,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
 
   return (
     <>
-      {blurBackground && state !== -1 && <BlurView blurType="light" blurAmount={3} style={StyleSheet.absoluteFill} />}
+      {blurBackground && state !== -1 && <BlurView blurType="dark" blurAmount={3} style={StyleSheet.absoluteFill} />}
       <BottomSheet
         ref={bottomSheetRef}
         index={initialState}
@@ -53,6 +55,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
         onChange={handleSheetChanges}
         enablePanDownToClose={enablePanDownToClose}
         handleIndicatorStyle={styles.indicator}
+        backgroundStyle={{ borderTopLeftRadius: 50, borderTopRightRadius: 50 }}
       >
         <BottomSheetScrollView
           style={{ paddingHorizontal: Theme.Sizes.Padding, paddingBottom: insets.bottom + 16 }}
@@ -62,15 +65,17 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
           keyboardShouldPersistTaps="handled"
           keyboardDismissMode="interactive"
         >
-          <Container middle center>
+          <Container style={{ marginTop: 16 }}>
+            {!!title && (
             <Text
               text={title}
               textColor={Theme.Colors.DarkSoul}
               fontWeight="Bold"
               fontSize={20}
+              marginBottom={16}
+              textAlign={titleAlign}
             />
-          </Container>
-          <Container>
+            )}
             {children}
           </Container>
         </BottomSheetScrollView>
@@ -85,6 +90,7 @@ const styles = StyleSheet.create({
     height: 4,
     borderRadius: 10,
     backgroundColor: Theme.Colors.DarkSoul,
+    marginTop: 22,
   },
 });
 
