@@ -1,13 +1,13 @@
 import React, {
   useEffect, useMemo, useRef, useState,
 } from 'react';
+import { Animated, View } from 'react-native';
+import PagerView from 'react-native-pager-view';
+import i18n from 'i18n';
 import {
   Card, Tab,
 } from 'components';
 import Theme from 'theme';
-import PagerView from 'react-native-pager-view';
-import i18n from 'i18n';
-import { Animated, View } from 'react-native';
 import { Easing } from 'utils';
 import TabSection from './TabSections/TabSection';
 import PersonalProjectInfoSection from './TabSections/PersonalProjectInfoSection';
