@@ -4,7 +4,8 @@ import {
 } from 'components';
 import Theme from 'theme';
 import {
-  LessIcon, MoneyIcon, MoreIcon, PadlockIcon, PhoneIcon,
+  CellphoneIcon,
+  LessIcon, MoneyIcon, MoreIcon, PadlockIcon,
 } from 'assets/svg';
 import { OptionButton } from 'components/molecules/OptionButton';
 
@@ -53,7 +54,7 @@ const OptionButtonScreen: React.FC = () => (
         backgroundColor={Theme.Colors.PlaceboBlue}
         marginRight={25}
         label="Recargas"
-        icon={<PhoneIcon />}
+        icon={<CellphoneIcon />}
         actionIconColor={Theme.Colors.WintersBreath}
         actionIcon={<LessIcon color={Theme.Colors.White} />}
       />
