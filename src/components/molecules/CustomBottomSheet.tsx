@@ -1,7 +1,7 @@
 import React, {
   ReactNode, useEffect, useMemo, useRef,
 } from 'react';
-import { StyleSheet, TextStyle } from 'react-native';
+import { StyleSheet, TextStyle, TouchableWithoutFeedback } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { Container, Text } from 'components';
@@ -19,6 +19,7 @@ export interface BottomSheetProps {
   initialState?: number;
   blurBackground?: boolean;
   titleAlign?: TextStyle['textAlign'];
+  enableTapOutsideToClose?: boolean;
 }
 
 const CustomBottomSheet: React.FC<BottomSheetProps> = ({
@@ -31,6 +32,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
   enablePanDownToClose = true,
   blurBackground,
   titleAlign = 'center',
+  enableTapOutsideToClose = true,
 }) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
@@ -47,7 +49,11 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
 
   return (
     <>
-      {blurBackground && state !== -1 && <BlurView blurType="dark" blurAmount={3} style={StyleSheet.absoluteFill} />}
+      {blurBackground && state !== -1 && (
+      <TouchableWithoutFeedback disabled={!enableTapOutsideToClose} onPress={() => handleSheetChanges(-1)}>
+        <BlurView blurType="dark" blurAmount={3} style={StyleSheet.absoluteFill} />
+      </TouchableWithoutFeedback>
+      )}
       <BottomSheet
         ref={bottomSheetRef}
         index={initialState}
