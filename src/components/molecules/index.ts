@@ -9,6 +9,7 @@ export * from './SwitchGroup';
 export * from './Button';
 export * from './ButtonGroup';
 export * from './MultipleTextButton';
+export * from './OptionButton';
 export * from './DotIndicator';
 export * from './Header';
 export * from './ImageCarousel';

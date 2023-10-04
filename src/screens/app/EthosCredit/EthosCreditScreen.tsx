@@ -1,21 +1,28 @@
 import React, { useRef } from 'react';
-import { Animated, ScrollView, StyleSheet } from 'react-native';
+import {
+  Animated, ScrollView, StyleSheet,
+} from 'react-native';
 import {
   Container, ImageCarousel,
 } from 'components';
 import Theme from 'theme';
 import HomeHeader from './components/HomeHeader';
 import HomeTabProducts from './components/HomeTabProducts';
+import HomeShortcutsSection from './components/HomeShortcutsSection';
 
 interface Props {
   onPressProfile?: () => void;
   onPressNotifications?: () => void;
+  onPressShortcut?: (id: string) => void;
+  onPressShortcuts?: () => void;
 }
 
 const EthosCreditScreen: React.FC<Props> = (props: Props) => {
   const {
     onPressProfile,
     onPressNotifications,
+    onPressShortcut,
+    onPressShortcuts,
   } = props;
   const { container } = styles;
 
@@ -44,6 +51,10 @@ const EthosCreditScreen: React.FC<Props> = (props: Props) => {
             ]}
             />
           </Container>
+          <HomeShortcutsSection
+            onPressShortcut={onPressShortcut}
+            onPressShortcuts={onPressShortcuts}
+          />
         </Container>
       </ScrollView>
     </Container>

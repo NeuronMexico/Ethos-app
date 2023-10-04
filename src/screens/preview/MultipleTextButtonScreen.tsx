@@ -63,7 +63,7 @@ const MultipleTextButtonScreen: React.FC = () => {
           marginBottom={20}
           icon={<Image source={TELCEL_LOGO} />}
           label="Telefonía celular"
-          alignContent="space-start"
+          alignContent="flex-start"
         />
         <MultipleTextButton
           onPress={() => {}}

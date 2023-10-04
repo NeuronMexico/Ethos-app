@@ -43,7 +43,7 @@ const OptionButton: React.FC<Props> = ({
   <Container
     flex
     center
-    style={[{ alignSelf: 'flex-start' },
+    style={[{ alignSelf: 'center' },
       {
         marginBottom,
         marginTop,

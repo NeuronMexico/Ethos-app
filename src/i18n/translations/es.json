@@ -24,6 +24,8 @@
     "lifestyleBenefits": "Beneficios estilo de vida"
   },
   "shortcuts": {
+    "turnOffCard": "Apagar tarjeta",
+    "contacts": "Contactos",
     "personalDisposition": "Disposición personal",
     "payCard": "Pagar tarjeta",
     "scheduledPayments": "Cobros programados",
