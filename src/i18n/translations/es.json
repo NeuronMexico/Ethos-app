@@ -55,7 +55,10 @@
     "cancel": "Cancelar",
     "accept": "Aceptar",
     "continue": "Continuar",
-    "share": "Compartir"
+    "share": "Compartir",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "new": "Nuevo"
   },
   "profile": {
     "titleStack": "Perfil",
@@ -64,6 +67,17 @@
     "securityAndLegalNotices": "Seguridad y avisos legales",
     "bills": "Facturas",
     "logOut": "Cerrar Sesión",
-    "version": "Versión"
+    "version": "Versión",
+    "editTitle": "Editar datos",
+    "aliasLabel": "Alias",
+    "emailLabel": "Correo electrónico",
+    "phoneLabel": "Número celular",
+    "addressLabel": "Dirección",
+    "sendAgain": "Enviar de nuevo",
+    "phoneTitle": "Cambio de celular",
+    "emailTitle" :"Cambio de correo ",
+    "phone": "número",
+    "email": "email",
+    "instructionEnterCode": "Ingresa el código que enviamos al {{type}}: {{value}}",
   }
 }
