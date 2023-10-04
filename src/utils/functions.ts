@@ -34,13 +34,16 @@ export function formatQuantity(value: number): string {
 
 export function calculateSnapPoints(containerRef: RefObject<View>): Promise<Array<string>> {
   return new Promise((resolve) => {
-    containerRef.current?.measure((x, y, width, height) => {
-      const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+    const getMeasure = () => {
+      containerRef.current?.measure((x, y, width, height) => {
+        clearInterval(timer);
+        const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+        const calculatedPercentage = ((height + 150) / SCREEN_HEIGHT) * 100;
+        const roundedPercentage = Math.round(calculatedPercentage);
+        resolve([`${roundedPercentage}%`]);
+      });
+    };
 
-      const calculatedPercentage = ((height + 150) / SCREEN_HEIGHT) * 100;
-      const roundedPercentage = Math.round(calculatedPercentage);
-      console.log({ roundedPercentage, height });
-      resolve([`${roundedPercentage}%`]);
-    });
+    const timer = setInterval(getMeasure, 10);
   });
 }
