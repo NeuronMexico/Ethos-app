@@ -11,15 +11,30 @@ export type ShortcutType = {
   icon: ReactElement;
   action?: () => void;
 };
+export interface MarginPropsInterface {
+  marginRight?: number;
+  marginLeft?: number;
+  marginTop?: number;
+  marginBottom?: number;
+  marginHorizontal?: number;
+  marginVertical?: number;
+}
 
 // Navigation types
 export type AuthStackParams = {
   Login: undefined;
 };
 
+export type CardsGlobalStackParams = {
+  Card: undefined;
+  CardSelection: undefined;
+  CardShipping: undefined;
+  CardActivation: undefined;
+};
+
 export type AppStackParams = {
   TabNavigator: undefined;
-  GlobalStack: undefined;
+  CardsGlobalStack: undefined;
 };
 
 export type TabParams = {
