@@ -35,6 +35,11 @@ export type CardsGlobalStackParams = {
 export type AppStackParams = {
   TabNavigator: undefined;
   CardsGlobalStack: undefined;
+  HomeGlobalStack: undefined;
+};
+
+export type HomeGlobalStackParams = {
+  Shortcuts: undefined;
 };
 
 export type TabParams = {

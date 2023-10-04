@@ -1,14 +1,16 @@
 import React from 'react';
-import { useDispatch } from 'reactRedux';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
 import { SafeArea } from 'components';
 import EthosCreditScreen from './EthosCreditScreen';
 
 const EthosCreditController: React.FC = () => {
-  const dispatch = useDispatch();
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
     <SafeArea>
-      <EthosCreditScreen />
+      <EthosCreditScreen onPressShortcuts={() => navigate('GlobalStack', { screen: 'Shortcuts' })} />
     </SafeArea>
   );
 };
