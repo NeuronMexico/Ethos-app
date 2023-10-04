@@ -88,6 +88,7 @@ const HomeTabProducts = () => {
           ref={pagerViewRef}
           style={{ flex: 1 }}
           initialPage={0}
+          scrollEnabled={false}
           onPageSelected={(event) => {
             setCurrentTab(event.nativeEvent.position);
           }}

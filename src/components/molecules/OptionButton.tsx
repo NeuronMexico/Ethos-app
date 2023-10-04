@@ -1,23 +1,22 @@
 import React, { ReactElement } from 'react';
 import { ColorValue, ViewStyle } from 'react-native';
+
 import Theme from 'theme';
 import { Touchable, TouchableProps } from '../atoms/Touchable';
 import { Container } from '../atoms/Container';
-import { CustomText, FontWeightTypes } from '../atoms/CustomText';
+import { CustomText as Text } from '../atoms/CustomText';
 
 interface Props extends TouchableProps {
   label?: string;
+  borderRadius?: number;
+  inverted?: boolean;
+  width?: ViewStyle['width'];
+  height?: ViewStyle['height'];
+  actionIconColor?: ColorValue;
   backgroundColor?: ColorValue;
   textColor?: ColorValue;
   icon?: ReactElement;
   actionIcon?: ReactElement;
-  actionIconColor?: ColorValue;
-  fontSize?: number;
-  borderRadius?: number;
-  width?: ViewStyle['width'];
-  height?: ViewStyle['height'];
-  colum?: boolean;
-  fontWeight?: FontWeightTypes;
 }
 
 const OptionButton: React.FC<Props> = ({
@@ -33,81 +32,87 @@ const OptionButton: React.FC<Props> = ({
   textColor = Theme.Colors.DarkSoul,
   androidRippleColor = Theme.Colors.White,
   icon,
-  fontSize,
-  fontWeight = 'Bold',
-  borderRadius = 100,
+  borderRadius = 27,
   width = 64,
-  height,
-  colum,
+  height = 64,
+  inverted = false,
   rounded,
   actionIcon,
   actionIconColor = Theme.Colors.DarkSoul,
 }: Props) => (
-  <Container center crossCenter>
-    <Container
-      style={{
+  <Container
+    flex
+    center
+    style={[{ alignSelf: 'flex-start' },
+      {
         marginBottom,
         marginTop,
         marginLeft,
         marginRight,
         marginHorizontal,
-      }}
-    >
-      <Touchable onPress={onPress} androidRippleColor={androidRippleColor} disabled={disabled} rounded={rounded}>
-        <Container
-          row
-          style={{
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+      },
+    ]}
+  >
+    {actionIcon && (
+      <Container
+        width={Number(width) + 8} // 4px of padding horizontally
+        style={{
+          position: 'absolute',
+          zIndex: 10,
+        }}
+      >
+        <Touchable
+          onPress={onPress}
+          androidRippleColor={androidRippleColor}
+          disabled={disabled}
+          rounded={rounded}
         >
           <Container
-            middle
             center
-            crossCenter
-            backgroundColor={backgroundColor}
+            middle
+            width={24}
+            height={24}
+            backgroundColor={actionIconColor}
             style={{
-              width,
-              borderRadius,
-              opacity: disabled ? 0.35 : 1,
-              height,
+              borderRadius: 10,
+              alignSelf: 'flex-end',
             }}
           >
-            {icon}
-            {actionIcon && (
-            <Container
-              style={{
-                width: 24,
-                height: 24,
-                position: 'absolute',
-                backgroundColor: actionIconColor,
-                borderRadius: 10,
-                right: -10,
-                top: -5,
-                padding: 4,
-              }}
-            >
-              {actionIcon}
-            </Container>
-            )}
+            {actionIcon}
           </Container>
-          <Container style={{ maxWidth: 150 }}>
-            <CustomText
-              text={label}
-              fontWeight={fontWeight}
-              typography="subtitle"
-              textColor={textColor}
-              fontSize={fontSize}
-              marginTop={colum ? 5 : 0}
-              textAlign="center"
-              numberOfLines={2}
-            />
-          </Container>
+        </Touchable>
+      </Container>
+    )}
+    <Touchable
+      onPress={onPress}
+      androidRippleColor={androidRippleColor}
+      disabled={actionIcon ? true : disabled}
+      rounded={rounded}
+    >
+      <Container flex center style={{ maxWidth: 114 }}>
+        <Container
+          center
+          middle
+          backgroundColor={inverted ? Theme.Colors.DarkSoul : Theme.Colors.PlaceboBlue}
+          width={width}
+          height={height}
+          style={{ borderRadius, ...(backgroundColor && { backgroundColor }) }}
+        >
+          {icon}
         </Container>
-      </Touchable>
-
-    </Container>
+        <Text
+          text={label}
+          textAlign="center"
+          textColor={textColor}
+          fontSize={15}
+          fontWeight="Regular"
+          typography="body"
+          adjustsFontSizeToFit
+          marginTop={2}
+          numberOfLines={2}
+        />
+      </Container>
+    </Touchable>
   </Container>
 );
 

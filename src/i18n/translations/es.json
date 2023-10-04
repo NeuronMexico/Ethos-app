@@ -4,7 +4,8 @@
   },
   "home": {
     "welcome": "Hola, {{name}}",
-    "lastConnection": "Última conexión {{lastConnection}}"
+    "lastConnection": "Última conexión {{lastConnection}}",
+    "shortcuts": "Accesos directos"
   },
   "tabProducts": {
     "personalProject": "Proyecto personal",
