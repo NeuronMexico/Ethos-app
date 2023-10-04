@@ -2,7 +2,7 @@ import React, { ReactNode, useRef, useState } from 'react';
 import {
   Container, CustomBottomSheet, SafeArea,
 } from 'components';
-import { SOCIAL_LINKS, SocialMediaTypes } from 'utils';
+import { ProfileStackParams, SOCIAL_LINKS, SocialMediaTypes } from 'utils';
 import { Image, Linking } from 'react-native';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
 import { OptionButton } from 'components/molecules/OptionButton';
@@ -10,10 +10,14 @@ import { ExportIcon } from 'assets/svg';
 import Theme from 'theme';
 import { useTranslation } from 'react-i18next';
 import { CustomText } from 'components/atoms/CustomText';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ProfileScreen from './ProfileScreen';
 
 const ProfileController: React.FC = () => {
   const { t } = useTranslation();
+
+  const { navigate } = useNavigation<NativeStackNavigationProp<ProfileStackParams>>();
   const containerRef = useRef<View>(null);
   const [state, setState] = useState<number>(-1);
   const [renderComponent, setRenderComponent] = useState<ReactNode>(null);
@@ -70,7 +74,7 @@ const ProfileController: React.FC = () => {
           setState(0);
           setRenderComponent(renderDefaultComponent);
         }}
-        onPressEdit={() => {}}
+        onPressEdit={() => navigate('ProfileEdit')}
         onPressBills={() => {}}
         onPressSecurityAndLegalNotices={() => {}}
         onPressLogOut={() => {}}
