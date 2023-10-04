@@ -61,6 +61,7 @@
     "paymentDueDate": "Fecha límite de pago",
     "minimumPayment": "Pago mínimo",
     "turnOffCard": "Apagar tarjeta",
+    "turnOnCard": "Encender tarjeta",
     "payCard": "Pagar tarjeta",
     "digitalCard": "Tarjeta digital",
     "pin": "NIP",
@@ -73,7 +74,8 @@
     "cardCost": "Costo de tarjeta",
     "shippingCost": "Costo de envío",
     "total": "Total",
-    "deliveryTime": "Tiempo de entrega 1 día hábil",
+    "deliveryTime10BusinessDays": "Tiempo de entrega 10 días hábiles",
+    "deliveryTime1BusinessDays": "Tiempo de entrega 1 día hábil",
     "cardShipping": "Envío de tarjeta",
     "chooseShippingAddress": "Elige la dirección a la que enviaremos tu tarjeta",
     "useSameAsCreditCard": "Usar la misma que tengo registrada en mi cuenta de crédito",
@@ -87,7 +89,18 @@
     "city": "Municipio",
     "contactPhoneNumber": "Teléfono de contacto",
     "cardInTransit": "Tu tarjeta está en camino",
-    "checkShippingStatus": "¡Revisa el estado del envío en notificaciones!"
+    "checkShippingStatus": "¡Revisa el estado del envío en notificaciones!",
+    "activatePhysicalCard": "Activar tarjeta física",
+    "activateCard": "Activar tarjeta",
+    "scanCard": "Escanear tarjeta",
+    "enterCardDetails": "Ingresa los datos de tu tarjeta",
+    "cardNumber": "Número de tarjeta",
+    "expirationDate": "Fecha de expiración",
+    "securityCode": "Código de seguridad",
+    "activate": "Activar",
+    "cardActivatedSuccessfully": "Tarjeta activada correctamente",
+    "blueWithName": "Azul con nombre",
+    "blueWithoutName": "Azul sin nombre"
   },
   "alert": {
     "invoice": "Folio:",
@@ -102,6 +115,7 @@
     "select": "Selecciona",
     "cancel": "Cancelar",
     "accept": "Aceptar",
-    "continue": "Continuar"
+    "continue": "Continuar",
+    "goBack": "Regresar"
   }
 }
