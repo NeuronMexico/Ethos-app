@@ -19,7 +19,7 @@ const ButtonFieldEdit: React.FC<FieldProps> = ({ label, value, onEditClick }) =>
       justifyContent: 'space-between',
     }}
   >
-    <Container>
+    <Container width="60%">
       <CustomText
         text={label}
         typography="subtitle"
