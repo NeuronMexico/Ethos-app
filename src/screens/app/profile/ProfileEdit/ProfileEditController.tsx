@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { SafeArea } from 'components/atoms/SafeArea';
-
 import ProfileEditScreen from './ProfileEditScreen';
 
 const ProfileEditController: React.FC = () => {
@@ -9,7 +7,7 @@ const ProfileEditController: React.FC = () => {
 
   return (
     <SafeArea>
-      <ProfileEditScreen onSubmit={onSubmit} setAnswers={() => {}} />
+      <ProfileEditScreen onSubmit={onSubmit} />
     </SafeArea>
   );
 };
