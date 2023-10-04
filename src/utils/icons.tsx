@@ -2,6 +2,7 @@ import React from 'react';
 import {
   BankIcon,
   BookOpenIcon,
+  CarIcon,
   CardPayIcon,
   CellphoneIcon,
   CoDiIcon,
@@ -35,7 +36,7 @@ export const SHORTCUTS_ICONS = {
   topUps: <CellphoneIcon />,
   entertainment: <GamepadIcon />,
   governmentPayments: <BankIcon />,
-  tollsAndParkingMeters: <PeopleIcon />,
+  tollsAndParkingMeters: <CarIcon />,
   telecommunications: <PhoneIcon />,
   catalogSales: <BookOpenIcon />,
   ethosPlusBenefits: <UmbrellaIcon />,

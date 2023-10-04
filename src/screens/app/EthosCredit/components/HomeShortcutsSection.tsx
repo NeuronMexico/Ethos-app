@@ -13,7 +13,6 @@ const LOCKED_SHORTCUTS: ShortcutType[] = [
     id: 'turnOffCard',
     label: i18n.t('shortcuts:turnOffCard'),
     icon: <LockClosedIcon color={Theme.Colors.DarkSoul} />,
-    action: () => Alert.alert('Turn off card'),
   },
   {
     id: 'contacts',
