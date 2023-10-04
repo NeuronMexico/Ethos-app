@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  ReactElement, useCallback, useEffect, useRef, useState,
+} from 'react';
 import { View } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
@@ -20,17 +22,29 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   const [bottomSheetState, setBottomSheetState] = useState<number>(-1);
   const [snapPoints, setSnapPoints] = useState<Array<string | number>>(['25%']);
   const [cardOn, setCardOn] = useState<boolean>(true);
+  const [bottomSheetContent, setBottomSheetContent] = useState<ReactElement | null>(null);
 
-  useEffect(() => {
-    calculateSnapPoints(containerRef).then(setSnapPoints);
-  }, []);
+  const onPressTurnOff = useCallback(async () => {
+    setBottomSheetContent(
+      <Container ref={containerRef}>
+        <SwipeableSwitch
+          config={{ label: { active: t('cards:turnOffCard'), inactive: t('cards:turnOnCard') } }}
+          defaultValue={cardOn}
+          onChange={setCardOn}
+        />
+      </Container>,
+    );
+    const calculatedSnapPoints = await calculateSnapPoints(containerRef);
+    setSnapPoints(calculatedSnapPoints);
+    setBottomSheetState(0);
+  }, [cardOn, t]);
 
   return (
     <SafeArea>
       <CardScreen
         onPressRequestCard={() => navigation.navigate('CardSelection')}
         onPressActivateCard={() => navigation.navigate('CardActivation')}
-        onPressTurnOff={() => setBottomSheetState(0)}
+        onPressTurnOff={onPressTurnOff}
       />
       <BottomSheet
         title={`${t('cards:card')} *334`}
@@ -40,13 +54,7 @@ const CardController: React.FC<Props> = ({ navigation }) => {
         blurBackground
         titleAlign="left"
       >
-        <Container ref={containerRef}>
-          <SwipeableSwitch
-            config={{ label: { active: t('cards:turnOffCard'), inactive: t('cards:turnOnCard') } }}
-            defaultValue={cardOn}
-            onChange={setCardOn}
-          />
-        </Container>
+        {bottomSheetContent}
       </BottomSheet>
     </SafeArea>
   );
