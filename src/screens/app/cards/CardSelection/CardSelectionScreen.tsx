@@ -6,7 +6,7 @@ import {
 } from 'components';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
-import { DefaultCard } from 'assets/svg';
+import { DefaultCardWithChip } from 'assets/svg';
 import { formatQuantity } from 'utils';
 import {
   FlatList, NativeScrollEvent, NativeSyntheticEvent, StyleSheet,
@@ -68,7 +68,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
             onScroll={onScroll}
             renderItem={({ item: { includesName } }) => (
               <Container onLayout={({ nativeEvent: { layout } }) => { itemWidthRef.current = layout.width; }}>
-                <DefaultCard style={{ alignSelf: 'center', marginHorizontal: 9 }} />
+                <DefaultCardWithChip style={{ alignSelf: 'center', marginHorizontal: 9 }} />
                 {includesName && (
                 <Container style={styles.nameContainer}>
                   <Text text="Mario Bárcenas" typography="caption" textColor={Theme.Colors.White} />
