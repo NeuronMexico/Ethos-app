@@ -100,7 +100,22 @@
     "activate": "Activar",
     "cardActivatedSuccessfully": "Tarjeta activada correctamente",
     "blueWithName": "Azul con nombre",
-    "blueWithoutName": "Azul sin nombre"
+    "blueWithoutName": "Azul sin nombre",
+    "payViaSpei": "Pagar vía SPEI",
+    "clabe": "CLABE",
+    "beneficiary": "Beneficiario",
+    "institution": "Institución",
+    "cashPayment": "Pago en efectivo",
+    "directDebitPayment": "Domiciliar pago",
+    "numberCopiedToClipboard": "El número ha sido copiado al portapapeles",
+    "validUntil": "Válida hasta",
+    "securityCodeDuration": "Tu código de seguridad tiene una duración de {{time}} minutos",
+    "confirmYourIdentity": "Confirma que eres tú",
+    "viewPin": "Ver NIP",
+    "changePin": "Cambio de NIP",
+    "creditLineIncrease": "Incremento de línea de crédito",
+    "creditDetail": "Detalle crediticio",
+    "accountStatement": "Estado de cuenta"
   },
   "alert": {
     "invoice": "Folio:",

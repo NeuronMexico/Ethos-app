@@ -30,6 +30,7 @@ export type CardsGlobalStackParams = {
   CardSelection: undefined;
   CardShipping: undefined;
   CardActivation: undefined;
+  ChangePin: undefined;
 };
 
 export type AppStackParams = {

@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
@@ -22,6 +22,7 @@ import {
 } from 'assets/svg';
 import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
+import { CardAction } from './components';
 
 const CARD_NUMBER = '4242 4242 4242 4242';
 
@@ -29,12 +30,20 @@ interface Props {
   onPressRequestCard: () => void;
   onPressActivateCard: () => void;
   onPressTurnOff: () => void;
+  onPressPayCard: () => void;
+  onPressDigitalCard: () => void;
+  onPressPin: () => void;
+  onPressSeeMore: () => void;
 }
 
 const CardScreen: React.FC<Props> = ({
   onPressRequestCard,
   onPressActivateCard,
   onPressTurnOff,
+  onPressPayCard,
+  onPressDigitalCard,
+  onPressPin,
+  onPressSeeMore,
 }) => {
   const { t } = useTranslation();
 
@@ -104,18 +113,18 @@ const CardScreen: React.FC<Props> = ({
             label={t('cards:payCard')}
             icon={<CardPayIcon />}
             width={50}
-            onPress={() => {}}
+            onPress={onPressPayCard}
           />
           <CardAction
             label={t('cards:digitalCard')}
             icon={<CardDigitalIcon />}
             width={50}
-            onPress={() => {}}
+            onPress={onPressDigitalCard}
           />
           <CardAction
             label={t('cards:pin')}
             icon={<KeyIcon />}
-            onPress={() => {}}
+            onPress={onPressPin}
           />
           <CardAction
             label={t('cards:reportCard')}
@@ -126,7 +135,7 @@ const CardScreen: React.FC<Props> = ({
           <CardAction
             label={t('cards:seeMore')}
             icon={<DotsIcon />}
-            onPress={() => {}}
+            onPress={onPressSeeMore}
           />
         </ScrollView>
 
@@ -168,33 +177,6 @@ const CardScreen: React.FC<Props> = ({
     </Container>
   );
 };
-
-interface CardActionProps {
-  label: string;
-  icon: ReactElement;
-  onPress: () => void;
-  width?: number;
-}
-
-const CardAction: React.FC<CardActionProps> = ({
-  label, icon, width = 40, onPress,
-}) => (
-  <Button
-    label={label}
-    onPress={onPress}
-    width={40}
-    height={40}
-    borderRadius={14}
-    backgroundColor={Theme.Colors.PlaceboBlue}
-    icon={icon}
-    marginHorizontal={20}
-    outsideLabel
-    fontSize={13}
-    fontWeight="Semibold"
-    outsideWidth={width}
-    colorless
-  />
-);
 
 interface TransactionCardProps {
   title: string;
