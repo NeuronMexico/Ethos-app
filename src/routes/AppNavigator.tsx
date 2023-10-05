@@ -14,10 +14,9 @@ const AppNavigator: React.FC = () => {
   }, []);
 
   // return <PreviewStack />;
-  return <AppStack />;
 
   // if (isLogged) {
-  // return <AppStack />;
+  return <AppStack />;
   // }
 
   return (<AuthStack />);
