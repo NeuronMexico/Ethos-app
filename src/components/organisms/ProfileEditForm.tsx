@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Theme from 'theme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { Container } from 'components';
 import { ButtonFieldEdit } from './ButtonFieldEdit';
-import { EditProfileDataForm } from './EditProfileDataForm';
 
 interface Props {
   onSubmit: () => void;
@@ -12,7 +11,6 @@ interface Props {
 
 const ProfileEditForm: React.FC<Props> = () => {
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
-  const [showFormEdit, setShowFormEdit] = useState('');
 
   const fields = [
     {
@@ -37,42 +35,24 @@ const ProfileEditForm: React.FC<Props> = () => {
     },
   ];
 
-  const handlerShowForm = (typeForm: string) => {
-    if (typeForm === showFormEdit) {
-      setShowFormEdit('');
-    }
-    setShowFormEdit(typeForm);
-    if (typeForm === 'address') {
+  const handlerShowForm = (field: any) => {
+    if (field.type === 'address') {
       navigate('EditAddress');
-      setShowFormEdit('');
+    } else {
+      navigate('EditProfileField', { field });
     }
-  };
-
-  const handleUpdateData = (field: { type: string, value: string }) => {
-    if (field.type === 'phone' || field.type === 'email') {
-      navigate('ConfirmationCode', { type: field.type, value: field.value });
-    }
-    setShowFormEdit('');
   };
 
   return (
     <Container style={{ padding: Theme.Sizes.Padding }}>
       {fields.map((field, index) => (
-        <React.Fragment key={index}>
-          {!showFormEdit && (
-            <ButtonFieldEdit
-              label={field.label}
-              value={field.value}
-              onEditClick={() => handlerShowForm(field.type)}
-            />
-          )}
-          {field.type !== 'address' && showFormEdit === field.type && (
-            <EditProfileDataForm
-              label={field.label}
-              onSubmit={() => handleUpdateData(field)}
-            />
-          )}
-        </React.Fragment>
+        <Container key={index}>
+          <ButtonFieldEdit
+            label={field.label}
+            value={field.value}
+            onEditClick={() => handlerShowForm(field)}
+          />
+        </Container>
       ))}
     </Container>
   );

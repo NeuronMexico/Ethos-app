@@ -18,7 +18,7 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, onSubmit }) => {
   return (
     <Container
       style={{
-        marginTop: Theme.Sizes.Padding,
+        marginTop: 30,
       }}
     >
       <CustomText

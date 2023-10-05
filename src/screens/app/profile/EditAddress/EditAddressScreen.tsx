@@ -9,9 +9,11 @@ import Theme from 'theme';
 import { useTranslation } from 'react-i18next';
 import { CustomText } from 'components/atoms/CustomText';
 
-interface Props {}
+interface Props {
+  onSubmit: () => void;
+}
 
-const EditAddressScreen: React.FC<Props> = () => {
+const EditAddressScreen: React.FC<Props> = ({ onSubmit }) => {
   const { t } = useTranslation();
 
   return (
@@ -78,7 +80,7 @@ const EditAddressScreen: React.FC<Props> = () => {
             colorless
           />
           <Button
-            onPress={() => {}}
+            onPress={onSubmit}
             label={t('profile:attachProofOfAddress')}
             marginTop={16}
           />

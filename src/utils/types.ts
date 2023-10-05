@@ -96,6 +96,11 @@ export type ConfirmationCodeScreenParams = {
 export type ProfileStackParams = {
   Profile: undefined;
   ProfileEdit: undefined;
+  EditProfileField: {
+    label: string,
+    value: string,
+    type: string,
+  };
   EditAddress: undefined;
   ConfirmationCode: {
     type: string;
