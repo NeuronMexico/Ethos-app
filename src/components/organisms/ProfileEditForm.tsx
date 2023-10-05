@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Theme from 'theme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { Container } from '../atoms/Container';
+import { Container } from 'components';
 import { ButtonFieldEdit } from './ButtonFieldEdit';
 import { EditProfileDataForm } from './EditProfileDataForm';
 

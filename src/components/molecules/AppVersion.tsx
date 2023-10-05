@@ -1,7 +1,6 @@
 import React from 'react';
 import { TextStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import DeviceInfo from 'react-native-device-info';
 import { CustomText } from 'components/atoms/CustomText';
 import Theme from '../../theme';

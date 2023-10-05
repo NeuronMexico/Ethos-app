@@ -5,6 +5,7 @@ import { RootState } from 'reactRedux';
 import AuthStack from './AuthStack';
 import PreviewStack from './PreviewStack';
 import AppStack from './AppStack';
+import ProfileController from 'screens/app/profile/Profile/ProfileController';
 
 const AppNavigator: React.FC = () => {
   const { isLogged } = useSelector((state: RootState) => state.session);
@@ -12,8 +13,6 @@ const AppNavigator: React.FC = () => {
   useEffect(() => {
     console.info(`Environment: ${ENVIRONMENT}`);
   }, []);
-
-  // return <PreviewStack />;
 
   // if (isLogged) {
   return <AppStack />;

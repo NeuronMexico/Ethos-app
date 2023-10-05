@@ -2,9 +2,9 @@ import React from 'react';
 import Theme from 'theme';
 import { FadeInImage } from 'components/atoms/FadeInImage';
 import { Container } from 'components/atoms/Container';
-import { CustomText } from 'components/atoms/CustomText';
 import { EditIcon } from 'assets/svg';
 import { Touchable } from 'components/atoms';
+import { CustomText as Text } from '../atoms/CustomText';
 
 interface Props {
   fadeIn?: boolean;
@@ -18,11 +18,8 @@ interface Props {
 const ProfilePhoto: React.FC<Props> = ({
   fadeIn, size, withName, canEdit, withId, onPress,
 }: Props) => {
-  // const { photo, name, lastName } = useSelector((state: RootState) => state.profile);
-
   // eslint-disable-next-line max-len
   const photo = 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-  // const photo = '';
   const name = 'Mario ';
   const lastName = 'Bárcenas López';
   const id = 'M515';
@@ -45,7 +42,7 @@ const ProfilePhoto: React.FC<Props> = ({
           height={size}
           backgroundColor={Theme.Colors.DarkSoul}
         >
-          <CustomText
+          <Text
             text={`${name.charAt(0)}${lastName.charAt(0)}`}
             fontWeight="Semibold"
             typography="subtitle"
@@ -78,7 +75,7 @@ const ProfilePhoto: React.FC<Props> = ({
       </Container>
       )}
       {withName && (
-      <CustomText
+      <Text
         text={`${name}${lastName}`}
         fontWeight="Semibold"
         typography="subtitle"
@@ -90,7 +87,7 @@ const ProfilePhoto: React.FC<Props> = ({
       />
       )}
       {withId && (
-      <CustomText
+      <Text
         text={id}
         fontWeight="Semibold"
         typography="subtitle"
