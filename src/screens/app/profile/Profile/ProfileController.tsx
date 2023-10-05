@@ -15,10 +15,13 @@ import { useTranslation } from 'react-i18next';
 import { CustomText } from 'components/atoms/CustomText';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useAlert } from 'context';
 import ProfileScreen from './ProfileScreen';
 
 const ProfileController: React.FC = () => {
   const { t } = useTranslation();
+
+  const alert = useAlert();
 
   const { navigate } = useNavigation<NativeStackNavigationProp<ProfileStackParams>>();
   const containerRef = useRef<View>(null);
@@ -34,6 +37,16 @@ const ProfileController: React.FC = () => {
   };
 
   const handleSheetChanges = () => {};
+
+  const onPressLogOut = () => {
+    alert.show({
+      title: t('profile:areYouSureToLogOut'),
+      actions: [
+        { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+        { label: t('profile:logOut'), onPress: alert.hide, type: 'destructive-primary' },
+      ],
+    });
+  };
 
   const renderDefaultComponent = (
     <Container
@@ -78,7 +91,7 @@ const ProfileController: React.FC = () => {
         onPressEdit={() => navigate('ProfileEdit')}
         onPressBills={() => {}}
         onPressSecurityAndLegalNotices={() => {}}
-        onPressLogOut={() => {}}
+        onPressLogOut={onPressLogOut}
       />
       <BottomSheet
         state={state}

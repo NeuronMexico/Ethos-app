@@ -139,6 +139,7 @@
     "attachFile": "Adjuntar archivo. pdf",
     "attachProofOfAddress": "Adjuntar comprobante de domicilio",
     "takeAPhoto": "Tomar fotografía",
-    "chooseImage": "Elegir imagen"
+    "chooseImage": "Elegir imagen",
+    "areYouSureToLogOut": "¿Estás seguro/a de cerrar sesión?"
   }
 }
