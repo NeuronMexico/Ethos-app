@@ -1,9 +1,12 @@
 import React, { ReactNode, useRef, useState } from 'react';
 import {
-  Container, CustomBottomSheet, SafeArea,
+  BottomSheet,
+  Container, SafeArea,
 } from 'components';
 import { ProfileStackParams, SOCIAL_LINKS, SocialMediaTypes } from 'utils';
-import { Image, Linking } from 'react-native';
+import {
+  Image, Linking,
+} from 'react-native';
 import { View } from 'react-native-reanimated/lib/typescript/Animated';
 import { OptionButton } from 'components/molecules/OptionButton';
 import { ExportIcon } from 'assets/svg';
@@ -30,9 +33,7 @@ const ProfileController: React.FC = () => {
     Linking.openURL(SOCIAL_LINKS[type as keyof typeof SOCIAL_LINKS]).catch((error) => console.warn(error));
   };
 
-  const handleSheetChanges = (index: number) => {
-    console.log(index);
-  };
+  const handleSheetChanges = () => {};
 
   const renderDefaultComponent = (
     <Container
@@ -79,15 +80,14 @@ const ProfileController: React.FC = () => {
         onPressSecurityAndLegalNotices={() => {}}
         onPressLogOut={() => {}}
       />
-      <CustomBottomSheet
-        title=""
+      <BottomSheet
         state={state}
         handleSheetChanges={handleSheetChanges}
         snapPoints={snapPoints}
-        enablePanDownToClose={false}
+        enablePanDownToClose
       >
         {renderComponent}
-      </CustomBottomSheet>
+      </BottomSheet>
     </SafeArea>
   );
 };
