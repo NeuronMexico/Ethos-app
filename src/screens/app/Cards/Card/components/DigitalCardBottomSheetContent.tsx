@@ -1,7 +1,5 @@
-import React, {
-  ForwardedRef, forwardRef, useEffect, useState,
-} from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Container, Text } from 'components';
 import Theme from 'theme';
@@ -12,7 +10,7 @@ const EXPIRATION_TIME = 5 * 60;
 interface Props {
 }
 
-const DigitalCardBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>) => {
+const DigitalCardBottomSheetContent: React.FC<Props> = (props: Props) => {
   const { t } = useTranslation();
 
   const [cvvTime, setCvvTime] = useState<string>('05:00');
@@ -34,7 +32,7 @@ const DigitalCardBottomSheetContent = forwardRef((props: Props, ref: ForwardedRe
   }, []);
 
   return (
-    <Container ref={ref}>
+    <Container>
       <ClabeCard clabe="8584 3828 4939 233334" />
       <Container middle>
         <Text text={t('cards:validUntil')} typography="caption" />
@@ -53,7 +51,7 @@ const DigitalCardBottomSheetContent = forwardRef((props: Props, ref: ForwardedRe
       />
     </Container>
   );
-});
+};
 
 const styles = StyleSheet.create({
   cvvContainer: {

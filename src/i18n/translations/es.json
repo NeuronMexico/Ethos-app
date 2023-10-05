@@ -126,7 +126,12 @@
     "limits": "Límites",
     "personalDispositionLimit": "Límite de disposición personal",
     "cashWithdrawalLimitAtm": "Límite de disposición de efectivo en cajeros",
-    "cashWithdrawalLimitCorrespondents": "Límite de disposición de efectivo en corresponsales"
+    "cashWithdrawalLimitCorrespondents": "Límite de disposición de efectivo en corresponsales",
+    "withdrawalAccount": "Cuenta de retiro",
+    "reportMovement": "Reportar movimiento",
+    "assignTags": "Asignar etiquetas",
+    "uploadInvoice": "Subir factura",
+    "uploadTicket": "Subir ticket"
   },
   "alert": {
     "invoice": "Folio:",

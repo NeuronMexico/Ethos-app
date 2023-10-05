@@ -1,5 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, Container, Text } from 'components';
 import Theme from 'theme';
@@ -8,11 +7,11 @@ import { ClabeCard } from './ClabeCard';
 interface Props {
 }
 
-const PayCardBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>) => {
+const PayCardBottomSheetContent: React.FC<Props> = (props: Props) => {
   const { t } = useTranslation();
 
   return (
-    <Container ref={ref}>
+    <Container>
       <ClabeCard clabe="4443 3223 6544 645344" />
 
       <Container row>
@@ -35,5 +34,6 @@ const PayCardBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<Vi
       />
     </Container>
   );
-});
+};
+
 export { PayCardBottomSheetContent };

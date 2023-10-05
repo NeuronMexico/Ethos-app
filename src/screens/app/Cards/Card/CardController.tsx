@@ -1,19 +1,18 @@
-import React, {
-  ReactElement, useCallback, useEffect, useRef, useState,
-} from 'react';
-import { View } from 'react-native';
+import React, { useCallback, useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import { useDispatch } from 'reactRedux';
-import { BottomSheet, SafeArea } from 'components';
-import { CardsGlobalStackParams, calculateSnapPoints } from 'utils';
+import { SafeArea } from 'components';
+import { CardsGlobalStackParams } from 'utils';
+import { useBottomSheet } from 'context';
 import CardScreen from './CardScreen';
 import {
   DigitalCardBottomSheetContent,
   PayCardBottomSheetContent,
   PinBottomSheetContent,
   SeeMoreBottomSheetContent,
+  TransactionBottomSheetContent,
   TurnOffCardBottomSheetContent,
 } from './components';
 
@@ -25,64 +24,46 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
-  const containerRef = useRef<View>(null);
-
-  // BottomSheet states
-  const [bottomSheetState, setBottomSheetState] = useState<number>(-1);
-  const [snapPoints, setSnapPoints] = useState<Array<string | number>>(['25%']);
-  const [bottomSheetTitle, setBottomSheetTitle] = useState<string>('');
-  const [bottomSheetContent, setBottomSheetContent] = useState<ReactElement | null>(null);
+  const bottomSheet = useBottomSheet();
 
   const [cardOn, setCardOn] = useState<boolean>(true);
 
-  useEffect(() => {
-    if (bottomSheetState === -1) {
-      setBottomSheetTitle('');
-      setBottomSheetContent(null);
-    }
-  }, [bottomSheetState]);
-
-  const showBottomSheet = useCallback(async () => {
-    const calculatedSnapPoints = await calculateSnapPoints(containerRef);
-    setSnapPoints(calculatedSnapPoints);
-    setBottomSheetState(0);
-  }, []);
-
   const onPressTurnOff = useCallback(async () => {
-    setBottomSheetTitle(`${t('cards:card')} *334`);
-    setBottomSheetContent(<TurnOffCardBottomSheetContent ref={containerRef} cardOn={cardOn} onChange={setCardOn} />);
-    showBottomSheet();
-  }, [cardOn, showBottomSheet, t]);
+    bottomSheet.show(
+      <TurnOffCardBottomSheetContent cardOn={cardOn} onChange={setCardOn} />,
+      { title: `${t('cards:card')} *334`, titleAlign: 'left' },
+    );
+  }, [bottomSheet, cardOn, t]);
 
   const onPressPayCard = useCallback(async () => {
-    setBottomSheetTitle(t('cards:payViaSpei'));
-    setBottomSheetContent(<PayCardBottomSheetContent ref={containerRef} />);
-    showBottomSheet();
-  }, [showBottomSheet, t]);
+    bottomSheet.show(<PayCardBottomSheetContent />, { title: t('cards:payViaSpei'), titleAlign: 'left' });
+  }, [bottomSheet, t]);
 
   const onPressDigitalCard = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('cards:confirmYourIdentity') });
     if (result.success) {
-      setBottomSheetTitle(t('cards:digitalCard'));
-      setBottomSheetContent(<DigitalCardBottomSheetContent ref={containerRef} />);
-      showBottomSheet();
+      bottomSheet.show(<DigitalCardBottomSheetContent />, { title: t('cards:digitalCard'), titleAlign: 'left' });
     }
-  }, [showBottomSheet, t]);
+  }, [bottomSheet, t]);
 
   const onPressPin = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('cards:confirmYourIdentity') });
     if (result.success) {
-      setBottomSheetTitle('');
-      setBottomSheetContent(<PinBottomSheetContent ref={containerRef} />);
-      showBottomSheet();
+      bottomSheet.show(<PinBottomSheetContent onPressChangePin={() => {
+        bottomSheet.hide();
+        navigation.navigate('ChangePin');
+      }}
+      />);
     }
-  }, [showBottomSheet, t]);
+  }, [bottomSheet, navigation, t]);
 
   const onPressSeeMore = useCallback(async () => {
-    setBottomSheetTitle('');
-    setBottomSheetContent(<SeeMoreBottomSheetContent ref={containerRef} />);
-    showBottomSheet();
-  }, [showBottomSheet]);
+    bottomSheet.show(<SeeMoreBottomSheetContent onPressCreditDetail={() => navigation.navigate('CreditDetail')} />);
+  }, [bottomSheet, navigation]);
+
+  const onPressTransaction = useCallback(async () => {
+    bottomSheet.show(<TransactionBottomSheetContent />);
+  }, [bottomSheet]);
 
   return (
     <SafeArea>
@@ -94,17 +75,8 @@ const CardController: React.FC<Props> = ({ navigation }) => {
         onPressDigitalCard={onPressDigitalCard}
         onPressPin={onPressPin}
         onPressSeeMore={onPressSeeMore}
+        onPressTransaction={onPressTransaction}
       />
-      <BottomSheet
-        title={bottomSheetTitle}
-        state={bottomSheetState}
-        handleSheetChanges={setBottomSheetState}
-        snapPoints={snapPoints}
-        blurBackground
-        titleAlign="left"
-      >
-        {bottomSheetContent}
-      </BottomSheet>
     </SafeArea>
   );
 };

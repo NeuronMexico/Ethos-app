@@ -34,6 +34,7 @@ interface Props {
   onPressDigitalCard: () => void;
   onPressPin: () => void;
   onPressSeeMore: () => void;
+  onPressTransaction: () => void;
 }
 
 const CardScreen: React.FC<Props> = ({
@@ -44,6 +45,7 @@ const CardScreen: React.FC<Props> = ({
   onPressDigitalCard,
   onPressPin,
   onPressSeeMore,
+  onPressTransaction,
 }) => {
   const { t } = useTranslation();
 
@@ -171,8 +173,20 @@ const CardScreen: React.FC<Props> = ({
           marginTop={16}
         />
 
-        <TransactionCard title="Pago de tarjeta de crédito" description="Pago TDC" value={-100} category="" />
-        <TransactionCard title="Pago de tarjeta de crédito" description="Pago TDC" value={2500} category="" />
+        <TransactionCard
+          title="Pago de tarjeta de crédito"
+          description="Pago TDC"
+          value={-100}
+          category=""
+          onPress={onPressTransaction}
+        />
+        <TransactionCard
+          title="Pago de tarjeta de crédito"
+          description="Pago TDC"
+          value={2500}
+          category=""
+          onPress={onPressTransaction}
+        />
       </ScrollView>
     </Container>
   );
@@ -184,24 +198,27 @@ interface TransactionCardProps {
   value: number;
   category: string;
   showTopBorder?: boolean;
+  onPress: () => void;
 }
 
 const TransactionCard: React.FC<TransactionCardProps> = ({
-  title, description, value, category, showTopBorder,
+  title, description, value, category, showTopBorder, onPress,
 }) => (
-  <Container row style={[styles.transactionCard, { borderTopWidth: showTopBorder ? 1 : 0 }]}>
-    <Container style={styles.categoryIndicator} />
-    <Container flex space="between" style={{ marginHorizontal: 16 }}>
-      <Text text={title} typography="subtitle" fontWeight="Semibold" />
-      <Text text={description} typography="caption" textColor={Theme.Colors.GreatFalls} />
+  <Touchable onPress={onPress}>
+    <Container row style={[styles.transactionCard, { borderTopWidth: showTopBorder ? 1 : 0 }]}>
+      <Container style={styles.categoryIndicator} />
+      <Container flex space="between" style={{ marginHorizontal: 16 }}>
+        <Text text={title} typography="subtitle" fontWeight="Semibold" />
+        <Text text={description} typography="caption" textColor={Theme.Colors.GreatFalls} />
+      </Container>
+      <Text
+        text={formatQuantity(value)}
+        typography="subtitle"
+        fontWeight="Bold"
+        textColor={value < 0 ? Theme.Colors.SpringBouquet : Theme.Colors.DarkSoul}
+      />
     </Container>
-    <Text
-      text={formatQuantity(value)}
-      typography="subtitle"
-      fontWeight="Bold"
-      textColor={value < 0 ? Theme.Colors.SpringBouquet : Theme.Colors.DarkSoul}
-    />
-  </Container>
+  </Touchable>
 );
 
 const styles = StyleSheet.create({

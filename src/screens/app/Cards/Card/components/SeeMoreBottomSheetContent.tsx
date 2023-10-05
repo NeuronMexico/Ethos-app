@@ -1,22 +1,18 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Container } from 'components';
 import { CertificateIcon, GraphIcon, PaperIcon } from 'assets/svg';
-import { CardsGlobalStackParams } from 'utils';
 import { CardAction } from './CardAction';
 
 interface Props {
+  onPressCreditDetail: () => void;
 }
 
-const SeeMoreBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>) => {
+const SeeMoreBottomSheetContent: React.FC<Props> = ({ onPressCreditDetail }) => {
   const { t } = useTranslation();
-  const { navigate } = useNavigation<NativeStackNavigationProp<CardsGlobalStackParams>>();
 
   return (
-    <Container row crossCenter ref={ref}>
+    <Container row crossCenter>
       <CardAction
         label={t('cards:creditLineIncrease')}
         icon={<GraphIcon />}
@@ -29,7 +25,7 @@ const SeeMoreBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<Vi
         icon={<CertificateIcon />}
         width={75}
         marginHorizontal={6}
-        onPress={() => navigate('CreditDetail')}
+        onPress={onPressCreditDetail}
       />
       <CardAction
         label={t('cards:accountStatement')}
@@ -40,6 +36,6 @@ const SeeMoreBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<Vi
       />
     </Container>
   );
-});
+};
 
 export { SeeMoreBottomSheetContent };

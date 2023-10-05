@@ -1,22 +1,19 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Container, MultipleTextButton, Text } from 'components';
 import Theme from 'theme';
-import { CardsGlobalStackParams } from 'utils';
 import { KeyCycleIcon } from 'assets/svg';
 
 interface Props {
+  onPressChangePin: () => void;
 }
 
-const PinBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>) => {
+const PinBottomSheetContent: React.FC<Props> = ({ onPressChangePin }) => {
   const { t } = useTranslation();
-  const { navigate } = useNavigation<NativeStackNavigationProp<CardsGlobalStackParams>>();
 
   return (
-    <Container ref={ref}>
+    <Container>
       <Container row center space="between">
         <Text text={t('cards:viewPin')} typography="header" fontWeight="Bold" />
         <Container style={styles.pinContainer}>
@@ -33,11 +30,11 @@ const PinBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>)
         icon={<Container style={styles.pinIconContainer}><KeyCycleIcon /></Container>}
         alignContent="flex-start"
         androidRippleColor={Theme.Colors.DarkSoul}
-        onPress={() => navigate('ChangePin')}
+        onPress={onPressChangePin}
       />
     </Container>
   );
-});
+};
 
 const styles = StyleSheet.create({
   pinContainer: {

@@ -1,5 +1,4 @@
-import React, { ForwardedRef, forwardRef } from 'react';
-import { View } from 'react-native';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container, SwipeableSwitch } from 'components';
 
@@ -8,11 +7,11 @@ interface Props {
   onChange: (value: boolean) => void;
 }
 
-const TurnOffCardBottomSheetContent = forwardRef(({ cardOn, onChange }: Props, ref: ForwardedRef<View>) => {
+const TurnOffCardBottomSheetContent: React.FC<Props> = ({ cardOn, onChange }) => {
   const { t } = useTranslation();
 
   return (
-    <Container ref={ref}>
+    <Container>
       <SwipeableSwitch
         config={{ label: { active: t('cards:turnOffCard'), inactive: t('cards:turnOnCard') } }}
         defaultValue={cardOn}
@@ -20,5 +19,6 @@ const TurnOffCardBottomSheetContent = forwardRef(({ cardOn, onChange }: Props, r
       />
     </Container>
   );
-});
+};
+
 export { TurnOffCardBottomSheetContent };

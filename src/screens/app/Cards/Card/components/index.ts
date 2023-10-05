@@ -5,3 +5,4 @@ export * from './PayCardBottomSheetContent';
 export * from './DigitalCardBottomSheetContent';
 export * from './PinBottomSheetContent';
 export * from './SeeMoreBottomSheetContent';
+export * from './TransactionBottomSheetContent';
