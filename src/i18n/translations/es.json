@@ -115,7 +115,18 @@
     "changePin": "Cambio de NIP",
     "creditLineIncrease": "Incremento de línea de crédito",
     "creditDetail": "Detalle crediticio",
-    "accountStatement": "Estado de cuenta"
+    "accountStatement": "Estado de cuenta",
+    "cardDetails": "Detalles de tarjeta",
+    "creditLine": "Línea de crédito",
+    "paymentToAvoidInterest": "Pago para no generar intereses",
+    "statementInformation": "Información del corte",
+    "balanceBeforeStatement": "Saldo antes del corte",
+    "balanceAfterStatement": "Saldo después del corte",
+    "statementDate": "Fecha de corte",
+    "limits": "Límites",
+    "personalDispositionLimit": "Límite de disposición personal",
+    "cashWithdrawalLimitAtm": "Límite de disposición de efectivo en cajeros",
+    "cashWithdrawalLimitCorrespondents": "Límite de disposición de efectivo en corresponsales"
   },
   "alert": {
     "invoice": "Folio:",

@@ -1,8 +1,11 @@
 import React, { ForwardedRef, forwardRef } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Container } from 'components';
 import { CertificateIcon, GraphIcon, PaperIcon } from 'assets/svg';
+import { CardsGlobalStackParams } from 'utils';
 import { CardAction } from './CardAction';
 
 interface Props {
@@ -10,6 +13,7 @@ interface Props {
 
 const SeeMoreBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<View>) => {
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<CardsGlobalStackParams>>();
 
   return (
     <Container row crossCenter ref={ref}>
@@ -25,7 +29,7 @@ const SeeMoreBottomSheetContent = forwardRef((props: Props, ref: ForwardedRef<Vi
         icon={<CertificateIcon />}
         width={75}
         marginHorizontal={6}
-        onPress={() => {}}
+        onPress={() => navigate('CreditDetail')}
       />
       <CardAction
         label={t('cards:accountStatement')}
