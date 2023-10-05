@@ -75,7 +75,7 @@ const ProfileEditController: React.FC = () => {
           marginVertical={21}
           width="100%"
         />
-        <Button label={t('profile:logOut')} onPress={() => {}} />
+        <Button label={t('global:save')} onPress={() => {}} />
       </Container>
     </Container>
   );
