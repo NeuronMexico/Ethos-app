@@ -5,6 +5,8 @@ export type LoginCallbackType<T = any, S = any> = (success: boolean, args?: T, p
 
 export type ErrorType = 'invalid-format' | 'required' | 'not-match' | undefined;
 
+export type SocialMediaTypes = 'facebook' | 'instagram' | 'tikTok' | 'x' | 'linkedIn';
+
 export type ShortcutType = {
   id: string;
   label: string;
@@ -35,6 +37,7 @@ export type CardsGlobalStackParams = {
 export type AppStackParams = {
   TabNavigator: undefined;
   CardsGlobalStack: undefined;
+  ProfileStack: undefined;
 };
 
 export type TabParams = {

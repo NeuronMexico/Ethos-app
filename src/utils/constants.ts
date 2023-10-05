@@ -33,3 +33,11 @@ export const SHORTCUTS_CATEGORIES = {
     'petBenefits',
   ],
 };
+
+export const SOCIAL_LINKS = {
+  facebook: 'https://www.facebook.com/',
+  instagram: 'https://www.instagram.com/',
+  tikTok: 'https://www.tiktok.com/',
+  x: 'https://twitter.com/',
+  linkedIn: '',
+};
