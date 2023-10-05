@@ -1,4 +1,4 @@
-import { CustomBottomSheet as BottomSheet } from './CustomBottomSheet';
+import CustomBottomSheet from './CustomBottomSheet';
 
 export * from './TouchableText';
 export * from './CheckBoxField';
@@ -19,5 +19,5 @@ export * from './CircularSlider';
 export * from './BankAccountCard';
 
 export {
-  BottomSheet,
+  CustomBottomSheet as BottomSheet,
 };

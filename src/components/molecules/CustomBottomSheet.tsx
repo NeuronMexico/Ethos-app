@@ -1,5 +1,5 @@
 import React, {
-  ReactNode, useEffect, useMemo, useRef,
+  ReactNode, useEffect, useMemo, useRef, forwardRef, ForwardRefRenderFunction,
 } from 'react';
 import { StyleSheet, TextStyle, TouchableWithoutFeedback } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -22,7 +22,7 @@ export interface BottomSheetProps {
   enableTapOutsideToClose?: boolean;
 }
 
-const CustomBottomSheet: React.FC<BottomSheetProps> = ({
+const CustomBottomSheet: ForwardRefRenderFunction<BottomSheet, BottomSheetProps> = ({
   title,
   state,
   handleSheetChanges,
@@ -33,7 +33,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
   blurBackground,
   titleAlign = 'center',
   enableTapOutsideToClose = true,
-}) => {
+}, ref) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const insets = useSafeAreaInsets();
@@ -55,7 +55,7 @@ const CustomBottomSheet: React.FC<BottomSheetProps> = ({
       </TouchableWithoutFeedback>
       )}
       <BottomSheet
-        ref={bottomSheetRef}
+        ref={ref ?? bottomSheetRef}
         index={initialState}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
@@ -100,4 +100,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { CustomBottomSheet };
+export default forwardRef(CustomBottomSheet);
