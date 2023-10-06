@@ -25,9 +25,9 @@ const ProfilePhoto: React.FC<Props> = ({
   const id = 'M515';
 
   return (
-    <Touchable onPress={onPress}>
-      <Container width="100%" height={size} middle style={{ zIndex: 1 }}>
-        {photo ? (
+    <Container width="100%" height={size} middle>
+      {photo ? (
+        <Touchable onPress={onPress} disabled={!canEdit}>
           <FadeInImage
             source={{ uri: photo }}
             width={size}
@@ -35,7 +35,9 @@ const ProfilePhoto: React.FC<Props> = ({
             borderRadius={size}
             fadeIn={fadeIn}
           />
-        ) : (
+        </Touchable>
+      ) : (
+        <Touchable onPress={onPress}>
           <Container
             center
             circle
@@ -54,8 +56,9 @@ const ProfilePhoto: React.FC<Props> = ({
               marginTop={20}
             />
           </Container>
-        )}
-        {canEdit && onPress && (
+        </Touchable>
+      )}
+      {canEdit && onPress && (
         <Container
           middle
           width={24}
@@ -72,8 +75,8 @@ const ProfilePhoto: React.FC<Props> = ({
         >
           <EditIcon color={Theme.Colors.DarkSoul} height={16} width={16} />
         </Container>
-        )}
-        {withName && (
+      )}
+      {withName && (
         <Text
           text={`${name}${lastName}`}
           fontWeight="Semibold"
@@ -84,8 +87,8 @@ const ProfilePhoto: React.FC<Props> = ({
           numberOfLines={1}
           marginTop={20}
         />
-        )}
-        {withId && (
+      )}
+      {withId && (
         <Text
           text={id}
           fontWeight="Semibold"
@@ -96,9 +99,8 @@ const ProfilePhoto: React.FC<Props> = ({
           numberOfLines={1}
           marginBottom={20}
         />
-        )}
-      </Container>
-    </Touchable>
+      )}
+    </Container>
   );
 };
 
