@@ -1,5 +1,11 @@
 import DefaultCard from './default-card.svg';
 import MedCard from './med-card.svg';
+import BlueAvatar from './blue-avatar.svg';
+import RedAvatar from './red-avatar.svg';
+import GreenAvatar from './green-avatar.svg';
+import OrangeAvatar from './orange-avatar.svg';
+import GrayAvatar from './gray-avatar.svg';
+import YellowAvatar from './yellow-avatar.svg';
 
 export * from './BankIcon';
 export * from './BellIcon';
@@ -79,4 +85,10 @@ export * from './XTwitterIcon';
 export {
   DefaultCard,
   MedCard,
+  BlueAvatar,
+  RedAvatar,
+  GreenAvatar,
+  OrangeAvatar,
+  GrayAvatar,
+  YellowAvatar,
 };
