@@ -2,55 +2,104 @@ import React from 'react';
 import Theme from 'theme';
 import { FadeInImage } from 'components/atoms/FadeInImage';
 import { Container } from 'components/atoms/Container';
-import { CustomText as Text } from 'components/atoms/CustomText';
+import { CustomText } from 'components/atoms/CustomText';
 import { EditIcon } from 'assets/svg';
+import { Touchable } from 'components/atoms';
 
 interface Props {
   fadeIn?: boolean;
   size: number;
   withName?: boolean;
-  cantEdit?: boolean
+  canEdit?: boolean;
+  withId?: boolean;
+  onPress?: () => void;
 }
 
 const ProfilePhoto: React.FC<Props> = ({
-  fadeIn, size, withName, cantEdit,
+  fadeIn, size, withName, canEdit, withId, onPress,
 }: Props) => {
   // const { photo, name, lastName } = useSelector((state: RootState) => state.profile);
 
   // eslint-disable-next-line max-len
   const photo = 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2';
-  const name = 'Andrés';
-  const lastName = 'L99';
+  // const photo = '';
+  const name = 'Mario ';
+  const lastName = 'Bárcenas López';
+  const id = 'M515';
 
   return (
-    <Container width={size} height={size} middle>
-      {photo && (
-      <FadeInImage
-        source={{ uri: photo }}
-        width={size}
-        height={size}
-        borderRadius={size}
-        fadeIn={fadeIn}
-      />
+    <Container width="100%" height={size} middle style={{ zIndex: 1 }}>
+      {photo ? (
+        <FadeInImage
+          source={{ uri: photo }}
+          width={size}
+          height={size}
+          borderRadius={size}
+          fadeIn={fadeIn}
+        />
+      ) : (
+        <Container
+          center
+          circle
+          width={size}
+          height={size}
+          backgroundColor={Theme.Colors.DarkSoul}
+        >
+          <CustomText
+            text={`${name.charAt(0)}${lastName.charAt(0)}`}
+            fontWeight="Semibold"
+            typography="subtitle"
+            textColor={Theme.Colors.White}
+            fontSize={45}
+            textAlign="left"
+            numberOfLines={1}
+            marginTop={20}
+          />
+        </Container>
       )}
-      {withName && (<Text text={`${name}${lastName}`} fontSize={13} textColor={Theme.Colors.DarkSoul} />)}
-      {cantEdit && (
+      {canEdit && onPress && (
       <Container
+        middle
+        width={24}
+        height={24}
         style={{
-          width: 24,
-          height: 24,
-          position: 'absolute',
-          justifyContent: 'center',
+          zIndex: 2,
           backgroundColor: Theme.Colors.PlaceboBlue,
+          bottom: 20,
+          left: 30,
+          width: 24,
           borderRadius: 10,
-          bottom: 10,
-          right: 0,
-          padding: 8,
-          alignItems: 'center',
+          height: 24,
         }}
       >
-        <EditIcon color={Theme.Colors.DarkSoul} height={16} width={16} />
+        <Touchable onPress={onPress}>
+          <EditIcon color={Theme.Colors.DarkSoul} height={16} width={16} />
+        </Touchable>
       </Container>
+      )}
+      {withName && (
+      <CustomText
+        text={`${name}${lastName}`}
+        fontWeight="Semibold"
+        typography="subtitle"
+        textColor={Theme.Colors.DarkSoul}
+        fontSize={17}
+        textAlign="left"
+        numberOfLines={1}
+        marginTop={20}
+      />
+      )}
+      {withId && (
+      <CustomText
+        text={id}
+        fontWeight="Semibold"
+        typography="subtitle"
+        textColor={Theme.Colors.DarkSoul}
+        fontSize={17}
+        textAlign="left"
+        numberOfLines={1}
+        marginBottom={20}
+      />
       )}
     </Container>
   );

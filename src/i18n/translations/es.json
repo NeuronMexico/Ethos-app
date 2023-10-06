@@ -128,9 +128,6 @@
     "emailTitle" :"Cambio de correo ",
     "phone": "número",
     "email": "email",
-<<<<<<< HEAD
-    "instructionEnterCode": "Ingresa el código que enviamos al {{type}}: {{value}}"
-=======
     "instructionEnterCode": "Ingresa el código que enviamos al {{type}}: {{value}}",
     "street": "Calle",
     "interiorNumber": "Número interior",
@@ -140,7 +137,8 @@
     "city": "Ciudad",
     "state": "Estado",
     "attachFile": "Adjuntar archivo. pdf",
-    "attachProofOfAddress": "Adjuntar comprobante de domicilio"
->>>>>>> a36ec0b (add edit profile data screen with multiple form organisms)
+    "attachProofOfAddress": "Adjuntar comprobante de domicilio",
+    "takeAPhoto": "Tomar fotografía",
+    "chooseImage": "Elegir imagen"
   }
 }

@@ -126,6 +126,7 @@ const ProfileScreen: React.FC<Props> = ({
               onPress={onPressLogOut}
               label={t('profile:logOut')}
               backgroundColor={Theme.Colors.WhiteSmoke}
+              textColor={Theme.Colors.DarkSoul}
               marginVertical={17}
               width="100%"
             />
