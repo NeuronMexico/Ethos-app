@@ -43,7 +43,7 @@ const EditProfileFieldScreen: React.FC<Props> = () => {
             label: t('global:accept'),
             onPress: () => {
               alert.hide();
-              navigate('Profile');
+              navigate('ProfileEdit');
             },
             type: 'primary',
           },

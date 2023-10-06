@@ -81,7 +81,7 @@ const EditAddressScreen: React.FC<Props> = ({ onSubmit }) => {
           />
           <Button
             onPress={onSubmit}
-            label={t('profile:attachProofOfAddress')}
+            label={t('global:save')}
             marginTop={16}
           />
         </Container>

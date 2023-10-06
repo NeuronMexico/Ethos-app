@@ -22,7 +22,7 @@ const EditAddressController: React.FC = () => {
           label: t('global:accept'),
           onPress: () => {
             alert.hide();
-            navigate('Profile');
+            navigate('ProfileEdit');
           },
           type: 'primary',
         },

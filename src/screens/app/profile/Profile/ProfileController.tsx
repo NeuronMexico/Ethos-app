@@ -98,6 +98,7 @@ const ProfileController: React.FC = () => {
         handleSheetChanges={handleSheetChanges}
         snapPoints={snapPoints}
         enablePanDownToClose
+        backgroundColor
       >
         {renderComponent}
       </BottomSheet>

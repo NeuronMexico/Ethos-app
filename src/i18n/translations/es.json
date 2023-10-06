@@ -140,6 +140,10 @@
     "attachProofOfAddress": "Adjuntar comprobante de domicilio",
     "takeAPhoto": "Tomar fotografía",
     "chooseImage": "Elegir imagen",
-    "areYouSureToLogOut": "¿Estás seguro/a de cerrar sesión?"
+    "areYouSureToLogOut": "¿Estás seguro/a de cerrar sesión?",
+    "addressResponseTitle": "Dirección cambiada correctamente",
+    "emailResponseTitle": "Correo electrónico cambiado correctamente",
+    "phoneResponseTitle": "Número celular cambiado correctamente",
+    "aliasResponseTitle": "Alias cambiado correctamente"
   }
 }
