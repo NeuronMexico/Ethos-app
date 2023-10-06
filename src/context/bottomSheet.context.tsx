@@ -33,6 +33,7 @@ type BottomSheetConfig = {
   titleAlign?: TextStyle['textAlign'];
   enableTapOutsideToClose?: boolean;
   enablePanDownToClose?: boolean;
+  snapPoints?: Array<string | number>;
 };
 
 export const BottomSheetContextProvider = ({ children }: Props) => {
@@ -84,7 +85,7 @@ export const BottomSheetContextProvider = ({ children }: Props) => {
       <Component
         ref={bottomSheetRef}
         state={state}
-        snapPoints={snapPoints}
+        snapPoints={config?.snapPoints || snapPoints}
         handleSheetChanges={(index) => {
           setState(index);
           if (index === -1) {
