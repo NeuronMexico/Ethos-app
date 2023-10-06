@@ -110,7 +110,6 @@
     "numberCopiedToClipboard": "El número ha sido copiado al portapapeles",
     "validUntil": "Válida hasta",
     "securityCodeDuration": "Tu código de seguridad tiene una duración de {{time}} minutos",
-    "confirmYourIdentity": "Confirma que eres tú",
     "viewPin": "Ver NIP",
     "changePin": "Cambio de NIP",
     "creditLineIncrease": "Incremento de línea de crédito",
@@ -131,7 +130,21 @@
     "reportMovement": "Reportar movimiento",
     "assignTags": "Asignar etiquetas",
     "uploadInvoice": "Subir factura",
-    "uploadTicket": "Subir ticket"
+    "uploadTicket": "Subir ticket",
+    "enterNewPin": "Digita tu nuevo NIP",
+    "confirmNewPin": "Confirmar nuevo NIP",
+    "pinChangedSuccessfully": "NIP cambiado correctamente",
+    "selectReportReason": "Elige el motivo de tu reporte",
+    "disableCurrentCard": "A continuación, deshabilitaremos tu tarjeta actual y podrás pedir una nueva",
+    "theft": "Robo",
+    "loss": "Extravío",
+    "damaged": "Dañada",
+    "atmRetained": "Retenida en el cajero",
+    "cardReplacementCost": "El reemplazo de tu tarjeta física tiene un costo de $250.00, IVA incluido.",
+    "disableCard": "Deshabilitar tarjeta",
+    "physicalCardDisabledSuccessfully": "Tarjeta física deshabilitada correctamente",
+    "youCanRequestACardAgain": "Puedes solicitar una tarjeta nuevamente",
+    "requestNow": "Solicitar ahora"
   },
   "alert": {
     "invoice": "Folio:",
@@ -152,7 +165,8 @@
     "share": "Compartir",
     "confirm": "Confirmar",
     "save": "Guardar",
-    "new": "Nuevo"
+    "new": "Nuevo",
+    "confirmYourIdentity": "Confirma que eres tú"
   },
   "profile": {
     "titleStack": "Perfil",

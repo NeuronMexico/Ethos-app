@@ -14,6 +14,7 @@ import {
   CardPayIcon,
   DotsIcon,
   EyeIcon,
+  EyeSlashIcon,
   FilterIcon,
   KeyIcon,
   LockClosedIcon,
@@ -35,6 +36,7 @@ interface Props {
   onPressPin: () => void;
   onPressSeeMore: () => void;
   onPressTransaction: () => void;
+  onPressReportCard: () => void;
 }
 
 const CardScreen: React.FC<Props> = ({
@@ -46,6 +48,7 @@ const CardScreen: React.FC<Props> = ({
   onPressPin,
   onPressSeeMore,
   onPressTransaction,
+  onPressReportCard,
 }) => {
   const { t } = useTranslation();
 
@@ -66,8 +69,8 @@ const CardScreen: React.FC<Props> = ({
       >
         <Container row center>
           <Text text={cardNumber} typography="header" marginRight={8} />
-          <Touchable onPress={() => setShowCardNumber(!showCardNumber)} rounded>
-            <EyeIcon width={22} height={22} />
+          <Touchable onPress={() => setShowCardNumber(!showCardNumber)} rounded hitSlop={15}>
+            {showCardNumber ? <EyeSlashIcon width={22} height={22} /> : <EyeIcon width={22} height={22} />}
           </Touchable>
         </Container>
 
@@ -132,7 +135,7 @@ const CardScreen: React.FC<Props> = ({
             label={t('cards:reportCard')}
             icon={<ShieldIcon />}
             width={61}
-            onPress={() => {}}
+            onPress={onPressReportCard}
           />
           <CardAction
             label={t('cards:seeMore')}

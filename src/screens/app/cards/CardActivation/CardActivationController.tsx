@@ -1,11 +1,15 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
 import { useAlert } from 'context';
+import { CardsGlobalStackParams } from 'utils';
 import CardActivationScreen from './CardActivationScreen';
 
-const CardActivationController: React.FC = () => {
+interface Props extends NativeStackScreenProps<CardsGlobalStackParams, 'CardActivation'> {}
+
+const CardActivationController: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -19,11 +23,14 @@ const CardActivationController: React.FC = () => {
       checkmark: true,
       actions: [{
         label: t('global:goBack'),
-        onPress: alert.hide,
+        onPress: () => {
+          alert.hide();
+          navigation.goBack();
+        },
         type: 'secondary',
       }],
     });
-  }, [alert, t]);
+  }, [alert, navigation, t]);
 
   return (
     <SafeArea>

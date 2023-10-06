@@ -40,14 +40,14 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   }, [bottomSheet, t]);
 
   const onPressDigitalCard = useCallback(async () => {
-    const result = await rnBiometrics.simplePrompt({ promptMessage: t('cards:confirmYourIdentity') });
+    const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
     if (result.success) {
       bottomSheet.show(<DigitalCardBottomSheetContent />, { title: t('cards:digitalCard'), titleAlign: 'left' });
     }
   }, [bottomSheet, t]);
 
   const onPressPin = useCallback(async () => {
-    const result = await rnBiometrics.simplePrompt({ promptMessage: t('cards:confirmYourIdentity') });
+    const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
     if (result.success) {
       bottomSheet.show(<PinBottomSheetContent onPressChangePin={() => {
         bottomSheet.hide();
@@ -58,7 +58,11 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   }, [bottomSheet, navigation, t]);
 
   const onPressSeeMore = useCallback(async () => {
-    bottomSheet.show(<SeeMoreBottomSheetContent onPressCreditDetail={() => navigation.navigate('CreditDetail')} />);
+    bottomSheet.show(<SeeMoreBottomSheetContent onPressCreditDetail={() => {
+      bottomSheet.hide();
+      navigation.navigate('CreditDetail');
+    }}
+    />);
   }, [bottomSheet, navigation]);
 
   const onPressTransaction = useCallback(async () => {
@@ -76,6 +80,7 @@ const CardController: React.FC<Props> = ({ navigation }) => {
         onPressPin={onPressPin}
         onPressSeeMore={onPressSeeMore}
         onPressTransaction={onPressTransaction}
+        onPressReportCard={() => navigation.navigate('CardReport')}
       />
     </SafeArea>
   );

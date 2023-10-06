@@ -454,8 +454,19 @@ PODS:
     - React-Core
   - RNDateTimePicker (7.5.0):
     - React-Core
+  - RNDeviceInfo (10.11.0):
+    - React-Core
   - RNGestureHandler (2.12.1):
     - React-Core
+  - RNImageCropPicker (0.40.0):
+    - React-Core
+    - React-RCTImage
+    - RNImageCropPicker/QBImagePickerController (= 0.40.0)
+    - TOCropViewController
+  - RNImageCropPicker/QBImagePickerController (0.40.0):
+    - React-Core
+    - React-RCTImage
+    - TOCropViewController
   - RNLocalize (3.0.2):
     - React-Core
   - RNReanimated (3.5.1):
@@ -494,6 +505,7 @@ PODS:
     - React-Core
   - SocketRocket (0.6.1)
   - Toast (4.0.0)
+  - TOCropViewController (2.6.1)
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -549,7 +561,9 @@ DEPENDENCIES:
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -563,6 +577,7 @@ SPEC REPOS:
     - lottie-ios
     - SocketRocket
     - Toast
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   boost:
@@ -666,8 +681,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-picker/picker"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNImageCropPicker:
+    :path: "../node_modules/react-native-image-crop-picker"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
   RNReanimated:
@@ -733,13 +752,16 @@ SPEC CHECKSUMS:
   RNCClipboard: d77213bfa269013bf4b857b7a9ca37ee062d8ef1
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: b722c23030b744763cf51d80fc22f354653f65e0
+  RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
+  RNImageCropPicker: 486e2f7e2b0461ce24321f751410dce1b3b49e6d
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNReanimated: 99aa8c96151abbc2d7e737a56ec62aca709f0c92
   RNScreens: 6a8a3c6b808aa48dca1780df7b73ea524f602c63
   RNSVG: 80584470ff1ffc7994923ea135a3e5ad825546b9
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
+  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
 
 PODFILE CHECKSUM: 01332004717216af1dd24ea17dba05e395f03ea9

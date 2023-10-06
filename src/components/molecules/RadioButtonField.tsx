@@ -4,7 +4,7 @@ import { FontWeightTypes, TypographyTypes } from '../atoms/CustomText';
 import { Container } from '../atoms/Container';
 import { Touchable } from '../atoms/Touchable';
 
-interface Props {
+export interface RadioButtonFieldProps {
   label: string;
   selected: boolean;
   onChange: (value: boolean) => void;
@@ -16,7 +16,7 @@ interface Props {
   caption?: string;
 }
 
-const RadioButtonField: React.FC<Props> = ({
+const RadioButtonField: React.FC<RadioButtonFieldProps> = ({
   label,
   selected = false,
   onChange,
@@ -26,7 +26,7 @@ const RadioButtonField: React.FC<Props> = ({
   marginVertical = 8,
   value,
   caption,
-}: Props) => {
+}: RadioButtonFieldProps) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (

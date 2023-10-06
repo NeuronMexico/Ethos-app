@@ -47,3 +47,7 @@ export function calculateSnapPoints(containerRef: RefObject<View>): Promise<Arra
     const timer = setInterval(getMeasure, 10);
   });
 }
+
+export function isDigit(character: string): boolean {
+  return /^\d$/.test(character);
+}

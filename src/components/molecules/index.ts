@@ -17,6 +17,7 @@ export * from './DirectAccess';
 export * from './ProfilePhoto';
 export * from './CircularSlider';
 export * from './BankAccountCard';
+export * from './RadioButtonGroup';
 
 export {
   CustomBottomSheet as BottomSheet,

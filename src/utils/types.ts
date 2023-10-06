@@ -34,6 +34,7 @@ export type CardsGlobalStackParams = {
   CardActivation: undefined;
   ChangePin: undefined;
   CreditDetail: undefined;
+  CardReport: undefined;
 };
 
 export type AppStackParams = {
@@ -88,6 +89,7 @@ export type PreviewStackParams = {
   Slider: undefined;
   SwipeableSwitch: undefined;
   Icons: undefined;
+  RadioButtonGroup: undefined;
 };
 
 export type ConfirmationCodeScreenParams = {

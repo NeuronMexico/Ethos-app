@@ -7,6 +7,7 @@ import CardShippingController from 'screens/app/cards/CardShipping/CardShippingC
 import CardActivationController from 'screens/app/cards/CardActivation/CardActivationController';
 import ChangePinController from 'screens/app/cards/ChangePin/ChangePinController';
 import CreditDetailController from 'screens/app/cards/CreditDetail/CreditDetailController';
+import CardReportController from 'screens/app/cards/CardReport/CardReportController';
 
 const Stack = createNativeStackNavigator<CardsGlobalStackParams>();
 
@@ -18,6 +19,7 @@ const CardsGlobalStack: React.FC = () => (
     <Stack.Screen name="CardActivation" component={CardActivationController} />
     <Stack.Screen name="ChangePin" component={ChangePinController} />
     <Stack.Screen name="CreditDetail" component={CreditDetailController} />
+    <Stack.Screen name="CardReport" component={CardReportController} />
   </Stack.Navigator>
 );
 
