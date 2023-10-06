@@ -103,6 +103,30 @@
     "cancel": "Cancelar",
     "accept": "Aceptar",
     "continue": "Continuar",
-    "search": "Buscar"
+    "search": "Buscar",
+    "share": "Compartir",
+    "confirm": "Confirmar",
+    "save": "Guardar",
+    "new": "Nuevo"
+  },
+  "profile": {
+    "titleStack": "Perfil",
+    "codeQR": "Código QR",
+    "editData": "Editar datos",
+    "securityAndLegalNotices": "Seguridad y avisos legales",
+    "bills": "Facturas",
+    "logOut": "Cerrar Sesión",
+    "version": "Versión",
+    "editTitle": "Editar datos",
+    "aliasLabel": "Alias",
+    "emailLabel": "Correo electrónico",
+    "phoneLabel": "Número celular",
+    "addressLabel": "Dirección",
+    "sendAgain": "Enviar de nuevo",
+    "phoneTitle": "Cambio de celular",
+    "emailTitle" :"Cambio de correo ",
+    "phone": "número",
+    "email": "email",
+    "instructionEnterCode": "Ingresa el código que enviamos al {{type}}: {{value}}"
   }
 }

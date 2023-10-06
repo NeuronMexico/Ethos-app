@@ -84,3 +84,23 @@ export type PreviewStackParams = {
   SwipeableSwitch: undefined;
   Icons: undefined;
 };
+
+export type ConfirmationCodeScreenParams = {
+  type: string;
+  value: string;
+};
+
+export type ProfileStackParams = {
+  Profile: undefined;
+  ProfileEdit: undefined;
+  ConfirmationCode: {
+    type: string;
+    value: string
+  };
+};
+
+export type FileType = {
+  file: string;
+  fileName: string;
+  fileType: string;
+};

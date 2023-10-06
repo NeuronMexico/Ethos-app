@@ -9,7 +9,7 @@ const ProfileEditController: React.FC = () => {
 
   return (
     <SafeArea>
-      <ProfileEditScreen onSubmit={onSubmit} />
+      <ProfileEditScreen onSubmit={onSubmit} setAnswers={() => {}} />
     </SafeArea>
   );
 };
