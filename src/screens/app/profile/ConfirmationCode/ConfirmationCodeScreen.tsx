@@ -50,9 +50,8 @@ const ConfirmationCodeScreen:React.FC<Props> = ({ type, value, onSubmit }) => {
       />
       <Container row style={{ justifyContent: 'center' }}>
         {code.map((digit, index) => (
-          <Container style={{ marginRight: 16 }}>
+          <Container style={{ marginRight: 16 }} key={index + 1}>
             <Input
-              key={index}
             // eslint-disable-next-line no-return-assign
               ref={(inputRef) => (inputRefs.current[index] = inputRef)}
               value={digit}
