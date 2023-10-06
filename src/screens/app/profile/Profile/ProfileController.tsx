@@ -36,8 +36,6 @@ const ProfileController: React.FC = () => {
     Linking.openURL(SOCIAL_LINKS[type as keyof typeof SOCIAL_LINKS]).catch((error) => console.warn(error));
   };
 
-  const handleSheetChanges = () => {};
-
   const onPressLogOut = () => {
     alert.show({
       title: t('profile:areYouSureToLogOut'),
@@ -95,7 +93,7 @@ const ProfileController: React.FC = () => {
       />
       <BottomSheet
         state={state}
-        handleSheetChanges={handleSheetChanges}
+        handleSheetChanges={setState}
         snapPoints={snapPoints}
         enablePanDownToClose
         backgroundColor

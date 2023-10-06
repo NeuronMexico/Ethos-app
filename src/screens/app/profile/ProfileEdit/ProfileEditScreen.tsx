@@ -17,7 +17,7 @@ const ProfileEditScreen: React.FC<Props> = ({ onPressEditPhoto, onSubmit }) => {
   const { t } = useTranslation();
 
   return (
-    <Container flex useKeyboard style={{ paddingHorizontal: Theme.Sizes.Padding }}>
+    <Container flex useKeyboard style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: Theme.Sizes.Padding }}>
       <Header title={t('profile:editAddress')} />
       <Container style={{ marginTop: 55 }}>
         <ProfilePhoto size={90} withName withId canEdit onPress={onPressEditPhoto} />

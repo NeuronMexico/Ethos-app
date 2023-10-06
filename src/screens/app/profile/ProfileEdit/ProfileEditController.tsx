@@ -30,13 +30,9 @@ const ProfileEditController: React.FC = () => {
     OrangeAvatar,
   ];
 
-  const handleSheetChanges = (index: number) => {
-    console.log(index);
-  };
-
   const changeProfilePhoto = (
     <Container>
-      <ProfilePhoto size={80} canEdit />
+      <ProfilePhoto size={80} />
       <ScrollView
         style={{ flex: 1, padding: Theme.Sizes.Padding }}
         onScroll={Animated.event(
@@ -90,7 +86,7 @@ const ProfileEditController: React.FC = () => {
       <ProfileEditScreen onSubmit={onSubmit} onPressEditPhoto={onPressEditPhoto} />
       <BottomSheet
         state={showChangePhotoModal}
-        handleSheetChanges={handleSheetChanges}
+        handleSheetChanges={setShowChangePhotoModal}
         snapPoints={changePhotoSnapPoints}
         enablePanDownToClose
       >
