@@ -32,6 +32,7 @@ const Colors = {
   LightHouse: '#F4F4F4',
   WelshOnion: '#22C55E',
   Sambucus: '#111827',
+  SpanishGray: '#979797',
 };
 
 export default Colors;

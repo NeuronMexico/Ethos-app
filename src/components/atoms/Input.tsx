@@ -49,6 +49,7 @@ interface Props {
   backgroundColor?: ColorValue;
   useBottomSheetInput?: boolean;
   borderless?: boolean;
+  paddingVertical?: number;
 }
 
 const Input = forwardRef(({
@@ -82,6 +83,7 @@ const Input = forwardRef(({
   backgroundColor,
   useBottomSheetInput,
   borderless = true,
+  paddingVertical = 12,
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -165,6 +167,7 @@ const Input = forwardRef(({
       fontSize,
       paddingLeft: prefixIcon ? 8 : 16,
       paddingRight: (passwordField && showPasswordEnable) || suffixIcon ? 8 : 16,
+      paddingVertical,
     }],
     selection: !editable ? { start: 0, end: 0 } : undefined,
   }), [
@@ -190,6 +193,7 @@ const Input = forwardRef(({
     prefixIcon,
     showPasswordEnable,
     suffixIcon,
+    paddingVertical,
   ]);
 
   return (
@@ -205,7 +209,7 @@ const Input = forwardRef(({
       )}
       <Animated.View style={{
         ...borderlessStyle,
-        backgroundColor: backgroundColor || borderless ? Theme.Colors.DrWhite : Theme.Colors.White,
+        backgroundColor: backgroundColor || (borderless && Theme.Colors.DrWhite) || Theme.Colors.White,
         borderColor,
       }}
       >
