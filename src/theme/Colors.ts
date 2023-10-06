@@ -31,6 +31,7 @@ const Colors = {
   Encore: '#6D7280',
   LightHouse: '#F4F4F4',
   WelshOnion: '#22C55E',
+  SpanishGray: '#979797',
 };
 
 export default Colors;

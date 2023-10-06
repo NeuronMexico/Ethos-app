@@ -5,6 +5,8 @@ export type LoginCallbackType<T = any, S = any> = (success: boolean, args?: T, p
 
 export type ErrorType = 'invalid-format' | 'required' | 'not-match' | undefined;
 
+export type SocialMediaTypes = 'facebook' | 'instagram' | 'tikTok' | 'x' | 'linkedIn';
+
 export type ShortcutType = {
   id: string;
   label: string;
@@ -40,6 +42,7 @@ export type AppStackParams = {
 
 export type HomeGlobalStackParams = {
   Shortcuts: undefined;
+  ProfileStack: undefined;
 };
 
 export type TabParams = {
@@ -83,4 +86,30 @@ export type PreviewStackParams = {
   Slider: undefined;
   SwipeableSwitch: undefined;
   Icons: undefined;
+};
+
+export type ConfirmationCodeScreenParams = {
+  type: string;
+  value: string;
+};
+
+export type ProfileStackParams = {
+  Profile: undefined;
+  ProfileEdit: undefined;
+  EditProfileField: {
+    label: string,
+    value: string,
+    type: string,
+  };
+  EditAddress: undefined;
+  ConfirmationCode: {
+    type: string;
+    value: string
+  };
+};
+
+export type FileType = {
+  file: string;
+  fileName: string;
+  fileType: string;
 };
