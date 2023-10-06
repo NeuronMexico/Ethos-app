@@ -25,80 +25,80 @@ const ProfilePhoto: React.FC<Props> = ({
   const id = 'M515';
 
   return (
-    <Container width="100%" height={size} middle style={{ zIndex: 1 }}>
-      {photo ? (
-        <FadeInImage
-          source={{ uri: photo }}
-          width={size}
-          height={size}
-          borderRadius={size}
-          fadeIn={fadeIn}
-        />
-      ) : (
-        <Container
-          center
-          circle
-          width={size}
-          height={size}
-          backgroundColor={Theme.Colors.DarkSoul}
-        >
-          <Text
-            text={`${name.charAt(0)}${lastName.charAt(0)}`}
-            fontWeight="Semibold"
-            typography="subtitle"
-            textColor={Theme.Colors.White}
-            fontSize={45}
-            textAlign="left"
-            numberOfLines={1}
-            marginTop={20}
+    <Touchable onPress={onPress}>
+      <Container width="100%" height={size} middle style={{ zIndex: 1 }}>
+        {photo ? (
+          <FadeInImage
+            source={{ uri: photo }}
+            width={size}
+            height={size}
+            borderRadius={size}
+            fadeIn={fadeIn}
           />
-        </Container>
-      )}
-      {canEdit && onPress && (
-      <Container
-        middle
-        width={24}
-        height={24}
-        style={{
-          zIndex: 2,
-          backgroundColor: Theme.Colors.PlaceboBlue,
-          bottom: 20,
-          left: 30,
-          width: 24,
-          borderRadius: 10,
-          height: 24,
-        }}
-      >
-        <Touchable onPress={onPress}>
+        ) : (
+          <Container
+            center
+            circle
+            width={size}
+            height={size}
+            backgroundColor={Theme.Colors.DarkSoul}
+          >
+            <Text
+              text={`${name.charAt(0)}${lastName.charAt(0)}`}
+              fontWeight="Semibold"
+              typography="subtitle"
+              textColor={Theme.Colors.White}
+              fontSize={45}
+              textAlign="left"
+              numberOfLines={1}
+              marginTop={20}
+            />
+          </Container>
+        )}
+        {canEdit && onPress && (
+        <Container
+          middle
+          width={24}
+          height={24}
+          style={{
+            zIndex: 2,
+            backgroundColor: Theme.Colors.PlaceboBlue,
+            bottom: 20,
+            left: 30,
+            width: 24,
+            borderRadius: 10,
+            height: 24,
+          }}
+        >
           <EditIcon color={Theme.Colors.DarkSoul} height={16} width={16} />
-        </Touchable>
+        </Container>
+        )}
+        {withName && (
+        <Text
+          text={`${name}${lastName}`}
+          fontWeight="Semibold"
+          typography="subtitle"
+          textColor={Theme.Colors.DarkSoul}
+          fontSize={17}
+          textAlign="left"
+          numberOfLines={1}
+          marginTop={20}
+        />
+        )}
+        {withId && (
+        <Text
+          text={id}
+          fontWeight="Semibold"
+          typography="subtitle"
+          textColor={Theme.Colors.DarkSoul}
+          fontSize={17}
+          textAlign="left"
+          numberOfLines={1}
+          marginBottom={20}
+        />
+        )}
       </Container>
-      )}
-      {withName && (
-      <Text
-        text={`${name}${lastName}`}
-        fontWeight="Semibold"
-        typography="subtitle"
-        textColor={Theme.Colors.DarkSoul}
-        fontSize={17}
-        textAlign="left"
-        numberOfLines={1}
-        marginTop={20}
-      />
-      )}
-      {withId && (
-      <Text
-        text={id}
-        fontWeight="Semibold"
-        typography="subtitle"
-        textColor={Theme.Colors.DarkSoul}
-        fontSize={17}
-        textAlign="left"
-        numberOfLines={1}
-        marginBottom={20}
-      />
-      )}
-    </Container>
+    </Touchable>
   );
 };
 
