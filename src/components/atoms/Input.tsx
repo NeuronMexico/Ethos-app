@@ -52,6 +52,7 @@ interface Props {
   borderless?: boolean;
   paddingVertical?: number;
   borderRadius?: number;
+  material?: boolean;
 }
 
 const Input = forwardRef(({
@@ -88,6 +89,7 @@ const Input = forwardRef(({
   borderless = true,
   paddingVertical = 12,
   borderRadius = 12,
+  material,
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -98,6 +100,7 @@ const Input = forwardRef(({
 
   const [focused, setFocused] = useState<boolean>(false);
   const [secureTextEntry, setSecureTextEntry] = useState<boolean | undefined>(passwordField);
+  const [autoWidth, setAutoWidth] = useState<number>();
 
   const borderColor = useMemo(() => {
     if (error) {
@@ -106,7 +109,7 @@ const Input = forwardRef(({
         outputRange: [
           focused
             ? Theme.Colors.DarkSoul
-            : (borderless && Theme.Colors.DrWhite) || Theme.Colors.SparklingFrost,
+            : (borderless && !material && Theme.Colors.DrWhite) || Theme.Colors.SparklingFrost,
           Theme.Colors.HotCoral],
       });
     }
@@ -114,11 +117,11 @@ const Input = forwardRef(({
     return focusAnimation.interpolate({
       inputRange: [0, 1],
       outputRange: [
-        borderless ? Theme.Colors.DrWhite : Theme.Colors.SparklingFrost,
+        borderless && !material ? Theme.Colors.DrWhite : Theme.Colors.SparklingFrost,
         Theme.Colors.DarkSoul,
       ],
     });
-  }, [borderless, error, errorAnimation, focusAnimation, focused]);
+  }, [borderless, error, errorAnimation, focusAnimation, focused, material]);
 
   useEffect(() => {
     Animated.timing(focusAnimation, {
@@ -156,6 +159,9 @@ const Input = forwardRef(({
     returnKeyType: 'done',
     underlineColorAndroid: 'transparent',
     selectionColor: Theme.Colors.Carbon,
+    onContentSizeChange: ({ nativeEvent: { contentSize } }) => {
+      if (width === 'auto') setAutoWidth(contentSize.width);
+    },
     onFocus: (data) => {
       if (onFocus) onFocus(data);
       setFocused(true);
@@ -170,8 +176,8 @@ const Input = forwardRef(({
       color: Theme.Colors.DarkSoul,
       fontFamily: Theme.Fonts[fontWeight],
       fontSize,
-      paddingLeft: prefixIcon ? 8 : 16,
-      paddingRight: (passwordField && showPasswordEnable) || suffixIcon ? 8 : 16,
+      paddingLeft: material ? 0 : (prefixIcon && 8) || 16,
+      paddingRight: material ? 0 : (((passwordField && showPasswordEnable) || suffixIcon) && 8) || 16,
       paddingVertical,
     }],
     selection: !editable ? { start: 0, end: 0 } : undefined,
@@ -199,10 +205,16 @@ const Input = forwardRef(({
     showPasswordEnable,
     suffixIcon,
     paddingVertical,
+    onKeyPress,
+    material,
+    width,
   ]);
 
   return (
-    <Container style={[{ marginTop, width }]}>
+    <Container style={[{
+      marginTop, width: width !== 'auto' ? width : autoWidth, maxWidth: '100%', minWidth: 100,
+    }]}
+    >
       {!!label && (
         <Text
           text={label}
@@ -214,9 +226,12 @@ const Input = forwardRef(({
       )}
       <Animated.View style={{
         ...borderlessStyle,
-        backgroundColor: backgroundColor || (borderless && Theme.Colors.DrWhite) || Theme.Colors.White,
+        backgroundColor: material
+          ? 'transparent' : backgroundColor || (borderless && Theme.Colors.DrWhite) || Theme.Colors.White,
         borderColor,
-        borderRadius,
+        borderRadius: material ? 0 : borderRadius,
+        borderWidth: material ? 0 : 1,
+        borderBottomWidth: material ? 2 : 0,
       }}
       >
         <Container row>
