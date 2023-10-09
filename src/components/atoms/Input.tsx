@@ -53,6 +53,7 @@ interface Props {
   paddingVertical?: number;
   borderRadius?: number;
   material?: boolean;
+  minWidth?: number;
 }
 
 const Input = forwardRef(({
@@ -90,6 +91,7 @@ const Input = forwardRef(({
   paddingVertical = 12,
   borderRadius = 12,
   material,
+  minWidth,
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -212,7 +214,7 @@ const Input = forwardRef(({
 
   return (
     <Container style={[{
-      marginTop, width: width !== 'auto' ? width : autoWidth, maxWidth: '100%', minWidth: 100,
+      marginTop, width: width !== 'auto' ? width : autoWidth, maxWidth: '100%', minWidth,
     }]}
     >
       {!!label && (
