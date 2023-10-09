@@ -144,7 +144,8 @@
     "disableCard": "Deshabilitar tarjeta",
     "physicalCardDisabledSuccessfully": "Tarjeta física deshabilitada correctamente",
     "youCanRequestACardAgain": "Puedes solicitar una tarjeta nuevamente",
-    "requestNow": "Solicitar ahora"
+    "requestNow": "Solicitar ahora",
+    "desiredDepositAmount": "Monto que deseas depositar"
   },
   "alert": {
     "invoice": "Folio:",

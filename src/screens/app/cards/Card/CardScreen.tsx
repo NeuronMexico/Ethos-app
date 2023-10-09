@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
@@ -23,7 +23,7 @@ import {
 } from 'assets/svg';
 import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
-import { CardAction } from './components';
+import { CardAction, TransactionCard } from './components';
 
 const CARD_NUMBER = '4242 4242 4242 4242';
 
@@ -194,48 +194,5 @@ const CardScreen: React.FC<Props> = ({
     </Container>
   );
 };
-
-interface TransactionCardProps {
-  title: string;
-  description: string;
-  value: number;
-  category: string;
-  showTopBorder?: boolean;
-  onPress: () => void;
-}
-
-const TransactionCard: React.FC<TransactionCardProps> = ({
-  title, description, value, category, showTopBorder, onPress,
-}) => (
-  <Touchable onPress={onPress}>
-    <Container row style={[styles.transactionCard, { borderTopWidth: showTopBorder ? 1 : 0 }]}>
-      <Container style={styles.categoryIndicator} />
-      <Container flex space="between" style={{ marginHorizontal: 16 }}>
-        <Text text={title} typography="subtitle" fontWeight="Semibold" />
-        <Text text={description} typography="caption" textColor={Theme.Colors.GreatFalls} />
-      </Container>
-      <Text
-        text={formatQuantity(value)}
-        typography="subtitle"
-        fontWeight="Bold"
-        textColor={value < 0 ? Theme.Colors.SpringBouquet : Theme.Colors.DarkSoul}
-      />
-    </Container>
-  </Touchable>
-);
-
-const styles = StyleSheet.create({
-  transactionCard: {
-    borderBottomWidth: 1,
-    borderColor: Theme.Colors.PlaceboBlue,
-    paddingVertical: 16,
-  },
-  categoryIndicator: {
-    width: 11,
-    height: 40,
-    borderRadius: 10,
-    backgroundColor: Theme.Colors.SpringBouquet,
-  },
-});
 
 export default CardScreen;
