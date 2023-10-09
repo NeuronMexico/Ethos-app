@@ -16,6 +16,7 @@ export * from './PickerUI';
 export * from './BackButton';
 export * from './SwipeableSwitch';
 export * from './ProgressBar';
+export * from './QRCode';
 
 export {
   Text,
