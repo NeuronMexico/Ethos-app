@@ -233,7 +233,7 @@ const Input = forwardRef(({
         borderColor,
         borderRadius: material ? 0 : borderRadius,
         borderWidth: material ? 0 : 1,
-        borderBottomWidth: material ? 2 : 0,
+        borderBottomWidth: material ? 2 : 1,
       }}
       >
         <Container row>
