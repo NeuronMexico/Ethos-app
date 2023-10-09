@@ -33,6 +33,7 @@ import DirectAccessScreen from 'screens/preview/DirectAccessScreen';
 import SliderScreen from 'screens/preview/SliderScreen';
 import SwipeableSwitchScreen from 'screens/preview/SwipeableSwitchScreen';
 import IconsScreen from 'screens/preview/IconsScreen';
+import RadioButtonGroupScreen from 'screens/preview/RadioButtonGroupScreen';
 
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
@@ -70,6 +71,7 @@ const PreviewStack: React.FC = () => (
     <Stack.Screen name="Slider" component={SliderScreen} />
     <Stack.Screen name="SwipeableSwitch" component={SwipeableSwitchScreen} />
     <Stack.Screen name="Icons" component={IconsScreen} />
+    <Stack.Screen name="RadioButtonGroup" component={RadioButtonGroupScreen} />
   </Stack.Navigator>
 );
 

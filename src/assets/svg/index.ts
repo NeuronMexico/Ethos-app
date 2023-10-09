@@ -1,4 +1,5 @@
 import DefaultCard from './default-card.svg';
+import DefaultCardWithChip from './default-card-with-chip.svg';
 import MedCard from './med-card.svg';
 import BlueAvatar from './blue-avatar.svg';
 import RedAvatar from './red-avatar.svg';
@@ -84,6 +85,7 @@ export * from './XTwitterIcon';
 
 export {
   DefaultCard,
+  DefaultCardWithChip,
   MedCard,
   BlueAvatar,
   RedAvatar,

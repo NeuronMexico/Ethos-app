@@ -21,6 +21,7 @@ interface Props {
   label?: string;
   placeholder?: string;
   onChangeText: TextInputProps['onChangeText'];
+  onKeyPress?: TextInputProps['onKeyPress'];
   width?: ViewStyle['width'];
   autoCapitalize?: TextInputProps['autoCapitalize'];
   autoComplete?: TextInputProps['autoComplete'];
@@ -50,12 +51,14 @@ interface Props {
   useBottomSheetInput?: boolean;
   borderless?: boolean;
   paddingVertical?: number;
+  borderRadius?: number;
 }
 
 const Input = forwardRef(({
   label = '',
   placeholder = '',
   onChangeText,
+  onKeyPress,
   width = '100%',
   autoCapitalize = 'none',
   autoComplete = 'off',
@@ -84,6 +87,7 @@ const Input = forwardRef(({
   useBottomSheetInput,
   borderless = true,
   paddingVertical = 12,
+  borderRadius = 12,
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -146,6 +150,7 @@ const Input = forwardRef(({
     keyboardType,
     maxLength,
     onChangeText,
+    onKeyPress,
     onSubmitEditing,
     value,
     returnKeyType: 'done',
@@ -211,6 +216,7 @@ const Input = forwardRef(({
         ...borderlessStyle,
         backgroundColor: backgroundColor || (borderless && Theme.Colors.DrWhite) || Theme.Colors.White,
         borderColor,
+        borderRadius,
       }}
       >
         <Container row>

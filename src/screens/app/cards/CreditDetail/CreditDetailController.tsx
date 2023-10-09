@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
-import CardsScreen from './CardsScreen';
+import CreditDetailScreen from './CreditDetailScreen';
 
-const CardsController: React.FC = () => {
+const CreditDetailController: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
     <SafeArea>
-      <CardsScreen />
+      <CreditDetailScreen />
     </SafeArea>
   );
 };
 
-export default CardsController;
+export default CreditDetailController;
