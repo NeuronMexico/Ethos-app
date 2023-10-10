@@ -15,6 +15,7 @@ export interface CheckBoxFieldProps extends CheckBoxProps {
   marginVertical?: number;
   customLabel?: ReactElement;
   position?: 'left' | 'right';
+  centerCheckbox?: boolean;
 }
 
 const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
@@ -34,13 +35,14 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
   type,
   customLabel,
   position = 'left',
+  centerCheckbox = true,
 }: CheckBoxFieldProps) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (
     <Container style={{ marginVertical }}>
       <Touchable onPress={() => onChange(!selected)} opacityEffect>
-        <Container row center={centerText}>
+        <Container row center={centerText && centerCheckbox}>
           {position === 'left' && (
           <CheckBox
             selected={selected}

@@ -1,17 +1,16 @@
 import React from 'react';
 import { Container, RadioButtonField, RadioButtonFieldProps } from 'components';
 
-export type RadioButtonGroupOption = {
-  label: string;
+export interface RadioButtonGroupOption extends Omit<RadioButtonFieldProps, 'selected' | 'onChange' | 'value'> {
   value: string;
-};
+  suffixValue?: string;
+}
 
-interface Props extends Omit<RadioButtonFieldProps, 'label' | 'selected' | 'onChange' | 'value'> {
+interface Props extends Omit<RadioButtonFieldProps, 'label' | 'selected' | 'onChange' | 'value' | 'caption'> {
   value: string;
   options: Array<RadioButtonGroupOption>;
   spaceBetweenElements?: number;
   onChange: (value: string) => void;
-  suffixValue?: string;
   marginVertical?: number;
 }
 
@@ -23,12 +22,12 @@ const RadioButtonGroup: React.FC<Props> = ({
   fontSize,
   fontWeight,
   typography,
-  caption,
-  suffixValue,
   marginVertical = 24,
 }) => (
   <Container style={{ marginVertical }}>
-    {options.map(({ label, value: optionValue }, index) => (
+    {options.map(({
+      label, value: optionValue, caption, suffixValue,
+    }, index) => (
       <Container key={index} style={{ marginTop: index === 0 ? 0 : spaceBetweenElements }}>
         <RadioButtonField
           label={label}
