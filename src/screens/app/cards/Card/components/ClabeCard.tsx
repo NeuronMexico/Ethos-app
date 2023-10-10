@@ -21,7 +21,7 @@ const ClabeCard: React.FC<Props> = ({ clabe }) => {
 
   return (
     <Container row space="between" center style={styles.clabeContainer}>
-      <Text text={t('cards:clabe')} typography="caption" />
+      <Container width={24} />
       <Text text={clabe} typography="header" />
       <Touchable onPress={copyToClipboard} hitSlop={15}>
         <CopyIcon />

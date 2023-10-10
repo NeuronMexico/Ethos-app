@@ -36,8 +36,20 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   }, [bottomSheet, cardOn, t]);
 
   const onPressPayCard = useCallback(async () => {
-    bottomSheet.show(<PayCardBottomSheetContent />, { title: t('cards:payViaSpei'), titleAlign: 'left' });
-  }, [bottomSheet, t]);
+    bottomSheet.show(
+      <PayCardBottomSheetContent
+        onPressCashPayment={() => {
+          bottomSheet.hide();
+          navigation.navigate('CashPayment');
+        }}
+        onPressDirectDebitPayment={() => {
+          bottomSheet.hide();
+          navigation.navigate('DomiciliaryPayment');
+        }}
+      />,
+      { title: t('cards:payViaSpei'), titleAlign: 'left' },
+    );
+  }, [bottomSheet, navigation, t]);
 
   const onPressDigitalCard = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });

@@ -25,7 +25,7 @@ import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
 import { CardAction, TransactionCard } from './components';
 
-const CARD_NUMBER = '4242 4242 4242 4242';
+const CARD_NUMBER = '8438 2849 3923 3334';
 
 interface Props {
   onPressRequestCard: () => void;
@@ -88,11 +88,11 @@ const CardScreen: React.FC<Props> = ({
         </Container>
 
         <Container row style={{ marginTop: 24 }}>
-          <Container flex style={{ marginRight: 4 }}>
+          <Container flex={1.5} style={{ marginRight: 4 }}>
             <Text text={formatQuantity(3957)} typography="caption" fontWeight="Bold" />
             <Text text={t('cards:paymentNoInterest')} typography="caption" fontWeight="Regular" marginTop={8} />
           </Container>
-          <Container flex style={{ marginHorizontal: 4 }}>
+          <Container flex={1.5} style={{ marginHorizontal: 4 }}>
             <Text
               text={formatDate(new Date(), 'MMMM d, yyyy')}
               typography="caption"

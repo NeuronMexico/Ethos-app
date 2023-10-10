@@ -27,16 +27,6 @@ const TabBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   return (
     <Container style={[styles.tabBar, { paddingBottom: insets.bottom + 5, paddingTop: 5 }]}>
       <Container row>
-        {/* <TabBarIcon
-          name={state.routes[0].name}
-          active={state.index === 0}
-          onPress={() => onPressTab(state.routes[0].name, 0)}
-        />
-        <TabBarIcon
-          name={state.routes[1].name}
-          active={state.index === 1}
-          onPress={() => onPressTab(state.routes[1].name, 1)}
-        /> */}
         {state.routes.map(({ name }, index) => (
           <TabBarIcon
             key={index}
@@ -65,7 +55,11 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({
     switch (name) {
       case 'EthosCreditStack':
         return {
-          icon: <EthosIcon color={active ? Theme.Colors.SpringBouquet : Theme.Colors.Encore} />,
+          icon: (
+            <Container height={24}>
+              <EthosIcon color={active ? Theme.Colors.SpringBouquet : Theme.Colors.Encore} />
+            </Container>
+          ),
           label: t('tabBar:ethosCredit'),
         };
       case 'CardsStack':

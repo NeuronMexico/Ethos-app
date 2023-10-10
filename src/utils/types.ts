@@ -35,6 +35,9 @@ export type CardsGlobalStackParams = {
   ChangePin: undefined;
   CreditDetail: undefined;
   CardReport: undefined;
+  CashPayment: undefined;
+  Establishments: undefined;
+  DomiciliaryPayment: undefined;
 };
 
 export type AppStackParams = {

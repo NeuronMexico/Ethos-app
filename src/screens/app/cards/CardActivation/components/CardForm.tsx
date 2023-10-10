@@ -71,6 +71,7 @@ const CardForm: React.FC<Props> = ({ onSubmit }) => {
         onChangeText={setCardNumber}
         autoComplete="cc-number"
         blurOnSubmit={false}
+        keyboardType="numeric"
         error={cardNumberError}
         mask="credit-card"
         options={{ issuer: 'visa-or-mastercard' }}
@@ -87,6 +88,7 @@ const CardForm: React.FC<Props> = ({ onSubmit }) => {
             onChangeText={setExpirationDate}
             autoComplete="cc-exp"
             blurOnSubmit={false}
+            keyboardType="numeric"
             error={expirationDateError}
             mask="datetime"
             options={{ format: 'MM / YY' }}
@@ -103,6 +105,7 @@ const CardForm: React.FC<Props> = ({ onSubmit }) => {
             onChangeText={setSecurityCode}
             autoComplete="cc-csc"
             blurOnSubmit={false}
+            keyboardType="numeric"
             maxLength={3}
             error={securityCodeError}
             onSubmitEditing={() => securityCodeValidation() && securityCodeRef.current?.blur()}

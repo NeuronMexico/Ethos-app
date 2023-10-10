@@ -44,7 +44,7 @@ const TransactionBottomSheetContent: React.FC<Props> = (props: Props) => {
       <Container row width="100%" style={{ marginBottom: 16 }}>
         <Container flex style={{ marginRight: 6 }}>
           <Button
-            label={t('cards:uploadInvoice')}
+            label={t('cards:uploadTicket')}
             colorless
             borderStyle
             borderColor={Theme.Colors.NimbusCloud}
@@ -55,7 +55,7 @@ const TransactionBottomSheetContent: React.FC<Props> = (props: Props) => {
         </Container>
         <Container flex style={{ marginLeft: 6 }}>
           <Button
-            label={t('cards:uploadTicket')}
+            label={t('cards:uploadInvoice')}
             colorless
             borderStyle
             borderColor={Theme.Colors.NimbusCloud}

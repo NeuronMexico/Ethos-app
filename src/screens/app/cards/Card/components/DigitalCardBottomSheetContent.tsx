@@ -33,7 +33,7 @@ const DigitalCardBottomSheetContent: React.FC<Props> = (props: Props) => {
 
   return (
     <Container>
-      <ClabeCard clabe="8584 3828 4939 233334" />
+      <ClabeCard clabe="8438 2849 3923 3334" />
       <Container middle>
         <Text text={t('cards:validUntil')} typography="caption" />
         <Text text="15/29" typography="header" fontWeight="Bold" marginTop={8} />
