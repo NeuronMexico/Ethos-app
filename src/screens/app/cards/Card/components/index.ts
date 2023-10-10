@@ -1,4 +1,4 @@
-export * from './ClabeCard';
+export * from './NumberCard';
 export * from './CardAction';
 export * from './TurnOffCardBottomSheetContent';
 export * from './PayCardBottomSheetContent';

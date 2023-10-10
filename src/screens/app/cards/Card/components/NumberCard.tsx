@@ -8,21 +8,22 @@ import Theme from 'theme';
 import { CopyIcon } from 'assets/svg';
 
 interface Props {
-  clabe: string;
+  number: string;
+  showClabeLabel?: boolean;
 }
 
-const ClabeCard: React.FC<Props> = ({ clabe }) => {
+const ClabeCard: React.FC<Props> = ({ number, showClabeLabel = true }) => {
   const { t } = useTranslation();
 
   const copyToClipboard = useCallback(() => {
-    Clipboard.setString(clabe);
+    Clipboard.setString(number);
     Toast.show(t('cards:numberCopiedToClipboard'), Toast.SHORT);
-  }, [clabe, t]);
+  }, [number, t]);
 
   return (
     <Container row space="between" center style={styles.clabeContainer}>
-      <Container width={24} />
-      <Text text={clabe} typography="header" />
+      {showClabeLabel ? <Text text={t('cards:clabe')} typography="caption" /> : <Container width={24} />}
+      <Text text={number} typography="header" />
       <Touchable onPress={copyToClipboard} hitSlop={15}>
         <CopyIcon />
       </Touchable>
