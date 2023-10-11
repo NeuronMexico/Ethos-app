@@ -163,7 +163,10 @@
     "ofCreditCardPaymentDirectDebit": "de domiciliación de pago de TDC",
     "directDebitInProgress": "Domiciliación en proceso",
     "originAccount": "Cuenta CLABE origen",
-    "cardToBePaid": "TDC a pagar"
+    "cardToBePaid": "TDC a pagar",
+    "slideToAdjustYourNewCreditLimit": "Desliza para ajustar tu nuevo límite de crédito",
+    "currentLimit": "Límite actual",
+    "creditLineIncreasedCongratulations": "¡Felicidades! Se ha incrementado tu línea de crédito a"
   },
   "alert": {
     "invoice": "Folio:",

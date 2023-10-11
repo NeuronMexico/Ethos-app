@@ -38,6 +38,8 @@ export type CardsGlobalStackParams = {
   CashPayment: undefined;
   Establishments: undefined;
   DomiciliaryPayment: undefined;
+  AccountStatement: undefined;
+  PDFViewer: undefined;
 };
 
 export type AppStackParams = {

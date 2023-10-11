@@ -11,6 +11,8 @@ import CardReportController from 'screens/app/cards/CardReport/CardReportControl
 import CashPaymentController from 'screens/app/cards/CashPayment/CashPaymentController';
 import EstablishmentsController from 'screens/app/cards/Establishments/EstablishmentsController';
 import DomiciliaryPaymentController from 'screens/app/cards/DomiciliaryPayment/DomiciliaryPaymentController';
+import AccountStatementController from 'screens/app/cards/AccountStatement/AccountStatementController';
+import PDFViewerController from 'screens/app/cards/PDFViewer/PDFViewerController';
 
 const Stack = createNativeStackNavigator<CardsGlobalStackParams>();
 
@@ -26,6 +28,8 @@ const CardsGlobalStack: React.FC = () => (
     <Stack.Screen name="CashPayment" component={CashPaymentController} />
     <Stack.Screen name="Establishments" component={EstablishmentsController} />
     <Stack.Screen name="DomiciliaryPayment" component={DomiciliaryPaymentController} />
+    <Stack.Screen name="AccountStatement" component={AccountStatementController} />
+    <Stack.Screen name="PDFViewer" component={PDFViewerController} />
   </Stack.Navigator>
 );
 

@@ -3,11 +3,12 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import { useDispatch } from 'reactRedux';
-import { SafeArea } from 'components';
-import { CardsGlobalStackParams } from 'utils';
-import { useBottomSheet } from 'context';
+import { SafeArea, Text } from 'components';
+import { CardsGlobalStackParams, formatQuantity, sleep } from 'utils';
+import { useAlert, useBottomSheet } from 'context';
 import CardScreen from './CardScreen';
 import {
+  CreditLineIncreaseBottomSheetContent,
   DigitalCardBottomSheetContent,
   PayCardBottomSheetContent,
   PinBottomSheetContent,
@@ -25,6 +26,7 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   const { t } = useTranslation();
 
   const bottomSheet = useBottomSheet();
+  const alert = useAlert();
 
   const [cardOn, setCardOn] = useState<boolean>(true);
 
@@ -61,21 +63,48 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   const onPressPin = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
     if (result.success) {
-      bottomSheet.show(<PinBottomSheetContent onPressChangePin={() => {
-        bottomSheet.hide();
-        navigation.navigate('ChangePin');
-      }}
-      />);
+      bottomSheet.show(
+        <PinBottomSheetContent onPressChangePin={() => {
+          bottomSheet.hide();
+          navigation.navigate('ChangePin');
+        }}
+        />,
+      );
     }
   }, [bottomSheet, navigation, t]);
 
   const onPressSeeMore = useCallback(async () => {
-    bottomSheet.show(<SeeMoreBottomSheetContent onPressCreditDetail={() => {
-      bottomSheet.hide();
-      navigation.navigate('CreditDetail');
-    }}
-    />);
-  }, [bottomSheet, navigation]);
+    bottomSheet.show(
+      <SeeMoreBottomSheetContent
+        onPressCreditDetail={() => {
+          bottomSheet.hide();
+          navigation.navigate('CreditDetail');
+        }}
+        onPressCreditLineIncrease={async () => {
+          bottomSheet.hide();
+          await sleep(500);
+          bottomSheet.show(
+            <CreditLineIncreaseBottomSheetContent
+              onSubmit={(newLimit) => {
+                bottomSheet.hide();
+                alert.show({
+                  title: t('cards:creditLineIncreasedCongratulations'),
+                  invoice: '58432',
+                  date: new Date(),
+                  checkmark: true,
+                  extraInfo: <Text text={formatQuantity(newLimit)} fontSize={24} fontWeight="Bold" textAlign="center" />,
+                });
+              }}
+            />,
+          );
+        }}
+        onPressAccountStatement={() => {
+          bottomSheet.hide();
+          navigation.navigate('AccountStatement');
+        }}
+      />,
+    );
+  }, [alert, bottomSheet, navigation, t]);
 
   const onPressTransaction = useCallback(async () => {
     bottomSheet.show(<TransactionBottomSheetContent />);
