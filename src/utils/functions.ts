@@ -51,3 +51,7 @@ export function calculateSnapPoints(containerRef: RefObject<View>): Promise<Arra
 export function isDigit(character: string): boolean {
   return /^\d$/.test(character);
 }
+
+export function capitalize(text: string): string {
+  return text.replace(/\b\w/g, (char) => char.toUpperCase());
+}

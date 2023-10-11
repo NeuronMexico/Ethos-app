@@ -6,9 +6,15 @@ import { CardAction } from './CardAction';
 
 interface Props {
   onPressCreditDetail: () => void;
+  onPressCreditLineIncrease: () => void;
+  onPressAccountStatement: () => void;
 }
 
-const SeeMoreBottomSheetContent: React.FC<Props> = ({ onPressCreditDetail }) => {
+const SeeMoreBottomSheetContent: React.FC<Props> = ({
+  onPressCreditDetail,
+  onPressCreditLineIncrease,
+  onPressAccountStatement,
+}) => {
   const { t } = useTranslation();
 
   return (
@@ -18,7 +24,7 @@ const SeeMoreBottomSheetContent: React.FC<Props> = ({ onPressCreditDetail }) => 
         icon={<GraphIcon />}
         width={105}
         marginHorizontal={6}
-        onPress={() => {}}
+        onPress={onPressCreditLineIncrease}
       />
       <CardAction
         label={t('cards:creditDetail')}
@@ -32,7 +38,7 @@ const SeeMoreBottomSheetContent: React.FC<Props> = ({ onPressCreditDetail }) => 
         icon={<PaperIcon />}
         width={75}
         marginHorizontal={6}
-        onPress={() => {}}
+        onPress={onPressAccountStatement}
       />
     </Container>
   );
