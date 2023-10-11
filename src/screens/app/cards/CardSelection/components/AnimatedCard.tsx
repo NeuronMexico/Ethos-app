@@ -5,7 +5,7 @@ import Animated, {
   interpolate, useAnimatedStyle, useSharedValue, withTiming,
 } from 'react-native-reanimated';
 import { Container, Text, Touchable } from 'components';
-import { CardReverse, DefaultCardWithChip } from 'assets/svg';
+import { DefaultCardWithChip } from 'assets/svg';
 import Theme from 'theme';
 import { ReanimatedEasing } from 'utils';
 import { CARD_REVERSE } from 'assets/images';
