@@ -33,6 +33,10 @@ const Colors = {
   WelshOnion: '#22C55E',
   Sambucus: '#111827',
   SpanishGray: '#979797',
+  Black: '#000000',
+  BoysenberryShadow: '#F0F3F9',
+  UltramarineViolet68: '#192B59AD',
+  Husky80: '#E2E9FCCC',
 };
 
 export default Colors;

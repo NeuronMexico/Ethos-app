@@ -39,7 +39,8 @@ const DigitalCardBottomSheetContent: React.FC<Props> = (props: Props) => {
         <Text text="15/29" typography="header" fontWeight="Bold" marginTop={8} />
       </Container>
 
-      <Container middle style={styles.cvvContainer}>
+      <Container row middle style={styles.cvvContainer}>
+        <Text text={t('cards:cvv')} typography="caption" marginRight={8} />
         <Text text="783" typography="header" textColor={Theme.Colors.Sambucus} />
       </Container>
 

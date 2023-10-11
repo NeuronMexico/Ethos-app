@@ -28,11 +28,12 @@ const CardActivationScreen: React.FC<Props> = ({ onSubmit }) => {
           borderRadius={24}
           borderColor={Theme.Colors.PlaceboBlue}
           labelColor={Theme.Colors.DarkSoul}
-          marginBottom={16}
           icon={<Container style={styles.iconContainer}><ScanIcon /></Container>}
           alignContent="flex-start"
           androidRippleColor={Theme.Colors.DarkSoul}
         />
+
+        <Text text={`-${t('cards:or')}-`} typography="header" marginVertical={16} textAlign="center" />
 
         <Text text={t('cards:enterCardDetails')} typography="header" />
         <CardForm onSubmit={onSubmit} />

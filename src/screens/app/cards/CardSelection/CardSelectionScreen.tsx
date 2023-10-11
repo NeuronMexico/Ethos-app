@@ -2,15 +2,16 @@ import React, {
   useCallback, useMemo, useRef, useState,
 } from 'react';
 import {
-  Button, Container, DotIndicator, Header, Text,
+  Button, Container, DotIndicator, Header, Text, Touchable,
 } from 'components';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
-import { DefaultCardWithChip } from 'assets/svg';
+import { FlipIcon } from 'assets/svg';
 import { formatQuantity } from 'utils';
 import {
-  FlatList, NativeScrollEvent, NativeSyntheticEvent, StyleSheet,
+  FlatList, NativeScrollEvent, NativeSyntheticEvent,
 } from 'react-native';
+import { AnimatedCard } from './components';
 
 const CARD_OPTIONS = [
   {
@@ -39,6 +40,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
   const itemWidthRef = useRef<number>(0);
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [flipCard, setFlipCard] = useState<Array<boolean>>([true, true]);
 
   const selectedCard = useMemo(() => CARD_OPTIONS[selectedIndex], [selectedIndex]);
 
@@ -48,12 +50,18 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
     setSelectedIndex(roundIndex);
   }, []);
 
+  const onFlipCard = useCallback((index = selectedIndex) => {
+    const auxFlip = [...flipCard];
+    auxFlip[index] = !auxFlip[index];
+    setFlipCard(auxFlip);
+  }, [flipCard, selectedIndex]);
+
   return (
     <Container flex>
       <Header title={t('cards:selectLayout')} backButtonBorderless />
       <Container flex style={{ marginTop: Theme.Sizes.MarginTop }}>
         <Text
-          text={selectedCard.includesName ? t('cards:blueWithName') : t('cards:blueWithoutName')}
+          text={selectedCard.includesName ? t('cards:customBlue') : t('cards:plainBlue')}
           textAlign="center"
           typography="header"
           marginBottom={32}
@@ -66,14 +74,9 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ marginHorizontal: -9, marginBottom: 32, paddingHorizontal: Theme.Sizes.Padding }}
             onScroll={onScroll}
-            renderItem={({ item: { includesName } }) => (
+            renderItem={({ item: { includesName }, index }) => (
               <Container onLayout={({ nativeEvent: { layout } }) => { itemWidthRef.current = layout.width; }}>
-                <DefaultCardWithChip style={{ alignSelf: 'center', marginHorizontal: 9 }} />
-                {includesName && (
-                <Container style={styles.nameContainer}>
-                  <Text text="Mario Bárcenas" typography="caption" textColor={Theme.Colors.White} />
-                </Container>
-                )}
+                <AnimatedCard flip={flipCard[index]} includesName={includesName} onPressCard={() => onFlipCard(index)} />
               </Container>
             )}
           />
@@ -82,6 +85,13 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
             currentIndex={selectedIndex}
             inactiveColor={Theme.Colors.White}
           />
+          <Touchable
+            hitSlop={10}
+            onPress={() => onFlipCard()}
+            marginTop={32}
+          >
+            <FlipIcon />
+          </Touchable>
         </Container>
         <Container flex style={{ paddingHorizontal: Theme.Sizes.Padding }}>
           <Container flex alignment="end">
@@ -132,13 +142,5 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  nameContainer: {
-    position: 'absolute',
-    left: 40,
-    bottom: 18,
-  },
-});
 
 export default CardSelectionScreen;
