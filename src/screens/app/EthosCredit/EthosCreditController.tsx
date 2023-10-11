@@ -41,6 +41,7 @@ const EthosCreditController: React.FC = () => {
         onPressShortcuts={() => navigate('HomeGlobalStack', { screen: 'Shortcuts' })}
         onPressShortcut={onPressShortcut}
         onPressProfile={() => navigate('ProfileStack', { screen: 'Profile' })}
+        onPressNotifications={() => navigate('NotificationStack', { screen: 'Notifications' })}
       />
     </SafeArea>
   );

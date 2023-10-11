@@ -44,6 +44,8 @@ export type AppStackParams = {
   TabNavigator: undefined;
   CardsGlobalStack: undefined;
   HomeGlobalStack: undefined;
+  ProfileStack: undefined;
+  NotificationStack: undefined;
 };
 
 export type HomeGlobalStackParams = {
@@ -113,6 +115,11 @@ export type ProfileStackParams = {
     type: string;
     value: string
   };
+};
+
+export type NotificationStackParams = {
+  Notifications: undefined;
+  NotificationSettings: undefined;
 };
 
 export type FileType = {
