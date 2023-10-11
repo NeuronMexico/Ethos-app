@@ -1,8 +1,9 @@
 import React from 'react';
 import { Switch, Text } from 'components/atoms';
+import Theme from 'theme';
+import { ColorValue } from 'react-native';
 import { FontWeightTypes } from '../atoms/CustomText';
-import { Container } from '../atoms/Container';
-import { Touchable } from '../atoms/Touchable';
+import { Container, Touchable } from '../atoms';
 
 interface Props {
   label: string;
@@ -10,6 +11,8 @@ interface Props {
   onChange: (value: boolean) => void;
   fontWeight?: FontWeightTypes;
   fontSize?: number;
+  borderBottom?: boolean;
+  borderBottomColor?: ColorValue;
 }
 
 const SwitchField: React.FC<Props> = ({
@@ -18,8 +21,15 @@ const SwitchField: React.FC<Props> = ({
   onChange,
   fontWeight = 'Semibold',
   fontSize = 16,
+  borderBottom = false,
+  borderBottomColor = Theme.Colors.PlaceboBlue,
 }: Props) => (
-  <Container style={{ padding: 16 }}>
+  <Container style={{
+    padding: 16,
+    borderBottomWidth: borderBottom ? 1 : 0,
+    borderBottomColor,
+  }}
+  >
     <Touchable onPress={() => onChange(!active)} opacityEffect>
       <Container row center>
         <Container flex>
