@@ -99,8 +99,8 @@
     "securityCode": "Código de seguridad",
     "activate": "Activar",
     "cardActivatedSuccessfully": "Tarjeta activada correctamente",
-    "blueWithName": "Azul con nombre",
-    "blueWithoutName": "Azul sin nombre",
+    "customBlue": "Azul personalizada",
+    "plainBlue": "Azul sin personalizar",
     "payViaSpei": "Pagar vía SPEI",
     "clabe": "CLABE",
     "beneficiary": "Beneficiario",
@@ -166,7 +166,9 @@
     "cardToBePaid": "TDC a pagar",
     "slideToAdjustYourNewCreditLimit": "Desliza para ajustar tu nuevo límite de crédito",
     "currentLimit": "Límite actual",
-    "creditLineIncreasedCongratulations": "¡Felicidades! Se ha incrementado tu línea de crédito a"
+    "creditLineIncreasedCongratulations": "¡Felicidades! Se ha incrementado tu línea de crédito a",
+    "cvv": "CVV",
+    "or": "o"
   },
   "alert": {
     "invoice": "Folio:",

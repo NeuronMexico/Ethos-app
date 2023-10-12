@@ -43,6 +43,7 @@ export * from './FileShiedIcon';
 export * from './FileUploadIcon';
 export * from './FilmIcon';
 export * from './FilterIcon';
+export * from './FlipIcon';
 export * from './GamepadIcon';
 export * from './GearIcon';
 export * from './GraphIcon';
