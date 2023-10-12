@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
 
 interface Props {
-  onPressSettings?: () => void;
-  onPressNotification?: (date: any, notification: any) => void;
+  onPressSettings: () => void;
+  onPressNotification: (date: any, notification: any) => void;
 }
 
 const NotificationsScreen: React.FC<Props> = ({
@@ -95,7 +95,7 @@ const NotificationsScreen: React.FC<Props> = ({
             {date.notifications.map((notification, nIndex) => (
               <MultipleTextButton
                 key={nIndex}
-                onPress={() => onPressNotification(date, notification)}
+                onPress={() => { onPressNotification(date, notification); }}
                 title={notification.title || ''}
                 rightText={notification.type === 'paymentRequest' ? notification.amount : ''}
                 borderColor={Theme.Colors.PlaceboBlue}
