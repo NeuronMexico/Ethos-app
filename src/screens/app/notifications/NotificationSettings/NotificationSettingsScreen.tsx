@@ -1,5 +1,5 @@
 import { Container, Header, SwitchField } from 'components';
-import { CustomText } from 'components/atoms/CustomText';
+import { CustomText as Text } from 'components/atoms/CustomText';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
@@ -16,7 +16,7 @@ const NotificationSettingsScreen: React.FC = () => {
   return (
     <Container style={{ marginHorizontal: Theme.Sizes.Padding }}>
       <Header title={t('notifications:titlePage')} />
-      <CustomText
+      <Text
         text={t('notifications:sendNotificationsBy')}
         marginTop={32}
         marginBottom={16}
@@ -39,7 +39,7 @@ const NotificationSettingsScreen: React.FC = () => {
         onChange={setEmailNotifications}
         borderBottom
       />
-      <CustomText
+      <Text
         text={t('notifications:sendNotificationsBy')}
         marginTop={32}
         marginBottom={16}

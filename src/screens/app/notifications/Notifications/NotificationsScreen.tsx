@@ -1,6 +1,6 @@
 import { GearIcon } from 'assets/svg';
 import { Container, Header, MultipleTextButton } from 'components';
-import { CustomText } from 'components/atoms/CustomText';
+import { CustomText as Text } from 'components/atoms/CustomText';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
@@ -85,7 +85,7 @@ const NotificationsScreen: React.FC<Props> = ({
       <Container style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 16 }}>
         {mockData.map((date, index) => (
           <React.Fragment key={index}>
-            <CustomText
+            <Text
               text={date.date}
               textColor={Theme.Colors.GreatFalls}
               fontWeight="Medium"

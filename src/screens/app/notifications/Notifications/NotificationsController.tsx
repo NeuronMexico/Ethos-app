@@ -8,7 +8,7 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { NotificationStackParams } from 'utils';
 import { useBottomSheet } from 'context';
 import { useTranslation } from 'react-i18next';
-import { CustomText } from 'components/atoms/CustomText';
+import { CustomText as Text } from 'components/atoms/CustomText';
 import Theme from 'theme';
 import { FileUploadIcon, ShieldIcon } from 'assets/svg';
 import NotificationsScreen from './NotificationsScreen';
@@ -22,40 +22,40 @@ const NotificationsController: React.FC = () => {
 
   const content = (date: any, notification: any) => (
     <Container center style={{ gap: 16 }}>
-      <CustomText
+      <Text
         text={date.date}
         textColor={Theme.Colors.GreatFalls}
         fontWeight="Medium"
         marginTop={16}
       />
-      <CustomText
+      <Text
         text={notification.amount || ''}
         fontWeight="Bold"
         fontSize={34}
       />
-      <CustomText
+      <Text
         text={notification.nameDetail || ''}
         fontWeight="Bold"
         fontSize={17}
       />
       <Container row flex style={{ justifyContent: 'space-between', width: '60%' }}>
         <Container>
-          <CustomText
+          <Text
             text={t('notifications:retirementAccount')}
             fontSize={13}
           />
-          <CustomText
+          <Text
             text={notification.cardLastDigits || ''}
             fontWeight="Bold"
             fontSize={17}
           />
         </Container>
         <Container>
-          <CustomText
+          <Text
             text={t('notifications:state')}
             fontSize={13}
           />
-          <CustomText
+          <Text
             text={notification.status || ''}
             fontWeight="Bold"
             fontSize={17}
@@ -104,49 +104,49 @@ const NotificationsController: React.FC = () => {
 
   const paymentRequestContent = (notification: any) => (
     <Container flex center style={{ gap: 16 }}>
-      <CustomText
+      <Text
         text={t('notifications:paymentRequestTitle')}
         fontWeight="Bold"
         fontSize={20}
         marginBottom={16}
       />
-      <CustomText
+      <Text
         text={notification.name || ''}
         fontWeight="Bold"
         fontSize={17}
       />
-      <CustomText
+      <Text
         text={t('notifications:concept')}
         fontSize={13}
       />
-      <CustomText
+      <Text
         text={notification.concept || ''}
         fontWeight="Bold"
         fontSize={17}
       />
-      <CustomText
+      <Text
         text={t('notifications:clabe')}
         fontSize={13}
       />
-      <CustomText
+      <Text
         text={notification.cardLastDigits || ''}
         fontWeight="Bold"
         fontSize={17}
       />
-      <CustomText
+      <Text
         text={t('notifications:bank')}
         fontSize={13}
       />
-      <CustomText
+      <Text
         text={notification.bank || ''}
         fontWeight="Bold"
         fontSize={17}
       />
-      <CustomText
+      <Text
         text={t('notifications:amount')}
         fontSize={13}
       />
-      <CustomText
+      <Text
         text={notification.amount || ''}
         fontWeight="Bold"
         fontSize={34}
