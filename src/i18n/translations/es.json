@@ -190,7 +190,9 @@
     "confirm": "Confirmar",
     "save": "Guardar",
     "new": "Nuevo",
-    "confirmYourIdentity": "Confirma que eres tú"
+    "confirmYourIdentity": "Confirma que eres tú",
+    "pay": "Pagar",
+    "decline": "Rechazar"
   },
   "profile": {
     "titleStack": "Perfil",
@@ -228,5 +230,28 @@
     "emailResponseTitle": "Correo electrónico cambiado correctamente",
     "phoneResponseTitle": "Número celular cambiado correctamente",
     "aliasResponseTitle": "Alias cambiado correctamente"
+  },
+  "notifications": {
+    "titlePage": "Notificaciones",
+    "newPaymentRequest": "Nueva solicitud de pago",
+    "pushNotifications": "Notificaciones push",
+    "sms": "SMS",
+    "email": "Correo electrónico",
+    "transactions": "Transacciones",
+    "promotions": "Promociones",
+    "travelAndExpenses": "T&E",
+    "sendNotificationsBy": "Enviar notificación por",
+    "notificationsYouWantToReceive": "Notificaciones que deseas recibir",
+    "paymentRequestTitle": "Solicitud de pago",
+    "concept": "Concepto",
+    "bank": "Banco",
+    "clabe": "CLABE",
+    "amount": "Cantidad",
+    "retirementAccount": "Cuenta de retiro",
+    "state": "Estado",
+    "uploadTicket":"Subir ticket",
+    "uploadInvoice": "Subir factura",
+    "reportMovement": "Reportar movimiento",
+    "assignTags": "Asignar etiquetas"
   }
 }
