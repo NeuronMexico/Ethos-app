@@ -1,18 +1,18 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CardsGlobalStackParams } from 'utils';
-import CardController from 'screens/app/cards/Card/CardController';
-import CardSelectionController from 'screens/app/cards/CardSelection/CardSelectionController';
-import CardShippingController from 'screens/app/cards/CardShipping/CardShippingController';
-import CardActivationController from 'screens/app/cards/CardActivation/CardActivationController';
-import ChangePinController from 'screens/app/cards/ChangePin/ChangePinController';
-import CreditDetailController from 'screens/app/cards/CreditDetail/CreditDetailController';
-import CardReportController from 'screens/app/cards/CardReport/CardReportController';
-import CashPaymentController from 'screens/app/cards/CashPayment/CashPaymentController';
-import EstablishmentsController from 'screens/app/cards/Establishments/EstablishmentsController';
-import DomiciliaryPaymentController from 'screens/app/cards/DomiciliaryPayment/DomiciliaryPaymentController';
-import AccountStatementController from 'screens/app/cards/AccountStatement/AccountStatementController';
-import PDFViewerController from 'screens/app/cards/PDFViewer/PDFViewerController';
+import CardController from 'screens/app/Cards/Card/CardController';
+import CardSelectionController from 'screens/app/Cards/CardSelection/CardSelectionController';
+import CardShippingController from 'screens/app/Cards/CardShipping/CardShippingController';
+import CardActivationController from 'screens/app/Cards/CardActivation/CardActivationController';
+import ChangePinController from 'screens/app/Cards/ChangePin/ChangePinController';
+import CreditDetailController from 'screens/app/Cards/CreditDetail/CreditDetailController';
+import CardReportController from 'screens/app/Cards/CardReport/CardReportController';
+import CashPaymentController from 'screens/app/Cards/CashPayment/CashPaymentController';
+import EstablishmentsController from 'screens/app/Cards/Establishments/EstablishmentsController';
+import DomiciliaryPaymentController from 'screens/app/Cards/DomiciliaryPayment/DomiciliaryPaymentController';
+import AccountStatementController from 'screens/app/Cards/AccountStatement/AccountStatementController';
+import PDFViewerController from 'screens/app/Cards/PDFViewer/PDFViewerController';
 
 const Stack = createNativeStackNavigator<CardsGlobalStackParams>();
 
