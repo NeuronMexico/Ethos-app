@@ -27,7 +27,6 @@ const ChangePasswordScreen: React.FC<Props> = ({ onSubmit }) => {
         onChangeText={setValue}
         passwordField
         label={t('changePassword:newPassword')}
-        customLabelColor={Theme.Colors.Carbon}
         marginTop={32}
       />
       <Input
