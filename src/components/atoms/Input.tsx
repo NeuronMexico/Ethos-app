@@ -54,6 +54,7 @@ interface Props {
   borderRadius?: number;
   material?: boolean;
   minWidth?: number;
+  returnKeyType?: TextInputProps['returnKeyType'];
 }
 
 const Input = forwardRef(({
@@ -92,6 +93,7 @@ const Input = forwardRef(({
   borderRadius = 12,
   material,
   minWidth,
+  returnKeyType = 'done',
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -158,7 +160,7 @@ const Input = forwardRef(({
     onKeyPress,
     onSubmitEditing,
     value,
-    returnKeyType: 'done',
+    returnKeyType,
     underlineColorAndroid: 'transparent',
     selectionColor: Theme.Colors.Carbon,
     onContentSizeChange: ({ nativeEvent: { contentSize } }) => {
@@ -210,6 +212,7 @@ const Input = forwardRef(({
     onKeyPress,
     material,
     width,
+    returnKeyType,
   ]);
 
   return (

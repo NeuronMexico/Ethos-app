@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { ColorValue, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { ChevronLeftIcon } from 'assets/svg';
 import Theme from 'theme';
@@ -12,6 +12,7 @@ interface Props {
   marginTop?: number;
   borderless?: boolean;
   disabled?: boolean;
+  color?: ColorValue;
 }
 
 const BackButton: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const BackButton: React.FC<Props> = ({
   marginTop,
   borderless,
   disabled,
+  color,
 }: Props) => {
   const { goBack } = useNavigation();
 
@@ -34,7 +36,7 @@ const BackButton: React.FC<Props> = ({
         hitSlop={15}
       >
         <Container style={[styles.container, borderless && { borderWidth: 0 }]}>
-          <ChevronLeftIcon />
+          <ChevronLeftIcon color={color} />
         </Container>
       </Touchable>
     </Container>

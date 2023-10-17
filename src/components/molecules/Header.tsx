@@ -13,6 +13,7 @@ interface Props {
   rightAction?: () => void;
   rightIconContainerBackgroundColor?: ColorValue;
   lidiaAvatar?: boolean;
+  textColor?: ColorValue;
 }
 
 const Header: React.FC<Props> = ({
@@ -22,15 +23,16 @@ const Header: React.FC<Props> = ({
   rightAction,
   rightIcon,
   rightIconContainerBackgroundColor = Theme.Colors.PlaceboBlue,
+  textColor,
   lidiaAvatar,
 }) => (
   // TODO: implement Lidia logic
   <Container row center height={40} style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 4 }}>
     <Container width={40}>
-      {showBackButton && <BackButton borderless={backButtonBorderless} />}
+      {showBackButton && <BackButton borderless={backButtonBorderless} color={textColor} />}
     </Container>
     <Container middle flex>
-      <Text text={title} typography="header" />
+      <Text text={title} typography="header" textColor={textColor} />
     </Container>
     <Container width={40}>
       {rightIcon && (

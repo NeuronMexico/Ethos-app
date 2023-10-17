@@ -2,6 +2,7 @@ import React from 'react';
 import { ColorValue } from 'react-native';
 import { Button, Container } from 'components';
 import Theme from 'theme';
+import { MarginPropsInterface } from 'utils';
 
 export type ButtonGroupOption = {
   label: string;
@@ -12,7 +13,7 @@ export type ButtonGroupOption = {
   }
 };
 
-interface Props {
+interface Props extends MarginPropsInterface {
   options: Array<ButtonGroupOption>;
   horizontalSpaceBetween?: number;
   verticalSpaceBetween?: number;
@@ -30,13 +31,23 @@ const ButtonGroup: React.FC<Props> = ({
   buttonVerticalPadding = 8,
   vertical,
   verticalAlignment = 'center',
+  marginBottom,
+  marginHorizontal,
+  marginLeft,
+  marginRight,
+  marginTop,
+  marginVertical,
 }) => (
   <Container
     row={!vertical}
     style={{
       flexWrap: vertical ? 'nowrap' : 'wrap',
-      marginVertical: -verticalSpaceBetween,
-      marginHorizontal: -horizontalSpaceBetween,
+      marginBottom,
+      marginHorizontal: (marginHorizontal || 0) - horizontalSpaceBetween,
+      marginLeft,
+      marginRight,
+      marginTop,
+      marginVertical: (marginVertical || 0) - verticalSpaceBetween,
     }}
     crossAlignment={vertical && verticalAlignment !== 'center'
       ? (verticalAlignment === 'left' && 'start') || 'end' : undefined}

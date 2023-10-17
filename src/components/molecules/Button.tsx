@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ColorValue, ViewStyle } from 'react-native';
+import { ColorValue, TextStyle, ViewStyle } from 'react-native';
 import Theme from 'theme';
 import { Touchable, TouchableProps } from '../atoms/Touchable';
 import { Container } from '../atoms/Container';
@@ -23,6 +23,7 @@ interface Props extends TouchableProps {
   outsideLabel?: boolean;
   outsideWidth?: ViewStyle['width'];
   colorless?: boolean;
+  textAlign?: TextStyle['textAlign'];
 }
 
 const Button: React.FC<Props> = ({
@@ -53,6 +54,7 @@ const Button: React.FC<Props> = ({
   borderStyle,
   outsideLabel,
   outsideWidth,
+  textAlign = 'center',
 }: Props) => (
   <Container style={{
     width: outsideWidth || width || '100%',
@@ -94,7 +96,7 @@ const Button: React.FC<Props> = ({
             fontSize={fontSize}
             marginLeft={icon && !colum ? 8 : 0}
             marginTop={icon && colum ? 5 : 0}
-            textAlign="center"
+            textAlign={textAlign}
             numberOfLines={2}
           />
           )}
