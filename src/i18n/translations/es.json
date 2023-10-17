@@ -253,5 +253,12 @@
     "uploadInvoice": "Subir factura",
     "reportMovement": "Reportar movimiento",
     "assignTags": "Asignar etiquetas"
+  },
+  "security": {
+    "title": "Seguridad",
+    "biometricData": "Datos biométricos",
+    "changePassword": "Cambiar contraseña",
+    "termsAndConditions": "Términos y Condiciones",
+    "noticeOfPrivacy": "Aviso de privacidad"
   }
 }

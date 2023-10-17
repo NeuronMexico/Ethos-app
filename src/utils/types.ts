@@ -117,6 +117,7 @@ export type ProfileStackParams = {
     type: string;
     value: string
   };
+  Security: undefined;
 };
 
 export type NotificationStackParams = {
