@@ -6,6 +6,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
 
+interface Props {
+  onChangePassword: () => void;
+}
+
 interface ButtonFieldProps {
   title: string;
   onPress: () => void;
@@ -38,7 +42,9 @@ const ButtonField = ({
   />
 );
 
-const SecurityScreen: React.FC = () => {
+const SecurityScreen: React.FC<Props> = ({
+  onChangePassword,
+}) => {
   const { t } = useTranslation();
   const [biometricDataEnabled, setBiometricDataEnabled] = useState<boolean>(true);
 
@@ -52,7 +58,7 @@ const SecurityScreen: React.FC = () => {
       />
       <ButtonField
         title={t('security:changePassword')}
-        onPress={() => {}}
+        onPress={onChangePassword}
         icon={<LockIcon />}
       />
       <ButtonField

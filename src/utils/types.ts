@@ -118,6 +118,7 @@ export type ProfileStackParams = {
     value: string
   };
   Security: undefined;
+  ChangePassword: undefined;
 };
 
 export type NotificationStackParams = {

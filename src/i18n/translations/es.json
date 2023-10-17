@@ -260,5 +260,14 @@
     "changePassword": "Cambiar contraseña",
     "termsAndConditions": "Términos y Condiciones",
     "noticeOfPrivacy": "Aviso de privacidad"
+  },
+  "changePassword":{
+    "newPassword": "Nueva contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "ruleForNewPassword1": "Al menos 8 caracteres",
+    "ruleForNewPassword2": "Una letra mayúscula",
+    "ruleForNewPassword3": "Un número",
+    "ruleForNewPassword4": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)",
+    "passwordChangedSuccessfully": "Contraseña cambiada correctamente"
   }
 }
