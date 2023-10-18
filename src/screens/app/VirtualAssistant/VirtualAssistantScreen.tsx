@@ -112,9 +112,7 @@ const VirtualAssistantScreen: React.FC<Props> = ({
         <FlatList
           ref={flatListRef}
           style={{ marginTop: 4, marginBottom: 6 }}
-          contentContainerStyle={{
-            paddingHorizontal: Theme.Sizes.Padding, paddingTop: 28, flexGrow: 1, paddingBottom: 6,
-          }}
+          contentContainerStyle={styles.flatListContent}
           data={messages}
           renderItem={({ item: { type, data }, index }) => (
             <ChatBubble
@@ -285,6 +283,12 @@ const styles = StyleSheet.create({
     marginBottom: 6,
     paddingHorizontal: Theme.Sizes.Padding,
     paddingTop: 28,
+    paddingBottom: 6,
+  },
+  flatListContent: {
+    paddingHorizontal: Theme.Sizes.Padding,
+    paddingTop: 28,
+    flexGrow: 1,
     paddingBottom: 6,
   },
 });
