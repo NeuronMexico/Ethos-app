@@ -25,9 +25,9 @@ const ProfilePhoto: React.FC<Props> = ({
   const id = 'M515';
 
   return (
-    <Container width="100%" height={size} middle>
+    <Container width={withName || withId ? 'auto' : size} height={size} middle>
       {photo ? (
-        <Touchable onPress={onPress} disabled={!canEdit}>
+        <Touchable onPress={() => { if (onPress) onPress(); }} disabled={!canEdit}>
           <FadeInImage
             source={{ uri: photo }}
             width={size}
@@ -37,7 +37,7 @@ const ProfilePhoto: React.FC<Props> = ({
           />
         </Touchable>
       ) : (
-        <Touchable onPress={onPress}>
+        <Touchable onPress={() => { if (onPress) onPress(); }}>
           <Container
             center
             circle

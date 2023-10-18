@@ -48,6 +48,7 @@ export type AppStackParams = {
   HomeGlobalStack: undefined;
   ProfileStack: undefined;
   NotificationStack: undefined;
+  VirtualAssistant: undefined;
 };
 
 export type HomeGlobalStackParams = {

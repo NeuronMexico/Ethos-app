@@ -17,7 +17,7 @@ const LensIcon: React.FC<Props> = ({
   width = 24,
   height = 24,
 }: Props) => (
-  <Svg width={width} height={height} fill="none">
+  <Svg width={width} height={height} fill="none" viewBox="0 0 24 24">
     <Path
       stroke={color}
       strokeLinecap="round"
