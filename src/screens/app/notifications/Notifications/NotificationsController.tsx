@@ -95,7 +95,6 @@ const NotificationsController: React.FC = () => {
         />
       </Container>
       <OptionButton
-        label={t('notifications:reportMovement')}
         onPress={() => {}}
         icon={<ShieldIcon />}
       />
