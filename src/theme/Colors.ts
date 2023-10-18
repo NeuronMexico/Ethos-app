@@ -37,6 +37,7 @@ const Colors = {
   BoysenberryShadow: '#F0F3F9',
   UltramarineViolet68: '#192B59AD',
   Husky80: '#E2E9FCCC',
+  SantasGrey: '#9CA3AF',
 };
 
 export default Colors;

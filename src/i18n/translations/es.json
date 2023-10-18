@@ -170,6 +170,25 @@
     "cvv": "CVV",
     "or": "o"
   },
+  "virtualAssistant": {
+    "greeting": "Hola 👋\nSoy Lidia,",
+    "howCanIHelpYouToday": "¿Cómo puedo ayudarte el día de hoy?",
+    "checkBalanceAndTransactions": "Consulta de saldo y movimientos",
+    "productInformationFunctionality": "Información de producto/funcionalidad",
+    "cardReplacementTheftDamageLoss": "Reposición de tarjeta por tobo, daño o extravío",
+    "browseAllTopicsHere": "Puedes revisar todos los temas aquí",
+    "writeYourMessage": "Escribe tu mensaje...",
+    "findTopicsAndQuestions": "Encuentra temas y preguntas",
+    "checkBalanceAndTransactionsTopic": "Consulta de saldo y movimientos",
+    "cardReplacementTheftDamageLossTopic": "Reposición de tarjeta por robo, daño o extravío",
+    "disputesAndUnauthorizedCharges": "Aclaraciones y Cargos no Reconocidos",
+    "productInformationFunctionalityTopic": "Información de Productos/Funcionalidad",
+    "transactionInformation": "Información de Movimientos",
+    "contactDetails": "Datos de Contacto",
+    "creditCardCancellation": "Cancelación de Tarjeta de Crédito",
+    "FaqsAboutVirtualAssistant": "Preguntas frecuentes sobre Lidia",
+    "selectAvatar": "Seleccionar avatar"
+  },
   "alert": {
     "invoice": "Folio:",
     "reference": "Referencia:"

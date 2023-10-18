@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import { useDispatch } from 'reactRedux';
 import { SafeArea, Text } from 'components';
-import { CardsGlobalStackParams, formatQuantity, sleep } from 'utils';
+import { formatQuantity, sleep } from 'utils';
 import { useAlert, useBottomSheet } from 'context';
 import CardScreen from './CardScreen';
 import {
@@ -17,12 +18,11 @@ import {
   TurnOffCardBottomSheetContent,
 } from './components';
 
-interface Props extends NativeStackScreenProps<CardsGlobalStackParams, 'Card'> {}
-
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
-const CardController: React.FC<Props> = ({ navigation }) => {
+const CardController: React.FC = () => {
   const dispatch = useDispatch();
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { t } = useTranslation();
 
   const bottomSheet = useBottomSheet();
@@ -42,16 +42,16 @@ const CardController: React.FC<Props> = ({ navigation }) => {
       <PayCardBottomSheetContent
         onPressCashPayment={() => {
           bottomSheet.hide();
-          navigation.navigate('CashPayment');
+          navigate('CashPayment');
         }}
         onPressDirectDebitPayment={() => {
           bottomSheet.hide();
-          navigation.navigate('DomiciliaryPayment');
+          navigate('DomiciliaryPayment');
         }}
       />,
       { title: t('cards:payViaSpei'), titleAlign: 'left' },
     );
-  }, [bottomSheet, navigation, t]);
+  }, [bottomSheet, navigate, t]);
 
   const onPressDigitalCard = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
@@ -66,19 +66,19 @@ const CardController: React.FC<Props> = ({ navigation }) => {
       bottomSheet.show(
         <PinBottomSheetContent onPressChangePin={() => {
           bottomSheet.hide();
-          navigation.navigate('ChangePin');
+          navigate('ChangePin');
         }}
         />,
       );
     }
-  }, [bottomSheet, navigation, t]);
+  }, [bottomSheet, navigate, t]);
 
   const onPressSeeMore = useCallback(async () => {
     bottomSheet.show(
       <SeeMoreBottomSheetContent
         onPressCreditDetail={() => {
           bottomSheet.hide();
-          navigation.navigate('CreditDetail');
+          navigate('CreditDetail');
         }}
         onPressCreditLineIncrease={async () => {
           bottomSheet.hide();
@@ -100,11 +100,11 @@ const CardController: React.FC<Props> = ({ navigation }) => {
         }}
         onPressAccountStatement={() => {
           bottomSheet.hide();
-          navigation.navigate('AccountStatement');
+          navigate('AccountStatement');
         }}
       />,
     );
-  }, [alert, bottomSheet, navigation, t]);
+  }, [alert, bottomSheet, navigate, t]);
 
   const onPressTransaction = useCallback(async () => {
     bottomSheet.show(<TransactionBottomSheetContent />);
@@ -113,15 +113,16 @@ const CardController: React.FC<Props> = ({ navigation }) => {
   return (
     <SafeArea>
       <CardScreen
-        onPressRequestCard={() => navigation.navigate('CardSelection')}
-        onPressActivateCard={() => navigation.navigate('CardActivation')}
+        onPressRequestCard={() => navigate('CardSelection')}
+        onPressActivateCard={() => navigate('CardActivation')}
         onPressTurnOff={onPressTurnOff}
         onPressPayCard={onPressPayCard}
         onPressDigitalCard={onPressDigitalCard}
         onPressPin={onPressPin}
         onPressSeeMore={onPressSeeMore}
         onPressTransaction={onPressTransaction}
-        onPressReportCard={() => navigation.navigate('CardReport')}
+        onPressReportCard={() => navigate('CardReport')}
+        onPressVirtualAssistance={() => navigate('VirtualAssistant')}
       />
     </SafeArea>
   );

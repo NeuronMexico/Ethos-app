@@ -37,6 +37,7 @@ interface Props {
   onPressSeeMore: () => void;
   onPressTransaction: () => void;
   onPressReportCard: () => void;
+  onPressVirtualAssistance: () => void;
 }
 
 const CardScreen: React.FC<Props> = ({
@@ -49,6 +50,7 @@ const CardScreen: React.FC<Props> = ({
   onPressSeeMore,
   onPressTransaction,
   onPressReportCard,
+  onPressVirtualAssistance,
 }) => {
   const { t } = useTranslation();
 
@@ -62,7 +64,11 @@ const CardScreen: React.FC<Props> = ({
 
   return (
     <Container flex>
-      <Header title={t('cards:card')} rightIcon={<MessageDotsIcon width={22} height={22} />} />
+      <Header
+        title={t('cards:card')}
+        rightIcon={<MessageDotsIcon width={22} height={22} />}
+        rightAction={onPressVirtualAssistance}
+      />
       <ScrollView
         style={{ marginTop: 8 }}
         contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: 24 }}

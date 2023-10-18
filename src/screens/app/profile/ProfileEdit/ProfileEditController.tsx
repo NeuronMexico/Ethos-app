@@ -32,7 +32,9 @@ const ProfileEditController: React.FC = () => {
 
   const changeProfilePhoto = (
     <Container>
-      <ProfilePhoto size={80} />
+      <Container middle>
+        <ProfilePhoto size={80} />
+      </Container>
       <ScrollView
         style={{ flex: 1, padding: Theme.Sizes.Padding }}
         onScroll={Animated.event(
