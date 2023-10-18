@@ -1,6 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppStackParams } from 'utils';
+import VirtualAssistantController from 'screens/app/VirtualAssistant/VirtualAssistantController';
 import TabNavigator from './TabNavigator';
 import CardsGlobalStack from './CardsGlobalStack';
 import HomeGlobalStack from './HomeGlobalStack';
@@ -18,6 +19,7 @@ const AppStack: React.FC = () => (
     <Stack.Screen name="ProfileStack" component={ProfileStack} />
     <Stack.Screen name="NotificationStack" component={NotificationStack} />
     <Stack.Screen name="ContactsGlobalStack" component={ContactsGlobalStack} />
+    <Stack.Screen name="VirtualAssistant" component={VirtualAssistantController} />
   </Stack.Navigator>
 );
 
