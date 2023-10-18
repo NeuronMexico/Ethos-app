@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Alert, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18n';
 
@@ -18,7 +18,6 @@ const LOCKED_SHORTCUTS: ShortcutType[] = [
     id: 'contacts',
     label: i18n.t('shortcuts:contacts'),
     icon: <PeopleIcon color={Theme.Colors.DarkSoul} />,
-    action: () => Alert.alert('Contacts'),
   },
 ];
 

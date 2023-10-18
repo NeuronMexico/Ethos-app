@@ -48,6 +48,7 @@ export type AppStackParams = {
   HomeGlobalStack: undefined;
   ProfileStack: undefined;
   NotificationStack: undefined;
+  ContactsGlobalStack: undefined;
 };
 
 export type HomeGlobalStackParams = {
@@ -124,6 +125,12 @@ export type ProfileStackParams = {
 export type NotificationStackParams = {
   Notifications: undefined;
   NotificationSettings: undefined;
+};
+
+export type ContactsStackParams = {
+  List: undefined;
+  Form: { contact?: any };
+  NewAccount: undefined;
 };
 
 export type FileType = {

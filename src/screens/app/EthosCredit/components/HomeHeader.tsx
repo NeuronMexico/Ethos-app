@@ -25,7 +25,7 @@ const HomeHeader: React.FC<Props> = ({
   return (
     <Container center row space="between" style={container}>
       <Touchable onPress={onPressProfile}>
-        <ProfilePhoto size={40} />
+        <ProfilePhoto size={40} bottomStyle={{ marginTop: 0 }} />
       </Touchable>
       <Container center>
         <Text text={t('home:welcome', { name: 'John Smith' })} fontWeight="Bold" fontSize={17} />
