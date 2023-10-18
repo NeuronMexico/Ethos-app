@@ -47,15 +47,25 @@ const ListScreen: React.FC<Props> = ({
           onPress={onPressNewContact}
         />
       </Container>
-      <Container style={content}>
-        <ContactHeader data={data} onSearch={onSearch} onPressContact={onPressContact} />
+      <Container>
+        {
+          data.length > 0 && (
+            <Container style={content}>
+              <ContactHeader data={data} onSearch={onSearch} onPressContact={onPressContact} />
+            </Container>
+          )
+        }
       </Container>
       <Container flex style={{ marginTop: Theme.Sizes.MarginTop }}>
-        <Text
-          text={t('contacts:contacts')}
-          fontWeight="Medium"
-          marginHorizontal={Theme.Sizes.Padding}
-        />
+        {
+          data.length > 0 && (
+            <Text
+              text={t('contacts:contacts')}
+              fontWeight="Medium"
+              marginHorizontal={Theme.Sizes.Padding}
+            />
+          )
+        }
         <ContactsList data={data} onPressContact={onPressContact} />
       </Container>
     </Container>
@@ -85,7 +95,7 @@ const ContactsList: React.FC<ContactsListProps> = ({
   horizontal = false,
   onPressContact,
 }: ContactsListProps) => {
-  const { content, contentContainerStyle } = styles;
+  const { content, contentContainerStyle, noContent } = styles;
   const { t } = useTranslation();
 
   const renderEmpty = () => (
@@ -157,7 +167,7 @@ const ContactsList: React.FC<ContactsListProps> = ({
       ListEmptyComponent={renderEmpty}
       contentContainerStyle={[{ flexGrow: 1 }, content, {
         marginHorizontal: horizontal ? 0 : Theme.Sizes.Padding,
-      }, !horizontal && contentContainerStyle]}
+      }, !horizontal && contentContainerStyle, data.length === 0 && noContent]}
       renderItem={horizontal ? renderItemHorizontal : renderItem}
       keyExtractor={(item) => item.id.toString()}
       horizontal={horizontal}
@@ -174,6 +184,9 @@ const styles = StyleSheet.create({
     marginTop: 40,
     marginBottom: 16,
     marginHorizontal: Theme.Sizes.Padding,
+  },
+  noContent: {
+    backgroundColor: Theme.Colors.White,
   },
   contentContainerStyle: {
     backgroundColor: Theme.Colors.DrWhite,
