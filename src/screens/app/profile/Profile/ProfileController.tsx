@@ -79,7 +79,7 @@ const ProfileController: React.FC = () => {
         onPressCodeQR={() => bottomSheet.show(renderDefaultComponent)}
         onPressEdit={() => navigate('ProfileEdit')}
         onPressBills={() => {}}
-        onPressSecurityAndLegalNotices={() => {}}
+        onPressSecurityAndLegalNotices={() => navigate('Security')}
         onPressLogOut={onPressLogOut}
       />
     </SafeArea>
