@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Theme from 'theme';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 import { Container } from 'components';
+import { useTranslation } from 'react-i18next';
+import ReactNativeBiometrics from 'react-native-biometrics';
 import { ButtonFieldEdit } from './ButtonFieldEdit';
 
 interface Props {
   onSubmit: () => void;
 }
 
+const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
+
 const ProfileEditForm: React.FC<Props> = () => {
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
-
+  const { t } = useTranslation();
   const fields = [
     {
       label: 'Alias',
@@ -35,10 +39,21 @@ const ProfileEditForm: React.FC<Props> = () => {
     },
   ];
 
+  const biometricManager = useCallback(async (field: any) => {
+    const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+    if (result.success) {
+      navigate('EditProfileField', { field });
+    }
+  }, [navigate, t]);
+
   const handlerShowForm = (field: any) => {
+    if (field.type === 'email' || field.type === 'phone') {
+      biometricManager(field);
+    }
     if (field.type === 'address') {
       navigate('EditAddress');
-    } else {
+    }
+    if (field.type === 'alias') {
       navigate('EditProfileField', { field });
     }
   };
