@@ -14,6 +14,7 @@ interface Props {
 const ChangePasswordScreen: React.FC<Props> = ({ onSubmit }) => {
   const { t } = useTranslation();
   const [value, setValue] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [ruleOneSelected, setRuleOneSelected] = useState<boolean>(false);
   const [ruleTwoSelected, setRuleTwoSelected] = useState<boolean>(false);
   const [ruleThreeSelected, setRuleThreeSelected] = useState<boolean>(false);
@@ -30,8 +31,8 @@ const ChangePasswordScreen: React.FC<Props> = ({ onSubmit }) => {
         marginTop={32}
       />
       <Input
-        value={value}
-        onChangeText={setValue}
+        value={password}
+        onChangeText={setPassword}
         passwordField
         label={t('changePassword:confirmPassword')}
       />
