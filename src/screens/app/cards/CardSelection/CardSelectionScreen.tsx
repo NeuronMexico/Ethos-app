@@ -40,7 +40,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
   const itemWidthRef = useRef<number>(0);
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const [flipCard, setFlipCard] = useState<Array<boolean>>([true, true]);
+  const [flipCard, setFlipCard] = useState<Array<boolean>>([false, false]);
 
   const selectedCard = useMemo(() => CARD_OPTIONS[selectedIndex], [selectedIndex]);
 

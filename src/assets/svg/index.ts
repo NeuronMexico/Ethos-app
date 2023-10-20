@@ -7,7 +7,7 @@ import GreenAvatar from './green-avatar.svg';
 import OrangeAvatar from './orange-avatar.svg';
 import GrayAvatar from './gray-avatar.svg';
 import YellowAvatar from './yellow-avatar.svg';
-import CardWomenIllustration from './card-women-illustration.svg';
+import CardIncrementIllustration from './card-increment-illustration.svg';
 
 export * from './BankIcon';
 export * from './BellIcon';
@@ -100,5 +100,5 @@ export {
   OrangeAvatar,
   GrayAvatar,
   YellowAvatar,
-  CardWomenIllustration,
+  CardIncrementIllustration,
 };

@@ -168,7 +168,8 @@
     "currentLimit": "Límite actual",
     "creditLineIncreasedCongratulations": "¡Felicidades! Se ha incrementado tu línea de crédito a",
     "cvv": "CVV",
-    "or": "o"
+    "or": "o",
+    "card8Digits": "8 dígitos de tu tarjeta"
   },
   "virtualAssistant": {
     "greeting": "Hola 👋\nSoy Lidia,",
