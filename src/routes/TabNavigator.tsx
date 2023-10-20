@@ -2,7 +2,7 @@ import React from 'react';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabParams } from 'utils';
 import EthosCreditController from 'screens/app/EthosCredit/EthosCreditController';
-import TransactionsController from 'screens/app/Transactions/TransactionsController';
+import TransactionsController from 'screens/app/transactions/Transactions/TransactionsController';
 import ExpensesController from 'screens/app/Expenses/ExpensesController';
 import BenefitsController from 'screens/app/Benefits/BenefitsController';
 import CardsController from 'screens/app/cards/Cards/CardsController';
