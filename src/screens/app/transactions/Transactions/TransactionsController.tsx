@@ -8,7 +8,14 @@ const TransactionsController: React.FC = () => {
 
   return (
     <SafeArea>
-      <TransactionsScreen />
+      <TransactionsScreen
+        onPressScheduledPayments={() => {}}
+        onPressServices={() => {}}
+        onPressCash={() => {}}
+        onPressCoDi={() => {}}
+        onPressContacts={() => {}}
+        onPressNewPayment={() => {}}
+      />
     </SafeArea>
   );
 };
