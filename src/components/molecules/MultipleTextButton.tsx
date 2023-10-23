@@ -10,6 +10,7 @@ interface Props extends TouchableProps {
   label?: string;
   rightText?: string;
   icon?: ReactElement;
+  rightIcon?: ReactElement;
   backgroundColor?: string;
   borderColor?: string;
   textColor?: ColorValue;
@@ -32,6 +33,7 @@ const MultipleTextButton: React.FC<Props> = ({
   label,
   onPress,
   icon,
+  rightIcon,
   disabled,
   marginBottom,
   marginHorizontal,
@@ -139,6 +141,7 @@ const MultipleTextButton: React.FC<Props> = ({
             textAlign="right"
           />
           )}
+          {rightIcon}
         </Container>
       </Container>
     </Touchable>

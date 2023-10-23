@@ -120,6 +120,7 @@ export type ProfileStackParams = {
   };
   Security: undefined;
   ChangePassword: undefined;
+  Bills: undefined;
 };
 
 export type NotificationStackParams = {

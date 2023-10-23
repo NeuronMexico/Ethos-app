@@ -78,7 +78,7 @@ const ProfileController: React.FC = () => {
         onPressLink={onPressLink}
         onPressCodeQR={() => bottomSheet.show(renderDefaultComponent)}
         onPressEdit={() => navigate('ProfileEdit')}
-        onPressBills={() => {}}
+        onPressBills={() => navigate('Bills')}
         onPressSecurityAndLegalNotices={() => navigate('Security')}
         onPressLogOut={onPressLogOut}
       />

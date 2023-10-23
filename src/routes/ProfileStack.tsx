@@ -8,6 +8,7 @@ import EditAddressController from 'screens/app/profile/EditAddress/EditAddressCo
 import EditProfileFieldController from 'screens/app/profile/EditProfileField/EditProfileFieldController';
 import SecurityController from 'screens/app/security/Security/SecurityController';
 import ChangePasswordController from 'screens/app/security/ChangePassword/ChangePasswordController';
+import BillsController from 'screens/app/Bills/BillsController';
 
 const Stack = createNativeStackNavigator<ProfileStackParams>();
 
@@ -20,6 +21,7 @@ const ProfileStack: React.FC = () => (
     <Stack.Screen name="ConfirmationCode" component={ConfirmationCodeController} />
     <Stack.Screen name="Security" component={SecurityController} />
     <Stack.Screen name="ChangePassword" component={ChangePasswordController} />
+    <Stack.Screen name="Bills" component={BillsController} />
   </Stack.Navigator>
 );
 
