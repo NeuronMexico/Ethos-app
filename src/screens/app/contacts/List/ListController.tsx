@@ -30,6 +30,9 @@ const data = [{
   }],
 }, { id: 2, name: 'Jane' }, { id: 3, name: 'Bob' }];
 
+// Sort the data array by name
+data.sort((a, b) => a.name.localeCompare(b.name));
+
 const ListController: React.FC = () => {
   const { t } = useTranslation();
 

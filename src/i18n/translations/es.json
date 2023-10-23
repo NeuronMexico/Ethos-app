@@ -319,7 +319,7 @@
     "secondLastName": "Apellido Materno",
     "alias": "Alias",
     "email": "Correo electrónico",
-    "phone": "Teléfono",
+    "phone": "Número celular",
     "maxAmount": "Monto máximo de transferencia",
     "account": "Tarjeta ethoscrédito / Número de tarjeta de débito / CLABE",
     "bank": "Banco",
