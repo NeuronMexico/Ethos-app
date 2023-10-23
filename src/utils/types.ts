@@ -50,11 +50,16 @@ export type AppStackParams = {
   NotificationStack: undefined;
   ContactsGlobalStack: undefined;
   VirtualAssistant: undefined;
+  TransactionsGlobalStack: undefined;
 };
 
 export type HomeGlobalStackParams = {
   Shortcuts: undefined;
   ProfileStack: undefined;
+};
+
+export type TransactionsGlobalStackParams = {
+  ScheduledPayments: undefined;
 };
 
 export type TabParams = {
