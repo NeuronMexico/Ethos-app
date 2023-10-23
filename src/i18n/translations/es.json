@@ -190,6 +190,20 @@
     "FaqsAboutVirtualAssistant": "Preguntas frecuentes sobre Lidia",
     "selectAvatar": "Seleccionar avatar"
   },
+  "transactions": {
+    "transactions": "Transacciones",
+    "payments": "Pagos",
+    "collections": "Cobros",
+    "personalDisposition": "Disposición personal",
+    "personalProject": "Proyecto personal",
+    "scheduledPayments": "Pagos programados",
+    "nextPayment": "Siguiente pago",
+    "forServices": "De servicios",
+    "toContacts": "A contactos",
+    "newPayment": "Nuevo pago",
+    "viaCODI": "Vía CODI",
+    "inCash": "En efectivo"
+  },
   "alert": {
     "invoice": "Folio:",
     "reference": "Referencia:"

@@ -8,6 +8,13 @@ import OrangeAvatar from './orange-avatar.svg';
 import GrayAvatar from './gray-avatar.svg';
 import YellowAvatar from './yellow-avatar.svg';
 import CardIncrementIllustration from './card-increment-illustration.svg';
+// Services
+import NetflixIcon from './netflix-icon.svg';
+import SpotifyIcon from './spotify-icon.svg';
+import DisneyIcon from './disney-icon.svg';
+import CFEIcon from './cfe-icon.svg';
+import AmazonIcon from './amazon-icon.svg';
+import HBOIcon from './hbo-icon.svg';
 
 export * from './BankIcon';
 export * from './BellIcon';
@@ -101,4 +108,11 @@ export {
   GrayAvatar,
   YellowAvatar,
   CardIncrementIllustration,
+  // Services
+  NetflixIcon,
+  SpotifyIcon,
+  DisneyIcon,
+  CFEIcon,
+  AmazonIcon,
+  HBOIcon,
 };
