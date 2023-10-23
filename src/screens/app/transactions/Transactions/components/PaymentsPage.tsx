@@ -5,7 +5,7 @@ import {
   Container, DirectAccess, MultipleTextButton, Text,
 } from 'components';
 import Theme from 'theme';
-import { formatDate, formatQuantity } from 'utils';
+import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
 import {
   AmazonIcon, CFEIcon, CoDiIcon, DisneyIcon, HBOIcon, MoneyIcon, NetflixIcon, PeopleIcon, SpotifyIcon, TransferIcon,
 } from 'assets/svg';
@@ -34,7 +34,11 @@ const PaymentsPage: React.FC<Props> = ({
   return (
     <ScrollView
       style={{ flex: 1 }}
-      contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: Theme.Sizes.MarginTop }}
+      contentContainerStyle={{
+        paddingHorizontal: Theme.Sizes.Padding,
+        paddingTop: Theme.Sizes.MarginTop,
+        paddingBottom: BOTTOM_TAB_INSET,
+      }}
     >
       <DirectAccess label={t('transactions:scheduledPayments')} onPress={onPressScheduledPayments} marginBottom={16} />
       <Container row space="between">
