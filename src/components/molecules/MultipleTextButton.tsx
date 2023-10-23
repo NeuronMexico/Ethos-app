@@ -90,6 +90,7 @@ const MultipleTextButton: React.FC<Props> = ({
       >
         <Container
           row
+          center
           style={{
             justifyContent: alignContent,
             display: 'flex',
