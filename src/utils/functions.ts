@@ -41,7 +41,9 @@ export function calculateSnapPoints(containerRef: RefObject<View>): Promise<Arra
         clearInterval(timer);
         const { height: SCREEN_HEIGHT } = Dimensions.get('window');
         const calculatedPercentage = ((height + 150) / SCREEN_HEIGHT) * 100;
-        const roundedPercentage = Math.round(calculatedPercentage);
+        let roundedPercentage = Math.round(calculatedPercentage);
+        if (roundedPercentage > 100) roundedPercentage = 100;
+
         resolve([`${roundedPercentage}%`]);
       });
     };
