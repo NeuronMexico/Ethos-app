@@ -64,7 +64,7 @@ const PaymentsPage: React.FC<Props> = ({
         borderRadius={24}
         marginTop={16}
         alignContent="space-between"
-        fontSize={Theme.Sizes.Subtitle}
+        fontSize={Theme.Sizes.Body}
         fontWeight="Regular"
         rightFontWeight="Semibold"
       />

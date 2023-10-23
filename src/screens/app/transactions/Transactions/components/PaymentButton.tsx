@@ -15,7 +15,7 @@ const PaymentButton: React.FC<Props> = ({ label, icon, onPress }) => (
       <Container style={styles.iconContainer}>
         {icon}
       </Container>
-      <Text text={label} typography="subtitle" fontWeight="Semibold" marginTop={6} marginBottom={16} />
+      <Text text={label} fontWeight="Semibold" marginTop={6} marginBottom={16} />
     </Container>
   </Touchable>
 );
