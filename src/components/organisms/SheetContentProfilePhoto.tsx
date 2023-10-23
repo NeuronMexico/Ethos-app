@@ -1,30 +1,41 @@
-import React from 'react';
-import { SafeArea } from 'components/atoms/SafeArea';
+import React, { useRef } from 'react';
+import { Animated, ScrollView } from 'react-native';
+import { useTranslation } from 'react-i18next';
+
+import { Container } from 'components/atoms/Container';
+import { ProfilePhoto } from 'components/molecules/ProfilePhoto';
+import { Button } from 'components/molecules/Button';
 import {
-  SheetContentProfilePhoto,
-} from 'components';
-import { useBottomSheet } from 'context';
-import ProfileEditScreen from './ProfileEditScreen';
+  BlueAvatar, GrayAvatar, GreenAvatar, OrangeAvatar, RedAvatar, YellowAvatar,
+} from 'assets/svg';
+import Theme from 'theme';
 
-const ProfileEditController: React.FC = () => {
-  const bottomSheet = useBottomSheet();
+const AVATARS = [
+  YellowAvatar,
+  BlueAvatar,
+  RedAvatar,
+  GreenAvatar,
+  GrayAvatar,
+  OrangeAvatar,
+];
 
-  const onSubmit = async () => {};
+interface Props {
+  onPress: (value: number) => void;
+}
 
-  const AVATARS = [
-    YellowAvatar,
-    BlueAvatar,
-    RedAvatar,
-    GreenAvatar,
-    GrayAvatar,
-    OrangeAvatar,
-  ];
+const SheetContentProfilePhoto: React.FC<Props> = ({
+  onPress,
+}: Props) => {
+  const { t } = useTranslation();
+  const offset = useRef(new Animated.Value(0)).current;
 
-  const changeProfilePhoto = (
+  const handleOnPress = () => {
+    onPress(-1);
+  };
+
+  return (
     <Container>
-      <Container middle>
-        <ProfilePhoto size={80} />
-      </Container>
+      <ProfilePhoto size={80} bottomStyle={{ marginTop: 0 }} />
       <ScrollView
         style={{ flex: 1, padding: Theme.Sizes.Padding }}
         onScroll={Animated.event(
@@ -63,20 +74,10 @@ const ProfileEditController: React.FC = () => {
           marginVertical={21}
           width="100%"
         />
-        <Button label={t('global:save')} onPress={() => { setShowChangePhotoModal(-1); }} />
+        <Button label={t('global:save')} onPress={handleOnPress} />
       </Container>
     </Container>
   );
-
-  const onPressEditPhoto = () => {
-    bottomSheet.show(<SheetContentProfilePhoto onPress={() => bottomSheet.hide()} />);
-  };
-
-  return (
-    <SafeArea>
-      <ProfileEditScreen onSubmit={onSubmit} onPressEditPhoto={onPressEditPhoto} />
-    </SafeArea>
-  );
 };
 
-export default ProfileEditController;
+export { SheetContentProfilePhoto };

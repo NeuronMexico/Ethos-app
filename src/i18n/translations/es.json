@@ -212,7 +212,8 @@
     "new": "Nuevo",
     "confirmYourIdentity": "Confirma que eres tú",
     "pay": "Pagar",
-    "decline": "Rechazar"
+    "decline": "Rechazar",
+    "edit": "Editar"
   },
   "profile": {
     "titleStack": "Perfil",
@@ -289,5 +290,40 @@
     "ruleForNewPassword3": "Un número",
     "ruleForNewPassword4": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)",
     "passwordChangedSuccessfully": "Contraseña cambiada correctamente"
+  },
+  "contacts": {
+    "contacts": "Contactos",
+    "newContact": "Nuevo contacto",
+    "deleteContact": "Eliminar contacto",
+    "editContact": "Editar contacto",
+    "last": "Recientes",
+    "contactCreated": "Contacto creado correctamente",
+    "contactModified": "Contacto modificado correctamente",
+    "contactDeleted": "Contacto eliminado correctamente",
+    "deleteAccount": "Cuenta eliminada correctamente",
+    "pay": "Pagar",
+    "collect": "Cobrar",
+    "registeredAccounts": "Cuentas registradas",
+    "newAccount": "Nueva tarjeta / CLABE",
+    "deleteAccountMsg": "¿Estás seguro que deseas eliminar la cuenta {{account}}?",
+    "deleteContactMsg": "¿Estás seguro que deseas eliminar a {{contact}} de tus contactos?",
+    "deleteDesc": "Las operaciones programadas para {{text}} también se eliminarán.",
+    "thisContact": "este contacto",
+    "thisAccount": "esta cuenta",
+    "confirmationDelete": "Si, eliminar",
+    "noneContacts": "Aún no tienes ningún contacto"
+  },
+  "form": {
+    "names": "Nombre(s)",
+    "firstLastName": "Apellido Paterno",
+    "secondLastName": "Apellido Materno",
+    "alias": "Alias",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "maxAmount": "Monto máximo de transferencia",
+    "account": "Tarjeta ethoscrédito / Número de tarjeta de débito / CLABE",
+    "bank": "Banco",
+    "required": "Campo requerido",
+    "clabe": "CLABE"
   }
 }
