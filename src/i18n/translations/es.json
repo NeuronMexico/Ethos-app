@@ -219,7 +219,11 @@
     "saveToContacts": "Guardar en contactos",
     "confirmDeleteScheduledPayment": "¿Estás seguro de eliminar el pago programado?",
     "yesDelete": "Sí, eliminar",
-    "scheduledPaymentDeletedSuccessfully": "Pago programado eliminado correctamente"
+    "scheduledPaymentDeletedSuccessfully": "Pago programado eliminado correctamente",
+    "nextPaymentDate": "Fecha del próximo pago",
+    "debitCLABE": "CLABE dónde se hará el cobro",
+    "creditCardPayment": "Pago de TDC {{cardNumber}}",
+    "minimumPayment": "Pago mínimo"
   },
   "alert": {
     "invoice": "Folio:",
