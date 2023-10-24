@@ -224,7 +224,17 @@
     "nextPaymentDate": "Fecha del próximo pago",
     "debitCLABE": "CLABE dónde se hará el cobro",
     "creditCardPayment": "Pago de TDC {{cardNumber}}",
-    "minimumPayment": "Pago mínimo"
+    "minimumPayment": "Pago mínimo",
+    "confirmDeleteDirectDebitTDC": "¿Estás seguro de que deseas eliminar la domiciliación de tu TDC {{cardNumber}}?",
+    "billPayment": "Pago de servicios",
+    "electricityAndGas": "Luz y gas",
+    "mobileRecharge": "Recarga celular",
+    "entertainment": "Entretenimiento",
+    "tollsAndParkingMeters": "Peaje y parquímetros",
+    "water": "Agua",
+    "landlineAndInternet": "Telefonía fija e internet",
+    "stateAndMunicipalPayments": "Pagos estatales y municipales",
+    "catalogSales": "Venta por catálogo"
   },
   "alert": {
     "invoice": "Folio:",

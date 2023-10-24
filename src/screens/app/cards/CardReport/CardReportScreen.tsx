@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import {
   Button, Container, Header, RadioButtonGroup, RadioButtonGroupOption, Text,
 } from 'components';
-import { MessageDotsIcon } from 'assets/svg';
 import Theme from 'theme';
 
 interface Props {
@@ -25,7 +24,7 @@ const CardReportScreen: React.FC<Props> = ({ onPressDisableCard }) => {
 
   return (
     <Container flex useKeyboard>
-      <Header title={t('cards:reportCard')} rightIcon={<MessageDotsIcon />} />
+      <Header title={t('cards:reportCard')} showVirtualAssistantAction />
       <ScrollView contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: 32, flexGrow: 1 }}>
         <Text text={t('cards:selectReportReason')} typography="title" fontWeight="Semibold" />
         <Text text={t('cards:disableCurrentCard')} typography="subtitle" fontWeight="Medium" marginTop={16} />

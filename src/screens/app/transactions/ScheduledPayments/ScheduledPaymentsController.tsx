@@ -19,19 +19,22 @@ const ScheduledPaymentsController: React.FC = () => {
   const alert = useAlert();
   const bottomSheet = useBottomSheet();
 
-  const showDeletionAlert = useCallback(() => {
+  const showDeletionAlert = useCallback((domiciliary: boolean) => {
     alert.show({
       title: t('transactions:scheduledPaymentDeletedSuccessfully'),
-      reference: '1909230',
+      reference: domiciliary ? undefined : '1909230',
       invoice: '43743',
       date: new Date(),
       checkmark: true,
       extraInfo: (
         <PaymentAlertInfo
-          paymentType={t('transactions:singlePayment')}
-          payee="Mario Telles"
-          bank="STP"
-          concept="Pago a Mario Telles"
+          amount={domiciliary ? 3957 : undefined}
+          paymentType={t(`transactions:${domiciliary ? 'minimumPayment' : 'singlePayment'}`)}
+          payee={domiciliary ? '' : 'Mario Telles'}
+          nextPaymentDate={domiciliary ? new Date() : undefined}
+          bank={domiciliary ? 'Santander' : 'STP'}
+          concept={domiciliary ? '' : 'Pago a Mario Telles'}
+          cardNumber={domiciliary ? '** *334' : ''}
         />
       ),
     });
@@ -42,11 +45,14 @@ const ScheduledPaymentsController: React.FC = () => {
     navigate(stack, { screen, params: { edition: true } });
   }, [bottomSheet, navigate]);
 
-  const onPressDelete = useCallback(() => {
+  const onPressDelete = useCallback((domiciliary: boolean) => {
     bottomSheet.hide();
     alert.show({
-      title: t('transactions:confirmDeleteScheduledPayment'),
-      extraInfo: (
+      title: t(
+        `transactions:${domiciliary ? 'confirmDeleteDirectDebitTDC' : 'confirmDeleteScheduledPayment'}`,
+        { cardNumber: '** *334' },
+      ),
+      extraInfo: !domiciliary ? (
         <PaymentAlertInfo
           paymentType={t('transactions:singlePayment')}
           payee="Mario Telles"
@@ -54,14 +60,14 @@ const ScheduledPaymentsController: React.FC = () => {
           concept="Pago a Mario Telles"
           reference="1909230"
         />
-      ),
+      ) : undefined,
       actions: [
         {
           label: t('transactions:yesDelete'),
           onPress: async () => {
             alert.hide();
             const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
-            if (result.success) showDeletionAlert();
+            if (result.success) showDeletionAlert(domiciliary);
           },
           type: 'destructive-primary',
         },
@@ -79,12 +85,12 @@ const ScheduledPaymentsController: React.FC = () => {
     bottomSheet.show((
       type === 'single' ? (
         <PaymentBottomSheetContent
-          onPressDelete={onPressDelete}
+          onPressDelete={() => onPressDelete(false)}
           onPressEdit={() => onPressEdit('TransactionsGlobalStack', 'ScheduledPayment')}
         />
       ) : (
         <DirectDebitBottomSheetContent
-          onPressDelete={onPressDelete}
+          onPressDelete={() => onPressDelete(true)}
           onPressEdit={() => onPressEdit('CardsGlobalStack', 'DomiciliaryPayment')}
         />
       )

@@ -18,7 +18,6 @@ import {
   FilterIcon,
   KeyIcon,
   LockClosedIcon,
-  MessageDotsIcon,
   ShieldIcon,
 } from 'assets/svg';
 import Theme from 'theme';
@@ -37,7 +36,6 @@ interface Props {
   onPressSeeMore: () => void;
   onPressTransaction: () => void;
   onPressReportCard: () => void;
-  onPressVirtualAssistance: () => void;
 }
 
 const CardScreen: React.FC<Props> = ({
@@ -50,7 +48,6 @@ const CardScreen: React.FC<Props> = ({
   onPressSeeMore,
   onPressTransaction,
   onPressReportCard,
-  onPressVirtualAssistance,
 }) => {
   const { t } = useTranslation();
 
@@ -66,8 +63,7 @@ const CardScreen: React.FC<Props> = ({
     <Container flex>
       <Header
         title={t('cards:card')}
-        rightIcon={<MessageDotsIcon width={22} height={22} />}
-        rightAction={onPressVirtualAssistance}
+        showVirtualAssistantAction
       />
       <ScrollView
         style={{ marginTop: 8 }}

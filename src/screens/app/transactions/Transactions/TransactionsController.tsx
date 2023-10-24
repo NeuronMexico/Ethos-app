@@ -13,7 +13,7 @@ const TransactionsController: React.FC = () => {
     <SafeArea>
       <TransactionsScreen
         onPressScheduledPayments={() => navigate('TransactionsGlobalStack')}
-        onPressServices={() => {}}
+        onPressServices={() => navigate('TransactionsGlobalStack', { screen: 'BillPayment' })}
         onPressCash={() => {}}
         onPressCoDi={() => {}}
         onPressContacts={() => {}}

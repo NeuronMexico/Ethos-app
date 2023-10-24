@@ -122,7 +122,6 @@ const CardController: React.FC = () => {
         onPressSeeMore={onPressSeeMore}
         onPressTransaction={onPressTransaction}
         onPressReportCard={() => navigate('CardReport')}
-        onPressVirtualAssistance={() => navigate('VirtualAssistant')}
       />
     </SafeArea>
   );

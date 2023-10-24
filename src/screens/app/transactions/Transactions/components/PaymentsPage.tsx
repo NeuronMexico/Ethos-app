@@ -2,14 +2,13 @@ import React from 'react';
 import { ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
-  Container, DirectAccess, MultipleTextButton, Text,
+  Container, DirectAccess, MultipleTextButton, ServiceButton, Text,
 } from 'components';
 import Theme from 'theme';
 import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
 import {
   AmazonIcon, CFEIcon, CoDiIcon, DisneyIcon, HBOIcon, MoneyIcon, NetflixIcon, PeopleIcon, SpotifyIcon, TransferIcon,
 } from 'assets/svg';
-import { ServiceButton } from './ServiceButton';
 import { PaymentButton } from './PaymentButton';
 
 interface Props {
