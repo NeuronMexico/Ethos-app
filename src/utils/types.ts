@@ -37,7 +37,7 @@ export type CardsGlobalStackParams = {
   CardReport: undefined;
   CashPayment: undefined;
   Establishments: undefined;
-  DomiciliaryPayment: undefined;
+  DomiciliaryPayment: { edition?: boolean } | undefined;
   AccountStatement: undefined;
   PDFViewer: undefined;
 };

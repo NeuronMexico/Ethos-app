@@ -37,9 +37,9 @@ const ScheduledPaymentsController: React.FC = () => {
     });
   }, [alert, t]);
 
-  const onPressEdit = useCallback(() => {
+  const onPressEdit = useCallback((stack: string, screen: string) => {
     bottomSheet.hide();
-    navigate('TransactionsGlobalStack', { screen: 'ScheduledPayment', params: { edition: true } });
+    navigate(stack, { screen, params: { edition: true } });
   }, [bottomSheet, navigate]);
 
   const onPressDelete = useCallback(() => {
@@ -80,12 +80,12 @@ const ScheduledPaymentsController: React.FC = () => {
       type === 'single' ? (
         <PaymentBottomSheetContent
           onPressDelete={onPressDelete}
-          onPressEdit={onPressEdit}
+          onPressEdit={() => onPressEdit('TransactionsGlobalStack', 'ScheduledPayment')}
         />
       ) : (
         <DirectDebitBottomSheetContent
           onPressDelete={onPressDelete}
-          onPressEdit={onPressEdit}
+          onPressEdit={() => onPressEdit('CardsGlobalStack', 'DomiciliaryPayment')}
         />
       )
     ));
