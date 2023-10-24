@@ -218,7 +218,8 @@
     "newScheduledPayment": "Nuevo pago programado",
     "saveToContacts": "Guardar en contactos",
     "confirmDeleteScheduledPayment": "¿Estás seguro de eliminar el pago programado?",
-    "yesDelete": "Sí, eliminar"
+    "yesDelete": "Sí, eliminar",
+    "scheduledPaymentDeletedSuccessfully": "Pago programado eliminado correctamente"
   },
   "alert": {
     "invoice": "Folio:",

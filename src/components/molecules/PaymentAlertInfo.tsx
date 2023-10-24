@@ -20,7 +20,7 @@ const PaymentAlertInfo: React.FC<Props> = ({
   return (
     <Container center>
       {amount !== undefined && <Text text={formatQuantity(amount)} fontSize={34} fontWeight="Bold" />}
-      <Text text={t('transactions:paymentType')} typography="caption" marginTop={10} />
+      <Text text={t('transactions:paymentType')} typography="caption" marginTop={amount !== undefined ? 10 : 0} />
       <Text text={paymentType} typography="header" fontWeight="Bold" marginTop={8} />
 
       <Text text={t('transactions:payee')} typography="caption" marginTop={10} />
