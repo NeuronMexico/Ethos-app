@@ -2,9 +2,9 @@ import React, { useCallback } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'reactRedux';
-import { Container, SafeArea, Text } from 'components';
+import { PaymentAlertInfo, SafeArea } from 'components';
 import { useAlert } from 'context';
-import { TransactionsGlobalStackParams, formatQuantity } from 'utils';
+import { TransactionsGlobalStackParams } from 'utils';
 import EditPaymentScreen from './ScheduledPaymentScreen';
 
 interface Props extends NativeStackScreenProps<TransactionsGlobalStackParams, 'ScheduledPayment'> {}
@@ -23,20 +23,13 @@ const ScheduledPaymentController: React.FC<Props> = ({ navigation, route }) => {
       date: new Date(),
       checkmark: true,
       extraInfo: (
-        <Container center>
-          <Text text={formatQuantity(2000)} fontSize={34} fontWeight="Bold" />
-          <Text text={t('transactions:paymentType')} typography="caption" marginTop={10} />
-          <Text text={t('transactions:singlePayment')} typography="header" fontWeight="Bold" marginTop={8} />
-
-          <Text text={t('transactions:payee')} typography="caption" marginTop={10} />
-          <Text text="Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
-
-          <Text text={t('form:bank')} typography="caption" marginTop={10} />
-          <Text text="STP" typography="header" fontWeight="Bold" marginTop={8} />
-
-          <Text text={t('form:concept')} typography="caption" marginTop={10} />
-          <Text text="Pago a Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
-        </Container>
+        <PaymentAlertInfo
+          amount={2000}
+          paymentType={t('transactions:singlePayment')}
+          payee="Mario Telles"
+          bank="STP"
+          concept="Pago a Mario Telles"
+        />
       ),
       actions: [{
         label: t('global:continue'),

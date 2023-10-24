@@ -18,6 +18,7 @@ export * from './ProfilePhoto';
 export * from './CircularSlider';
 export * from './BankAccountCard';
 export * from './RadioButtonGroup';
+export * from './PaymentAlertInfo';
 
 export {
   CustomBottomSheet as BottomSheet,
