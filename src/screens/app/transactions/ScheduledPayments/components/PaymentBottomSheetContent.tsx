@@ -35,13 +35,13 @@ const PaymentBottomSheetContent: React.FC<Props> = ({ onPressDelete, onPressEdit
       <Text text={t('transactions:destinationAccount')} typography="caption" marginTop={16} />
       <Text text="CLABE ***533" typography="header" fontWeight="Bold" marginTop={8} />
 
-      <Text text={t('transactions:bank')} typography="caption" marginTop={16} />
+      <Text text={t('form:bank')} typography="caption" marginTop={16} />
       <Text text="STP" typography="header" fontWeight="Bold" marginTop={8} />
 
-      <Text text={t('transactions:concept')} typography="caption" marginTop={16} />
+      <Text text={t('form:concept')} typography="caption" marginTop={16} />
       <Text text="Pago a Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
 
-      <Text text={t('transactions:reference')} typography="caption" marginTop={16} />
+      <Text text={t('form:reference')} typography="caption" marginTop={16} />
       <Text text="1909230" typography="header" fontWeight="Bold" marginTop={8} />
 
       <Button

@@ -1,12 +1,15 @@
 import React, { useCallback } from 'react';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'reactRedux';
 import { Container, SafeArea, Text } from 'components';
 import { useAlert } from 'context';
-import { formatQuantity } from 'utils';
-import EditPaymentScreen from './EditPaymentScreen';
+import { TransactionsGlobalStackParams, formatQuantity } from 'utils';
+import EditPaymentScreen from './ScheduledPaymentScreen';
 
-const EditPaymentController: React.FC = () => {
+interface Props extends NativeStackScreenProps<TransactionsGlobalStackParams, 'ScheduledPayment'> {}
+
+const ScheduledPaymentController: React.FC<Props> = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -28,21 +31,29 @@ const EditPaymentController: React.FC = () => {
           <Text text={t('transactions:payee')} typography="caption" marginTop={10} />
           <Text text="Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
 
-          <Text text={t('transactions:bank')} typography="caption" marginTop={10} />
+          <Text text={t('form:bank')} typography="caption" marginTop={10} />
           <Text text="STP" typography="header" fontWeight="Bold" marginTop={8} />
 
-          <Text text={t('transactions:concept')} typography="caption" marginTop={10} />
+          <Text text={t('form:concept')} typography="caption" marginTop={10} />
           <Text text="Pago a Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
         </Container>
       ),
+      actions: [{
+        label: t('global:continue'),
+        onPress: () => {
+          alert.hide();
+          navigation.goBack();
+        },
+        type: 'primary',
+      }],
     });
-  }, [alert, t]);
+  }, [alert, navigation, t]);
 
   return (
     <SafeArea>
-      <EditPaymentScreen onSubmit={onSubmit} />
+      <EditPaymentScreen onSubmit={onSubmit} edition={!!route.params?.edition} />
     </SafeArea>
   );
 };
 
-export default EditPaymentController;
+export default ScheduledPaymentController;

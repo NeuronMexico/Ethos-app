@@ -19,7 +19,7 @@ const ScheduledPaymentsController: React.FC = () => {
         onPressDelete={bottomSheet.hide}
         onPressEdit={() => {
           bottomSheet.hide();
-          navigate('TransactionsGlobalStack', { screen: 'EditPayment' });
+          navigate('TransactionsGlobalStack', { screen: 'ScheduledPayment', params: { edition: true } });
         }}
       />
     ));
@@ -27,7 +27,10 @@ const ScheduledPaymentsController: React.FC = () => {
 
   return (
     <SafeArea>
-      <ScheduledPaymentsScreen onPressPayment={onPressPayment} />
+      <ScheduledPaymentsScreen
+        onPressPayment={onPressPayment}
+        onPressAdd={() => navigate('TransactionsGlobalStack', { screen: 'ScheduledPayment' })}
+      />
     </SafeArea>
   );
 };

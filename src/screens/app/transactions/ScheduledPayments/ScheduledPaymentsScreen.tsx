@@ -10,14 +10,19 @@ import { formatDate, formatQuantity } from 'utils';
 
 interface Props {
   onPressPayment: () => void;
+  onPressAdd: () => void;
 }
 
-const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
+const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment, onPressAdd }) => {
   const { t } = useTranslation();
 
   return (
     <Container flex>
-      <Header title={t('transactions:scheduledPayments')} rightIcon={<MoreIcon width={22} height={22} />} />
+      <Header
+        title={t('transactions:scheduledPayments')}
+        rightIcon={<MoreIcon width={22} height={22} />}
+        rightAction={onPressAdd}
+      />
       <ScrollView
         style={{ flex: 1, marginTop: 4 }}
         contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: 28 }}

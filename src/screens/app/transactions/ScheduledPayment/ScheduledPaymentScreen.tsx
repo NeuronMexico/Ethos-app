@@ -3,26 +3,28 @@ import { ScrollView } from 'react-native';
 import { Container, Header } from 'components';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
-import { EditPaymentForm } from './components';
+import { ScheduledPaymentForm } from './components';
 
 interface Props {
   onSubmit: () => void;
+  edition: boolean;
 }
 
-const EditPaymentScreen: React.FC<Props> = ({ onSubmit }) => {
+const ScheduledPaymentScreen: React.FC<Props> = ({ onSubmit, edition }) => {
   const { t } = useTranslation();
 
   return (
     <Container flex useKeyboard>
-      <Header title={t('transactions:editPayment')} />
+      <Header title={t(`transactions:${edition ? 'editPayment' : 'newScheduledPayment'}`)} />
       <ScrollView
         style={{ flex: 1, marginTop: 4 }}
         contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 28, paddingBottom: 32 }}
+        keyboardShouldPersistTaps="handled"
       >
-        <EditPaymentForm onSubmit={onSubmit} />
+        <ScheduledPaymentForm onSubmit={onSubmit} edition={edition} />
       </ScrollView>
     </Container>
   );
 };
 
-export default EditPaymentScreen;
+export default ScheduledPaymentScreen;

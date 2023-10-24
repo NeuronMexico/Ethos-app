@@ -241,7 +241,7 @@ const Input = forwardRef(({
       >
         <Container row>
           {prefixIcon && (
-          <Container middle width={24} style={{ marginLeft: 16 }}>
+          <Container middle style={{ marginLeft: 16, minWidth: 24 }}>
             {prefixIcon}
           </Container>
           )}
