@@ -9,15 +9,20 @@ import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
 
 interface Props {
-  onPressPayment: () => void;
+  onPressPayment: (type: string) => void;
+  onPressAdd: () => void;
 }
 
-const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
+const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment, onPressAdd }) => {
   const { t } = useTranslation();
 
   return (
     <Container flex>
-      <Header title={t('transactions:scheduledPayments')} rightIcon={<MoreIcon width={22} height={22} />} />
+      <Header
+        title={t('transactions:scheduledPayments')}
+        rightIcon={<MoreIcon width={22} height={22} />}
+        rightAction={onPressAdd}
+      />
       <ScrollView
         style={{ flex: 1, marginTop: 4 }}
         contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: 28 }}
@@ -37,10 +42,9 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
-          onPress={onPressPayment}
+          onPress={() => onPressPayment('single')}
         />
         <MultipleTextButton
-          onPress={onPressPayment}
           title="Pago de TDC ** *334"
           label={t('transactions:directDebit')}
           rightText={formatQuantity(3957)}
@@ -48,9 +52,9 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
+          onPress={() => onPressPayment('direct-debit')}
         />
         <MultipleTextButton
-          onPress={onPressPayment}
           title="Netflix"
           label={t('transactions:recurringPayment')}
           rightText={formatQuantity(299)}
@@ -58,6 +62,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
+          onPress={() => onPressPayment('single')}
         />
 
         <Text
@@ -69,7 +74,6 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           marginTop={16}
         />
         <MultipleTextButton
-          onPress={onPressPayment}
           title="Pago Mariana"
           label={t('transactions:singlePayment')}
           rightText={formatQuantity(974)}
@@ -77,6 +81,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
+          onPress={() => onPressPayment('single')}
         />
       </ScrollView>
     </Container>

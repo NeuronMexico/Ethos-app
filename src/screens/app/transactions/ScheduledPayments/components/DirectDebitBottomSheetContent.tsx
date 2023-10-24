@@ -9,12 +9,12 @@ interface Props {
   onPressDelete: () => void;
 }
 
-const PaymentBottomSheetContent: React.FC<Props> = ({ onPressDelete, onPressEdit }) => {
+const DirectDebitBottomSheetContent: React.FC<Props> = ({ onPressDelete, onPressEdit }) => {
   const { t } = useTranslation();
 
   return (
     <Container center>
-      <Text text={t('transactions:date')} typography="caption" />
+      <Text text={t('transactions:nextPaymentDate')} typography="caption" />
       <Text
         text={formatDate(new Date(), 'MMMM dd, yyyy')}
         typography="header"
@@ -24,25 +24,22 @@ const PaymentBottomSheetContent: React.FC<Props> = ({ onPressDelete, onPressEdit
       />
 
       <Text text={t('transactions:amount')} typography="caption" marginTop={16} />
-      <Text text={formatQuantity(2000)} fontSize={34} fontWeight="Bold" marginTop={8} />
+      <Text text={formatQuantity(3957)} fontSize={34} fontWeight="Bold" marginTop={8} />
 
       <Text text={t('transactions:paymentType')} typography="caption" marginTop={16} />
-      <Text text={t('transactions:singlePayment')} typography="header" fontWeight="Bold" marginTop={8} />
+      <Text text={t('transactions:minimumPayment')} typography="header" fontWeight="Bold" marginTop={8} />
 
       <Text text={t('transactions:payee')} typography="caption" marginTop={16} />
       <Text text="Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
 
-      <Text text={t('transactions:destinationAccount')} typography="caption" marginTop={16} />
-      <Text text="CLABE ***533" typography="header" fontWeight="Bold" marginTop={8} />
+      <Text text={t('transactions:debitCLABE')} typography="caption" marginTop={16} />
+      <Text text="4324 3442 4324 553343" typography="header" fontWeight="Bold" marginTop={8} />
 
       <Text text={t('form:bank')} typography="caption" marginTop={16} />
-      <Text text="STP" typography="header" fontWeight="Bold" marginTop={8} />
+      <Text text="Santander" typography="header" fontWeight="Bold" marginTop={8} />
 
-      <Text text={t('form:concept')} typography="caption" marginTop={16} />
-      <Text text="Pago a Mario Telles" typography="header" fontWeight="Bold" marginTop={8} />
-
-      <Text text={t('form:reference')} typography="caption" marginTop={16} />
-      <Text text="1909230" typography="header" fontWeight="Bold" marginTop={8} />
+      <Text text={t('transactions:creditCardPayment', { cardNumber: '** *334' })} typography="caption" marginTop={16} />
+      <Text text={t('transactions:directDebit')} typography="header" fontWeight="Bold" marginTop={8} />
 
       <Button
         label={t('global:edit')}
@@ -62,4 +59,4 @@ const PaymentBottomSheetContent: React.FC<Props> = ({ onPressDelete, onPressEdit
   );
 };
 
-export { PaymentBottomSheetContent };
+export { DirectDebitBottomSheetContent };

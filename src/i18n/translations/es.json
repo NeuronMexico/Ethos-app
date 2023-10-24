@@ -211,9 +211,19 @@
     "paymentType": "Tipo de pago",
     "payee": "Destinatario",
     "destinationAccount": "Cuenta destino",
-    "bank": "Banco",
-    "concept": "Concepto",
-    "reference": "Referencia"
+    "editPayment": "Editar pago",
+    "myCreditCard": "Mi TDC",
+    "scheduleTransaction": "Programar operación",
+    "scheduledPaymentEditedSuccessfully": "Pago programado editado correctamente",
+    "newScheduledPayment": "Nuevo pago programado",
+    "saveToContacts": "Guardar en contactos",
+    "confirmDeleteScheduledPayment": "¿Estás seguro de eliminar el pago programado?",
+    "yesDelete": "Sí, eliminar",
+    "scheduledPaymentDeletedSuccessfully": "Pago programado eliminado correctamente",
+    "nextPaymentDate": "Fecha del próximo pago",
+    "debitCLABE": "CLABE dónde se hará el cobro",
+    "creditCardPayment": "Pago de TDC {{cardNumber}}",
+    "minimumPayment": "Pago mínimo"
   },
   "alert": {
     "invoice": "Folio:",
@@ -350,6 +360,8 @@
     "account": "Tarjeta ethoscrédito / Número de tarjeta de débito / CLABE",
     "bank": "Banco",
     "required": "Campo requerido",
-    "clabe": "CLABE"
+    "clabe": "CLABE",
+    "concept": "Concepto",
+    "reference": "Referencia"
   }
 }
