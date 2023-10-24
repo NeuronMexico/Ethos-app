@@ -202,7 +202,18 @@
     "toContacts": "A contactos",
     "newPayment": "Nuevo pago",
     "viaCODI": "Vía CODI",
-    "inCash": "En efectivo"
+    "inCash": "En efectivo",
+    "singlePayment": "Pago único",
+    "directDebit": "Domiciliado",
+    "recurringPayment": "Recurrente",
+    "date": "Fecha",
+    "amount": "Monto",
+    "paymentType": "Tipo de pago",
+    "payee": "Destinatario",
+    "destinationAccount": "Cuenta destino",
+    "bank": "Banco",
+    "concept": "Concepto",
+    "reference": "Referencia"
   },
   "alert": {
     "invoice": "Folio:",
@@ -227,7 +238,8 @@
     "confirmYourIdentity": "Confirma que eres tú",
     "pay": "Pagar",
     "decline": "Rechazar",
-    "edit": "Editar"
+    "edit": "Editar",
+    "delete": "Eliminar"
   },
   "profile": {
     "titleStack": "Perfil",
