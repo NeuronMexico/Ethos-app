@@ -213,7 +213,11 @@
     "destinationAccount": "Cuenta destino",
     "bank": "Banco",
     "concept": "Concepto",
-    "reference": "Referencia"
+    "reference": "Referencia",
+    "editPayment": "Editar pago",
+    "myCreditCard": "Mi TDC",
+    "scheduleTransaction": "Programar operación",
+    "scheduledPaymentEditedSuccessfully": "Pago programado editado correctamente"
   },
   "alert": {
     "invoice": "Folio:",

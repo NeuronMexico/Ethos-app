@@ -56,7 +56,7 @@ const Alert: React.FC<Props> = ({
   const { t } = useTranslation();
 
   return (
-    <Modal visible={visible} blur={false} onDismiss={() => console.log('dismiss')} animationType="fade">
+    <Modal visible={visible} blur={false} onDismiss={onDismiss} animationType="fade">
       <Container flex middle style={{ paddingHorizontal: 16 }}>
         <ScrollView
           style={styles.scrollView}
