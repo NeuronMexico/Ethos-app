@@ -15,7 +15,7 @@ const MoreIcon: React.FC<Props> = ({
   width = 16,
   height = 16,
 }: Props) => (
-  <Svg width={width} height={height} fill="none">
+  <Svg width={width} height={height} fill="none" viewBox="0 0 24 24">
     <Path
       stroke={color}
       strokeLinecap="round"
