@@ -60,7 +60,7 @@ export type HomeGlobalStackParams = {
 
 export type TransactionsGlobalStackParams = {
   ScheduledPayments: undefined;
-  ScheduledPayment: { edition?: boolean } | undefined;
+  Payment: { edition?: boolean; scheduled?: boolean } | undefined;
   BillPayment: undefined;
 };
 

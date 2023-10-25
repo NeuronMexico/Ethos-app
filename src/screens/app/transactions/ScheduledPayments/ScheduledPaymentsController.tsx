@@ -86,7 +86,7 @@ const ScheduledPaymentsController: React.FC = () => {
       type === 'single' ? (
         <PaymentBottomSheetContent
           onPressDelete={() => onPressDelete(false)}
-          onPressEdit={() => onPressEdit('TransactionsGlobalStack', 'ScheduledPayment')}
+          onPressEdit={() => onPressEdit('TransactionsGlobalStack', 'Payment')}
         />
       ) : (
         <DirectDebitBottomSheetContent
@@ -101,7 +101,7 @@ const ScheduledPaymentsController: React.FC = () => {
     <SafeArea>
       <ScheduledPaymentsScreen
         onPressPayment={onPressPayment}
-        onPressAdd={() => navigate('TransactionsGlobalStack', { screen: 'ScheduledPayment' })}
+        onPressAdd={() => navigate('TransactionsGlobalStack', { screen: 'Payment', params: { scheduled: true } })}
       />
     </SafeArea>
   );
