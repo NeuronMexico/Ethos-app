@@ -1,10 +1,7 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import PagerView from 'react-native-pager-view';
 import { Container, Header } from 'components';
-import { MessageDotsIcon } from 'assets/svg';
 import {
   CollectionsPage, PaymentsPage, PersonalDispositionPage, PersonalProjectPage, Tab, TabRef,
 } from './components';
@@ -27,7 +24,6 @@ const TransactionsScreen: React.FC<Props> = ({
   onPressNewPayment,
 }) => {
   const { t } = useTranslation();
-  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   const pagerViewRef = useRef<PagerView>(null);
   const tabRef = useRef<TabRef>(null);
@@ -44,8 +40,7 @@ const TransactionsScreen: React.FC<Props> = ({
       <Header
         title={t('transactions:transactions')}
         showBackButton={false}
-        rightIcon={<MessageDotsIcon />}
-        rightAction={() => navigate('VirtualAssistant')}
+        showVirtualAssistantAction
       />
       <Tab ref={tabRef} tabs={tabs} onChange={(index) => pagerViewRef.current?.setPage(index)} />
       <PagerView
