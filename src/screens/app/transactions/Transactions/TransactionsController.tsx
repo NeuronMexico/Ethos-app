@@ -14,9 +14,9 @@ const TransactionsController: React.FC = () => {
       <TransactionsScreen
         onPressScheduledPayments={() => navigate('TransactionsGlobalStack')}
         onPressServices={() => navigate('TransactionsGlobalStack', { screen: 'BillPayment' })}
-        onPressCash={() => {}}
+        onPressCash={() => navigate('TransactionsGlobalStack', { screen: 'CashPayment' })}
         onPressCoDi={() => {}}
-        onPressContacts={() => {}}
+        onPressContacts={() => navigate('ContactsGlobalStack')}
         onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
       />
     </SafeArea>
