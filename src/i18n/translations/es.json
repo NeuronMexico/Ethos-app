@@ -235,7 +235,10 @@
     "landlineAndInternet": "Telefonía fija e internet",
     "stateAndMunicipalPayments": "Pagos estatales y municipales",
     "catalogSales": "Venta por catálogo",
-    "pickDate": "Elegir fecha"
+    "pickDate": "Elegir fecha",
+    "cashPayment": "Pago en efectivo",
+    "generateCode": "Generar código",
+    "checkEstablishments": "Consultar establecimientos"
   },
   "alert": {
     "invoice": "Folio:",
