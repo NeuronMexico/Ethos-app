@@ -9,13 +9,15 @@ import {
 import Theme from 'theme';
 import { VisaIcon } from 'assets/svg';
 import { PAYMENT_TYPES, validations } from 'utils';
+import Collapsible from 'react-native-collapsible';
 
 interface Props {
   onSubmit: () => void;
   edition: boolean;
+  scheduled: boolean;
 }
 
-const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition }) => {
+const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition, scheduled }) => {
   const { t } = useTranslation();
 
   const lastNameRef = useRef<TextInput>(null);
@@ -64,6 +66,7 @@ const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition }) => {
   const [scheduleError, setScheduleError] = useState<string>('');
 
   const [saveContact, setSaveContact] = useState<boolean>(false);
+  const [scheduleTransaction, setScheduleTransaction] = useState<boolean>(false);
 
   const cardValidation = (): boolean => {
     const validation = validations.required(card);
@@ -378,13 +381,27 @@ const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition }) => {
         useActionSheet
         error={paymentTypeError}
       />
-      <DateTimePicker
+
+      {!edition && !scheduled && (
+      <CheckBoxField
         label={t('transactions:scheduleTransaction')}
-        value={schedule}
-        onValueChange={setSchedule}
-        placeholder=""
-        error={scheduleError}
+        selected={scheduleTransaction}
+        onChange={setScheduleTransaction}
+        marginVertical={12}
       />
+      )}
+
+      <Collapsible collapsed={(!edition && !scheduled) && !scheduleTransaction}>
+        <DateTimePicker
+          label={edition || scheduled ? t('transactions:scheduleTransaction') : undefined}
+          value={schedule}
+          onValueChange={setSchedule}
+          placeholder={!edition && !scheduled ? t('transactions:pickDate') : ''}
+          error={scheduleError}
+          marginTop={edition || scheduled ? 16 : 0}
+        />
+
+      </Collapsible>
       <Button label={t('global:continue')} onPress={onSubmit} marginVertical={16} />
     </Container>
   );

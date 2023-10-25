@@ -5,11 +5,11 @@ import { useDispatch } from 'reactRedux';
 import { PaymentAlertInfo, SafeArea } from 'components';
 import { useAlert } from 'context';
 import { TransactionsGlobalStackParams } from 'utils';
-import EditPaymentScreen from './ScheduledPaymentScreen';
+import PaymentScreen from './PaymentScreen';
 
-interface Props extends NativeStackScreenProps<TransactionsGlobalStackParams, 'ScheduledPayment'> {}
+interface Props extends NativeStackScreenProps<TransactionsGlobalStackParams, 'Payment'> {}
 
-const ScheduledPaymentController: React.FC<Props> = ({ navigation, route }) => {
+const PaymentController: React.FC<Props> = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -44,9 +44,13 @@ const ScheduledPaymentController: React.FC<Props> = ({ navigation, route }) => {
 
   return (
     <SafeArea>
-      <EditPaymentScreen onSubmit={onSubmit} edition={!!route.params?.edition} />
+      <PaymentScreen
+        onSubmit={onSubmit}
+        edition={!!route.params?.edition}
+        scheduled={!!route.params?.scheduled}
+      />
     </SafeArea>
   );
 };
 
-export default ScheduledPaymentController;
+export default PaymentController;

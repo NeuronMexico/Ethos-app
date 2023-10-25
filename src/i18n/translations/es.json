@@ -234,7 +234,8 @@
     "water": "Agua",
     "landlineAndInternet": "Telefonía fija e internet",
     "stateAndMunicipalPayments": "Pagos estatales y municipales",
-    "catalogSales": "Venta por catálogo"
+    "catalogSales": "Venta por catálogo",
+    "pickDate": "Elegir fecha"
   },
   "alert": {
     "invoice": "Folio:",

@@ -17,7 +17,7 @@ const TransactionsController: React.FC = () => {
         onPressCash={() => {}}
         onPressCoDi={() => {}}
         onPressContacts={() => {}}
-        onPressNewPayment={() => {}}
+        onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
       />
     </SafeArea>
   );
