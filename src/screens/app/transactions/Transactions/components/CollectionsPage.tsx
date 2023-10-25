@@ -62,7 +62,7 @@ const CollectionsPage: React.FC<Props> = ({
       <MultipleTextButton
         onPress={() => {}}
         title="Andrés Lara"
-        rightText={formatQuantity(-100)}
+        rightText={formatQuantity(2500)}
         borderColor={Theme.Colors.PlaceboBlue}
         borderRadius={24}
         marginTop={16}
