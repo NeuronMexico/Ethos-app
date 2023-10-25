@@ -108,12 +108,12 @@ const AssignTagsScreen: React.FC<Props> = ({ item }) => {
           alignContent="space-between"
           marginTop={32}
         />
-        <Container row center style={{ justifyContent: 'space-around', gap: 16 }}>
+        <Container row style={styles.inputContainer}>
           <Input
             value={searchTagName}
             onChangeText={setSearchTagName}
             placeholder={t('expenses:search')}
-            width="80%"
+            width="85%"
             prefixIcon={<LensIcon width={20} height={20} />}
           />
           <Touchable onPress={handlerTagModal}>
@@ -147,6 +147,10 @@ const AssignTagsScreen: React.FC<Props> = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
+  inputContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
   filterContainer: {
     gap: 16,
     width: '100%',
