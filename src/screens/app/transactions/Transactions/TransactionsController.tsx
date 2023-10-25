@@ -18,6 +18,11 @@ const TransactionsController: React.FC = () => {
         onPressCoDi={() => {}}
         onPressContacts={() => navigate('ContactsGlobalStack')}
         onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
+        onPressCashCollection={() => {}}
+        onPressCoDiCollection={() => {}}
+        onPressContactsCollection={() => {}}
+        onPressEthosQR={() => {}}
+        onPressScheduledCollections={() => {}}
       />
     </SafeArea>
   );

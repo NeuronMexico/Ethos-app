@@ -238,7 +238,10 @@
     "pickDate": "Elegir fecha",
     "cashPayment": "Pago en efectivo",
     "generateCode": "Generar código",
-    "checkEstablishments": "Consultar establecimientos"
+    "checkEstablishments": "Consultar establecimientos",
+    "scheduledCollections": "Cobros programados",
+    "pendingCollection": "Cobro pendiente",
+    "ethoscreditQR": "QR ethoscrédito"
   },
   "alert": {
     "invoice": "Folio:",
