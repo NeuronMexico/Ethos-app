@@ -122,6 +122,12 @@ export type ProfileStackParams = {
   ChangePassword: undefined;
 };
 
+export type ExpensesStackParams = {
+  Expenses: undefined;
+  ExpensesSummary: undefined;
+
+};
+
 export type NotificationStackParams = {
   Notifications: undefined;
   NotificationSettings: undefined;
