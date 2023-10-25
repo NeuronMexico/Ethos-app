@@ -9,9 +9,10 @@ import Theme from 'theme';
 
 interface Props {
   onSubmit: () => void;
+  edition: boolean;
 }
 
-const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit }) => {
+const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit, edition }) => {
   const { t } = useTranslation();
 
   const [paymentType, setPaymentType] = useState<string>('minimum-payment');
@@ -24,7 +25,7 @@ const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit }) => {
 
   return (
     <Container flex>
-      <Header title={t('cards:directDebitPayment')} />
+      <Header title={t(`cards:${edition ? 'editDirectDebitPayment' : 'directDebitPayment'}`)} />
       <Container flex style={{ marginTop: Theme.Sizes.MarginTop, paddingHorizontal: Theme.Sizes.Padding }}>
         <Text text={t('cards:accountWhereChargesWillBeMade')} fontWeight="Medium" />
 

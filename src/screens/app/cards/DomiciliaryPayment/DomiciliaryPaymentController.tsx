@@ -9,7 +9,7 @@ import DomiciliaryPaymentScreen from './DomiciliaryPaymentScreen';
 
 interface Props extends NativeStackScreenProps<CardsGlobalStackParams, 'DomiciliaryPayment'> {}
 
-const DomiciliaryPaymentController: React.FC<Props> = ({ navigation }) => {
+const DomiciliaryPaymentController: React.FC<Props> = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
@@ -51,7 +51,7 @@ const DomiciliaryPaymentController: React.FC<Props> = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <DomiciliaryPaymentScreen onSubmit={onSubmit} />
+      <DomiciliaryPaymentScreen onSubmit={onSubmit} edition={!!route.params?.edition} />
     </SafeArea>
   );
 };

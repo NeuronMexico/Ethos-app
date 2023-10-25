@@ -169,7 +169,8 @@
     "creditLineIncreasedCongratulations": "¡Felicidades! Se ha incrementado tu línea de crédito a",
     "cvv": "CVV",
     "or": "o",
-    "card8Digits": "8 dígitos de tu tarjeta"
+    "card8Digits": "8 dígitos de tu tarjeta",
+    "editDirectDebitPayment": "Editar domiciliación pago"
   },
   "virtualAssistant": {
     "greeting": "Hola 👋\nSoy Lidia,",
