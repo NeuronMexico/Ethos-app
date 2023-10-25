@@ -122,10 +122,22 @@ export type ProfileStackParams = {
   ChangePassword: undefined;
 };
 
+export type TransactionType = {
+  amount: string;
+  bank: string;
+  cardLastDigits: string;
+  color: string;
+  concept: string;
+  description: string;
+  name: string;
+  status: string;
+  title: string;
+};
+
 export type ExpensesStackParams = {
   Expenses: undefined;
   ExpensesSummary: undefined;
-
+  AssignTags: { item: TransactionType }
 };
 
 export type NotificationStackParams = {
