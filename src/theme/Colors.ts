@@ -38,6 +38,7 @@ const Colors = {
   UltramarineViolet68: '#192B59AD',
   Husky80: '#E2E9FCCC',
   SantasGrey: '#9CA3AF',
+  EyeBlue: '#D6DFF1',
 };
 
 export default Colors;

@@ -27,6 +27,11 @@ const ExpenseSummaryController: React.FC = () => {
     navigate('AssignTags', { item });
   };
 
+  const onPressTicket = (item: TransactionType) => {
+    bottomSheet.hide();
+    navigate('TicketsAndInvoices', { item });
+  };
+
   const transactionDescription = (date: any, transaction: any) => (
     <Container center style={{ gap: 16 }}>
       <Text
@@ -81,7 +86,7 @@ const ExpenseSummaryController: React.FC = () => {
       <Container row flex style={{ justifyContent: 'space-between' }}>
         <Button
           label={t('expenses:uploadTicket')}
-          onPress={() => {}}
+          onPress={() => onPressTicket(transaction)}
           borderColor={Theme.Colors.PlaceboBlue}
           marginBottom={10}
           borderStyle
@@ -92,7 +97,7 @@ const ExpenseSummaryController: React.FC = () => {
         />
         <Button
           label={t('expenses:uploadInvoice')}
-          onPress={() => {}}
+          onPress={() => onPressTicket(transaction)}
           borderColor={Theme.Colors.PlaceboBlue}
           marginBottom={10}
           borderStyle

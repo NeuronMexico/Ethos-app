@@ -137,7 +137,8 @@ export type TransactionType = {
 export type ExpensesStackParams = {
   Expenses: undefined;
   ExpensesSummary: undefined;
-  AssignTags: { item: TransactionType }
+  AssignTags: { item: TransactionType };
+  TicketsAndInvoices: { item: TransactionType };
 };
 
 export type NotificationStackParams = {

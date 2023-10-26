@@ -333,5 +333,17 @@
     "changeTag": "Cambiar nombre de etiqueta",
     "saveChanges": "Guardar cambios",
     "search": "Buscar"
+  },
+  "ticketsAndInvoices": {
+    "title": "Tickets y Facturas",
+    "add": "Agregar movimiento",
+    "uploadTicket": "Subir ticket",
+    "uploadInvoice": "Subir factura",
+    "ticket": "Ticket ",
+    "invoice": "Factura ",
+    "uploadFile": "Adjuntar archivo .jpg",
+    "nameOfTicket": "Nombre de ticket",
+    "linkToTicket": "Ligar a ticket",
+    "attachFile": "Adjuntar archivo .jpg"
   }
 }
