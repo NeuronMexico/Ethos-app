@@ -70,7 +70,7 @@ const AddMovementScreen: React.FC<Props> = ({ onSubmit }) => {
   return (
     <Container>
       <Header
-        title={t('expenses:totalSpends')}
+        title={t('ticketsAndInvoices:add')}
         rightAction={() => {}}
         rightIcon={<MessageDotsIcon />}
       />
