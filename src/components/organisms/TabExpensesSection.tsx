@@ -1,7 +1,6 @@
 /* eslint-disable no-plusplus */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
 import {
   ChevronRightIcon,
   ExportIcon, FilterIcon,
@@ -16,6 +15,7 @@ import { CustomPicker } from 'components/atoms/CustomPicker';
 import { CustomDateTimePicker } from 'components/atoms/CustomDateTimePicker';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { PieChart } from 'react-native-chart-kit';
 
 interface Props {
   product: any;
@@ -47,6 +47,13 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
   const [selectedMonth, setSelectedMonth] = useState('');
   const [fromDate, setFromDate] = useState(new Date());
   const [untilDate, setUntilDate] = useState(new Date());
+
+  const data = [
+    { name: 'Orange', population: 50, color: '#F49A47' },
+    { name: 'Green', population: 16, color: '#C7F447' },
+    { name: 'Blue', population: 16, color: '#47A6F4' },
+    { name: 'Purple', population: 17, color: '#7447F4' },
+  ];
 
   const filterCard = () => {
     const today = new Date();
@@ -142,11 +149,19 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
       <Container>
         <Container center style={{ marginTop: 16 }}>
           {showFilter ? filterCard() : (
-            <Container
-              circle
-              backgroundColor={Theme.Colors.PlaceboBlue}
+            <PieChart
+              data={data}
               width={165}
               height={165}
+              chartConfig={{
+                backgroundGradientFrom: '#1E2923',
+                backgroundGradientTo: '#08130D',
+                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+              }}
+              accessor="population"
+              backgroundColor="transparent"
+              hasLegend={false}
+              paddingLeft="30"
             />
           )}
         </Container>

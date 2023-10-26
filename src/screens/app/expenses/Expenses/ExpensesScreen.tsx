@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {
   useEffect, useMemo, useRef, useState,
 } from 'react';
@@ -95,7 +96,6 @@ const ExpensesScreen: React.FC<Props> = () => {
         easing: Easing.easeInOut,
       }).start();
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentTab],
   );
 
@@ -106,7 +106,6 @@ const ExpensesScreen: React.FC<Props> = () => {
     >
       <TabExpensesSection product={item} />
     </View>
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   )), []);
 
   return (
