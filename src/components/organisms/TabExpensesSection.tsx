@@ -147,12 +147,12 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
         </Container>
       </Container>
       <Container>
-        <Container center style={{ marginTop: 16 }}>
+        <Container center style={{ marginTop: 26, marginBottom: 22 }}>
           {showFilter ? filterCard() : (
             <PieChart
               data={data}
-              width={165}
-              height={165}
+              width={220}
+              height={211}
               chartConfig={{
                 backgroundGradientFrom: '#1E2923',
                 backgroundGradientTo: '#08130D',
@@ -161,7 +161,7 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
               accessor="population"
               backgroundColor="transparent"
               hasLegend={false}
-              paddingLeft="30"
+              paddingLeft="50"
             />
           )}
         </Container>
