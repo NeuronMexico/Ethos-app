@@ -80,6 +80,18 @@ export const cardNumber = (value: string): ValidationInterface => {
   return { ok: !error, error };
 };
 
+export const clabeNumber = (value: string): ValidationInterface => {
+  let error: ErrorType;
+
+  if (!value) {
+    error = 'required';
+  } else if (!/^\d{18}$/.test(value.replaceAll(' ', ''))) {
+    error = 'invalid-format';
+  }
+
+  return { ok: !error, error };
+};
+
 export const cardExpirationDate = (value: string): ValidationInterface => {
   let error: ErrorType;
 
