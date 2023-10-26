@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider from '@react-native-community/slider';
 import { Button, Container, Text } from 'components';
-import { CardWomenIllustration } from 'assets/svg';
+import { CardIncrementIllustration } from 'assets/svg';
 import { formatQuantity } from 'utils';
 import Theme from 'theme';
 
@@ -19,7 +19,7 @@ const CreditLineIncreaseBottomSheetContent: React.FC<Props> = ({ onSubmit }) => 
 
   return (
     <Container>
-      <CardWomenIllustration style={{ alignSelf: 'center' }} />
+      <CardIncrementIllustration style={{ alignSelf: 'center' }} />
       <Text text={formatQuantity(creditLimit)} marginVertical={21} fontSize={24} fontWeight="Bold" textAlign="center" />
       <Text
         text={t('cards:slideToAdjustYourNewCreditLimit')}

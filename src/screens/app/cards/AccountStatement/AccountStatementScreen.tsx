@@ -2,7 +2,6 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Container, Header, MultipleTextButton } from 'components';
-import { MessageDotsIcon } from 'assets/svg';
 import Theme from 'theme';
 import { capitalize, formatDate } from 'utils';
 
@@ -24,7 +23,7 @@ const AccountStatementScreen: React.FC<Props> = ({ onSelectStatement }) => {
 
   return (
     <Container flex>
-      <Header title={t('cards:accountStatement')} rightIcon={<MessageDotsIcon />} />
+      <Header title={t('cards:accountStatement')} showVirtualAssistantAction />
       <FlatList
         contentContainerStyle={{ paddingTop: 24, paddingHorizontal: Theme.Sizes.Padding }}
         data={MOCK_DATA}

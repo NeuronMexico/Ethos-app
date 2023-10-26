@@ -58,3 +58,8 @@ export const SOCIAL_LINKS = {
   x: 'https://twitter.com/',
   linkedIn: '',
 };
+
+export const PAYMENT_TYPES = [
+  { label: i18n.t('transactions:singlePayment'), value: 'single-payment' },
+  { label: i18n.t('transactions:recurringPayment'), value: 'recurring-payment' },
+];

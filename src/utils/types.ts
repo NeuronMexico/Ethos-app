@@ -37,7 +37,7 @@ export type CardsGlobalStackParams = {
   CardReport: undefined;
   CashPayment: undefined;
   Establishments: undefined;
-  DomiciliaryPayment: undefined;
+  DomiciliaryPayment: { edition?: boolean } | undefined;
   AccountStatement: undefined;
   PDFViewer: undefined;
 };
@@ -48,12 +48,21 @@ export type AppStackParams = {
   HomeGlobalStack: undefined;
   ProfileStack: undefined;
   NotificationStack: undefined;
+  ContactsGlobalStack: undefined;
   VirtualAssistant: undefined;
+  TransactionsGlobalStack: undefined;
 };
 
 export type HomeGlobalStackParams = {
   Shortcuts: undefined;
   ProfileStack: undefined;
+};
+
+export type TransactionsGlobalStackParams = {
+  ScheduledPayments: undefined;
+  Payment: { edition?: boolean; scheduled?: boolean } | undefined;
+  BillPayment: undefined;
+  CashPayment: undefined;
 };
 
 export type TabParams = {
@@ -126,6 +135,12 @@ export type ProfileStackParams = {
 export type NotificationStackParams = {
   Notifications: undefined;
   NotificationSettings: undefined;
+};
+
+export type ContactsStackParams = {
+  List: undefined;
+  Form: { contact?: any };
+  NewAccount: undefined;
 };
 
 export type FileType = {

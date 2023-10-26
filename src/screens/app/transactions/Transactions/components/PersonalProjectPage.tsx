@@ -6,12 +6,12 @@ interface Props {
   prop?: string
 }
 
-const TransactionsScreen: React.FC<Props> = (props: Props) => {
+const PersonalProjectPage: React.FC<Props> = (props: Props) => {
   const { prop } = props;
 
   return (
-    <Container flex middle>
-      <Text text="TransactionsScreen" />
+    <Container>
+      <Text text="PersonalProjectPage" />
     </Container>
   );
 };
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default TransactionsScreen;
+export { PersonalProjectPage };

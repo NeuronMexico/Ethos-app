@@ -7,7 +7,16 @@ import GreenAvatar from './green-avatar.svg';
 import OrangeAvatar from './orange-avatar.svg';
 import GrayAvatar from './gray-avatar.svg';
 import YellowAvatar from './yellow-avatar.svg';
-import CardWomenIllustration from './card-women-illustration.svg';
+import CardIncrementIllustration from './card-increment-illustration.svg';
+// Services
+import NetflixIcon from './services/netflix-icon.svg';
+import SpotifyIcon from './services/spotify-icon.svg';
+import DisneyIcon from './services/disney-icon.svg';
+import CFEIcon from './services/cfe-icon.svg';
+import AmazonIcon from './services/amazon-icon.svg';
+import HBOIcon from './services/hbo-icon.svg';
+// Card Brands
+import VisaIcon from './cardBrands/visa-icon.svg';
 
 export * from './BankIcon';
 export * from './BellIcon';
@@ -39,6 +48,7 @@ export * from './EyeIcon';
 export * from './EyeSlashIcon';
 export * from './FacebookIcon';
 export * from './FaceIDIcon';
+export * from './FileDockAddIcon';
 export * from './FileIcon';
 export * from './FileShiedIcon';
 export * from './FileUploadIcon';
@@ -100,5 +110,14 @@ export {
   OrangeAvatar,
   GrayAvatar,
   YellowAvatar,
-  CardWomenIllustration,
+  CardIncrementIllustration,
+  // Services
+  NetflixIcon,
+  SpotifyIcon,
+  DisneyIcon,
+  CFEIcon,
+  AmazonIcon,
+  HBOIcon,
+  // Card Brands
+  VisaIcon,
 };

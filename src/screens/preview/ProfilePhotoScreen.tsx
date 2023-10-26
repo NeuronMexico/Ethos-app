@@ -25,7 +25,7 @@ const ProfilePhotoScreen: React.FC = () => (
       <ProfilePhoto size={60} />
       <ProfilePhoto size={80} />
       <ProfilePhoto size={100} withName />
-      <ProfilePhoto size={100} withName cantEdit />
+      <ProfilePhoto size={100} withName editable />
     </Container>
   </SafeArea>
 );

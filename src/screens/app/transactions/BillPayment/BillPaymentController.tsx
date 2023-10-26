@@ -1,16 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
-import TransactionsScreen from './TransactionsScreen';
+import BillPaymentScreen from './BillPaymentScreen';
 
-const TransactionsController: React.FC = () => {
+const BillPaymentController: React.FC = () => {
   const dispatch = useDispatch();
 
   return (
     <SafeArea>
-      <TransactionsScreen />
+      <BillPaymentScreen />
     </SafeArea>
   );
 };
 
-export default TransactionsController;
+export default BillPaymentController;

@@ -1,23 +1,13 @@
-import React, { ReactNode, useRef, useState } from 'react';
+import React from 'react';
 import { SafeArea } from 'components/atoms/SafeArea';
 import {
-  BlueAvatar, GrayAvatar, GreenAvatar, OrangeAvatar, RedAvatar, YellowAvatar,
-} from 'assets/svg';
-import {
-  BottomSheet, Button, Container, ProfilePhoto,
+  SheetContentProfilePhoto,
 } from 'components';
-import { Animated, ScrollView } from 'react-native';
-import Theme from 'theme';
-import { useTranslation } from 'react-i18next';
+import { useBottomSheet } from 'context';
 import ProfileEditScreen from './ProfileEditScreen';
 
 const ProfileEditController: React.FC = () => {
-  const { t } = useTranslation();
-  const offset = useRef(new Animated.Value(0)).current;
-
-  const [showChangePhotoModal, setShowChangePhotoModal] = useState<number>(-1);
-  const [renderComponent, setRenderComponent] = useState<ReactNode>(null);
-  const [changePhotoSnapPoints, setChangePhotoSnapPoints] = useState<Array<string | number>>(['80%']);
+  const bottomSheet = useBottomSheet();
 
   const onSubmit = async () => {};
 
@@ -79,21 +69,12 @@ const ProfileEditController: React.FC = () => {
   );
 
   const onPressEditPhoto = () => {
-    setChangePhotoSnapPoints(['98%']);
-    setShowChangePhotoModal(0);
-    setRenderComponent(changeProfilePhoto);
+    bottomSheet.show(<SheetContentProfilePhoto onPress={() => bottomSheet.hide()} />);
   };
+
   return (
     <SafeArea>
       <ProfileEditScreen onSubmit={onSubmit} onPressEditPhoto={onPressEditPhoto} />
-      <BottomSheet
-        state={showChangePhotoModal}
-        handleSheetChanges={setShowChangePhotoModal}
-        snapPoints={changePhotoSnapPoints}
-        enablePanDownToClose
-      >
-        {renderComponent}
-      </BottomSheet>
     </SafeArea>
   );
 };

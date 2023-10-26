@@ -16,6 +16,8 @@ interface Props extends TouchableProps {
   textColor?: ColorValue;
   labelColor?: ColorValue;
   rightTextColor?: ColorValue;
+  rightFontWeight?: FontWeightTypes;
+  rightFontSize?: number;
   fontSize?: number;
   paddingHorizontal?: number;
   paddingVertical?: number;
@@ -59,6 +61,8 @@ const MultipleTextButton: React.FC<Props> = ({
   barColor,
   labelColor = Theme.Colors.DarkSoul,
   alignContent = 'space-around',
+  rightFontSize = fontSize,
+  rightFontWeight = fontWeight,
 }: Props) => (
   <Container style={{
     width: width || '100%',
@@ -88,6 +92,7 @@ const MultipleTextButton: React.FC<Props> = ({
       >
         <Container
           row
+          center
           style={{
             justifyContent: alignContent,
             display: 'flex',
@@ -134,10 +139,10 @@ const MultipleTextButton: React.FC<Props> = ({
           {rightText && (
           <CustomText
             text={rightText}
-            fontWeight={fontWeight}
+            fontWeight={rightFontWeight}
             typography="subtitle"
             textColor={rightTextColor}
-            fontSize={fontSize}
+            fontSize={rightFontSize}
             textAlign="right"
           />
           )}

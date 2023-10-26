@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
   Container, Header, Input, Text,
 } from 'components';
-import { LensIcon, MessageDotsIcon } from 'assets/svg';
+import { LensIcon } from 'assets/svg';
 import Theme from 'theme';
 import { EstablishmentItem } from './components';
 
@@ -25,7 +25,7 @@ const EstablishmentsScreen: React.FC<Props> = (props: Props) => {
 
   return (
     <Container flex useKeyboard>
-      <Header title={t('cards:checkEstablishments')} rightIcon={<MessageDotsIcon />} />
+      <Header title={t('cards:checkEstablishments')} showVirtualAssistantAction />
       <FlatList
         contentContainerStyle={{ paddingTop: Theme.Sizes.MarginTop, paddingHorizontal: Theme.Sizes.Padding }}
         ListHeaderComponent={(

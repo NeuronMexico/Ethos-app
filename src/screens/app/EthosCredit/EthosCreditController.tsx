@@ -32,6 +32,8 @@ const EthosCreditController: React.FC = () => {
   const onPressShortcut = (id: string) => {
     if (id === 'turnOffCard') {
       bottomSheet.show(content);
+    } else if (id === 'contacts') {
+      navigate('ContactsGlobalStack');
     }
   };
 

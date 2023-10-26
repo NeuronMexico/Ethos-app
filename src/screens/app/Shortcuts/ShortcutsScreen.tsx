@@ -4,11 +4,12 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
-  Container, Header, Input, OptionButton, Text,
+  Container, Header, OptionButton, Text,
 } from 'components';
 import Theme from 'theme';
 import { SHORTCUTS_ARRAY, ShortcutType } from 'utils';
-import { LensIcon, MoreIcon } from 'assets/svg';
+import { MoreIcon } from 'assets/svg';
+import { SearchInput } from 'components/molecules/SearchInput';
 
 interface Props {
   onPressShortcutAction?: (id: string) => void;
@@ -54,16 +55,7 @@ const ShortcutsScreen: React.FC<Props> = ({
   return (
     <Container flex>
       <Header title={t('home:shortcuts')} />
-      <Container style={{ marginHorizontal: Theme.Sizes.Padding, marginBottom: Theme.Sizes.Padding }}>
-        <Input
-          ref={searchRef}
-          placeholder={t('global:search')}
-          prefixIcon={<LensIcon />}
-          onChangeText={setSearch}
-          value={search}
-          editable={false}
-        />
-      </Container>
+      <SearchInput onSearch={setSearch} />
       <TouchableWithoutFeedback onPress={() => {
         searchRef.current?.blur();
         Keyboard.dismiss();
