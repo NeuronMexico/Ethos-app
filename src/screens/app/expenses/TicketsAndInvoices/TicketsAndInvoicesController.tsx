@@ -4,12 +4,13 @@ import {
   Container,
   SafeArea,
 } from 'components';
-import { RouteProp, useRoute } from '@react-navigation/native';
-import { TransactionType } from 'utils';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { ExpensesStackParams, TransactionType } from 'utils';
 import { CustomText as Text } from 'components/atoms/CustomText';
 import { useBottomSheet } from 'context';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import TicketsAndInvoicesScreen from './TicketsAndInvoicesScreen';
 
 interface RouteParams {
@@ -20,6 +21,7 @@ const TicketsAndInvoicesController: React.FC = () => {
   const { item } = route.params;
   const bottomSheet = useBottomSheet();
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<ExpensesStackParams>>();
 
   const uploadTicket = () => (
     <Container>
@@ -52,9 +54,17 @@ const TicketsAndInvoicesController: React.FC = () => {
     bottomSheet.show(uploadTicket());
   };
 
+  const onPressMovement = () => {
+    navigate('AddMovement');
+  };
+
   return (
     <SafeArea>
-      <TicketsAndInvoicesScreen item={item} onPressUploadFile={onPressUploadFile} />
+      <TicketsAndInvoicesScreen
+        item={item}
+        onPressUploadFile={onPressUploadFile}
+        onPressMovement={onPressMovement}
+      />
     </SafeArea>
   );
 };

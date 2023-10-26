@@ -11,9 +11,10 @@ import { useTranslation } from 'react-i18next';
 interface Props {
   item: any;
   onPressUploadFile: () => void;
+  onPressMovement: () => void;
 }
 
-const TicketsAndInvoicesScreen: React.FC<Props> = ({ item, onPressUploadFile }) => {
+const TicketsAndInvoicesScreen: React.FC<Props> = ({ item, onPressUploadFile, onPressMovement }) => {
   const { t } = useTranslation();
 
   return (
@@ -35,7 +36,7 @@ const TicketsAndInvoicesScreen: React.FC<Props> = ({ item, onPressUploadFile }) 
           marginTop={32}
         />
         <Button
-          onPress={() => {}}
+          onPress={() => onPressMovement()}
           label={t('ticketsAndInvoices:add')}
           backgroundColor={Theme.Colors.WhiteSmoke}
           textColor={Theme.Colors.DarkSoul}

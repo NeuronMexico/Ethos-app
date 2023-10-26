@@ -344,6 +344,7 @@
     "uploadFile": "Adjuntar archivo .jpg",
     "nameOfTicket": "Nombre de ticket",
     "linkToTicket": "Ligar a ticket",
-    "attachFile": "Adjuntar archivo .jpg"
+    "attachFile": "Adjuntar archivo .jpg",
+    "movements": "Movimientos"
   }
 }
