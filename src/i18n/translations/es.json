@@ -388,6 +388,12 @@
     "attachFile": "Adjuntar archivo .jpg",
     "movements": "Movimientos"
   },
+  "bills": {
+    "title": "Facturas",
+    "lastBills": "Últimas facturas",
+    "downloadPDF": "Descargar.pdf",
+    "downloadXML": "Descargar.xml"
+  },
   "contacts": {
     "contacts": "Contactos",
     "newContact": "Nuevo contacto",
