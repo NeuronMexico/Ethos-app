@@ -10,7 +10,7 @@ interface Props {
   onPressConfirm: () => void;
 }
 
-const CashPaymentScreen: React.FC<Props> = ({ onPressConfirm }) => {
+const PaymentScreen: React.FC<Props> = ({ onPressConfirm }) => {
   const { t } = useTranslation();
 
   const [amount, setAmount] = useState<string>('0.00');
@@ -53,4 +53,4 @@ const CashPaymentScreen: React.FC<Props> = ({ onPressConfirm }) => {
   );
 };
 
-export default CashPaymentScreen;
+export default PaymentScreen;

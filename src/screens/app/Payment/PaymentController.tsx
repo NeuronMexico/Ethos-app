@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
-import { CardsGlobalStackParams } from 'utils';
-import CashPaymentScreen from './CashPaymentScreen';
+import { AppStackParams } from 'utils';
+import CashPaymentScreen from './PaymentScreen';
 import { QRModal } from './components';
 
-interface Props extends NativeStackScreenProps<CardsGlobalStackParams, 'CashPayment'> {}
+interface Props extends NativeStackScreenProps<AppStackParams, 'Payment'> {}
 
-const CashPaymentController: React.FC<Props> = ({ navigation }) => {
+const PaymentController: React.FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch();
 
   const [showQRModal, setShowQRModal] = useState<boolean>(false);
@@ -28,4 +28,4 @@ const CashPaymentController: React.FC<Props> = ({ navigation }) => {
   );
 };
 
-export default CashPaymentController;
+export default PaymentController;
