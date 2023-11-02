@@ -3,10 +3,10 @@ import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/b
 import { TabParams } from 'utils';
 import EthosCreditController from 'screens/app/EthosCredit/EthosCreditController';
 import TransactionsController from 'screens/app/transactions/Transactions/TransactionsController';
-import ExpensesController from 'screens/app/Expenses/ExpensesController';
 import BenefitsController from 'screens/app/Benefits/BenefitsController';
 import CardsController from 'screens/app/cards/Cards/CardsController';
 import TabBar from './TabBar';
+import ExpensesStack from './ExpensesStack';
 
 const Tab = createBottomTabNavigator<TabParams>();
 
@@ -22,7 +22,7 @@ const TabNavigator: React.FC = () => (
     <Tab.Screen name="EthosCreditStack" component={EthosCreditController} />
     <Tab.Screen name="CardsStack" component={CardsController} />
     <Tab.Screen name="TransactionsStack" component={TransactionsController} />
-    <Tab.Screen name="ExpensesStack" component={ExpensesController} />
+    <Tab.Screen name="ExpensesStack" component={ExpensesStack} />
     <Tab.Screen name="BenefitsStack" component={BenefitsController} />
   </Tab.Navigator>
 );

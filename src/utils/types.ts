@@ -132,6 +132,26 @@ export type ProfileStackParams = {
   Bills: undefined;
 };
 
+export type TransactionType = {
+  amount: string;
+  bank: string;
+  cardLastDigits: string;
+  color: string;
+  concept: string;
+  description: string;
+  name: string;
+  status: string;
+  title: string;
+};
+
+export type ExpensesStackParams = {
+  Expenses: undefined;
+  ExpensesSummary: undefined;
+  AssignTags: { item: TransactionType };
+  TicketsAndInvoices: { item: TransactionType };
+  AddMovement: undefined;
+};
+
 export type NotificationStackParams = {
   Notifications: undefined;
   NotificationSettings: undefined;
