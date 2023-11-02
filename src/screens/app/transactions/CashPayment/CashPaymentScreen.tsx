@@ -8,10 +8,11 @@ import Theme from 'theme';
 import { FileDockAddIcon, MapIcon } from 'assets/svg';
 
 interface Props {
+  onPressGenerateQR: () => void;
   onPressEstablishments: () => void;
 }
 
-const CashPaymentScreen: React.FC<Props> = ({ onPressEstablishments }) => {
+const CashPaymentScreen: React.FC<Props> = ({ onPressGenerateQR, onPressEstablishments }) => {
   const { t } = useTranslation();
 
   return (
@@ -25,7 +26,7 @@ const CashPaymentScreen: React.FC<Props> = ({ onPressEstablishments }) => {
           borderRadius={24}
           marginTop={Theme.Sizes.MarginTop}
           alignContent="space-between"
-          onPress={() => {}}
+          onPress={onPressGenerateQR}
           icon={<Container style={styles.iconContainer}><FileDockAddIcon /></Container>}
         />
         <MultipleTextButton

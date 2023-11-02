@@ -11,7 +11,10 @@ const CashPaymentController: React.FC = () => {
 
   return (
     <SafeArea>
-      <CashPaymentScreen onPressEstablishments={() => navigate('CardsGlobalStack', { screen: 'Establishments' })} />
+      <CashPaymentScreen
+        onPressGenerateQR={() => navigate('PaymentFlow', { flow: 'code-payment' })}
+        onPressEstablishments={() => navigate('Establishments')}
+      />
     </SafeArea>
   );
 };

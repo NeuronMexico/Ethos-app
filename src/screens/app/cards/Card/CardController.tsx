@@ -42,7 +42,7 @@ const CardController: React.FC = () => {
       <PayCardBottomSheetContent
         onPressCashPayment={() => {
           bottomSheet.hide();
-          navigate('Payment');
+          navigate('PaymentFlow', { flow: 'cash-payment' });
         }}
         onPressDirectDebitPayment={() => {
           bottomSheet.hide();

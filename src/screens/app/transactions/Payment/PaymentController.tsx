@@ -42,7 +42,7 @@ const PaymentController: React.FC = () => {
           type: 'primary',
         }],
       });
-    } else navigate('CardsGlobalStack', { screen: 'CashPayment' });
+    } else navigate('PaymentFlow', { flow: 'contact-payment' });
   }, [alert, goBack, navigate, params, t]);
 
   return (
