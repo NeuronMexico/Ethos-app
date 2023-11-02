@@ -345,6 +345,12 @@
     "ruleForNewPassword4": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)",
     "passwordChangedSuccessfully": "Contraseña cambiada correctamente"
   },
+  "bills": {
+    "title": "Facturas",
+    "lastBills": "Últimas facturas",
+    "downloadPDF": "Descargar.pdf",
+    "downloadXML": "Descargar.xml"
+  },
   "contacts": {
     "contacts": "Contactos",
     "newContact": "Nuevo contacto",
