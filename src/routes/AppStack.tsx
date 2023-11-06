@@ -4,6 +4,7 @@ import { AppStackParams } from 'utils';
 import VirtualAssistantController from 'screens/app/VirtualAssistant/VirtualAssistantController';
 import PaymentController from 'screens/app/Payment/PaymentController';
 import EstablishmentsController from 'screens/app/Establishments/EstablishmentsController';
+import DomiciliaryPaymentController from 'screens/app/DomiciliaryPayment/DomiciliaryPaymentController';
 import TabNavigator from './TabNavigator';
 import CardsGlobalStack from './CardsGlobalStack';
 import HomeGlobalStack from './HomeGlobalStack';
@@ -26,6 +27,7 @@ const AppStack: React.FC = () => (
     <Stack.Screen name="TransactionsGlobalStack" component={TransactionsGlobalStack} />
     <Stack.Screen name="PaymentFlow" component={PaymentController} />
     <Stack.Screen name="Establishments" component={EstablishmentsController} />
+    <Stack.Screen name="DomiciliaryPayment" component={DomiciliaryPaymentController} />
   </Stack.Navigator>
 );
 

@@ -20,6 +20,7 @@ export * from './BankAccountCard';
 export * from './RadioButtonGroup';
 export * from './PaymentAlertInfo';
 export * from './ServiceButton';
+export * from './NumberCard';
 
 export {
   CustomBottomSheet as BottomSheet,

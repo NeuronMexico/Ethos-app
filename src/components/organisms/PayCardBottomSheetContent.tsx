@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Container, Text } from 'components';
+import {
+  Button, Container, NumberCard, Text,
+} from 'components';
 import Theme from 'theme';
-import { ClabeCard } from './NumberCard';
 
 interface Props {
   onPressCashPayment: () => void;
@@ -14,7 +15,7 @@ const PayCardBottomSheetContent: React.FC<Props> = ({ onPressCashPayment, onPres
 
   return (
     <Container>
-      <ClabeCard number="7428 1096 3524 197853" />
+      <NumberCard number="7428 1096 3524 197853" />
 
       <Container row>
         <Container flex alignment="end" style={{ marginRight: 4 }}>

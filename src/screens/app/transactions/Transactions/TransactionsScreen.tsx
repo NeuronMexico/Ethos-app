@@ -18,6 +18,7 @@ interface Props {
   onPressCoDiCollection: () => void;
   onPressCashCollection: () => void;
   onPressEthosQR: () => void;
+  onPressPayPersonalProject: () => void;
 }
 
 const TransactionsScreen: React.FC<Props> = ({
@@ -32,6 +33,7 @@ const TransactionsScreen: React.FC<Props> = ({
   onPressContactsCollection,
   onPressEthosQR,
   onPressScheduledCollections,
+  onPressPayPersonalProject,
 }) => {
   const { t } = useTranslation();
 
@@ -76,7 +78,7 @@ const TransactionsScreen: React.FC<Props> = ({
           onPressScheduledCollections={onPressScheduledCollections}
         />
         <PersonalDispositionPage />
-        <PersonalProjectPage />
+        <PersonalProjectPage onPressPay={onPressPayPersonalProject} />
       </PagerView>
     </Container>
   );

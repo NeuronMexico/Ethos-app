@@ -8,6 +8,7 @@ import OrangeAvatar from './orange-avatar.svg';
 import GrayAvatar from './gray-avatar.svg';
 import YellowAvatar from './yellow-avatar.svg';
 import CardIncrementIllustration from './card-increment-illustration.svg';
+import PersonalProjectIllustration from './personal-project-illustration.svg';
 // Services
 import NetflixIcon from './services/netflix-icon.svg';
 import SpotifyIcon from './services/spotify-icon.svg';
@@ -111,6 +112,7 @@ export {
   GrayAvatar,
   YellowAvatar,
   CardIncrementIllustration,
+  PersonalProjectIllustration,
   // Services
   NetflixIcon,
   SpotifyIcon,

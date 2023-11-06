@@ -249,7 +249,15 @@
     "confirmPayment": "Confirmar pago",
     "name": "Nombre",
     "code": "Código",
-    "goToAffiliatedStore": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código para pagar en efectivo"
+    "goToAffiliatedStore": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código para pagar en efectivo",
+    "additionalCreditLine": "Nuestra línea de crédito adicional te da el respaldo financiero que necesitas para hacer realidad tu proyecto personal",
+    "wantToLearnMore": "Quiero saber más",
+    "totalToPay": "Total a pagar",
+    "paid": "Pagado",
+    "pendingBalance": "Saldo pendiente",
+    "today": "Hoy",
+    "personalProjectPayment": "Pago Proyecto Personal",
+    "cashDeposit": "Depósito en efectivo"
   },
   "alert": {
     "invoice": "Folio:",

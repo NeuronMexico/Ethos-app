@@ -4,10 +4,10 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useDispatch } from 'reactRedux';
 import { Container, SafeArea, Text } from 'components';
 import { useAlert } from 'context';
-import { CardsGlobalStackParams } from 'utils';
+import { AppStackParams } from 'utils';
 import DomiciliaryPaymentScreen from './DomiciliaryPaymentScreen';
 
-interface Props extends NativeStackScreenProps<CardsGlobalStackParams, 'DomiciliaryPayment'> {}
+interface Props extends NativeStackScreenProps<AppStackParams, 'DomiciliaryPayment'> {}
 
 const DomiciliaryPaymentController: React.FC<Props> = ({ navigation, route }) => {
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const DomiciliaryPaymentController: React.FC<Props> = ({ navigation, route }) =>
 
   return (
     <SafeArea>
-      <DomiciliaryPaymentScreen onSubmit={onSubmit} edition={!!route.params?.edition} />
+      <DomiciliaryPaymentScreen onSubmit={onSubmit} edition={!!route.params.edition} flow={route.params.flow} />
     </SafeArea>
   );
 };

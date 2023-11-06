@@ -47,6 +47,7 @@ const Card = forwardRef(({
         column && { flexDirection: 'column' },
         { padding, opacity: disabled && disabledEffect ? 0.35 : 1 },
         center && { alignItems: 'center' },
+        style,
       ]}
     >
       {children}
@@ -75,7 +76,7 @@ const Card = forwardRef(({
   );
 
   return (
-    <Container ref={ref} flex={flex} style={[{ borderRadius: borderRadius || 10, overflow: 'hidden' }, style]}>
+    <Container ref={ref} flex={flex} style={[{ borderRadius: borderRadius || 10, overflow: 'hidden' }]}>
       {onPress ? (
         <Touchable
           flex={flex}

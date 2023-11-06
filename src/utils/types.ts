@@ -7,7 +7,8 @@ export type ErrorType = 'invalid-format' | 'required' | 'not-match' | undefined;
 
 export type SocialMediaTypes = 'facebook' | 'instagram' | 'tikTok' | 'x' | 'linkedIn';
 
-export type PaymentFlowType = 'cash-payment' | 'contact-payment' | 'code-payment';
+export type PaymentFlowType = 'cash-payment' | 'contact-payment' | 'code-payment' | 'personal-project-payment';
+export type DomiciliaryPaymentFlowType = 'card' | 'personal-project';
 
 export type ShortcutType = {
   id: string;
@@ -37,7 +38,6 @@ export type CardsGlobalStackParams = {
   ChangePin: undefined;
   CreditDetail: undefined;
   CardReport: undefined;
-  DomiciliaryPayment: { edition?: boolean } | undefined;
   AccountStatement: undefined;
   PDFViewer: undefined;
 };
@@ -53,6 +53,7 @@ export type AppStackParams = {
   TransactionsGlobalStack: undefined;
   PaymentFlow: { flow: PaymentFlowType };
   Establishments: undefined;
+  DomiciliaryPayment: { edition?: boolean; flow: DomiciliaryPaymentFlowType };
 };
 
 export type HomeGlobalStackParams = {

@@ -31,6 +31,8 @@ export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
   const title = useCallback((value?: string) => {
     if (flow === 'contact-payment') return t('transactions:payTo', { name: value });
 
+    if (flow === 'personal-project-payment') return t('transactions:cashDeposit');
+
     return t('cards:cashPayment');
   }, [flow, t]);
 
@@ -51,6 +53,8 @@ export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
   const QRModalTitle = useMemo(() => {
     if (flow === 'code-payment') return t('transactions:code');
 
+    if (flow === 'personal-project-payment') return t('transactions:cashDeposit');
+
     return t('cards:cashPayment');
   }, [flow, t]);
 
@@ -67,7 +71,7 @@ export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
   }, [flow]);
 
   const onConfirm = useCallback(async (alertContent: ReactElement) => {
-    if (flow === 'cash-payment') setShowQRModal(true);
+    if (flow === 'cash-payment' || flow === 'personal-project-payment') setShowQRModal(true);
     else if (flow === 'contact-payment') {
       alert.show({
         title: t('transactions:confirmPayment'),
