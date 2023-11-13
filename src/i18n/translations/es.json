@@ -261,7 +261,9 @@
   },
   "alert": {
     "invoice": "Folio:",
-    "reference": "Referencia:"
+    "reference": "Referencia:",
+    "authorization": "Autorización:",
+    "trackingKey": "Clave de rastreo:"
   },
   "errors": {
     "required": "Campo requerido",

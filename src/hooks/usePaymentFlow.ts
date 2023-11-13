@@ -21,7 +21,10 @@ interface PaymentFlowHookReturn {
   onConfirm: (alertContent: ReactElement) => void;
 }
 
-export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
+export function usePaymentFlow(
+  flow: PaymentFlowType,
+  onFinishContactTransaction?: (success: boolean) => void,
+): PaymentFlowHookReturn {
   const { t } = useTranslation();
 
   const alert = useAlert();
@@ -86,7 +89,7 @@ export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
             alert.hide();
             const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
             if (result.success) {
-              console.log('success');
+              onFinishContactTransaction!(true);
             }
           },
         }],
@@ -97,7 +100,7 @@ export function usePaymentFlow(flow: PaymentFlowType): PaymentFlowHookReturn {
         setShowQRModal(true);
       }
     }
-  }, [alert, flow, t]);
+  }, [alert, flow, onFinishContactTransaction, t]);
 
   return {
     flow,
