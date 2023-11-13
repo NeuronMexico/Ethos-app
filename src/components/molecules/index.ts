@@ -8,6 +8,7 @@ export * from './CheckBoxGroup';
 export * from './SwitchGroup';
 export * from './Button';
 export * from './ButtonGroup';
+export * from './InputCode';
 export * from './MultipleTextButton';
 export * from './OptionButton';
 export * from './DotIndicator';

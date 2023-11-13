@@ -431,7 +431,9 @@
     "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
   },
   "payment": {
-    "collectViaCODI": "Cobro QR ethoscrédito"
+    "collectViaCODI": "Cobro QR ethoscrédito",
+    "enterCode": "Ingresa tu NIP",
+    "totalAmountToDispose": "Monto total a disponer: ${{amount}}"
   },
   "qr": {
     "codeValidFor": "Código valido por",

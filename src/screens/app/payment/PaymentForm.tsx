@@ -9,11 +9,12 @@ import { useTranslation } from 'react-i18next';
 import {
   Alert,
   Button,
-  Container, Header, Input, Picker, SafeArea, Text,
+  Container, Header, Input, InputCode, Picker, SafeArea, Text,
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
 import { CheckMarkCircleIcon } from 'assets/svg';
+import { formatQuantity } from 'utils';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import { ComponentInfo } from './components';
 
@@ -138,6 +139,23 @@ const PaymentForm: React.FC<Props> = ({
               <Button
                 label={t('global:continue')}
                 onPress={handleCharge}
+              />
+            </Container>
+          </Container>
+          <Container style={{ paddingHorizontal: 16 }}>
+            <Container flex center>
+              <Text text={t('payment:enterCode')} textAlign="center" marginTop={24} />
+              <InputCode length={4} />
+              <Text
+                text={t('payment:totalAmountToDispose', { amount: formatQuantity(Number(amount)) })}
+                textAlign="center"
+                marginTop={8}
+              />
+            </Container>
+            <Container flex style={{ width: '100%', justifyContent: 'flex-end', marginBottom: 16 }}>
+              <Button
+                label={t('global:continue')}
+                onPress={showQR}
               />
             </Container>
           </Container>
