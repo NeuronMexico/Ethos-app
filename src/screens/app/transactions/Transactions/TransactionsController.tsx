@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'reactRedux';
 import { PayCardBottomSheetContent, SafeArea } from 'components';
 import { useBottomSheet } from 'context';
+import i18n from 'i18n';
 import TransactionsScreen from './TransactionsScreen';
 
 const TransactionsController: React.FC = () => {
-  const dispatch = useDispatch();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { t } = useTranslation();
 
@@ -39,12 +39,15 @@ const TransactionsController: React.FC = () => {
         onPressCoDi={() => {}}
         onPressContacts={() => navigate('ContactsGlobalStack')}
         onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
-        onPressCashCollection={() => {}}
+        onPressCashCollection={() => navigate('ChargesGlobalStack', { screen: 'ChargesCash' })}
         onPressCoDiCollection={() => {}}
-        onPressContactsCollection={() => {}}
-        onPressEthosQR={() => {}}
-        onPressScheduledCollections={() => {}}
         onPressPayPersonalProject={onPressPayPersonalProject}
+        onPressContactsCollection={() => navigate('ChargesGlobalStack', { screen: 'ChargesContacts' })}
+        onPressEthosQR={() => navigate('PaymentStack', {
+          screen: 'form',
+          params: { title: i18n.t('payment:collectViaCODI') },
+        })}
+        onPressScheduledCollections={() => navigate('ChargesGlobalStack', { screen: 'ChargesScheduled' })}
       />
     </SafeArea>
   );

@@ -23,7 +23,9 @@ interface ContactsListProps {
 }
 
 interface Props {
+  title?: string;
   data: any[];
+  showHeader?: boolean;
   enableNewContact?: boolean;
   onSearch?: (value: string) => void;
   onPressContact?: (id: number) => void;
@@ -31,7 +33,9 @@ interface Props {
 }
 
 const ListScreen: React.FC<Props> = ({
+  title,
   data,
+  showHeader = true,
   enableNewContact = true,
   onSearch = () => {},
   onPressContact = () => {},
@@ -42,7 +46,11 @@ const ListScreen: React.FC<Props> = ({
 
   return (
     <Container flex>
-      <Header title={t('contacts:contacts')} />
+      {
+        showHeader && (
+          <Header title={title ?? t('contacts:contacts')} />
+        )
+      }
       {
         enableNewContact && (
           <Container style={button}>

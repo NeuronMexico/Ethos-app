@@ -432,7 +432,37 @@
     "confirmationDelete": "Si, eliminar",
     "noneContacts": "Aún no tienes ningún contacto"
   },
+  "charges": {
+    "chargeWithCash": "Cobro en efectivo",
+    "chargeWithCODI": "Cobro vía CODI",
+    "chargeWithContacts": "Cobrar a contactos",
+    "chargeTo": "Cobrar a {{to}}",
+    "chargesScheduled": "Cobros programados",
+    "pending": "Pendientes",
+    "settled": "Liquidados",
+    "successCharge": "Cobro exitoso",
+    "confirmCharge": "Confirmar cobro",
+    "chargeScheduledDeleteQuestion": "¿Estás seguro eliminar el cobro programado?",
+    "chargeScheduledDeletedSuccessfully": "Cobro programado eliminado correctamente",
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
+  },
+  "payment": {
+    "collectViaCODI": "Cobro QR ethoscrédito",
+    "enterCode": "Ingresa tu NIP",
+    "totalAmountToDispose": "Monto total a disponer: ${{amount}}"
+  },
+  "qr": {
+    "codeValidFor": "Código valido por",
+    "shareCode": "Comparte el código a quien deseas cobrar"
+  },
+  "personalDisposition": {
+    "title": "Disposición personal",
+    "screenMessage": "Retira fondos de tu tarjeta ethoscrédito y envíalos a una CLABE o retíralos en efectivo en nuestros más de 600 estableciminetos",
+    "transfer": "Transferir",
+    "noCardWithdrawal": "Retiro sin tarjeta"
+  },
   "form": {
+    "name": "Nombre",
     "names": "Nombre(s)",
     "firstLastName": "Apellido Paterno",
     "secondLastName": "Apellido Materno",
@@ -445,6 +475,9 @@
     "required": "Campo requerido",
     "clabe": "CLABE",
     "concept": "Concepto",
-    "reference": "Referencia"
+    "reference": "Referencia",
+    "amount": "Importe",
+    "destinationAccount": "Cuenta destino",
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
   }
 }

@@ -20,7 +20,7 @@ export interface CustomPickerProps extends Omit<PickerUIProps, 'suffixIcon'> {
   value: string;
   error?: string;
   onValueChange: (value: string) => void;
-  options: { label: string, value: string }[];
+  options: { label: string, value: string, caption?: string }[];
   useActionSheet?: boolean;
   actionSheetTitle?: string;
   marginTop?: number;

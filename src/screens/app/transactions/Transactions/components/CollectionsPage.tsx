@@ -60,7 +60,7 @@ const CollectionsPage: React.FC<Props> = ({
         />
       </Container>
       <MultipleTextButton
-        onPress={() => {}}
+        onPress={onPressScheduledCollections}
         title="Andrés Lara"
         rightText={formatQuantity(2500)}
         borderColor={Theme.Colors.PlaceboBlue}
@@ -74,10 +74,18 @@ const CollectionsPage: React.FC<Props> = ({
 
       <Container row style={{ marginTop: 32 }}>
         <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('transactions:newPayment')} icon={<EthosQRIcon />} onPress={onPressEthosQR} />
+          <PaymentButton
+            label="QR ethoscrédito"
+            icon={<EthosQRIcon />}
+            onPress={onPressEthosQR}
+          />
         </Container>
         <Container flex style={{ marginLeft: 8 }}>
-          <PaymentButton label={t('transactions:toContacts')} icon={<PeopleIcon />} onPress={onPressContactsCollection} />
+          <PaymentButton
+            label={t('transactions:toContacts')}
+            icon={<PeopleIcon />}
+            onPress={onPressContactsCollection}
+          />
         </Container>
       </Container>
       <Container row style={{ marginTop: 16 }}>

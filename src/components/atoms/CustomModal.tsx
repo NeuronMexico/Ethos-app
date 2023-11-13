@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import {
+  ColorValue,
   KeyboardAvoidingView, Modal, ModalProps, Platform, StyleSheet, View,
 } from 'react-native';
 import { BlurView } from '@react-native-community/blur';
@@ -9,6 +10,7 @@ export interface CustomModalProps {
   children: ReactNode;
   onDismiss?: () => void;
   backgroundOpacity?: number;
+  customBackgroundColor?: ColorValue;
   blur?: boolean;
   animationType?: ModalProps['animationType'];
   presentationStyle?: 'pageSheet' | 'overFullScreen';
@@ -19,11 +21,12 @@ const CustomModal: React.FC<CustomModalProps> = ({
   onDismiss,
   children,
   backgroundOpacity,
+  customBackgroundColor,
   blur,
   animationType = 'fade',
   presentationStyle = 'overFullScreen',
 }: CustomModalProps) => {
-  const backgroundColor = `rgba(0,0,0,${backgroundOpacity || 0.3})`;
+  const backgroundColor = customBackgroundColor ?? `rgba(0,0,0,${backgroundOpacity || 0.3})`;
 
   return (
     <Modal

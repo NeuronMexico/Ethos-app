@@ -12,6 +12,8 @@ import ProfileStack from './ProfileStack';
 import NotificationStack from './NotificationStack';
 import ContactsGlobalStack from './ContactsGlobalStack';
 import TransactionsGlobalStack from './TransactionsGlobalStack';
+import PaymentGlobalStack from './PaymentGlobalStack';
+import ChargesGlobalStack from './ChargesGlobalStack';
 
 const Stack = createNativeStackNavigator<AppStackParams>();
 
@@ -28,6 +30,8 @@ const AppStack: React.FC = () => (
     <Stack.Screen name="PaymentFlow" component={PaymentController} />
     <Stack.Screen name="Establishments" component={EstablishmentsController} />
     <Stack.Screen name="DomiciliaryPayment" component={DomiciliaryPaymentController} />
+    <Stack.Screen name="PaymentStack" component={PaymentGlobalStack} />
+    <Stack.Screen name="ChargesGlobalStack" component={ChargesGlobalStack} />
   </Stack.Navigator>
 );
 

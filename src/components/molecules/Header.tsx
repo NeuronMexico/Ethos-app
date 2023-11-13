@@ -14,6 +14,7 @@ interface Props {
   title: string;
   rightIcon?: ReactElement;
   rightAction?: () => void;
+  backAction?: () => void;
   rightIconContainerBackgroundColor?: ColorValue;
   showVirtualAssistantAction?: boolean;
   textColor?: ColorValue;
@@ -25,6 +26,7 @@ const Header: React.FC<Props> = ({
   title,
   rightAction,
   rightIcon,
+  backAction,
   rightIconContainerBackgroundColor = Theme.Colors.PlaceboBlue,
   textColor,
   showVirtualAssistantAction = false,
@@ -34,7 +36,7 @@ const Header: React.FC<Props> = ({
   return (
     <Container row center height={40} style={{ paddingHorizontal: Theme.Sizes.Padding, marginTop: 4 }}>
       <Container width={40}>
-        {showBackButton && <BackButton borderless={backButtonBorderless} color={textColor} />}
+        {showBackButton && <BackButton onPress={backAction} borderless={backButtonBorderless} color={textColor} />}
       </Container>
       <Container middle flex>
         <Text text={title} typography="header" textColor={textColor} />

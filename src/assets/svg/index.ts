@@ -9,6 +9,8 @@ import GrayAvatar from './gray-avatar.svg';
 import YellowAvatar from './yellow-avatar.svg';
 import CardIncrementIllustration from './card-increment-illustration.svg';
 import PersonalProjectIllustration from './personal-project-illustration.svg';
+import PersonalDispositionIllustration from './personal-disposition-illustration.svg';
+
 // Services
 import NetflixIcon from './services/netflix-icon.svg';
 import SpotifyIcon from './services/spotify-icon.svg';
@@ -18,6 +20,8 @@ import AmazonIcon from './services/amazon-icon.svg';
 import HBOIcon from './services/hbo-icon.svg';
 // Card Brands
 import VisaIcon from './cardBrands/visa-icon.svg';
+
+import ErrorMark from './close_ring.svg';
 
 export * from './BankIcon';
 export * from './BellIcon';
@@ -113,6 +117,7 @@ export {
   YellowAvatar,
   CardIncrementIllustration,
   PersonalProjectIllustration,
+  PersonalDispositionIllustration,
   // Services
   NetflixIcon,
   SpotifyIcon,
@@ -122,4 +127,5 @@ export {
   HBOIcon,
   // Card Brands
   VisaIcon,
+  ErrorMark,
 };

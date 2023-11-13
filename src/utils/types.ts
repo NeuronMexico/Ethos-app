@@ -54,6 +54,8 @@ export type AppStackParams = {
   PaymentFlow: { flow: PaymentFlowType };
   Establishments: undefined;
   DomiciliaryPayment: { edition?: boolean; flow: DomiciliaryPaymentFlowType };
+  ChargesGlobalStack: undefined;
+  PaymentStack: undefined;
 };
 
 export type HomeGlobalStackParams = {
@@ -66,6 +68,17 @@ export type TransactionsGlobalStackParams = {
   Payment: { edition?: boolean; scheduled?: boolean } | undefined;
   BillPayment: undefined;
   CashPayment: undefined;
+};
+
+export type ChargesGlobalStackParams = {
+  ChargesCash: undefined;
+  ChargesContacts: undefined;
+  ChargesScheduled: undefined;
+};
+
+export type PaymentGlobalStackParams = {
+  form: { title: string };
+  qr: { title: string, showHeader: boolean };
 };
 
 export type TabParams = {

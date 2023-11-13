@@ -37,7 +37,6 @@ const RadioButtonGroupScreen: React.FC = () => {
           options={options}
           value={value}
           onChange={setValue}
-          suffixValue="$799.00"
         />
 
         <Text text="With caption" typography="subtitle" marginVertical={8} />
@@ -45,8 +44,6 @@ const RadioButtonGroupScreen: React.FC = () => {
           options={options}
           value={value}
           onChange={setValue}
-          suffixValue="$799.00"
-          caption="Caption"
         />
       </Container>
     </SafeArea>

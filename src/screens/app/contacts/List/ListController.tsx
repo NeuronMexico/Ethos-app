@@ -13,7 +13,7 @@ import ModalContentContact from '../components/ModalContentContact';
 
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
-const data = [{
+export const data = [{
   id: 1,
   name: 'John',
   alias: 'John',
