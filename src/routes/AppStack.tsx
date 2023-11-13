@@ -26,7 +26,7 @@ const AppStack: React.FC = () => (
     <Stack.Screen name="ContactsGlobalStack" component={ContactsGlobalStack} />
     <Stack.Screen name="VirtualAssistant" component={VirtualAssistantController} />
     <Stack.Screen name="TransactionsGlobalStack" component={TransactionsGlobalStack} />
-    <Stack.Screen name="Payment" component={PaymentController} />
+    <Stack.Screen name="PaymentFlow" component={PaymentController} />
     <Stack.Screen name="Establishments" component={EstablishmentsController} />
     <Stack.Screen name="PaymentStack" component={PaymentGlobalStack} />
     <Stack.Screen name="ChargesGlobalStack" component={ChargesGlobalStack} />

@@ -7,6 +7,8 @@ export type ErrorType = 'invalid-format' | 'required' | 'not-match' | undefined;
 
 export type SocialMediaTypes = 'facebook' | 'instagram' | 'tikTok' | 'x' | 'linkedIn';
 
+export type PaymentFlowType = 'cash-payment' | 'contact-payment' | 'code-payment';
+
 export type ShortcutType = {
   id: string;
   label: string;
@@ -49,7 +51,7 @@ export type AppStackParams = {
   ContactsGlobalStack: undefined;
   VirtualAssistant: undefined;
   TransactionsGlobalStack: undefined;
-  Payment: undefined;
+  PaymentFlow: { flow: PaymentFlowType };
   Establishments: undefined;
   ChargesGlobalStack: undefined;
   PaymentStack: undefined;

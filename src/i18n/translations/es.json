@@ -241,7 +241,15 @@
     "checkEstablishments": "Consultar establecimientos",
     "scheduledCollections": "Cobros programados",
     "pendingCollection": "Cobro pendiente",
-    "ethoscreditQR": "QR ethoscrédito"
+    "ethoscreditQR": "QR ethoscrédito",
+    "payTo": "Pagar a {{name}}",
+    "amountToPay": "Importe",
+    "youHave": "Cuentas con {{amount}} en tu TDC",
+    "saveContactAndPay": "Guardar contacto y pagar",
+    "confirmPayment": "Confirmar pago",
+    "name": "Nombre",
+    "code": "Código",
+    "goToAffiliatedStore": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código para pagar en efectivo"
   },
   "alert": {
     "invoice": "Folio:",
