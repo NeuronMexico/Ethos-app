@@ -8,7 +8,8 @@ import Theme from 'theme';
 import { Button } from 'components/molecules/Button';
 import i18n from 'i18n';
 import { formatDate } from 'utils';
-import { CheckMarkCircleIcon } from 'assets/svg';
+import { CheckMarkCircleIcon, ExportIcon, RejectMarkCircleIcon } from 'assets/svg';
+import { OptionButton } from 'components/molecules';
 
 export type AlertActionType = 'primary' | 'secondary' | 'destructive-primary' | 'destructive-secondary';
 
@@ -22,12 +23,17 @@ export interface AlertDataInterface {
   title: string;
   actions?: Array<AlertAction>;
   message?: string;
+  authorization?: string;
+  trackingKey?: string;
   reference?: string;
   invoice?: string;
   date?: Date;
   checkmark?: boolean;
+  rejectMarck?: boolean;
+  shareOption?: boolean;
   extraInfo?: ReactElement;
   customBackgroundColor?: ColorValue;
+  fullscreen?: boolean;
 }
 
 interface Props {
@@ -47,12 +53,17 @@ const Alert: React.FC<Props> = ({
       type: 'primary',
     }],
     message,
+    authorization,
+    trackingKey,
     reference,
     invoice,
     date,
     checkmark,
+    rejectMarck,
+    shareOption,
     extraInfo,
-    customBackgroundColor,
+    fullscreen,
+    customBackgroundColor = fullscreen ? Theme.Colors.PlaceboBlue : undefined,
   },
 }) => {
   const { t } = useTranslation();
@@ -62,7 +73,7 @@ const Alert: React.FC<Props> = ({
       visible={visible}
       blur={false}
       onDismiss={onDismiss}
-      animationType="fade"
+      animationType={fullscreen ? 'slide' : 'fade'}
       customBackgroundColor={customBackgroundColor}
     >
       <Container flex middle style={{ paddingHorizontal: 16 }}>
@@ -72,6 +83,20 @@ const Alert: React.FC<Props> = ({
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
+          {!!authorization && (
+            <Text>
+              <Text text={t('alert:authorization')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={authorization} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
+          {!!trackingKey && (
+            <Text>
+              <Text text={t('alert:trackingKey')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={trackingKey} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
           {!!reference && (
             <Text>
               <Text text={t('alert:reference')} typography="caption" fontWeight="Regular" />
@@ -98,7 +123,11 @@ const Alert: React.FC<Props> = ({
             fontWeight="Medium"
           />
           )}
-          {checkmark && <Container style={{ marginBottom: 8 }}><CheckMarkCircleIcon /></Container>}
+          {(checkmark || rejectMarck) && (
+          <Container style={{ marginBottom: 8 }}>
+            {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
+          </Container>
+          )}
           {extraInfo && (
           <Container style={{ marginTop: 2, marginBottom: 8 }}>
             {extraInfo}
@@ -136,6 +165,19 @@ const Alert: React.FC<Props> = ({
               />
             );
           })}
+          {shareOption && (
+          <OptionButton
+            onPress={() => {}}
+            width={40}
+            height={40}
+            borderRadius={15}
+            backgroundColor={Theme.Colors.PlaceboBlue}
+            label={t('global:share')}
+            marginTop={16}
+            marginBottom={8}
+            icon={<ExportIcon />}
+          />
+          )}
         </ScrollView>
       </Container>
     </Modal>

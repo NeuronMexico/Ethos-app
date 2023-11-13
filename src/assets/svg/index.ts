@@ -88,6 +88,7 @@ export * from './PhoneIcon';
 export * from './PinDropIcon';
 export * from './PinIcon';
 export * from './QuestionIcon';
+export * from './RejectMarkCircleIcon';
 export * from './ScanIcon';
 export * from './SendIcon';
 export * from './ShieldIcon';
