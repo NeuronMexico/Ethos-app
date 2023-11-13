@@ -18,7 +18,7 @@ const TransactionsController: React.FC = () => {
         onPressCoDi={() => {}}
         onPressContacts={() => navigate('ContactsGlobalStack')}
         onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
-        onPressCashCollection={() => {}}
+        onPressCashCollection={() => navigate('CobrosGlobalStack', { screen: 'CobrosEfectivo' })}
         onPressCoDiCollection={() => {}}
         onPressContactsCollection={() => {}}
         onPressEthosQR={() => {}}

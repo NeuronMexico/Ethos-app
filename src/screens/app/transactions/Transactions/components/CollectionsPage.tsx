@@ -9,6 +9,8 @@ import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
 import {
   CoDiIcon, EthosQRIcon, MoneyIcon, PeopleIcon,
 } from 'assets/svg';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PaymentButton } from './PaymentButton';
 
 interface Props {
@@ -27,6 +29,7 @@ const CollectionsPage: React.FC<Props> = ({
   onPressEthosQR,
 }) => {
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
     <ScrollView
@@ -41,7 +44,7 @@ const CollectionsPage: React.FC<Props> = ({
     >
       <DirectAccess
         label={t('transactions:scheduledCollections')}
-        onPress={onPressScheduledCollections}
+        onPress={() => navigate('CobrosGlobalStack', { screen: 'CobrosProgramados' })}
         marginBottom={16}
       />
       <Container row space="between">
@@ -60,7 +63,7 @@ const CollectionsPage: React.FC<Props> = ({
         />
       </Container>
       <MultipleTextButton
-        onPress={() => {}}
+        onPress={() => navigate('CobrosGlobalStack', { screen: 'CobrosProgramados' })}
         title="Andrés Lara"
         rightText={formatQuantity(2500)}
         borderColor={Theme.Colors.PlaceboBlue}
@@ -74,10 +77,22 @@ const CollectionsPage: React.FC<Props> = ({
 
       <Container row style={{ marginTop: 32 }}>
         <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('transactions:newPayment')} icon={<EthosQRIcon />} onPress={onPressEthosQR} />
+          <PaymentButton
+            label="QR ethoscrédito"
+            icon={<EthosQRIcon />}
+            onPress={
+            () => navigate('PaymentStack', { screen: 'form', params: { title: 'Cobro QR ethoscrédito' } })
+          }
+          />
         </Container>
         <Container flex style={{ marginLeft: 8 }}>
-          <PaymentButton label={t('transactions:toContacts')} icon={<PeopleIcon />} onPress={onPressContactsCollection} />
+          <PaymentButton
+            label={t('transactions:toContacts')}
+            icon={<PeopleIcon />}
+            onPress={
+            () => navigate('CobrosGlobalStack', { screen: 'CobrosContactos' })
+          }
+          />
         </Container>
       </Container>
       <Container row style={{ marginTop: 16 }}>

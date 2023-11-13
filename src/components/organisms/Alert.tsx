@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ColorValue, ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
   Container, Modal, Text,
@@ -27,6 +27,7 @@ export interface AlertDataInterface {
   date?: Date;
   checkmark?: boolean;
   extraInfo?: ReactElement;
+  customBackgroundColor?: ColorValue;
 }
 
 interface Props {
@@ -51,12 +52,19 @@ const Alert: React.FC<Props> = ({
     date,
     checkmark,
     extraInfo,
+    customBackgroundColor,
   },
 }) => {
   const { t } = useTranslation();
 
   return (
-    <Modal visible={visible} blur={false} onDismiss={onDismiss} animationType="fade">
+    <Modal
+      visible={visible}
+      blur={false}
+      onDismiss={onDismiss}
+      animationType="fade"
+      customBackgroundColor={customBackgroundColor}
+    >
       <Container flex middle style={{ paddingHorizontal: 16 }}>
         <ScrollView
           style={styles.scrollView}

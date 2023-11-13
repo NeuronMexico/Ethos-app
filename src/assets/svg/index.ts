@@ -18,6 +18,8 @@ import HBOIcon from './services/hbo-icon.svg';
 // Card Brands
 import VisaIcon from './cardBrands/visa-icon.svg';
 
+import ErrorMark from './close_ring.svg';
+
 export * from './BankIcon';
 export * from './BellIcon';
 export * from './BellMarkedIcon';
@@ -120,4 +122,5 @@ export {
   HBOIcon,
   // Card Brands
   VisaIcon,
+  ErrorMark,
 };
