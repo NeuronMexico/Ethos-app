@@ -44,7 +44,7 @@ const PaymentQR = () => {
           <Container flex style={{ width: '100%', paddingHorizontal: 16 }}>
             { showHeader && (
               <Button
-                label={t('global:back')}
+                label={t('global:goBack')}
                 backgroundColor={Theme.Colors.WhiteSmoke}
                 colorless
                 onPress={goBack}

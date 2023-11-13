@@ -437,6 +437,12 @@
     "codeValidFor": "Código valido por",
     "shareCode": "Comparte el código a quien deseas cobrar"
   },
+  "personalDisposition": {
+    "title": "Disposición personal",
+    "screenMessage": "Retira fondos de tu tarjeta ethoscrédito y envíalos a una CLABE o retíralos en efectivo en nuestros más de 600 estableciminetos",
+    "transfer": "Transferir",
+    "noCardWithdrawal": "Retiro sin tarjeta"
+  },
   "form": {
     "name": "Nombre",
     "names": "Nombre(s)",

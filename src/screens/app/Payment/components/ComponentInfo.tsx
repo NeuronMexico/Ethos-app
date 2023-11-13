@@ -48,7 +48,7 @@ const ComponentInfo: React.FC<Props> = ({
       showButtons && (
         <Container style={{ margin: 16 }}>
           <Button
-            label={i18n.t('global:back')}
+            label={i18n.t('global:goBack')}
             onPress={onPressBack}
             backgroundColor={Theme.Colors.WhiteSmoke}
             textColor={Theme.Colors.DarkSoul}
