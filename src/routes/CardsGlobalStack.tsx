@@ -8,7 +8,6 @@ import CardActivationController from 'screens/app/cards/CardActivation/CardActiv
 import ChangePinController from 'screens/app/cards/ChangePin/ChangePinController';
 import CreditDetailController from 'screens/app/cards/CreditDetail/CreditDetailController';
 import CardReportController from 'screens/app/cards/CardReport/CardReportController';
-import DomiciliaryPaymentController from 'screens/app/cards/DomiciliaryPayment/DomiciliaryPaymentController';
 import AccountStatementController from 'screens/app/cards/AccountStatement/AccountStatementController';
 import PDFViewerController from 'screens/app/cards/PDFViewer/PDFViewerController';
 
@@ -23,7 +22,6 @@ const CardsGlobalStack: React.FC = () => (
     <Stack.Screen name="ChangePin" component={ChangePinController} />
     <Stack.Screen name="CreditDetail" component={CreditDetailController} />
     <Stack.Screen name="CardReport" component={CardReportController} />
-    <Stack.Screen name="DomiciliaryPayment" component={DomiciliaryPaymentController} />
     <Stack.Screen name="AccountStatement" component={AccountStatementController} />
     <Stack.Screen name="PDFViewer" component={PDFViewerController} />
   </Stack.Navigator>

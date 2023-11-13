@@ -4,14 +4,13 @@ import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import { useDispatch } from 'reactRedux';
-import { SafeArea, Text } from 'components';
+import { PayCardBottomSheetContent, SafeArea, Text } from 'components';
 import { formatQuantity, sleep } from 'utils';
 import { useAlert, useBottomSheet } from 'context';
 import CardScreen from './CardScreen';
 import {
   CreditLineIncreaseBottomSheetContent,
   DigitalCardBottomSheetContent,
-  PayCardBottomSheetContent,
   PinBottomSheetContent,
   SeeMoreBottomSheetContent,
   TransactionBottomSheetContent,
@@ -46,7 +45,7 @@ const CardController: React.FC = () => {
         }}
         onPressDirectDebitPayment={() => {
           bottomSheet.hide();
-          navigate('DomiciliaryPayment');
+          navigate('DomiciliaryPayment', { flow: 'card' });
         }}
       />,
       { title: t('cards:payViaSpei'), titleAlign: 'left' },

@@ -12,7 +12,7 @@ interface Props {
   showClabeLabel?: boolean;
 }
 
-const ClabeCard: React.FC<Props> = ({ number, showClabeLabel = true }) => {
+const NumberCard: React.FC<Props> = ({ number, showClabeLabel = true }) => {
   const { t } = useTranslation();
 
   const copyToClipboard = useCallback(() => {
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { ClabeCard };
+export { NumberCard };

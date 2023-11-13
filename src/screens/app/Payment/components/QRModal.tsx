@@ -89,13 +89,24 @@ const QRModal: React.FC<Props> = ({
           </Text>
 
           <Container flex alignment="end" center width="100%">
-            {flow === 'cash-payment' && (
+            {flow === 'personal-project-payment' && (
+            <Button
+              label={t('global:accept')}
+              onPress={onPressBack}
+              marginTop={16}
+            />
+            )}
+            {(flow === 'cash-payment' || flow === 'personal-project-payment') && (
             <Button
               label={t('cards:checkEstablishments')}
               onPress={onPressCheckEstablishment}
               marginTop={16}
+              marginBottom={flow === 'personal-project-payment' ? 16 : 0}
+              backgroundColor={flow === 'personal-project-payment' ? Theme.Colors.WhiteSmoke : undefined}
+              textColor={flow === 'personal-project-payment' ? Theme.Colors.DarkSoul : undefined}
             />
             )}
+            {flow !== 'personal-project-payment' && (
             <Button
               label={t('global:goBack')}
               onPress={onPressBack}
@@ -103,6 +114,7 @@ const QRModal: React.FC<Props> = ({
               backgroundColor={Theme.Colors.WhiteSmoke}
               textColor={Theme.Colors.DarkSoul}
             />
+            )}
             {flow === 'code-payment' && (
             <Button
               label={t('global:share')}

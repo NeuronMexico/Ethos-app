@@ -6,13 +6,15 @@ import {
   Container, Header, Input, RadioButtonGroup, RadioButtonGroupOption, Text,
 } from 'components';
 import Theme from 'theme';
+import { DomiciliaryPaymentFlowType } from 'utils';
 
 interface Props {
   onSubmit: () => void;
   edition: boolean;
+  flow: DomiciliaryPaymentFlowType;
 }
 
-const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit, edition }) => {
+const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit, edition, flow }) => {
   const { t } = useTranslation();
 
   const [paymentType, setPaymentType] = useState<string>('minimum-payment');
@@ -41,8 +43,12 @@ const DomiciliaryPaymentScreen: React.FC<Props> = ({ onSubmit, edition }) => {
           editable={false}
         />
 
-        <Text text={t('cards:choosePaymentType')} typography="title" fontWeight="Semibold" marginTop={16} />
-        <RadioButtonGroup options={options} value={paymentType} onChange={setPaymentType} marginVertical={16} />
+        {flow === 'card' && (
+        <>
+          <Text text={t('cards:choosePaymentType')} typography="title" fontWeight="Semibold" marginTop={16} />
+          <RadioButtonGroup options={options} value={paymentType} onChange={setPaymentType} marginVertical={16} />
+        </>
+        )}
 
         <Container flex alignment="end">
           <CheckBoxField

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { Container, Text } from 'components';
+import { Container, NumberCard, Text } from 'components';
 import Theme from 'theme';
-import { ClabeCard } from './NumberCard';
 
 const EXPIRATION_TIME = 5 * 60;
 
@@ -33,7 +32,7 @@ const DigitalCardBottomSheetContent: React.FC<Props> = (props: Props) => {
 
   return (
     <Container>
-      <ClabeCard number="8438 2849 3923 3334" showClabeLabel={false} />
+      <NumberCard number="8438 2849 3923 3334" showClabeLabel={false} />
       <Container middle>
         <Text text={t('cards:validUntil')} typography="caption" />
         <Text text="15/29" typography="header" fontWeight="Bold" marginTop={8} />
