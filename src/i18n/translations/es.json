@@ -425,10 +425,20 @@
     "pending": "Pendientes",
     "settled": "Liquidados",
     "successCharge": "Cobro exitoso",
+    "confirmCharge": "Confirmar cobro",
     "chargeScheduledDeleteQuestion": "¿Estás seguro eliminar el cobro programado?",
-    "chargeScheduledDeletedSuccessfully": "Cobro programado eliminado correctamente"
+    "chargeScheduledDeletedSuccessfully": "Cobro programado eliminado correctamente",
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
+  },
+  "payment": {
+    "collectViaCODI": "Cobro QR ethoscrédito"
+  },
+  "qr": {
+    "codeValidFor": "Código valido por",
+    "shareCode": "Comparte el código a quien deseas cobrar"
   },
   "form": {
+    "name": "Nombre",
     "names": "Nombre(s)",
     "firstLastName": "Apellido Paterno",
     "secondLastName": "Apellido Materno",
@@ -441,6 +451,9 @@
     "required": "Campo requerido",
     "clabe": "CLABE",
     "concept": "Concepto",
-    "reference": "Referencia"
+    "reference": "Referencia",
+    "amount": "Importe",
+    "destinationAccount": "Cuenta destino",
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
   }
 }

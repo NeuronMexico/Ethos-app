@@ -1,21 +1,33 @@
-import {
-  Alert,
-  Button,
-  Container, Header, Input, OptionButton, Picker, SafeArea, Text,
-} from 'components';
-import React, { useRef, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { ReactNode, useRef, useState } from 'react';
 import { TextInput } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
-import { formatQuantity } from 'utils';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useTranslation } from 'react-i18next';
+
+import {
+  Alert,
+  Button,
+  Container, Header, Input, Picker, SafeArea, Text,
+} from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
-import { CheckMarkCircleIcon, ExportIcon } from 'assets/svg';
-import i18n from 'i18n';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PaymentGlobalStackParams } from '../../../utils/types';
+import { ComponentInfo } from './components';
 
-const PaymentForm = () => {
+interface Props {
+  titles?: string[];
+  formSection?: ReactNode;
+  inputSection?: ReactNode;
+}
+
+const PaymentForm: React.FC<Props> = ({
+  titles,
+  formSection,
+  inputSection,
+}: Props) => {
+  const { t } = useTranslation();
   const alert = useAlert();
   const { params: { title } } = useRoute<RouteProp<PaymentGlobalStackParams, 'form'>>();
   const { goBack, replace } = useNavigation<NativeStackNavigationProp<any>>();
@@ -29,49 +41,27 @@ const PaymentForm = () => {
   const [account, setAccount] = useState<string>('');
   const [reference, setReference] = useState<string>();
   const [concept, setConcept] = useState<string>();
+
   const [amount, setAmount] = useState<string>('');
+
   const [visible, setVisible] = useState<boolean>(false);
 
   const showQR = () => {
-    replace('PaymentStack', { screen: 'qr', params: { title, showQR: title.includes('efectivo') } });
+    replace('PaymentStack', { screen: 'qr', params: { title, showHeader: title.includes('efectivo') } });
   };
 
-  const handleCobro = () => {
+  const handleCharge = () => {
     alert.show({
       reference: '11231',
       invoice: '242234',
       date: new Date(),
       extraInfo: (
-        <Container>
-          <Text
-            text={formatQuantity(Number(amount))}
-            textAlign="center"
-            fontWeight="Bold"
-            typography="header"
-            fontSize={34}
-          />
-          <Container row>
-            <Container width="50%" style={{ marginRight: 12 }}>
-              <Text text="Cuenta donde quiero recibir el pago" textAlign="right" />
-              <Text text="TDC ***334" textAlign="right" typography="title" fontSize={17} marginVertical={8} />
-            </Container>
-            <Container width="50%" style={{ marginLeft: 12 }}>
-              <Text text="Cuenta destino" textAlign="left" />
-              <Text text="CLABE ***531" typography="title" fontSize={17} marginVertical={8} />
-              <Text text="Banco" textAlign="left" />
-              <Text text="STP" typography="title" fontSize={17} marginVertical={8} />
-              <Text text="Nombre" textAlign="left" />
-              <Text text="Andrés Lara" typography="title" fontSize={17} marginVertical={8} />
-              <Text text="Concepto" textAlign="left" />
-              <Text text="Pago Viaje" typography="title" fontSize={17} marginVertical={8} />
-            </Container>
-          </Container>
-        </Container>
+        <ComponentInfo amount={Number(amount)} />
       ),
-      title: 'Confirmar cobro',
+      title: t('charges:confirmCharge'),
       actions: [
         {
-          label: 'Confirmar',
+          label: t('global:confirm'),
           type: 'primary',
           onPress: () => {
             alert.hide();
@@ -86,11 +76,11 @@ const PaymentForm = () => {
   return (
     <SafeArea>
       <Container useKeyboard flex>
-        <Header title={title} />
+        <Header title={titles?.length ? titles[0] : title} />
         <PagerView ref={pagerViewRef} style={{ flex: 1, marginTop: 32 }}>
           <Container style={{ paddingHorizontal: 16 }}>
             <Picker
-              label="Cuenta donde quiero recibir el pago"
+              label={t('form:accountWhereChargesWillBeMade')}
               options={[
                 { value: '334', label: '***334', caption: 'text' },
               ]}
@@ -100,40 +90,53 @@ const PaymentForm = () => {
             />
             <Input
               ref={referenceRef}
-              label="Referencia"
+              label={t('form:reference')}
               value={reference}
               onChangeText={setReference}
             />
             <Input
               ref={conceptRef}
-              label="Concepto"
+              label={t('form:concept')}
               value={concept}
               onChangeText={setConcept}
             />
             <Button
-              label="Continuar"
+              label={t('global:continue')}
               onPress={() => {}}
               marginTop={16}
             />
           </Container>
           <Container center style={{ paddingHorizontal: 16 }}>
-            <Input
-              ref={amountRef}
-              keyboardType="number-pad"
-              borderless
-              backgroundColor={Theme.Colors.White}
-              fontSize={34}
-              fontWeight="Bold"
-              label=""
-              value={amount}
-              onChangeText={setAmount}
-              width={250}
-            />
-            <Text text="Importe" />
+            <Container flex style={{ alignSelf: 'center' }}>
+              <Input
+                ref={amountRef}
+                value={amount}
+                onChangeText={setAmount}
+                placeholder="$0.00"
+                width="auto"
+                material
+                fontSize={34}
+                fontWeight="Bold"
+                paddingVertical={0}
+                marginTop={24}
+                mask="money"
+                options={{
+                  precision: 2,
+                  separator: '.',
+                  delimiter: ',',
+                  unit: '$',
+                  suffixUnit: '',
+                }}
+                autoFocus
+                keyboardType="numeric"
+                minWidth={100}
+              />
+              <Text text={t('form:amount')} textAlign="center" marginTop={8} />
+            </Container>
             <Container flex style={{ width: '100%', justifyContent: 'flex-end', marginBottom: 16 }}>
               <Button
-                label="Continuar"
-                onPress={handleCobro}
+                label={t('global:continue')}
+                onPress={handleCharge}
               />
             </Container>
           </Container>
@@ -149,63 +152,17 @@ const PaymentForm = () => {
                 reference: '534332',
                 invoice: '12345',
                 date: new Date(),
-                title: 'Cobro exitoso',
+                title: t('charges:successCharge'),
                 extraInfo: (
-                  <Container flex>
-                    <Container center>
-                      <CheckMarkCircleIcon />
-                    </Container>
-                    <Container>
-                      <Text
-                        text={formatQuantity(Number(amount))}
-                        marginTop={2}
-                        marginBottom={8}
-                        fontSize={34}
-                        typography="header"
-                        textAlign="center"
-                        fontWeight="Bold"
-                      />
-                    </Container>
-                    <Container row>
-                      <Container width="50%" style={{ marginRight: 12 }}>
-                        <Text text="Cuenta donde quiero recibir el pago" textAlign="right" />
-                        <Text text="TDC ***334" textAlign="right" typography="title" fontSize={17} marginVertical={8} />
-                      </Container>
-                      <Container width="50%" style={{ marginLeft: 12 }}>
-                        <Text text="Cuenta destino" textAlign="left" />
-                        <Text text="CLABE ***531" typography="title" fontSize={17} marginVertical={8} />
-                        <Text text="Banco" textAlign="left" />
-                        <Text text="STP" typography="title" fontSize={17} marginVertical={8} />
-                        <Text text="Nombre" textAlign="left" />
-                        <Text text="Andrés Lara" typography="title" fontSize={17} marginVertical={8} />
-                        <Text text="Concepto" textAlign="left" />
-                        <Text text="Pago Viaje" typography="title" fontSize={17} marginVertical={8} />
-                      </Container>
-                    </Container>
-                    <Container />
-                    <Container style={{ margin: 16 }}>
-                      <Button
-                        label="Regresar"
-                        onPress={() => {
-                          setVisible(false);
-                          goBack();
-                        }}
-                        backgroundColor={Theme.Colors.WhiteSmoke}
-                        textColor={Theme.Colors.DarkSoul}
-                        marginVertical={16}
-                      />
-                      <OptionButton
-                        onPress={() => setVisible(false)}
-                        width={55}
-                        height={55}
-                        borderRadius={15}
-                        backgroundColor={Theme.Colors.PlaceboBlue}
-                        marginHorizontal={5}
-                        label={i18n.t('global:share')}
-                        icon={<ExportIcon width={30} />}
-                      />
-                    </Container>
-                  </Container>
+                  <ComponentInfo
+                    showButtons
+                    amount={Number(amount)}
+                    onPressBack={() => {
+                      setVisible(false);
+                      goBack();
+                    }}
+                    onPressOptionButton={() => setVisible(false)}
+                  />
                 ),
               }}
               onDismiss={() => setVisible(false)}

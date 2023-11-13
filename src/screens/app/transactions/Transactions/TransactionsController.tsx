@@ -1,12 +1,11 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
+import i18n from 'i18n';
 import TransactionsScreen from './TransactionsScreen';
 
 const TransactionsController: React.FC = () => {
-  const dispatch = useDispatch();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   return (
@@ -18,11 +17,14 @@ const TransactionsController: React.FC = () => {
         onPressCoDi={() => {}}
         onPressContacts={() => navigate('ContactsGlobalStack')}
         onPressNewPayment={() => navigate('TransactionsGlobalStack', { screen: 'Payment' })}
-        onPressCashCollection={() => navigate('CobrosGlobalStack', { screen: 'CobrosEfectivo' })}
+        onPressCashCollection={() => navigate('ChargesGlobalStack', { screen: 'ChargesCash' })}
         onPressCoDiCollection={() => {}}
-        onPressContactsCollection={() => {}}
-        onPressEthosQR={() => {}}
-        onPressScheduledCollections={() => {}}
+        onPressContactsCollection={() => navigate('ChargesGlobalStack', { screen: 'ChargesContacts' })}
+        onPressEthosQR={() => navigate('PaymentStack', {
+          screen: 'form',
+          params: { title: i18n.t('payment:collectViaCODI') },
+        })}
+        onPressScheduledCollections={() => navigate('ChargesGlobalStack', { screen: 'ChargesScheduled' })}
       />
     </SafeArea>
   );
