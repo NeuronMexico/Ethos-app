@@ -13,6 +13,7 @@ import {
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
+import { CheckMarkCircleIcon } from 'assets/svg';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import { ComponentInfo } from './components';
 
@@ -154,15 +155,20 @@ const PaymentForm: React.FC<Props> = ({
                 date: new Date(),
                 title: t('charges:successCharge'),
                 extraInfo: (
-                  <ComponentInfo
-                    showButtons
-                    amount={Number(amount)}
-                    onPressBack={() => {
-                      setVisible(false);
-                      goBack();
-                    }}
-                    onPressOptionButton={() => setVisible(false)}
-                  />
+                  <>
+                    <Container center style={{ marginVertical: 16 }}>
+                      <CheckMarkCircleIcon />
+                    </Container>
+                    <ComponentInfo
+                      showButtons
+                      amount={Number(amount)}
+                      onPressBack={() => {
+                        setVisible(false);
+                        goBack();
+                      }}
+                      onPressOptionButton={() => setVisible(false)}
+                    />
+                  </>
                 ),
               }}
               onDismiss={() => setVisible(false)}

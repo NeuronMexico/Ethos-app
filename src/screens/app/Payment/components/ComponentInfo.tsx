@@ -27,6 +27,7 @@ const ComponentInfo: React.FC<Props> = ({
       fontWeight="Bold"
       typography="header"
       fontSize={34}
+      marginBottom={16}
     />
     <Container row>
       <Container width="50%" style={{ marginRight: 12 }}>
