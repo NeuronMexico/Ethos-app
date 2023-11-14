@@ -15,9 +15,15 @@ interface Props {
   onSubmit: () => void;
   edition: boolean;
   scheduled: boolean;
+  enableSaveContact?: boolean;
 }
 
-const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition, scheduled }) => {
+const ScheduledPaymentForm: React.FC<Props> = ({
+  onSubmit,
+  edition,
+  scheduled,
+  enableSaveContact = true,
+}) => {
   const { t } = useTranslation();
 
   const lastNameRef = useRef<TextInput>(null);
@@ -291,12 +297,16 @@ const ScheduledPaymentForm: React.FC<Props> = ({ onSubmit, edition, scheduled })
             error={aliasError}
           />
 
-          <CheckBoxField
-            label={t('transactions:saveToContacts')}
-            selected={saveContact}
-            onChange={setSaveContact}
-            marginVertical={12}
-          />
+          {
+            enableSaveContact && (
+              <CheckBoxField
+                label={t('transactions:saveToContacts')}
+                selected={saveContact}
+                onChange={setSaveContact}
+                marginVertical={12}
+              />
+            )
+          }
 
           <Input
             ref={cardNumberRef}

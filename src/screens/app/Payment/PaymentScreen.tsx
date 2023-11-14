@@ -5,8 +5,7 @@ import {
   Container, Header, Input, Picker, Text,
 } from 'components';
 import Theme from 'theme';
-import { PaymentFlowType, formatQuantity, validations } from 'utils';
-import { VisaIcon } from 'assets/svg';
+import { PaymentFlowType, formatQuantity } from 'utils';
 
 interface Props {
   onPressConfirm: () => void;

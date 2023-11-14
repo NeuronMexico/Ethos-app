@@ -257,7 +257,8 @@
     "pendingBalance": "Saldo pendiente",
     "today": "Hoy",
     "personalProjectPayment": "Pago Proyecto Personal",
-    "cashDeposit": "Depósito en efectivo"
+    "cashDeposit": "Depósito en efectivo",
+    "payToContacts": "Pagar a contactos"
   },
   "alert": {
     "invoice": "Folio:",
@@ -439,6 +440,7 @@
     "chargeWithCODI": "Cobro vía CODI",
     "chargeWithContacts": "Cobrar a contactos",
     "chargeTo": "Cobrar a {{to}}",
+    "payTo": "Pagar a {{to}}",
     "chargesScheduled": "Cobros programados",
     "pending": "Pendientes",
     "settled": "Liquidados",
@@ -450,18 +452,24 @@
   },
   "payment": {
     "collectViaCODI": "Cobro QR ethoscrédito",
+    "collectViaCash": "Cobro en efectivo",
     "enterCode": "Ingresa tu NIP",
-    "totalAmountToDispose": "Monto total a disponer: ${{amount}}"
+    "totalAmountToDispose": "Monto total a disponer: {{amount}}"
   },
   "qr": {
     "codeValidFor": "Código valido por",
-    "shareCode": "Comparte el código a quien deseas cobrar"
+    "shareCode": "Comparte el código a quien deseas cobrar",
+    "withdrawalMessage": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código",
+    "costOfTransaction": "Costo de transacción: {{amount}}",
+    "enjoyYourMoney": " ¡Disfruta de tu dinero en efectivo y sigue aprovechando todos los beneficios que nuestra app tiene para ofrecerte!"
   },
   "personalDisposition": {
     "title": "Disposición personal",
     "screenMessage": "Retira fondos de tu tarjeta ethoscrédito y envíalos a una CLABE o retíralos en efectivo en nuestros más de 600 estableciminetos",
     "transfer": "Transferir",
-    "noCardWithdrawal": "Retiro sin tarjeta"
+    "noCardWithdrawal": "Retiro sin tarjeta",
+    "desiredWithdrawalAmount": "Monto que deseas retirar",
+    "totalAmountToCharge": "Monto total a cobrar: {{amount}}"
   },
   "form": {
     "name": "Nombre",

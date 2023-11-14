@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { ReactNode, useRef, useState } from 'react';
-import { TextInput } from 'react-native';
+import React, {
+  ReactNode, useEffect, useRef, useState,
+} from 'react';
 import PagerView from 'react-native-pager-view';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -9,47 +10,67 @@ import { useTranslation } from 'react-i18next';
 import {
   Alert,
   Button,
-  Container, Header, Input, InputCode, Picker, SafeArea, Text,
+  Container, Header, InputCode, SafeArea, Text,
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
 import { CheckMarkCircleIcon } from 'assets/svg';
 import { formatQuantity } from 'utils';
+import { ScrollView } from 'react-native-gesture-handler';
 import { PaymentGlobalStackParams } from '../../../utils/types';
-import { ComponentInfo } from './components';
+import { AmountPrimaryForm, AmountSecondaryForm, ComponentInfo } from './components';
+import { ComponentEnum, ComponentTypes } from './PaymentsForms';
 
-interface Props {
-  titles?: string[];
-  formSection?: ReactNode;
-  inputSection?: ReactNode;
-}
-
-const PaymentForm: React.FC<Props> = ({
-  titles,
-  formSection,
-  inputSection,
-}: Props) => {
+const PaymentForm: React.FC = () => {
   const { t } = useTranslation();
   const alert = useAlert();
-  const { params: { title } } = useRoute<RouteProp<PaymentGlobalStackParams, 'form'>>();
+  const {
+    params: {
+      title,
+      formComponent,
+      initialPage,
+      destinationAccount,
+    },
+  } = useRoute<RouteProp<PaymentGlobalStackParams, 'form'>>();
   const { goBack, replace } = useNavigation<NativeStackNavigationProp<any>>();
 
-  const referenceRef = useRef<TextInput>(null);
-  const conceptRef = useRef<TextInput>(null);
   const pagerViewRef = useRef<PagerView>(null);
 
-  const amountRef = useRef<TextInput>(null);
-
-  const [account, setAccount] = useState<string>('');
-  const [reference, setReference] = useState<string>();
-  const [concept, setConcept] = useState<string>();
+  const [index, setIndex] = useState<number>(0);
+  const [visible, setVisible] = useState<boolean>(false);
 
   const [amount, setAmount] = useState<string>('');
 
-  const [visible, setVisible] = useState<boolean>(false);
+  const [formComponentType, setFormComponentType] = useState<ReactNode>();
+  const [amountComponentType, setAmountComponentType] = useState<ReactNode>();
 
   const showQR = () => {
-    replace('PaymentStack', { screen: 'qr', params: { title, showHeader: title.includes('efectivo') } });
+    let codeTitleHeader = '';
+    let variant: 'qr' | 'cash' | 'withdrawal' = 'cash';
+
+    switch (formComponent) {
+      case 'PaymentCollectQR':
+        codeTitleHeader = t('payment:collectViaCODI');
+        variant = 'qr';
+        break;
+      case 'PaymentCollectCash':
+        codeTitleHeader = t('payment:collectViaCash');
+        variant = 'cash';
+        break;
+      case 'none':
+        codeTitleHeader = t('transactions:code');
+        variant = 'withdrawal';
+        break;
+      default:
+        break;
+    }
+    replace('PaymentStack', {
+      screen: 'qr',
+      params: {
+        title: codeTitleHeader,
+        variant,
+      },
+    });
   };
 
   const handleCharge = () => {
@@ -75,72 +96,101 @@ const PaymentForm: React.FC<Props> = ({
     });
   };
 
+  useEffect(() => {
+    let form: ReactNode;
+    setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={handleCharge} />);
+    console.log(formComponent);
+    switch (formComponent) {
+      case 'PaymentCollectQR':
+        form = ComponentEnum[ComponentTypes.PaymentCollectQR](() => {});
+        setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={showQR} />);
+        setFormComponentType(form);
+        break;
+      case 'PaymentCollectToContact':
+        form = ComponentEnum[ComponentTypes.PaymentCollectToContact](() => {});
+        setFormComponentType(form);
+        break;
+      case 'PaymentCollectCash':
+        form = ComponentEnum[ComponentTypes.PaymentCollectCash](() => {});
+        setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={showQR} />);
+        setFormComponentType(form);
+        break;
+      case 'PaymentTransfer':
+        form = ComponentEnum[ComponentTypes.PaymentTransfer](() => {});
+        setFormComponentType(form);
+        break;
+      case 'PaymentPayToNewContact':
+        form = ComponentEnum[ComponentTypes.PaymentPayToNewContact](() => {}, false, false, true);
+        setFormComponentType(form);
+        break;
+      case 'PaymentPayToContact':
+        form = ComponentEnum[ComponentTypes.PaymentPayToContact](() => {}, destinationAccount);
+        setFormComponentType(form);
+        break;
+      case 'none':
+        setAmountComponentType(<AmountSecondaryForm onChange={setAmount} onSubmit={handleCharge} />);
+        break;
+      default:
+        break;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formComponent, destinationAccount]);
+
+  function getTitle(): string {
+    const arrLength = title?.length;
+
+    if (arrLength === 1) {
+      return title[0];
+    }
+
+    if (index === 0) {
+      return title[0];
+    }
+
+    if (arrLength === 3) {
+      switch (index) {
+        case 0:
+          return title[0];
+        case 1:
+          return title[1];
+        case 2:
+          return title[2];
+        default:
+          return title[arrLength - 1];
+      }
+    }
+
+    if (index >= arrLength) {
+      return title[arrLength - 1];
+    }
+
+    return title[index];
+  }
+
   return (
     <SafeArea>
       <Container useKeyboard flex>
-        <Header title={titles?.length ? titles[0] : title} />
-        <PagerView ref={pagerViewRef} style={{ flex: 1, marginTop: 32 }}>
-          <Container style={{ paddingHorizontal: 16 }}>
-            <Picker
-              label={t('form:accountWhereChargesWillBeMade')}
-              options={[
-                { value: '334', label: '***334', caption: 'text' },
-              ]}
-              placeholder=""
-              value={account}
-              onValueChange={setAccount}
-            />
-            <Input
-              ref={referenceRef}
-              label={t('form:reference')}
-              value={reference}
-              onChangeText={setReference}
-            />
-            <Input
-              ref={conceptRef}
-              label={t('form:concept')}
-              value={concept}
-              onChangeText={setConcept}
-            />
-            <Button
-              label={t('global:continue')}
-              onPress={() => {}}
-              marginTop={16}
-            />
+        <Header title={getTitle() ?? ''} />
+        <PagerView
+          ref={pagerViewRef}
+          initialPage={initialPage ?? 0}
+          style={{ flex: 1, marginTop: 32 }}
+          onPageSelected={({ nativeEvent: { position } }) => {
+            setIndex(position);
+          }}
+        >
+          <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
+            <ScrollView>
+              {formComponentType}
+            </ScrollView>
           </Container>
-          <Container center style={{ paddingHorizontal: 16 }}>
-            <Container flex style={{ alignSelf: 'center' }}>
-              <Input
-                ref={amountRef}
-                value={amount}
-                onChangeText={setAmount}
-                placeholder="$0.00"
-                width="auto"
-                material
-                fontSize={34}
-                fontWeight="Bold"
-                paddingVertical={0}
-                marginTop={24}
-                mask="money"
-                options={{
-                  precision: 2,
-                  separator: '.',
-                  delimiter: ',',
-                  unit: '$',
-                  suffixUnit: '',
-                }}
-                autoFocus
-                keyboardType="numeric"
-                minWidth={100}
-              />
-              <Text text={t('form:amount')} textAlign="center" marginTop={8} />
-            </Container>
-            <Container flex style={{ width: '100%', justifyContent: 'flex-end', marginBottom: 16 }}>
-              <Button
-                label={t('global:continue')}
-                onPress={handleCharge}
-              />
-            </Container>
+          <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
+            <ScrollView
+              style={{ flex: 1 }}
+              contentContainerStyle={{ flexGrow: 1 }}
+            >
+              {amountComponentType}
+            </ScrollView>
           </Container>
           <Container style={{ paddingHorizontal: 16 }}>
             <Container flex center>

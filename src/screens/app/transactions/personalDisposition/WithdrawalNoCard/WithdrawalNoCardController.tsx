@@ -4,9 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { SafeArea } from 'components';
 import { ComponentTypes } from 'screens/app/Payment/PaymentsForms';
-import ChargesCashScreen from './ChargesCashScreen';
+import ChargesCashScreen from './WithdrawalNoCardScreen';
 
-const ChargesCashController: React.FC = () => {
+const WithdrawalNoCardController: React.FC = () => {
   const { t } = useTranslation();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -14,8 +14,9 @@ const ChargesCashController: React.FC = () => {
     navigate('PaymentStack', {
       screen: 'form',
       params: {
-        title: [t('charges:chargeWithCash')],
-        formComponent: ComponentTypes.PaymentCollectCash,
+        title: [t('transactions:generateCode')],
+        formComponent: ComponentTypes.none,
+        initialPage: 1,
       },
     });
   };
@@ -30,4 +31,4 @@ const ChargesCashController: React.FC = () => {
   );
 };
 
-export default ChargesCashController;
+export default WithdrawalNoCardController;

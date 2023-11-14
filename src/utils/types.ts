@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import { ComponentTypes } from 'screens/app/Payment/PaymentsForms';
 
 export type CallbackType<T = any> = (success: boolean, args?: T) => void;
 export type LoginCallbackType<T = any, S = any> = (success: boolean, args?: T, param?: S) => void;
@@ -72,13 +73,23 @@ export type TransactionsGlobalStackParams = {
 
 export type ChargesGlobalStackParams = {
   ChargesCash: undefined;
-  ChargesContacts: undefined;
+  ChargesContacts: { from: 'pay' | 'collect' };
   ChargesScheduled: undefined;
+  WithdrawalNoCard: undefined;
 };
 
 export type PaymentGlobalStackParams = {
-  form: { title: string };
-  qr: { title: string, showHeader: boolean };
+  form: {
+    title: string[],
+    initialPage?: number,
+    formComponent: ComponentTypes,
+    destinationAccount?: { name: string, account: string, bank: string },
+  };
+  qr: {
+    title: string,
+    showHeader: boolean,
+    variant: 'qr' | 'cash' | 'withdrawal',
+  };
 };
 
 export type TabParams = {
