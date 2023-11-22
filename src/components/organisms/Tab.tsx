@@ -41,14 +41,6 @@ const Tab: React.FC<TabProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTab, componentWidth]);
 
-  useEffect(() => {
-    if (componentRef.current) {
-      componentRef.current?.measure((x, y, width) => {
-        setComponentWidth(width);
-      });
-    }
-  }, []);
-
   const handleTabChange = (tabIndex: number) => {
     setActiveTab(tabIndex);
     onTabChange(tabIndex);
@@ -62,7 +54,15 @@ const Tab: React.FC<TabProps> = ({
   };
 
   return (
-    <Container ref={componentRef} flex style={style}>
+    <Container
+      ref={componentRef}
+      flex
+      style={style}
+      onLayout={(event) => {
+        const { width } = event.nativeEvent.layout;
+        setComponentWidth(width);
+      }}
+    >
       <Container flex row>
         {tabs.map((value, index) => (
           <TouchableOpacity
