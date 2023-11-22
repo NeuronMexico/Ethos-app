@@ -16,4 +16,9 @@
         <item name="android:textColorPrimary">@color/dark_soul_color</item>
     </style>
 
+    <!-- Splash Theme -->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">@color/background_color</item>
+    </style>
+
 </resources>
