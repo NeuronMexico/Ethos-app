@@ -48,6 +48,7 @@ const Colors = {
   BarcelonaOrange: '#FF9700',
   TangledWeb: '#B3B3B3',
   OranzhewyiOrange: '#ED6336',
+  PartyPig: '#E497FF',
 
 };
 
