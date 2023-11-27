@@ -261,8 +261,8 @@
     "personalProjectPayment": "Pago Proyecto Personal",
     "cashDeposit": "Depósito en efectivo",
     "payToContacts": "Cuenta Destino",
-    "withdrawalWithoutCard": "Retiro sin tarjeta"
-
+    "withdrawalWithoutCard": "Retiro sin tarjeta",
+    "otherActions": "Otras Acciones"
   },
   "alert": {
     "invoice": "Folio:",

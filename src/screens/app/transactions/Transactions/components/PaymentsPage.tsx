@@ -109,11 +109,15 @@ const PaymentsPage: React.FC<Props> = ({
           onPress={onPressServices}
         />
       </Container>
-
+      <Text
+        text={t('transactions:otherActions')}
+        typography="subtitle"
+        fontWeight="Semibold"
+        marginTop={23}
+        fontSize={17}
+      />
       <Container row style={{ marginTop: 32 }}>
-        <Container flex>
-          <PaymentButton label={t('transactions:newPayment')} icon={<TransferIcon />} onPress={onPressNewPayment} />
-        </Container>
+        <PaymentButton label={t('transactions:newPayment')} icon={<TransferIcon />} onPress={onPressNewPayment} />
         <Container flex style={{ marginLeft: 8 }}>
           <PaymentButton
             label={t('transactions:withdrawalWithoutCard')}
