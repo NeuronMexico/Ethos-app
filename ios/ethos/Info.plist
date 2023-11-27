@@ -35,6 +35,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Necesitamos tu permiso para acceder a tu galería para seleccionar tu foto de perfil.</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>Para proteger su información y garantizar un acceso seguro a datos sencibles, se requiere Face ID.</string>
 	<key>UILaunchStoryboardName</key>

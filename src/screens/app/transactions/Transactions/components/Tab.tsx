@@ -24,6 +24,7 @@ const Tab = forwardRef<TabRef, Props>(({ tabs, onChange }, ref) => {
   const size = useSharedValue(0);
 
   const scrollViewRef = useRef<ScrollView>(null);
+  const lastIndex = useRef<number>(0);
 
   const [refs, setRefs] = useState<RefObject<View>[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -45,11 +46,13 @@ const Tab = forwardRef<TabRef, Props>(({ tabs, onChange }, ref) => {
       setRefs(Array(tabs.length).fill(null).map((_, i) => refs[i] || createRef()));
     } else if (refs[currentIndex]) {
       refs[currentIndex].current?.measure((x, y, width, height, px) => {
-        translation.value = withTiming(px, { duration: 500 });
-        size.value = withTiming(width, { duration: 500 }, () => {
-          runOnJS(setShowAnimation)(false);
-          runOnJS(scrollToItem)(px, width);
-        });
+        if (px !== undefined && width !== undefined) {
+          translation.value = withTiming(px, { duration: 500 });
+          size.value = withTiming(width, { duration: 500 }, () => {
+            runOnJS(setShowAnimation)(false);
+            runOnJS(scrollToItem)(px, width);
+          });
+        }
       });
     }
   }, [currentIndex, dimensions.width, refs, scrollToItem, size, tabs, translation]);
@@ -61,7 +64,13 @@ const Tab = forwardRef<TabRef, Props>(({ tabs, onChange }, ref) => {
   }, [onChange]);
 
   useImperativeHandle(ref, () => ({
-    setIndex: onPress,
+    setIndex: (newIndex: number) => {
+      if (newIndex !== lastIndex.current) {
+        setShowAnimation(true);
+        setCurrentIndex(newIndex);
+        lastIndex.current = newIndex;
+      }
+    },
   }));
 
   const animatedStyles = {

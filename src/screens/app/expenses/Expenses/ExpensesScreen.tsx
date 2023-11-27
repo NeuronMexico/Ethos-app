@@ -123,7 +123,7 @@ const ExpensesScreen: React.FC<Props> = () => {
         )}
         scrollEventThrottle={16}
       >
-        <Container>
+        <Container flex>
           <Tab
             tabs={[t('expenses:allMyCards'), '****334', '*543']}
             initialTab={0}
