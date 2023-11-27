@@ -21,6 +21,7 @@ const VirtualAssistantController: React.FC = () => {
   const bottomSheet = useBottomSheet();
 
   const [messages, setMessages] = useState<Array<MockMessage>>([]);
+  const [avatar, setAvatar] = useState<'a' | 'b'>('a');
 
   const onSubmit = useCallback((message: string) => {
     const auxMsgs = [...messages];
@@ -54,7 +55,11 @@ const VirtualAssistantController: React.FC = () => {
 
   const onPressAvatar = useCallback(() => {
     Keyboard.dismiss();
-    bottomSheet.show(<AvatarBottomSheetContent />, {
+    bottomSheet.show(<AvatarBottomSheetContent onSelectAvatar={(option) => {
+      setAvatar(option);
+      bottomSheet.hide();
+    }}
+    />, {
       title: t('virtualAssistant:selectAvatar'),
     });
   }, [bottomSheet, t]);
@@ -63,6 +68,7 @@ const VirtualAssistantController: React.FC = () => {
     <SafeArea barStyle={messages.length === 0 ? 'light' : 'dark'} topSafeArea={false} bottomSafeArea={false}>
       <VirtualAssistantScreen
         messages={messages}
+        avatar={avatar}
         onPressAttach={() => {}}
         onPressTopics={onPressTopics}
         onPressFaqs={onPressFaqs}

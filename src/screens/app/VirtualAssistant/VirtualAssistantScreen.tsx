@@ -12,6 +12,8 @@ import {
 } from 'components';
 import Theme from 'theme';
 import {
+  AssistantA,
+  AssistantB,
   ClipIcon, EditIcon, MicrophoneIcon, QuestionIcon, SendIcon, TopicsIcon,
 } from 'assets/svg';
 import { ReanimatedEasing, sleep } from 'utils';
@@ -24,6 +26,7 @@ type MockMessage = {
 
 interface Props {
   messages: Array<MockMessage>;
+  avatar: 'a' | 'b';
   onPressTopics: () => void;
   onPressAttach: () => void;
   onPressFaqs: () => void;
@@ -35,6 +38,7 @@ const AVATAR_SIZE = 95;
 
 const VirtualAssistantScreen: React.FC<Props> = ({
   messages,
+  avatar,
   onPressTopics,
   onPressAttach,
   onPressFaqs,
@@ -84,7 +88,7 @@ const VirtualAssistantScreen: React.FC<Props> = ({
       transform: [{ translateX: interpolate(animation.value, [0, 1], [0, -width]) }],
     })),
     avatarContainer: useAnimatedStyle(() => {
-      const translateX = -(Math.abs((width / 2) - avatarPosition.x) + (AVATAR_SIZE));
+      const translateX = -(Math.abs((width / 2) - avatarPosition.x) + (AVATAR_SIZE) + 45);
       const translateY = -(avatarPosition.y + (AVATAR_SIZE / 2) + 20);
       return ({
         position: 'absolute',
@@ -103,7 +107,7 @@ const VirtualAssistantScreen: React.FC<Props> = ({
     <Container flex style={{ paddingTop: insets.top }} useKeyboard keyboardVerticalOffset={-30}>
       <GradientBackground runAnimation={messages.length > 0} />
       <Header
-        title="Lidia"
+        title={t('virtualAssistant:virtualAssistant')}
         textColor={messages.length === 0 ? Theme.Colors.White : Theme.Colors.DarkSoul}
         rightIcon={<QuestionIcon />}
         rightAction={onPressFaqs}
@@ -132,7 +136,7 @@ const VirtualAssistantScreen: React.FC<Props> = ({
         >
           <Animated.View style={animatedStyles.greetingContainer}>
             <Text
-              text={t('virtualAssistant:greeting')}
+              text={t('virtualAssistant:greeting', { name: 'Mario' })}
               fontSize={30}
               fontWeight="Bold"
               lineHeight={30}
@@ -177,7 +181,14 @@ const VirtualAssistantScreen: React.FC<Props> = ({
           onLayout={({ nativeEvent: { layout } }) => setAvatarPosition({ x: layout.x, y: layout.y })}
         >
           <Touchable rounded onPress={onPressAvatar} disabled={messages.length > 0}>
-            <Container circle width={AVATAR_SIZE} height={AVATAR_SIZE} backgroundColor={Theme.Colors.SpringBouquet} />
+            <Container circle width={AVATAR_SIZE} height={AVATAR_SIZE} middle backgroundColor={Theme.Colors.PlaceboBlue}>
+              {avatar === 'a' ? <AssistantA width={AVATAR_SIZE} height={AVATAR_SIZE} /> : (
+                <AssistantB
+                  width={AVATAR_SIZE}
+                  height={AVATAR_SIZE}
+                />
+              )}
+            </Container>
             {messages.length === 0 && (
             <Container style={styles.editContainer}>
               <EditIcon width={16} height={16} />

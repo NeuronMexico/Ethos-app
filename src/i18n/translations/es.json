@@ -173,7 +173,8 @@
     "editDirectDebitPayment": "Editar domiciliación pago"
   },
   "virtualAssistant": {
-    "greeting": "Hola 👋\nSoy Lidia,",
+    "virtualAssistant": "Asistente Virtual",
+    "greeting": "Hola 👋\n{{name}},",
     "howCanIHelpYouToday": "¿Cómo puedo ayudarte el día de hoy?",
     "checkBalanceAndTransactions": "Consulta de saldo y movimientos",
     "productInformationFunctionality": "Información de producto/funcionalidad",

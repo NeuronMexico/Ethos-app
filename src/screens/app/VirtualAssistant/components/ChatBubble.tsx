@@ -72,8 +72,8 @@ const ChatBubble: React.FC<Props> = ({
         >
           <Text text={data} typography="subtitle" textColor={Theme.Colors.White} />
         </Container>
-        <Container width={28}>
-          {lastMessage && <ProfilePhoto size={28} fadeIn={false} />}
+        <Container width={28} crossAlignment="end">
+          {lastMessage && <ProfilePhoto size={28} fadeIn={false} bottomStyle={{}} />}
         </Container>
       </Animated.View>
     );

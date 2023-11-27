@@ -20,6 +20,9 @@ import AmazonIcon from './services/amazon-icon.svg';
 import HBOIcon from './services/hbo-icon.svg';
 // Card Brands
 import VisaIcon from './cardBrands/visa-icon.svg';
+// Avatars
+import AssistantA from './avatars/assistant-a.svg';
+import AssistantB from './avatars/assistant-b.svg';
 
 import ErrorMark from './close_ring.svg';
 
@@ -128,5 +131,8 @@ export {
   HBOIcon,
   // Card Brands
   VisaIcon,
+  // Avatars
+  AssistantA,
+  AssistantB,
   ErrorMark,
 };

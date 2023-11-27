@@ -72,7 +72,7 @@ const ProfilePhoto: React.FC<Props> = ({
               />
             </Touchable>
           ) : (
-            <Touchable onPress={onPress || (() => {})}>
+            <Touchable onPress={onPress || (() => {})} disabled={!editable}>
               <Container
                 center
                 middle
@@ -97,7 +97,7 @@ const ProfilePhoto: React.FC<Props> = ({
           )}
         </Container>
         {editable && onPress && (
-          <Touchable onPress={onPress || (() => {})}>
+          <Touchable onPress={onPress || (() => {})} disabled={!editable}>
             <Container
               middle
               width={24}
