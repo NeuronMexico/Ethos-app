@@ -3,10 +3,11 @@ import { ColorValue, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
-  BackButton, Container, Text, Touchable,
+  BackButton, Container, FadeInImage, Text, Touchable,
 } from 'components';
 import Theme from 'theme';
 import { MessageDotsIcon } from 'assets/svg';
+import { ETHOS_CREDIT_LOGO } from 'assets/images';
 
 interface Props {
   showBackButton?: boolean;
@@ -18,6 +19,7 @@ interface Props {
   rightIconContainerBackgroundColor?: ColorValue;
   showVirtualAssistantAction?: boolean;
   textColor?: ColorValue;
+  ethosHeader?: boolean;
 }
 
 const Header: React.FC<Props> = ({
@@ -30,6 +32,7 @@ const Header: React.FC<Props> = ({
   rightIconContainerBackgroundColor = Theme.Colors.PlaceboBlue,
   textColor,
   showVirtualAssistantAction = false,
+  ethosHeader,
 }) => {
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
@@ -41,23 +44,30 @@ const Header: React.FC<Props> = ({
       <Container middle flex>
         <Text text={title} typography="header" textColor={textColor} />
       </Container>
-      <Container width={40}>
-        {(rightIcon || showVirtualAssistantAction) && (
-        <Touchable
-          disabled={!rightAction && !showVirtualAssistantAction}
-          onPress={() => {
-            if (rightAction) rightAction();
-            else if (showVirtualAssistantAction) {
-              navigate('VirtualAssistant');
-            }
-          }}
-        >
-          <Container middle style={styles.rightButtonContainer} backgroundColor={rightIconContainerBackgroundColor}>
-            {rightIcon || <MessageDotsIcon />}
-          </Container>
-        </Touchable>
-        )}
-      </Container>
+      {ethosHeader ? (
+        <>
+          <Container width={40} />
+          <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} style={styles.ethosCreditLogo} />
+        </>
+      ) : (
+        <Container width={40}>
+          {(rightIcon || showVirtualAssistantAction) && (
+          <Touchable
+            disabled={!rightAction && !showVirtualAssistantAction}
+            onPress={() => {
+              if (rightAction) rightAction();
+              else if (showVirtualAssistantAction) {
+                navigate('VirtualAssistant');
+              }
+            }}
+          >
+            <Container middle style={styles.rightButtonContainer} backgroundColor={rightIconContainerBackgroundColor}>
+              {rightIcon || <MessageDotsIcon />}
+            </Container>
+          </Touchable>
+          )}
+        </Container>
+      )}
     </Container>
   );
 };
@@ -67,6 +77,10 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
+  },
+  ethosCreditLogo: {
+    position: 'absolute',
+    right: Theme.Sizes.Padding,
   },
 });
 

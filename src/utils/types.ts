@@ -29,6 +29,7 @@ export interface MarginPropsInterface {
 // Navigation types
 export type AuthStackParams = {
   Login: undefined;
+  CreateAccount: undefined;
 };
 
 export type CardsGlobalStackParams = {
