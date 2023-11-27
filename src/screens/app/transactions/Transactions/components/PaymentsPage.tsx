@@ -7,25 +7,21 @@ import {
 import Theme from 'theme';
 import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
 import {
-  AmazonIcon, CFEIcon, CoDiIcon, DisneyIcon, HBOIcon, MoneyIcon, NetflixIcon, PeopleIcon, SpotifyIcon, TransferIcon,
+  AmazonIcon, CFEIcon, DisneyIcon, HBOIcon, MoneyIcon, NetflixIcon, SpotifyIcon, TransferIcon,
 } from 'assets/svg';
 import { PaymentButton } from './PaymentButton';
 
 interface Props {
   onPressScheduledPayments: () => void;
   onPressServices: () => void;
-  onPressContacts: () => void;
   onPressNewPayment: () => void;
-  onPressCash: () => void;
-  onPressCoDi: () => void;
+  onPressWithdrawalNoCard: () => void;
 }
 
 const PaymentsPage: React.FC<Props> = ({
   onPressScheduledPayments,
   onPressServices,
-  onPressCash,
-  onPressCoDi,
-  onPressContacts,
+  onPressWithdrawalNoCard,
   onPressNewPayment,
 }) => {
   const { t } = useTranslation();
@@ -115,19 +111,15 @@ const PaymentsPage: React.FC<Props> = ({
       </Container>
 
       <Container row style={{ marginTop: 32 }}>
-        <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('transactions:toContacts')} icon={<PeopleIcon />} onPress={onPressContacts} />
-        </Container>
-        <Container flex style={{ marginLeft: 8 }}>
+        <Container flex>
           <PaymentButton label={t('transactions:newPayment')} icon={<TransferIcon />} onPress={onPressNewPayment} />
         </Container>
-      </Container>
-      <Container row style={{ marginTop: 16 }}>
-        <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('transactions:inCash')} icon={<MoneyIcon />} onPress={onPressCash} />
-        </Container>
         <Container flex style={{ marginLeft: 8 }}>
-          <PaymentButton label={t('transactions:viaCODI')} icon={<CoDiIcon />} onPress={onPressCoDi} />
+          <PaymentButton
+            label={t('transactions:withdrawalWithoutCard')}
+            icon={<MoneyIcon />}
+            onPress={onPressWithdrawalNoCard}
+          />
         </Container>
       </Container>
     </ScrollView>
