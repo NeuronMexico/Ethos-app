@@ -420,6 +420,7 @@
   "contacts": {
     "contacts": "Contactos",
     "newContact": "Nuevo contacto",
+    "beneficiaryData": "Datos del Beneficiario",
     "quickPayment": "Pago Rápido",
     "deleteContact": "Eliminar contacto",
     "editContact": "Editar contacto",

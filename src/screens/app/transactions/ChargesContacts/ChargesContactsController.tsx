@@ -37,7 +37,7 @@ const ChargesContactsController = () => {
   const onPressNewContact = () => navigate('PaymentStack', {
     screen: 'form',
     params: {
-      title: [t('contacts:newContact'), t('charges:payTo', { to: 'Ayush Lagun' })],
+      title: [t('contacts:beneficiaryData'), t('charges:payTo', { to: 'Ayush Lagun' })],
       formComponent: ComponentTypes.PaymentPayToNewContact,
     },
   });

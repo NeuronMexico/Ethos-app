@@ -3,13 +3,11 @@ import { TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
-  CheckBoxField,
-  Container, DateTimePicker, Input, Picker, Text,
+  Container, DateTimePicker, Input, Picker, SwitchField, Text,
 } from 'components';
 import Theme from 'theme';
 import { VisaIcon } from 'assets/svg';
-import { PAYMENT_TYPES, validations } from 'utils';
-import Collapsible from 'react-native-collapsible';
+import { validations } from 'utils';
 
 interface Props {
   onSubmit: () => void;
@@ -27,7 +25,6 @@ const ScheduledPaymentForm: React.FC<Props> = ({
   const { t } = useTranslation();
 
   const lastNameRef = useRef<TextInput>(null);
-  const middleNameRef = useRef<TextInput>(null);
   const aliasRef = useRef<TextInput>(null);
   const cardNumberRef = useRef<any>(null);
   const bankRef = useRef<TextInput>(null);
@@ -40,12 +37,6 @@ const ScheduledPaymentForm: React.FC<Props> = ({
 
   const [name, setName] = useState<string>('');
   const [nameError, setNameError] = useState<string>('');
-
-  const [lastName, setLastName] = useState<string>('');
-  const [lastNameError, setLastNameError] = useState<string>('');
-
-  const [middleName, setMiddleName] = useState<string>('');
-  const [middleNameError, setMiddleNameError] = useState<string>('');
 
   const [alias, setAlias] = useState<string>('');
   const [aliasError, setAliasError] = useState<string>('');
@@ -65,14 +56,11 @@ const ScheduledPaymentForm: React.FC<Props> = ({
   const [reference, setReference] = useState<string>('');
   const [referenceError, setReferenceError] = useState<string>('');
 
-  const [paymentType, setPaymentType] = useState<string>(PAYMENT_TYPES[0].value);
-  const [paymentTypeError, setPaymentTypeError] = useState<string>('');
-
   const [schedule, setSchedule] = useState<Date>();
   const [scheduleError, setScheduleError] = useState<string>('');
 
   const [saveContact, setSaveContact] = useState<boolean>(false);
-  const [scheduleTransaction, setScheduleTransaction] = useState<boolean>(false);
+  const [scheduleTransaction, setScheduleTransaction] = useState<boolean>(true);
 
   const cardValidation = (): boolean => {
     const validation = validations.required(card);
@@ -94,32 +82,6 @@ const ScheduledPaymentForm: React.FC<Props> = ({
 
     if (validation.error === 'required') setNameError(t('errors:required'));
     else setNameError(t('errors:invalidFormat'));
-
-    return false;
-  };
-
-  const lastNameValidation = (): boolean => {
-    const validation = validations.alphabet(lastName);
-    if (validation.ok) {
-      setLastNameError('');
-      return true;
-    }
-
-    if (validation.error === 'required') setLastNameError(t('errors:required'));
-    else setLastNameError(t('errors:invalidFormat'));
-
-    return false;
-  };
-
-  const middleNameValidation = (): boolean => {
-    const validation = validations.alphabet(middleName);
-    if (validation.ok) {
-      setMiddleNameError('');
-      return true;
-    }
-
-    if (validation.error === 'required') setMiddleNameError(t('errors:required'));
-    else setMiddleNameError(t('errors:invalidFormat'));
 
     return false;
   };
@@ -208,106 +170,10 @@ const ScheduledPaymentForm: React.FC<Props> = ({
     return false;
   };
 
-  const paymentTypeValidation = (): boolean => {
-    const validation = validations.required(paymentType);
-    if (validation.ok) {
-      setPaymentTypeError('');
-      return true;
-    }
-
-    setPaymentTypeError(t('errors:required'));
-    return false;
-  };
-
-  const scheduleValidation = (): boolean => {
-    if (schedule) {
-      setScheduleError('');
-      return true;
-    }
-
-    setScheduleError(t('errors:required'));
-    return false;
-  };
-
   return (
     <Container>
-      <Picker
-        label={t('transactions:myCreditCard')}
-        value={card}
-        onValueChange={setCard}
-        options={[{ label: '2844 2388 4363 4531', value: '1' }]}
-        placeholder=""
-        borderRadius={24}
-        backgroundColor={Theme.Colors.PlaceboBlue}
-        prefixIcon={<VisaIcon />}
-        useActionSheet
-        actionSheetTitle={t('transactions:myCreditCard')}
-        error={cardError}
-      />
-
       {!edition && (
         <>
-          <Input
-            label={t('form:names')}
-            placeholder=""
-            value={name}
-            onChangeText={setName}
-            autoCorrect
-            autoComplete="given-name"
-            autoCapitalize="words"
-            blurOnSubmit={false}
-            onSubmitEditing={() => nameValidation() && lastNameRef.current?.focus()}
-            error={nameError}
-          />
-          <Input
-            ref={lastNameRef}
-            label={t('form:firstLastName')}
-            placeholder=""
-            value={lastName}
-            onChangeText={setLastName}
-            autoCorrect
-            autoComplete="family-name"
-            autoCapitalize="words"
-            blurOnSubmit={false}
-            onSubmitEditing={() => lastNameValidation() && middleNameRef.current?.focus()}
-            error={lastNameError}
-          />
-          <Input
-            ref={middleNameRef}
-            label={t('form:secondLastName')}
-            placeholder=""
-            value={middleName}
-            onChangeText={setMiddleName}
-            autoCorrect
-            autoComplete="family-name"
-            autoCapitalize="words"
-            blurOnSubmit={false}
-            onSubmitEditing={() => middleNameValidation() && aliasRef.current?.focus()}
-            error={middleNameError}
-          />
-          <Input
-            ref={aliasRef}
-            label={t('form:alias')}
-            placeholder=""
-            value={alias}
-            onChangeText={setAlias}
-            autoCapitalize="words"
-            blurOnSubmit={false}
-            onSubmitEditing={() => aliasValidation() && cardNumberRef.current?.getElement()?.focus()}
-            error={aliasError}
-          />
-
-          {
-            enableSaveContact && (
-              <CheckBoxField
-                label={t('transactions:saveToContacts')}
-                selected={saveContact}
-                onChange={setSaveContact}
-                marginVertical={12}
-              />
-            )
-          }
-
           <Input
             ref={cardNumberRef}
             label={t('form:account')}
@@ -336,15 +202,69 @@ const ScheduledPaymentForm: React.FC<Props> = ({
             onSubmitEditing={() => bankValidation() && amountRef.current?.getElement()?.focus()}
             error={bankError}
           />
+          <Input
+            label={t('form:names')}
+            placeholder=""
+            value={name}
+            onChangeText={setName}
+            autoCorrect
+            autoComplete="given-name"
+            autoCapitalize="words"
+            blurOnSubmit={false}
+            onSubmitEditing={() => nameValidation() && lastNameRef.current?.focus()}
+            error={nameError}
+          />
+          <Input
+            ref={aliasRef}
+            label={t('form:alias')}
+            placeholder=""
+            value={alias}
+            onChangeText={setAlias}
+            autoCapitalize="words"
+            blurOnSubmit={false}
+            onSubmitEditing={() => aliasValidation() && cardNumberRef.current?.getElement()?.focus()}
+            error={aliasError}
+          />
+          {
+            enableSaveContact && (
+
+              <SwitchField
+                label={t('transactions:saveToContacts')}
+                active={saveContact}
+                onChange={setSaveContact}
+              />
+            )
+          }
+          <Picker
+            title="TDC ethoscrédito"
+            label={t('transactions:myCreditCard')}
+            value={card}
+            onValueChange={setCard}
+            options={[{ label: '$16,801.08', value: '1', caption: 'hey' }]}
+            placeholder=""
+            borderRadius={24}
+            backgroundColor={Theme.Colors.DrWhite}
+            prefixIcon={<VisaIcon />}
+            useActionSheet
+            actionSheetTitle={t('transactions:myCreditCard')}
+            error={cardError}
+            caption="**** **** **** 4531"
+            marginLeft={24}
+          />
         </>
       )}
 
       <Input
         ref={amountRef}
         label={t('transactions:amount')}
-        placeholder="$"
         value={amount}
         onChangeText={setAmount}
+        placeholder="$0.00 (MXN)"
+        material
+        fontSize={34}
+        fontWeight="Bold"
+        paddingVertical={0}
+        marginTop={24}
         mask="money"
         options={{
           precision: 2,
@@ -357,6 +277,7 @@ const ScheduledPaymentForm: React.FC<Props> = ({
         blurOnSubmit={false}
         onSubmitEditing={() => amountValidation() && conceptRef.current?.focus()}
         error={amountError}
+        autoFocus
       />
       <Input
         ref={conceptRef}
@@ -381,37 +302,23 @@ const ScheduledPaymentForm: React.FC<Props> = ({
         onSubmitEditing={() => referenceValidation() && referenceRef.current?.blur()}
         error={referenceError}
       />
-      <Picker
-        label={t('transactions:paymentType')}
-        value={paymentType}
-        onValueChange={setPaymentType}
-        options={PAYMENT_TYPES}
-        placeholder=""
-        borderRadius={24}
-        useActionSheet
-        error={paymentTypeError}
+      <DateTimePicker
+        label={t('transactions:whenYouRealize')}
+        value={schedule}
+        onValueChange={setSchedule}
+        placeholder={!edition && !scheduled ? t('transactions:pickDate') : ''}
+        error={scheduleError}
+        marginTop={edition || scheduled ? 16 : 16}
       />
 
       {!edition && !scheduled && (
-      <CheckBoxField
+      <SwitchField
         label={t('transactions:scheduleTransaction')}
-        selected={scheduleTransaction}
+        active={scheduleTransaction}
         onChange={setScheduleTransaction}
-        marginVertical={12}
       />
       )}
 
-      <Collapsible collapsed={(!edition && !scheduled) && !scheduleTransaction}>
-        <DateTimePicker
-          label={edition || scheduled ? t('transactions:scheduleTransaction') : undefined}
-          value={schedule}
-          onValueChange={setSchedule}
-          placeholder={!edition && !scheduled ? t('transactions:pickDate') : ''}
-          error={scheduleError}
-          marginTop={edition || scheduled ? 16 : 0}
-        />
-
-      </Collapsible>
       <Button label={t('global:continue')} onPress={onSubmit} marginVertical={16} />
     </Container>
   );
