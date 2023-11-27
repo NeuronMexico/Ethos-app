@@ -19,7 +19,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Departamental',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.TurquoisePanic,
+    backgroundColor: Theme.Colors.TangledWeb,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -27,7 +27,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Gastos en general',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.HuelvenoHorizon,
+    backgroundColor: Theme.Colors.BarberryYellow,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -35,7 +35,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Gasolina',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.HuelvenoHorizon,
+    backgroundColor: Theme.Colors.HotCoral,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -43,7 +43,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Entretenimiento',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.GrowingNature,
+    backgroundColor: Theme.Colors.AdamantineBlue,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -51,7 +51,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Salud',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.SchiaparelliPink,
+    backgroundColor: Theme.Colors.ToyBlue,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -59,7 +59,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Súper',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.AppleIIMagenta,
+    backgroundColor: Theme.Colors.PartyPig,
     textColor: Theme.Colors.DarkSoul,
   },
 },
@@ -67,7 +67,7 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Gastos hogar',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.GoldenRod,
+    backgroundColor: Theme.Colors.GreenGlow,
     textColor: Theme.Colors.DarkSoul,
   },
 },
