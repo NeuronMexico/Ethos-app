@@ -209,16 +209,17 @@
     "directDebit": "Domiciliado",
     "recurringPayment": "Recurrente",
     "date": "Fecha",
-    "amount": "Monto",
+    "amount": "¿Cuánto quieres enviar?",
     "paymentType": "Tipo de pago",
     "payee": "Destinatario",
     "destinationAccount": "Cuenta destino",
     "editPayment": "Editar pago",
-    "myCreditCard": "Mi TDC",
-    "scheduleTransaction": "Programar operación",
+    "myCreditCard": "¿Desde que tarjeta?",
+    "whenYouRealize": "¿Cuando quieres que se ejecute el pago?",
+    "scheduleTransaction": "Se repite mensualmente",
     "scheduledPaymentEditedSuccessfully": "Pago programado editado correctamente",
     "newScheduledPayment": "Nuevo pago programado",
-    "saveToContacts": "Guardar en contactos",
+    "saveToContacts": "¿Guardar en contactos?",
     "confirmDeleteScheduledPayment": "¿Estás seguro de eliminar el pago programado?",
     "yesDelete": "Sí, eliminar",
     "scheduledPaymentDeletedSuccessfully": "Pago programado eliminado correctamente",
@@ -259,7 +260,9 @@
     "today": "Hoy",
     "personalProjectPayment": "Pago Proyecto Personal",
     "cashDeposit": "Depósito en efectivo",
-    "payToContacts": "Pagar a contactos"
+    "payToContacts": "Cuenta Destino",
+    "withdrawalWithoutCard": "Retiro sin tarjeta"
+
   },
   "alert": {
     "invoice": "Folio:",
@@ -417,6 +420,7 @@
   "contacts": {
     "contacts": "Contactos",
     "newContact": "Nuevo contacto",
+    "quickPayment": "Pago Rápido",
     "deleteContact": "Eliminar contacto",
     "editContact": "Editar contacto",
     "last": "Recientes",
