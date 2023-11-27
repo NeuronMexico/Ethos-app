@@ -7,7 +7,7 @@ import { Path, Svg } from 'react-native-svg';
 import { useTranslation } from 'react-i18next';
 import { Button, Container, Text } from 'components';
 import Theme from 'theme';
-import { AssistantA } from 'assets/svg';
+import { AssistantA, OnboardAssistantBackground } from 'assets/svg';
 
 interface Props {
   messages: Array<string>;
@@ -52,6 +52,7 @@ const OnboardAssistant: React.FC<Props> = ({
         ))}
       </Container>
       <Container flex style={styles.contentContainer}>
+        <OnboardAssistantBackground style={styles.onboardBackground} />
         <Text text={title} marginTop={12} fontSize={22} fontWeight="Bold" />
         <Text text={description} marginTop={8} typography="caption" />
         {children}
@@ -163,6 +164,11 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingHorizontal: Theme.Sizes.Padding,
+  },
+  onboardBackground: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
   },
 });
 

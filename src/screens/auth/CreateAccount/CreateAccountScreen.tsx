@@ -18,7 +18,7 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
         description="Bienvenido a ethoscredito"
         onPress={() => {}}
       >
-        <Container flex backgroundColor="red" />
+        <Container flex backgroundColor="transparent" />
       </OnboardAssistant>
     </Container>
   );

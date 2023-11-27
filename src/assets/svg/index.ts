@@ -10,6 +10,7 @@ import YellowAvatar from './yellow-avatar.svg';
 import CardIncrementIllustration from './card-increment-illustration.svg';
 import PersonalProjectIllustration from './personal-project-illustration.svg';
 import PersonalDispositionIllustration from './personal-disposition-illustration.svg';
+import OnboardAssistantBackground from './onboard-assistant-background.svg';
 
 // Services
 import NetflixIcon from './services/netflix-icon.svg';
@@ -122,6 +123,7 @@ export {
   CardIncrementIllustration,
   PersonalProjectIllustration,
   PersonalDispositionIllustration,
+  OnboardAssistantBackground,
   // Services
   NetflixIcon,
   SpotifyIcon,
