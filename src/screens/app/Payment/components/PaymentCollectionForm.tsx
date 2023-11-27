@@ -1,72 +1,103 @@
 import React, { useRef, useState } from 'react';
 import { TextInput } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import Collapsible from 'react-native-collapsible';
-
 import {
-  Button, CheckBoxField, Container, DateTimePicker, Input, Picker, Text,
+  Button, Container, DateTimePicker, Input, Picker, ProfilePhoto, SwitchField,
 } from 'components';
 import Theme from 'theme';
+import { VisaIcon } from 'assets/svg';
 
 interface Props {
   onSubmit: () => void;
-  destinationAccount?: { account: string, bank: string };
-  enableScheduleTransaction?: boolean;
+  destinationAccount?: { account: string, bank: string, name: string };
 }
 
 const PaymentCollectionForm: React.FC<Props> = ({
   onSubmit,
   destinationAccount,
-  enableScheduleTransaction = false,
 }: Props) => {
   const { t } = useTranslation();
 
   const referenceRef = useRef<TextInput>(null);
   const conceptRef = useRef<TextInput>(null);
+  const amountRef = useRef<any>(null);
 
   const [account, setAccount] = useState<string>('');
+  const [amount, setAmount] = useState<string>('');
   const [reference, setReference] = useState<string>();
   const [concept, setConcept] = useState<string>();
   const [schedule, setSchedule] = useState<Date>();
   const [scheduleTransaction, setScheduleTransaction] = useState<boolean>(false);
 
   return (
-    <Container>
+    <Container flex>
       <Picker
-        label={t('form:accountWhereChargesWillBeMade')}
-        options={[{ label: '** *334', value: '1' }]}
+        title={destinationAccount?.name}
+        label={t('transactions:WhoDoYouWantToSendMoney')}
+        options={[{ label: 'SANTANDER', value: '1' }]}
         placeholder=""
+        borderRadius={24}
+        backgroundColor={Theme.Colors.DrWhite}
+        prefixIcon={(
+          <ProfilePhoto
+            size={36}
+            fadeIn
+            info={{
+              // eslint-disable-next-line max-len
+              uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+            }}
+            bottomStyle={{ marginVertical: 'auto' }}
+          />
+        )}
+        useActionSheet
+        actionSheetTitle={t('transactions:whatCard')}
+        caption={destinationAccount?.account}
+        marginLeft={24}
         value={account}
         onValueChange={setAccount}
-        borderRadius={24}
-        backgroundColor={Theme.Colors.PlaceboBlue}
-        useActionSheet
-        actionSheetTitle={t('transactions:myCreditCard')}
-        caption={t('form:clabe')}
       />
       {
         destinationAccount && (
-          <Container style={{ marginVertical: 8 }}>
-            <Text
-              text={t('form:destinationAccount')}
-              textColor={Theme.Colors.Carbon}
-              fontSize={11}
-              fontWeight="Medium"
-              marginBottom={4}
-            />
-            <Container style={{
-              paddingHorizontal: 16,
-              backgroundColor: Theme.Colors.PlaceboBlue,
-              paddingVertical: 12,
-              borderRadius: 24,
-            }}
-            >
-              <Text text={destinationAccount.account} fontWeight="Bold" />
-              <Text text={destinationAccount.bank} fontSize={13} />
-            </Container>
-          </Container>
+          <Picker
+            title="TDC ethoscrédito"
+            label={t('transactions:myCreditCard')}
+            options={[{ label: '$16,801.08', value: '1', caption: 'hey' }]}
+            placeholder=""
+            borderRadius={24}
+            backgroundColor={Theme.Colors.DrWhite}
+            prefixIcon={<VisaIcon />}
+            useActionSheet
+            actionSheetTitle={t('transactions:myCreditCard')}
+            caption="**** **** **** 4531"
+            marginLeft={24}
+            value={account}
+            onValueChange={setAccount}
+          />
         )
       }
+      <Input
+        ref={amountRef}
+        label={t('transactions:amount')}
+        value={amount}
+        onChangeText={setAmount}
+        placeholder="$0.00 (MXN)"
+        material
+        fontSize={34}
+        fontWeight="Bold"
+        paddingVertical={0}
+        marginTop={24}
+        mask="money"
+        options={{
+          precision: 2,
+          separator: '.',
+          delimiter: ',',
+          unit: '$',
+          suffixUnit: '',
+        }}
+        keyboardType="decimal-pad"
+        blurOnSubmit={false}
+        autoFocus
+      />
       <Input
         ref={referenceRef}
         label={t('form:reference')}
@@ -79,25 +110,18 @@ const PaymentCollectionForm: React.FC<Props> = ({
         value={concept}
         onChangeText={setConcept}
       />
-      {enableScheduleTransaction && !schedule && (
-        <CheckBoxField
-          label={t('transactions:scheduleTransaction')}
-          selected={scheduleTransaction}
-          onChange={setScheduleTransaction}
-          marginVertical={12}
-        />
-      )}
-
-      <Collapsible collapsed={(!schedule) && !scheduleTransaction}>
-        <DateTimePicker
-          label={t('transactions:scheduleTransaction')}
-          value={schedule}
-          onValueChange={setSchedule}
-          placeholder={t('transactions:pickDate')}
-          marginTop={enableScheduleTransaction ? 16 : 0}
-        />
-      </Collapsible>
-
+      <DateTimePicker
+        label={t('transactions:whenYouRealize')}
+        value={schedule}
+        onValueChange={setSchedule}
+        placeholder={t('transactions:pickDate')}
+        marginTop={16}
+      />
+      <SwitchField
+        label={t('transactions:scheduleTransaction')}
+        active={scheduleTransaction}
+        onChange={setScheduleTransaction}
+      />
       <Button
         label={t('global:continue')}
         onPress={onSubmit}

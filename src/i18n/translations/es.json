@@ -262,7 +262,9 @@
     "cashDeposit": "Depósito en efectivo",
     "payToContacts": "Cuenta Destino",
     "withdrawalWithoutCard": "Retiro sin tarjeta",
-    "otherActions": "Otras Acciones"
+    "otherActions": "Otras Acciones",
+    "WhoDoYouWantToSendMoney": "¿A quién le quieres enviar dinero?",
+    "whatCard": "¿Desde que tarjeta?"
   },
   "alert": {
     "invoice": "Folio:",
