@@ -11,20 +11,18 @@ interface NewTagModalProps {
 }
 
 const colorOptions = [
-  Theme.Colors.GlowingBrakeDisc,
-  Theme.Colors.LiquidLava,
-  Theme.Colors.GoldenRod,
-  Theme.Colors.TurquoisePanic,
-  Theme.Colors.DodgerBlue,
-  Theme.Colors.BlueHepatica,
-  Theme.Colors.SchiaparelliPink,
-  Theme.Colors.MunchOnMelon,
-  Theme.Colors.AppleIIMagenta,
-  Theme.Colors.PurpleHoneyCreeper,
-  Theme.Colors.HuelvenoHorizon,
-  Theme.Colors.GreenTeal,
-  Theme.Colors.GrowingNature,
-  Theme.Colors.GreatFalls,
+  Theme.Colors.DarkSoul,
+  Theme.Colors.BarberryYellow,
+  Theme.Colors.Purception,
+  Theme.Colors.SonicBlue,
+  Theme.Colors.ToyBlue,
+  Theme.Colors.AdamantineBlue,
+  Theme.Colors.SpringBouquet,
+  Theme.Colors.GreenGlow,
+  Theme.Colors.HotCoral,
+  Theme.Colors.ShadowSteel,
+  Theme.Colors.OranzhewyiOrange,
+  Theme.Colors.TangledWeb,
 ];
 
 const NewTagModal: React.FC<NewTagModalProps> = ({ onClose, onTagCreated }) => {
@@ -40,7 +38,7 @@ const NewTagModal: React.FC<NewTagModalProps> = ({ onClose, onTagCreated }) => {
   };
 
   const colorsInRows = [];
-  const rowSize = 7;
+  const rowSize = 6;
 
   for (let i = 0; i < colorOptions.length; i += rowSize) {
     const rowColors = colorOptions.slice(i, i + rowSize);

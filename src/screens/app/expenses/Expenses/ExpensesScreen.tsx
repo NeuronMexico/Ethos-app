@@ -33,22 +33,22 @@ const ExpensesScreen: React.FC<Props> = () => {
         {
           category: 'Alimentos y bebidas',
           total: '$2,840.00',
-          color: '#F49A47',
+          color: Theme.Colors.OranzhewyiOrange,
         },
         {
           category: 'Entretenimiento',
           total: '$394.00',
-          color: '#C7F447',
+          color: Theme.Colors.AdamantineBlue,
         },
         {
           category: 'Gastos en general',
           total: '$1,009.00',
-          color: '#47A6F4',
+          color: Theme.Colors.BarberryYellow,
         },
         {
           category: 'Departamental',
           total: '$943.00',
-          color: '#7447F4',
+          color: Theme.Colors.TangledWeb,
         },
       ],
     },
@@ -60,22 +60,22 @@ const ExpensesScreen: React.FC<Props> = () => {
         {
           category: 'Alimentos y bebidas',
           total: '$2,840.00',
-          color: '#F49A47',
+          color: Theme.Colors.OranzhewyiOrange,
         },
         {
           category: 'Entretenimiento',
           total: '$394.00',
-          color: '#C7F447',
+          color: Theme.Colors.AdamantineBlue,
         },
         {
           category: 'Gastos en general',
           total: '$1,009.00',
-          color: '#47A6F4',
+          color: Theme.Colors.BarberryYellow,
         },
         {
           category: 'Departamental',
           total: '$943.00',
-          color: '#7447F4',
+          color: Theme.Colors.TangledWeb,
         },
       ],
     },

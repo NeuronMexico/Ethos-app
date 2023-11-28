@@ -39,6 +39,17 @@ const Colors = {
   Husky80: '#E2E9FCCC',
   SantasGrey: '#9CA3AF',
   EyeBlue: '#D6DFF1',
+  Purception: '#C97CD8',
+  SonicBlue: '#19579F',
+  ToyBlue: '#008CA1',
+  AdamantineBlue: '#47A6F4',
+  GreenGlow: '#A6C55C',
+  ShadowSteel: '#4b4b4b',
+  BarcelonaOrange: '#FF9700',
+  TangledWeb: '#B3B3B3',
+  OranzhewyiOrange: '#ED6336',
+  PartyPig: '#E497FF',
+
 };
 
 export default Colors;
