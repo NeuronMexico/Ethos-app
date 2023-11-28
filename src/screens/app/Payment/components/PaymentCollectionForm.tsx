@@ -22,7 +22,6 @@ const PaymentCollectionForm: React.FC<Props> = ({
   const conceptRef = useRef<TextInput>(null);
   const amountRef = useRef<any>(null);
 
-  const [account, setAccount] = useState<string>('');
   const [amount, setAmount] = useState<string>('');
   const [reference, setReference] = useState<string>();
   const [concept, setConcept] = useState<string>();
@@ -30,11 +29,11 @@ const PaymentCollectionForm: React.FC<Props> = ({
   const [scheduleTransaction, setScheduleTransaction] = useState<boolean>(false);
 
   return (
-    <Container flex>
+    <Container>
       <Picker
         title={destinationAccount?.name}
         label={t('transactions:WhoDoYouWantToSendMoney')}
-        options={[{ label: 'SANTANDER', value: '1' }]}
+        options={[{ label: '**** **** **** 4531', value: '1' }]}
         placeholder=""
         borderRadius={24}
         backgroundColor={Theme.Colors.DrWhite}
@@ -53,15 +52,15 @@ const PaymentCollectionForm: React.FC<Props> = ({
         actionSheetTitle={t('transactions:whatCard')}
         caption={destinationAccount?.account}
         marginLeft={24}
-        value={account}
-        onValueChange={setAccount}
+        value={destinationAccount?.bank || ''}
+        onValueChange={() => {}}
       />
       {
         destinationAccount && (
           <Picker
             title="TDC ethoscrédito"
             label={t('transactions:myCreditCard')}
-            options={[{ label: '$16,801.08', value: '1', caption: 'hey' }]}
+            options={[{ label: '**** **** **** 4531', value: '1', caption: 'hey' }]}
             placeholder=""
             borderRadius={24}
             backgroundColor={Theme.Colors.DrWhite}
@@ -70,8 +69,8 @@ const PaymentCollectionForm: React.FC<Props> = ({
             actionSheetTitle={t('transactions:myCreditCard')}
             caption="**** **** **** 4531"
             marginLeft={24}
-            value={account}
-            onValueChange={setAccount}
+            value="$16,801.08"
+            onValueChange={() => {}}
           />
         )
       }
