@@ -110,7 +110,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => 
           finishRenderRef.current = true;
           onFinishMessage();
         }
-      }, 50);
+      }, 25);
     }
   }, [loading, message, onFinishMessage]);
 
@@ -135,8 +135,10 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => 
           d="M.75 7.391a1 1 0 0 1 0-1.782L10.295.745a1 1 0 0 1 1.454.892v9.727a1 1 0 0 1-1.454.89L.75 7.391Z"
         />
       </Svg>
-      <Container style={styles.messageBox}>
-        <Text text={renderMessage} />
+      <Container flex>
+        <Container style={styles.messageBox}>
+          <Text text={renderMessage} />
+        </Container>
       </Container>
     </Container>
   );
@@ -161,6 +163,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     minWidth: 50,
     marginVertical: 11,
+    alignSelf: 'baseline',
   },
   contentContainer: {
     paddingHorizontal: Theme.Sizes.Padding,

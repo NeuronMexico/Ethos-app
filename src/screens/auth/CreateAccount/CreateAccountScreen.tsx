@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { StyleSheet } from 'react-native';
+import PagerView from 'react-native-pager-view';
+import { useTranslation } from 'react-i18next';
 import { Container, Header, OnboardAssistant } from 'components';
 
 interface Props {
@@ -7,19 +9,25 @@ interface Props {
 }
 
 const CreateAccountScreen: React.FC<Props> = (props: Props) => {
-  const { prop } = props;
+  const { t } = useTranslation();
+
+  const pagerViewRef = useRef<PagerView>(null);
 
   return (
     <Container flex>
       <Header title="" ethosHeader />
-      <OnboardAssistant
-        messages={['Hola, mucho gusto', 'Soy tu asistente virtual', 'Vamos a comenzar']}
-        title="Crea tu cuenta"
-        description="Bienvenido a ethoscredito"
-        onPress={() => {}}
+      <PagerView
+        ref={pagerViewRef}
+        style={{ flex: 1 }}
       >
-        <Container flex backgroundColor="transparent" />
-      </OnboardAssistant>
+        <OnboardAssistant
+          title={t('createAccount:createEthoscreditAccount')}
+          description={t('createAccount:welcomeToEthoscredit')}
+          messages={[t('createAccount:helloNiceToMeetYou')]}
+        >
+          <Container />
+        </OnboardAssistant>
+      </PagerView>
     </Container>
   );
 };

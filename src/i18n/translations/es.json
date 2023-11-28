@@ -490,5 +490,14 @@
     "amount": "Importe",
     "destinationAccount": "Cuenta destino",
     "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
+  },
+  "createAccount": {
+    "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",
+    "welcomeToEthoscredit": "¡Bienvenido a ethoscrédito! Hay alguien de nuestro equipo que quiere conocerte.",
+    "accept": "Acepto el",
+    "privacyNotice": "Aviso de Privacidad",
+    "forCustomersAndProspects": "para Clientes y Prospectos",
+    "authorizeMarketingCommunication": "Autorizo que ethoscrédito me envíe publicidad y comunicados a mi correo",
+    "helloNiceToMeetYou": "¡Hola, mucho gusto!\n\nSoy tu Asistente Virtual Digital, fui entrenado por el equipo de ethoscrédito para apoyarte en cualquier tema relacionado con nuestra aplicación, tus tarjetas y tus finanzas.\n\nVamos a comenzar con tu registro en nuestra aplicación."
   }
 }
