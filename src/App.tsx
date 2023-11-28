@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from 'reactRedux';
 import NavContainer from 'routes/NavContainer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { AlertContextProvider, BottomSheetContextProvider } from 'context';
+import { AlertContextProvider, BottomSheetContextProvider, FloatingAlertContextProvider } from 'context';
 
 const App = () => (
   <GestureHandlerRootView style={{ flex: 1 }}>
@@ -14,9 +14,11 @@ const App = () => (
       <PersistGate persistor={persistor}>
         <SafeAreaProvider>
           <AlertContextProvider>
-            <BottomSheetContextProvider>
-              <NavContainer />
-            </BottomSheetContextProvider>
+            <FloatingAlertContextProvider>
+              <BottomSheetContextProvider>
+                <NavContainer />
+              </BottomSheetContextProvider>
+            </FloatingAlertContextProvider>
           </AlertContextProvider>
         </SafeAreaProvider>
       </PersistGate>

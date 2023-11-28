@@ -32,7 +32,11 @@ const OnboardAssistant: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
 
-  const [renderMessages, setRenderMessages] = useState<Array<string>>([messages[0]]);
+  const [renderMessages, setRenderMessages] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    if (messages.length > 0 && renderMessages.length === 0) setRenderMessages([messages[0]]);
+  }, [messages, renderMessages]);
 
   return (
     <Container flex>
@@ -75,7 +79,7 @@ interface ChatBubbleProps {
   onFinishMessage: () => void;
 }
 
-const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => {
+const ChatBubble = React.memo(({ message, onFinishMessage }: ChatBubbleProps) => {
   const intervalRef = useRef<string | number | NodeJS.Timeout>();
   const finishRenderRef = useRef<boolean>(false);
 
@@ -142,7 +146,13 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => 
       </Container>
     </Container>
   );
-};
+}, (prevProps, nextProps) => {
+  if (prevProps.message !== nextProps.message) {
+    return false;
+  }
+
+  return true;
+});
 
 const styles = StyleSheet.create({
   chatContainer: {

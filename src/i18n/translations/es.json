@@ -498,6 +498,16 @@
     "privacyNotice": "Aviso de Privacidad",
     "forCustomersAndProspects": "para Clientes y Prospectos",
     "authorizeMarketingCommunication": "Autorizo que ethoscrédito me envíe publicidad y comunicados a mi correo",
-    "helloNiceToMeetYou": "¡Hola, mucho gusto!\n\nSoy tu Asistente Virtual Digital, fui entrenado por el equipo de ethoscrédito para apoyarte en cualquier tema relacionado con nuestra aplicación, tus tarjetas y tus finanzas.\n\nVamos a comenzar con tu registro en nuestra aplicación."
+    "helloNiceToMeetYou": "¡Hola, mucho gusto!\n\nSoy tu Asistente Virtual Digital, fui entrenado por el equipo de ethoscrédito para apoyarte en cualquier tema relacionado con nuestra aplicación, tus tarjetas y tus finanzas.\n\nVamos a comenzar con tu registro en nuestra aplicación.",
+    "firstStep": "El primer paso es ingresar el número celular que usarás para tu cuenta y verificarlo.\n¿Listo para empezar?",
+    "cellPhoneNumberVerification": "Verificación de número celular",
+    "pleaseEnterYourPhoneNumber": "Por favor ingresa tu número celular a 10 dígitos",
+    "phoneNumber": "Número celular",
+    "enterYourPhoneNumber": "Escribe tu número de celular",
+    "firstEnterYourPhoneNumber": "Primero ingresa tu número de celular y da tap en continuar para que te llegue el mensaje de texto de verificación a tu número celular.",
+    "pleaseEnterYourCode": "Por favor ingresa tu código",
+    "resend": "Enviar de nuevo",
+    "incorrectConfirmationCode": "Código de confirmación incorrecto",
+    "verificationSent": "¡Listo! Hemos enviado un mensaje de texto de verificación. Por favor, ingrésalo para que se verifique tu número celular.\n\nNota: A veces puede tardar hasta 30 segundos en llegarte."
   }
 }

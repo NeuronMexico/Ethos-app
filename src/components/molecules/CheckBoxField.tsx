@@ -54,7 +54,7 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
             type={type}
           />
           )}
-          <Container flex={position === 'right'}>
+          <Container flex>
             {customLabel || (
             <Text
               text={label}
