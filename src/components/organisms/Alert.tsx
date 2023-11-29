@@ -83,20 +83,7 @@ const Alert: React.FC<Props> = ({
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
-          {!!authorization && (
-            <Text>
-              <Text text={t('alert:authorization')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={authorization} typography="caption" fontWeight="Bold" />
-            </Text>
-          )}
-          {!!trackingKey && (
-            <Text>
-              <Text text={t('alert:trackingKey')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={trackingKey} typography="caption" fontWeight="Bold" />
-            </Text>
-          )}
+          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
           {!!reference && (
             <Text>
               <Text text={t('alert:reference')} typography="caption" fontWeight="Regular" />
@@ -112,7 +99,11 @@ const Alert: React.FC<Props> = ({
             </Text>
           )}
           {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
-          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
+          {extraInfo && (
+          <Container style={{ marginTop: 2, marginBottom: 8 }}>
+            {extraInfo}
+          </Container>
+          )}
           {!!message && (
           <Text
             text={message}
@@ -123,14 +114,23 @@ const Alert: React.FC<Props> = ({
             fontWeight="Medium"
           />
           )}
+          {!!authorization && (
+            <Text>
+              <Text text={t('alert:authorization')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={authorization} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
+          {!!trackingKey && (
+            <Text>
+              <Text text={t('alert:trackingKey')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={trackingKey} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
           {(checkmark || rejectMarck) && (
           <Container style={{ marginBottom: 8 }}>
             {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
-          </Container>
-          )}
-          {extraInfo && (
-          <Container style={{ marginTop: 2, marginBottom: 8 }}>
-            {extraInfo}
           </Container>
           )}
           {actions.map(({ label, onPress, type }, index) => {

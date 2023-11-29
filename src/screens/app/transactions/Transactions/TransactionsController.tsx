@@ -20,10 +20,11 @@ const TransactionsController: React.FC = () => {
   };
 
   const onPressTransfer = () => {
+    console.log('hey');
     navigate('PaymentStack', {
       screen: 'form',
       params: {
-        title: [i18n.t('personalDisposition:title'), i18n.t('personalDisposition:transfer')],
+        title: i18n.t('personalDisposition:title'),
         formComponent: ComponentTypes.PaymentTransfer,
       },
     });

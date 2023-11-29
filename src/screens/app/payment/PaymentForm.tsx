@@ -1,26 +1,25 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {
-  ReactNode, useEffect, useRef, useState,
+  ReactNode, useCallback, useEffect, useState,
 } from 'react';
-import PagerView from 'react-native-pager-view';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 
 import {
   Alert,
-  Button,
-  Container, Header, InputCode, SafeArea, Text,
+  Container, Header, SafeArea,
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
 import { CheckMarkCircleIcon } from 'assets/svg';
-import { formatQuantity } from 'utils';
 import { ScrollView } from 'react-native-gesture-handler';
+import ReactNativeBiometrics from 'react-native-biometrics';
 import { PaymentGlobalStackParams } from '../../../utils/types';
-import { AmountPrimaryForm, AmountSecondaryForm, ComponentInfo } from './components';
+import { AmountSecondaryForm, ComponentInfo } from './components';
 import { ComponentEnum, ComponentTypes } from './PaymentsForms';
 
+const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 const PaymentForm: React.FC = () => {
   const { t } = useTranslation();
   const alert = useAlert();
@@ -28,23 +27,15 @@ const PaymentForm: React.FC = () => {
     params: {
       title,
       formComponent,
-      initialPage,
       destinationAccount,
     },
   } = useRoute<RouteProp<PaymentGlobalStackParams, 'form'>>();
   const { goBack, replace } = useNavigation<NativeStackNavigationProp<any>>();
-
-  const pagerViewRef = useRef<PagerView>(null);
-
-  const [index, setIndex] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
-
   const [amount, setAmount] = useState<string>('');
-
   const [formComponentType, setFormComponentType] = useState<ReactNode>();
-  const [amountComponentType, setAmountComponentType] = useState<ReactNode>();
 
-  const showQR = () => {
+  const showQR = useCallback(() => {
     let codeTitleHeader = '';
     let variant: 'qr' | 'cash' | 'withdrawal' = 'cash';
 
@@ -71,15 +62,23 @@ const PaymentForm: React.FC = () => {
         variant,
       },
     });
-  };
+  }, [formComponent, t, replace]);
 
-  const handleCharge = () => {
+  const biometricManager = useCallback(async () => {
+    const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+    if (result.success) {
+      showQR();
+    }
+  }, [showQR, t]);
+
+  const handleCharge = useCallback(() => {
     alert.show({
-      reference: '11231',
-      invoice: '242234',
-      date: new Date(),
       extraInfo: (
-        <ComponentInfo amount={Number(amount)} />
+        <ComponentInfo
+          amount={Number(amount)}
+          reference="11231"
+          date={new Date()}
+        />
       ),
       title: t('charges:confirmCharge'),
       actions: [
@@ -88,22 +87,27 @@ const PaymentForm: React.FC = () => {
           type: 'primary',
           onPress: () => {
             alert.hide();
+            console.log(title, 'title');
             if (title.includes('QR') || title.includes('efectivo')) showQR();
-            else setVisible(true);
+            else alert.hide(); biometricManager();
+          },
+        },
+        {
+          label: t('global:cancel'),
+          type: 'secondary',
+          onPress: () => {
+            alert.hide();
           },
         },
       ],
     });
-  };
+  }, [amount, alert, t, title, biometricManager, showQR]);
 
   useEffect(() => {
     let form: ReactNode;
-    setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={handleCharge} />);
-    console.log(formComponent);
     switch (formComponent) {
       case 'PaymentCollectQR':
         form = ComponentEnum[ComponentTypes.PaymentCollectQR](() => {});
-        setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={showQR} />);
         setFormComponentType(form);
         break;
       case 'PaymentCollectToContact':
@@ -112,7 +116,6 @@ const PaymentForm: React.FC = () => {
         break;
       case 'PaymentCollectCash':
         form = ComponentEnum[ComponentTypes.PaymentCollectCash](() => {});
-        setAmountComponentType(<AmountPrimaryForm onChange={setAmount} onSubmit={showQR} />);
         setFormComponentType(form);
         break;
       case 'PaymentTransfer':
@@ -124,92 +127,26 @@ const PaymentForm: React.FC = () => {
         setFormComponentType(form);
         break;
       case 'PaymentPayToContact':
-        form = ComponentEnum[ComponentTypes.PaymentPayToContact](() => {}, destinationAccount);
+        form = ComponentEnum[ComponentTypes.PaymentPayToContact](handleCharge, destinationAccount);
         setFormComponentType(form);
         break;
       case 'none':
-        setAmountComponentType(<AmountSecondaryForm onChange={setAmount} onSubmit={handleCharge} />);
+        setFormComponentType(<AmountSecondaryForm onChange={setAmount} onSubmit={handleCharge} />);
         break;
       default:
         break;
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formComponent, destinationAccount]);
-
-  function getTitle(): string {
-    const arrLength = title?.length;
-
-    if (arrLength === 1) {
-      return title[0];
-    }
-
-    if (index === 0) {
-      return title[0];
-    }
-
-    if (arrLength === 3) {
-      switch (index) {
-        case 0:
-          return title[0];
-        case 1:
-          return title[1];
-        case 2:
-          return title[2];
-        default:
-          return title[arrLength - 1];
-      }
-    }
-
-    if (index >= arrLength) {
-      return title[arrLength - 1];
-    }
-
-    return title[index];
-  }
+  }, [formComponent, destinationAccount, handleCharge]);
 
   return (
     <SafeArea>
       <Container useKeyboard flex>
-        <Header title={getTitle() ?? ''} />
-        <PagerView
-          ref={pagerViewRef}
-          initialPage={initialPage ?? 0}
-          style={{ flex: 1, marginTop: 32 }}
-          onPageSelected={({ nativeEvent: { position } }) => {
-            setIndex(position);
-          }}
-        >
-          <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
-            <ScrollView>
-              {formComponentType}
-            </ScrollView>
-          </Container>
-          <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
-            <ScrollView
-              style={{ flex: 1 }}
-              contentContainerStyle={{ flexGrow: 1 }}
-            >
-              {amountComponentType}
-            </ScrollView>
-          </Container>
-          <Container style={{ paddingHorizontal: 16 }}>
-            <Container flex center>
-              <Text text={t('payment:enterCode')} textAlign="center" marginTop={24} />
-              <InputCode length={4} />
-              <Text
-                text={t('payment:totalAmountToDispose', { amount: formatQuantity(Number(amount)) })}
-                textAlign="center"
-                marginTop={8}
-              />
-            </Container>
-            <Container flex style={{ width: '100%', justifyContent: 'flex-end', marginBottom: 16 }}>
-              <Button
-                label={t('global:continue')}
-                onPress={showQR}
-              />
-            </Container>
-          </Container>
-        </PagerView>
+        <Header title={title} />
+        <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
+          <ScrollView>
+            {formComponentType}
+          </ScrollView>
+        </Container>
       </Container>
       {
         visible && (

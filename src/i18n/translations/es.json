@@ -453,7 +453,7 @@
     "pending": "Pendientes",
     "settled": "Liquidados",
     "successCharge": "Cobro exitoso",
-    "confirmCharge": "Confirmar cobro",
+    "confirmCharge": "Confirmar pago",
     "chargeScheduledDeleteQuestion": "¿Estás seguro eliminar el cobro programado?",
     "chargeScheduledDeletedSuccessfully": "Cobro programado eliminado correctamente",
     "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
@@ -496,6 +496,10 @@
     "reference": "Referencia",
     "amount": "Importe",
     "destinationAccount": "Cuenta destino",
-    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago",
+    "contactAdded": "¡Contacto agregado!",
+    "singlePayment":"Pago único, a efectuar el:",
+    "costPerDisposal": "Costo por disposición:",
+    "SPEICost": "Costo por SPEI:"
   }
 }
