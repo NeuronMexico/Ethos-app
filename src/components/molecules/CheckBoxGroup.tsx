@@ -39,6 +39,7 @@ const CheckBoxGroup: React.FC<Props> = ({
   textColor,
   type,
   typography,
+  disabled,
 }) => {
   const [activeStates, setActiveStates] = useState<Array<CheckBoxGroupOption>>(options);
 
@@ -70,6 +71,7 @@ const CheckBoxGroup: React.FC<Props> = ({
             textColor={textColor}
             type={type}
             typography={typography}
+            disabled={disabled}
           />
         </Container>
       ))}

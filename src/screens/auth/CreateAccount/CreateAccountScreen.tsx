@@ -1,9 +1,23 @@
-import React, { ReactNode, useRef, useState } from 'react';
+import React, {
+  ReactNode,
+  useCallback,
+  useRef,
+  useState,
+} from 'react';
 import { ScrollView } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import { useTranslation } from 'react-i18next';
 import {
-  CheckBoxField, Container, Header, Input, InputCode, OnboardAssistant, Text, TouchableText,
+  CheckBoxField,
+  CheckBoxGroup,
+  CheckBoxGroupOption,
+  Container,
+  Header,
+  Input,
+  InputCode,
+  OnboardAssistant,
+  Text,
+  TouchableText,
 } from 'components';
 import Theme from 'theme';
 import { validations } from 'utils';
@@ -29,6 +43,19 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
 
   const [code, setCode] = useState<string>('');
 
+  const [password, setPassword] = useState<string>('');
+  const [passwordError, setPasswordError] = useState<string>('');
+
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [confirmPasswordError, setConfirmPasswordError] = useState<string>('');
+
+  const [passwordChecks, setPasswordChecks] = useState<Array<CheckBoxGroupOption>>([
+    { label: t('createAccount:atLeast8Characters'), selected: false },
+    { label: t('createAccount:oneUppercaseLetter'), selected: false },
+    { label: t('createAccount:oneNumber'), selected: false },
+    { label: t('createAccount:oneSpecialCharacter'), selected: false },
+  ]);
+
   const phoneValidation = (): boolean => {
     const validation = validations.phone(phone);
     if (validation.ok) {
@@ -37,14 +64,60 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
     }
 
     if (validation.error === 'required') setPhoneError(t('errors:required'));
-    else setPhoneError(t('errors:invalidEmail'));
+    else setPhoneError(t('errors:invalidFormat'));
 
+    return false;
+  };
+
+  const passwordValidation = useCallback((value: string): boolean => {
+    const validation = validations.password(value);
+
+    if (validation.error === 'required') setPasswordError(t('errors:enterPassword'));
+    else {
+      const hasValidLength = value.length >= 8;
+      const hasUppercase = /[A-Z]/.test(value);
+      const hasNumber = /\d/.test(value);
+      const hasSpecialChar = /[@#$%&*+<>]/.test(value);
+
+      const auxPasswordCheck = [...passwordChecks];
+      auxPasswordCheck[0].selected = hasValidLength;
+      auxPasswordCheck[1].selected = hasUppercase;
+      auxPasswordCheck[2].selected = hasNumber;
+      auxPasswordCheck[3].selected = hasSpecialChar;
+
+      setPasswordChecks(auxPasswordCheck);
+      if (hasValidLength && hasUppercase && hasNumber && hasSpecialChar) {
+        setPasswordError('');
+        return true;
+      }
+
+      setPasswordError(t('errors:passwordRequirements'));
+    }
+
+    return false;
+  }, [passwordChecks, t]);
+
+  const confirmPasswordValidation = (): boolean => {
+    const validation = validations.confirmPassword(confirmPassword, password);
+
+    if (validation.ok) {
+      setConfirmPasswordError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setConfirmPasswordError(t('errors:enterPassword'));
+    else setConfirmPasswordError(t('errors:passwordError'));
     return false;
   };
 
   return (
     <Container flex useKeyboard>
-      <Header title="" ethosHeader />
+      <Header
+        title=""
+        ethosHeader
+        showBackButton={currentPage > 0}
+        backAction={() => pagerViewRef.current?.setPage(currentPage - 1)}
+      />
       <PagerView
         ref={pagerViewRef}
         style={{ flex: 1 }}
@@ -98,7 +171,6 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
                 options={{ mask: '(999) 999 9999' }}
                 placeholder={t('createAccount:enterYourPhoneNumber')}
                 marginTop={38}
-                customLabelColor={Theme.Colors.Carbon}
                 onSubmitEditing={() => phoneValidation()}
                 error={phoneError}
               />
@@ -110,7 +182,10 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
             title={t('createAccount:cellPhoneNumberVerification')}
             description={t('createAccount:pleaseEnterYourCode')}
             messages={currentPage >= 2 ? [t('createAccount:verificationSent')] : []}
-            onPress={() => floatingAlert.show({ message: t('createAccount:incorrectConfirmationCode'), type: 'error' })}
+            onPress={() => {
+              floatingAlert.show({ message: t('createAccount:incorrectConfirmationCode'), type: 'error' });
+              pagerViewRef.current?.setPage(3);
+            }}
             buttonDisabled={!code}
           >
             <Container flex>
@@ -124,6 +199,55 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
                   onPress={() => {}}
                   marginTop={46}
                   underline
+                />
+              </Container>
+            </Container>
+          </OnboardAssistant>
+        </CommonScrollView>
+        <CommonScrollView>
+          <OnboardAssistant
+            title={t('createAccount:createPassword')}
+            description={t('createAccount:pleaseEnterYourPassword')}
+            messages={currentPage >= 3 ? [t('createAccount:phoneConfirmed')] : []}
+            onPress={() => {
+              floatingAlert.show({ message: t('errors:passwordError'), type: 'error' });
+            }}
+            buttonDisabled={!(!passwordChecks.find((option) => option.selected === false) && confirmPassword)}
+          >
+            <Container flex>
+              <Input
+                label={t('createAccount:password')}
+                value={password}
+                onChangeText={(value) => {
+                  setPassword(value);
+                  passwordValidation(value);
+                }}
+                placeholder={t('createAccount:enterYourPassword')}
+                passwordField
+                marginTop={38}
+                onSubmitEditing={() => passwordValidation(password)}
+                error={passwordError}
+              />
+              <Input
+                label={t('createAccount:confirmPassword')}
+                value={confirmPassword}
+                onChangeText={setConfirmPassword}
+                placeholder={t('createAccount:confirmYourPassword')}
+                passwordField
+                marginTop={25}
+                onSubmitEditing={() => confirmPasswordValidation()}
+                error={confirmPasswordError}
+              />
+
+              <Container style={{ marginTop: 18 }}>
+                <CheckBoxGroup
+                  options={passwordChecks}
+                  onChange={() => {}}
+                  backgroundColor="transparent"
+                  padding={0}
+                  borderRadius={0.5}
+                  textColor={Theme.Colors.DarkSoul}
+                  disabled
                 />
               </Container>
             </Container>
