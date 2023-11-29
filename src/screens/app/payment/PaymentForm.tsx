@@ -16,9 +16,8 @@ import { CheckMarkCircleIcon } from 'assets/svg';
 import { ScrollView } from 'react-native-gesture-handler';
 import ReactNativeBiometrics from 'react-native-biometrics';
 import { PaymentGlobalStackParams } from '../../../utils/types';
-import { AmountSecondaryForm, ComponentInfo } from './components';
+import { AmountSecondaryForm, ComponentInfo, ContentModalResponse } from './components';
 import { ComponentEnum, ComponentTypes } from './PaymentsForms';
-import { ContentModalResponse } from './components/ContentModalResponse';
 
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 const PaymentForm: React.FC = () => {
@@ -153,7 +152,7 @@ const PaymentForm: React.FC = () => {
         setFormComponentType(form);
         break;
       case 'PaymentPayToNewContact':
-        form = ComponentEnum[ComponentTypes.PaymentPayToNewContact](() => {}, false, false, true);
+        form = ComponentEnum[ComponentTypes.PaymentPayToNewContact](handleCharge, false, false, true);
         setFormComponentType(form);
         break;
       case 'PaymentPayToContact':
