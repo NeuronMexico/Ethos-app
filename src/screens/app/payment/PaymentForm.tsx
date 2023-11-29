@@ -118,7 +118,6 @@ const PaymentForm: React.FC = () => {
           type: 'primary',
           onPress: () => {
             alert.hide();
-            console.log(title, 'title');
             if (title.includes('QR') || title.includes('efectivo')) showQR();
             else alert.hide(); biometricManager();
           },
