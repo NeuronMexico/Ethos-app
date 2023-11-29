@@ -59,16 +59,16 @@ const OnboardAssistant: React.FC<Props> = ({
         <OnboardAssistantBackground style={styles.onboardBackground} />
         <Text text={title} marginTop={12} fontSize={22} fontWeight="Bold" />
         <Text text={description} marginTop={8} typography="caption" />
-        {children}
-        <Container alignment="end">
-          <Button
-            label={buttonLabel || t('global:continue')}
-            marginVertical={32}
-            onPress={onPress}
-            icon={buttonIcon}
-            disabled={buttonDisabled}
-          />
+        <Container flex>
+          {children}
         </Container>
+        <Button
+          label={buttonLabel || t('global:continue')}
+          marginVertical={32}
+          onPress={onPress}
+          icon={buttonIcon}
+          disabled={buttonDisabled}
+        />
       </Container>
     </Container>
   );
