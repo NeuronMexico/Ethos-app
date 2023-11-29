@@ -40,9 +40,9 @@ const InputCode: React.FC<Props> = ({
   };
 
   return (
-    <Container row style={{ justifyContent: 'center', marginTop }}>
+    <Container row crossCenter style={{ marginTop }}>
       {code.map((digit, index) => (
-        <Container style={{ marginRight: 16 }} key={index + 1}>
+        <Container style={{ marginHorizontal: 8 }} key={index + 1}>
           <Input
             // eslint-disable-next-line no-return-assign
             ref={(inputRef) => (inputRefs.current[index] = inputRef)}
