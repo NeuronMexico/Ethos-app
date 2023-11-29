@@ -13,7 +13,7 @@ interface Props {
   messages: Array<string>;
   title: string;
   description: string;
-  children: ReactNode;
+  children?: ReactNode;
   buttonLabel?: string;
   buttonIcon?: ReactElement;
   onPress: () => void;
