@@ -18,6 +18,7 @@ import ReactNativeBiometrics from 'react-native-biometrics';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import { AmountSecondaryForm, ComponentInfo } from './components';
 import { ComponentEnum, ComponentTypes } from './PaymentsForms';
+import { ContentModalResponse } from './components/ContentModalResponse';
 
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 const PaymentForm: React.FC = () => {
@@ -38,7 +39,6 @@ const PaymentForm: React.FC = () => {
   const showQR = useCallback(() => {
     let codeTitleHeader = '';
     let variant: 'qr' | 'cash' | 'withdrawal' = 'cash';
-
     switch (formComponent) {
       case 'PaymentCollectQR':
         codeTitleHeader = t('payment:collectViaCODI');
@@ -67,9 +67,40 @@ const PaymentForm: React.FC = () => {
   const biometricManager = useCallback(async () => {
     const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
     if (result.success) {
-      showQR();
+      alert.show({
+        extraInfo: (
+          <ContentModalResponse
+            amount={Number(amount)}
+            reference="11231"
+            date={new Date()}
+          />
+        ),
+        title: t('charges:confirmCharge'),
+        fullscreen: true,
+        checkmark: true,
+        logo: true,
+        reference: '123',
+        invoice: '1234',
+        actions: [
+          {
+            label: t('form:goToTransactions'),
+            type: 'secondary',
+            onPress: () => {
+              alert.hide();
+              goBack();
+            },
+          },
+          {
+            label: t('global:share'),
+            type: 'primary',
+            onPress: () => {
+              alert.hide();
+            },
+          },
+        ],
+      });
     }
-  }, [showQR, t]);
+  }, [t, amount, alert, goBack]);
 
   const handleCharge = useCallback(() => {
     alert.show({

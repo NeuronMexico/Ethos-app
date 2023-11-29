@@ -500,6 +500,7 @@
     "contactAdded": "¡Contacto agregado!",
     "singlePayment":"Pago único, a efectuar el:",
     "costPerDisposal": "Costo por disposición:",
-    "SPEICost": "Costo por SPEI:"
+    "SPEICost": "Costo por SPEI:",
+    "goToTransactions": "Ir a Transacciones"
   }
 }
