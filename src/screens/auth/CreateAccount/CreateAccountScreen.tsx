@@ -1,16 +1,11 @@
-import React, {
-  ReactNode,
-  useCallback,
-  useRef,
-  useState,
-} from 'react';
-import { ScrollView } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
 import PagerView from 'react-native-pager-view';
 import { useTranslation } from 'react-i18next';
 import {
   CheckBoxField,
   CheckBoxGroup,
   CheckBoxGroupOption,
+  CommonScrollView,
   Container,
   Header,
   Input,
@@ -24,10 +19,10 @@ import { validations } from 'utils';
 import { useFloatingAlert } from 'context';
 
 interface Props {
-  prop?: string
+  onSubmit: () => void;
 }
 
-const CreateAccountScreen: React.FC<Props> = (props: Props) => {
+const CreateAccountScreen: React.FC<Props> = ({ onSubmit }) => {
   const { t } = useTranslation();
 
   const floatingAlert = useFloatingAlert();
@@ -211,6 +206,7 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
             messages={currentPage >= 3 ? [t('createAccount:phoneConfirmed')] : []}
             onPress={() => {
               floatingAlert.show({ message: t('errors:passwordError'), type: 'error' });
+              onSubmit();
             }}
             buttonDisabled={!(!passwordChecks.find((option) => option.selected === false) && confirmPassword)}
           >
@@ -257,15 +253,5 @@ const CreateAccountScreen: React.FC<Props> = (props: Props) => {
     </Container>
   );
 };
-
-interface CommonScrollViewProps {
-  children: ReactNode;
-}
-
-const CommonScrollView: React.FC<CommonScrollViewProps> = ({ children }) => (
-  <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
-    {children}
-  </ScrollView>
-);
 
 export default CreateAccountScreen;
