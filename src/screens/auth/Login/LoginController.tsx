@@ -6,9 +6,15 @@ import LoginScreen from './LoginScreen';
 const LoginController: React.FC = () => {
   const dispatch = useDispatch();
 
+  const onPressLogin = () => {};
+  const onPressRegister = () => {};
+
   return (
     <SafeArea>
-      <LoginScreen />
+      <LoginScreen
+        onPressLogin={onPressLogin}
+        onPressRegister={onPressRegister}
+      />
     </SafeArea>
   );
 };
