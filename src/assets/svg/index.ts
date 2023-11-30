@@ -109,6 +109,7 @@ export * from './UmbrellaStarIcon';
 export * from './WalletIcon';
 export * from './WaterIcon';
 export * from './XTwitterIcon';
+export * from './RightArrowIcon';
 
 export {
   DefaultCard,
