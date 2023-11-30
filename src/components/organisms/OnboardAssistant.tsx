@@ -13,7 +13,7 @@ interface Props {
   messages: Array<string>;
   title: string;
   description: string;
-  children: ReactNode;
+  children?: ReactNode;
   buttonLabel?: string;
   buttonIcon?: ReactElement;
   onPress: () => void;
@@ -32,7 +32,11 @@ const OnboardAssistant: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
 
-  const [renderMessages, setRenderMessages] = useState<Array<string>>([messages[0]]);
+  const [renderMessages, setRenderMessages] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    if (messages.length > 0 && renderMessages.length === 0) setRenderMessages([messages[0]]);
+  }, [messages, renderMessages]);
 
   return (
     <Container flex>
@@ -55,16 +59,16 @@ const OnboardAssistant: React.FC<Props> = ({
         <OnboardAssistantBackground style={styles.onboardBackground} />
         <Text text={title} marginTop={12} fontSize={22} fontWeight="Bold" />
         <Text text={description} marginTop={8} typography="caption" />
-        {children}
-        <Container alignment="end">
-          <Button
-            label={buttonLabel || t('global:continue')}
-            marginVertical={32}
-            onPress={onPress}
-            icon={buttonIcon}
-            disabled={buttonDisabled}
-          />
+        <Container flex>
+          {children}
         </Container>
+        <Button
+          label={buttonLabel || t('global:continue')}
+          marginVertical={32}
+          onPress={onPress}
+          icon={buttonIcon}
+          disabled={buttonDisabled}
+        />
       </Container>
     </Container>
   );
@@ -75,7 +79,7 @@ interface ChatBubbleProps {
   onFinishMessage: () => void;
 }
 
-const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => {
+const ChatBubble = React.memo(({ message, onFinishMessage }: ChatBubbleProps) => {
   const intervalRef = useRef<string | number | NodeJS.Timeout>();
   const finishRenderRef = useRef<boolean>(false);
 
@@ -110,7 +114,7 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => 
           finishRenderRef.current = true;
           onFinishMessage();
         }
-      }, 50);
+      }, 25);
     }
   }, [loading, message, onFinishMessage]);
 
@@ -135,12 +139,20 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, onFinishMessage }) => 
           d="M.75 7.391a1 1 0 0 1 0-1.782L10.295.745a1 1 0 0 1 1.454.892v9.727a1 1 0 0 1-1.454.89L.75 7.391Z"
         />
       </Svg>
-      <Container style={styles.messageBox}>
-        <Text text={renderMessage} />
+      <Container flex>
+        <Container style={styles.messageBox}>
+          <Text text={renderMessage} />
+        </Container>
       </Container>
     </Container>
   );
-};
+}, (prevProps, nextProps) => {
+  if (prevProps.message !== nextProps.message) {
+    return false;
+  }
+
+  return true;
+});
 
 const styles = StyleSheet.create({
   chatContainer: {
@@ -161,6 +173,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     minWidth: 50,
     marginVertical: 11,
+    alignSelf: 'baseline',
   },
   contentContainer: {
     paddingHorizontal: Theme.Sizes.Padding,

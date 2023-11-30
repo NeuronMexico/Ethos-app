@@ -6,18 +6,23 @@ import Theme from 'theme';
 interface Props {
   length?: number;
   onSubmit?: (code: string) => void;
+  marginTop?: number;
+  autoFocus?: boolean;
 }
 
 const InputCode: React.FC<Props> = ({
   length = 5,
   onSubmit = () => {},
+  marginTop = 16,
+  autoFocus = true,
 }: Props) => {
   const [code, setCode] = useState(Array(length).fill(''));
 
   const inputRefs = useRef<any>(Array(length).fill(null));
 
   useEffect(() => {
-    inputRefs.current[0]?.focus();
+    if (autoFocus) inputRefs.current[0]?.focus();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleChange = (index: number, inputValue: string) => {
@@ -35,9 +40,9 @@ const InputCode: React.FC<Props> = ({
   };
 
   return (
-    <Container row style={{ justifyContent: 'center' }}>
+    <Container row crossCenter style={{ marginTop }}>
       {code.map((digit, index) => (
-        <Container style={{ marginRight: 16 }} key={index + 1}>
+        <Container style={{ marginHorizontal: 8 }} key={index + 1}>
           <Input
             // eslint-disable-next-line no-return-assign
             ref={(inputRef) => (inputRefs.current[index] = inputRef)}
@@ -55,6 +60,7 @@ const InputCode: React.FC<Props> = ({
             keyboardType="numeric"
             paddingVertical={20}
             backgroundColor={Theme.Colors.PurpleCrystal}
+            marginTop={0}
           />
         </Container>
       ))}

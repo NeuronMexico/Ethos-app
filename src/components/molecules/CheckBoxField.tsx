@@ -36,12 +36,13 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
   customLabel,
   position = 'left',
   centerCheckbox = true,
+  disabled,
 }: CheckBoxFieldProps) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (
     <Container style={{ marginVertical }}>
-      <Touchable onPress={() => onChange(!selected)} opacityEffect>
+      <Touchable onPress={() => onChange(!selected)} opacityEffect disabled={disabled}>
         <Container row center={centerText && centerCheckbox}>
           {position === 'left' && (
           <CheckBox
@@ -52,9 +53,10 @@ const CheckBoxField: React.FC<CheckBoxFieldProps> = ({
             circular={circular}
             size={size}
             type={type}
+            disabled={disabled}
           />
           )}
-          <Container flex={position === 'right'}>
+          <Container flex>
             {customLabel || (
             <Text
               text={label}

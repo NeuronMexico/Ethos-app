@@ -30,6 +30,7 @@ export interface MarginPropsInterface {
 export type AuthStackParams = {
   Login: undefined;
   CreateAccount: undefined;
+  UserValidation: undefined;
 };
 
 export type CardsGlobalStackParams = {

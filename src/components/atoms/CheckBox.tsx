@@ -18,6 +18,7 @@ export interface CheckBoxProps {
   type?: 'filled' | 'unfilled';
   borderColor?: ColorValue;
   borderWidth?: number;
+  disabled?: boolean;
 }
 
 const CheckBox: React.FC<CheckBoxProps> = ({
@@ -29,6 +30,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   type = 'unfilled',
   borderColor = Theme.Colors.GreatFalls,
   borderWidth = 1,
+  disabled,
 }) => {
   const { containerStyle } = styles;
 
@@ -76,7 +78,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
 
   return (
     <Container crossAlignment="start">
-      <Touchable onPress={() => setValue(!value)} rounded opacityEffect>
+      <Touchable onPress={() => setValue(!value)} rounded opacityEffect disabled={disabled}>
         <Animated.View
           style={[containerStyle, {
             width: size,

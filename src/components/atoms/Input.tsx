@@ -94,6 +94,7 @@ const Input = forwardRef(({
   material,
   minWidth,
   returnKeyType = 'done',
+  customLabelColor = Theme.Colors.Carbon,
 }: Props, ref: ForwardedRef<any>) => {
   const {
     inputStyle, unitsContainer, borderlessStyle,
@@ -223,7 +224,7 @@ const Input = forwardRef(({
       {!!label && (
         <Text
           text={label}
-          textColor={Theme.Colors.Carbon}
+          textColor={customLabelColor}
           fontSize={11}
           fontWeight="Medium"
           marginBottom={4}
