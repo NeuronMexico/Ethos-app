@@ -62,7 +62,7 @@ const CashPaymentController: React.FC = () => {
           />
         </>
       ),
-      title: t('charges:confirmCharge'),
+      title: t('transactions:confirmWithdrawalWithoutCard'),
       actions: [
         {
           label: t('global:confirm'),
