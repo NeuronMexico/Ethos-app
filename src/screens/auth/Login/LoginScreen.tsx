@@ -1,28 +1,32 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Container } from 'components';
+import { Container, FadeInImage } from 'components';
 import Theme from 'theme';
-import { EthosIcon } from 'assets/svg';
+import { ETHOS_CREDIT_LOGO } from 'assets/images';
 import LoginForm from './components/LoginForm';
 
 interface Props {
-  prop?: string
+  onPressLogin?: () => void;
+  onPressRegister?: () => void;
 }
 
 const LoginScreen: React.FC<Props> = (props: Props) => {
-  const { prop } = props;
+  const {
+    onPressLogin = () => {},
+    onPressRegister = () => {},
+  } = props;
   const { container } = styles;
 
   return (
     <Container flex style={container}>
-      <Container style={{ marginTop: Theme.Sizes.MarginTop }}>
-        <EthosIcon />
+      <Container style={{ marginTop: Theme.Sizes.MarginTop, justifyContent: 'flex-start' }}>
+        <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />
       </Container>
       <LoginForm
         onPressForgotPassword={() => {}}
-        onPressLogin={() => {}}
+        onPressLogin={onPressLogin}
         onPressBiometricLogin={() => {}}
-        onPressRegister={() => {}}
+        onPressRegister={onPressRegister}
         onPressTerms={() => {}}
         onPressPrivacy={() => {}}
       />
