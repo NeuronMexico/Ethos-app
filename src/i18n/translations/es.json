@@ -309,6 +309,7 @@
     "decline": "Rechazar",
     "edit": "Editar",
     "delete": "Eliminar",
+    "skip": "Omitir",
     "join": "Ingresar",
     "exit": "salir",
     "finalize": "finalizar"
@@ -582,6 +583,15 @@
     "oneUppercaseLetter": "Una letra mayúscula",
     "oneNumber": "Un número",
     "oneSpecialCharacter": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)"
+  },
+  "onboarding": {
+    "subtitle1": "La mejor solución para créditos personales y empresariales",
+    "highlighted1": "créditos personales empresariales",
+    "subtitle2": "Realiza pagos y cobros directamente desde tu aplicación",
+    "highlighted2": "pagos cobros tu aplicación",
+    "subtitle3": "Realiza análisis detallado de tus gastos",
+    "highlighted3": "análisis tus gastos",
+    "approvedAmount": "Tu monto de crédito aprobado es de:"
   },
   "tutorial": {
     "screen1Title": "¡Tu día a día en un solo lugar!",

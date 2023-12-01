@@ -54,7 +54,7 @@ const EditProfileFieldScreen: React.FC<Props> = () => {
 
   return (
     <Container flex useKeyboard style={{ paddingHorizontal: Theme.Sizes.Padding }}>
-      <Header title={t('profile:editAddress')} />
+      <Header title={t('profile:editData')} />
       <Container style={{ marginTop: 55 }}>
         <ProfilePhoto size={90} withName />
         <EditProfileDataForm

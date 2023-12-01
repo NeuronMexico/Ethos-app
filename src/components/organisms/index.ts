@@ -9,4 +9,5 @@ export * from './Tab';
 export * from './PayCardBottomSheetContent';
 export * from './OnboardAssistant';
 export * from './FloatingAlert';
+export * from './InitialOnboardingPresentation';
 export * from './Tutorial';

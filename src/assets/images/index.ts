@@ -2,6 +2,7 @@ import TELCEL_LOGO from './telcel-logo.png';
 import ETHOS_LOGO from './ethos-logo.png';
 import CARD_REVERSE from './card-reverse.png';
 import ETHOS_CREDIT_LOGO from './ethos-credit-logo.png';
+import ETHOS_CREDIT_CARDS from './ethos-credit-cards.png';
 import DUMMY_CARD from './dummy-card.png';
 
 import TUTORIAL_FIRST from './tutorial-first-img.png';
@@ -14,6 +15,7 @@ export {
   ETHOS_LOGO,
   CARD_REVERSE,
   ETHOS_CREDIT_LOGO,
+  ETHOS_CREDIT_CARDS,
 
   TUTORIAL_FIRST,
   TUTORIAL_SECOND,
