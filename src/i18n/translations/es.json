@@ -617,7 +617,29 @@
     "applicationValidationDescription": "Vamos a comprobar tu identidad y validar tu información realizando una consulta a buró de crédito y otras entidades necesarias para nuestro algoritmo.",
     "authorization": "Autorizo a Bondefi SOFOM a verificar mi información ante buro de crédito y otras entidades regulatorias",
     "performingAnalysis": "Realizando análisis",
-    "proccesingInfo": "Procesando información",
+    "processingInfo": "Procesando información",
     "creditBureau": "Consultando Buró de Crédito"
+  },
+  "validatedInformation": {
+    "success": "Información validada con éxito",
+    "successDescription": "Es necesario un poco más de información tuya para personalizar tu oferta.",
+    "waitList": "Te mantendremos en la lista",
+    "waitListDescription": "Lamentablemente por el momento no podemos ofrecerte una línea de crédito.",
+    "messages": {
+      "successFirst": "¡Te tengo buenas noticias!\n\nHemos validado tu información con éxito, y nos entusiasma compartirte que es casi seguro que podemos ofrecerte una tarjeta ethoscrédito con la que podrás llevar a cabo muchos de tus proyectos.",
+      "successSecond": "Únicamente necesitamos un poco más de información tuya para personalizar tu oferta.",
+      "nonSuccessFirst": "Hemos obtenido los resultados.\n\nLamentablemente, no podemos ofrecerte una tarjeta o línea de crédito debido a la verificación que realizamos con nuestros algoritmos.\n\nEntendemos que esto puede ser frustrante para ti, pero te mantendremos en nuestra lista de espera y podrás aplicar en unos meses.",
+      "nonSuccessSecond": "En este inter, estaremos enviándote información sobre ethoscrédito, ¡esperamos verte pronto de nuevo para ofrecerte una línea o tarjeta de crédito!"
+    }
+  },
+  "contractDetails": {
+    "acceptDetails": "Aceptar detalles de contrato",
+    "acceptDetailsDescription": "Necesitamos que aceptes las siguientes casillas para poder aceptar tu contrato",
+    "accept": "Acepto la",
+    "acceptThe": "Acepto el",
+    "creditCover": "Carátula de Crédito",
+    "creditAdhesion": "Contrato de Adhesión de Crédito",
+    "beforeContinue": "Antes de avanzar, es necesario que leas detalladamente los siguientes documentos y deslices para aceptar.\n\n¡Toma todo el tiempo que necesites!",
+    "swipeToAccept": "Desliza para aceptar"
   }
 }

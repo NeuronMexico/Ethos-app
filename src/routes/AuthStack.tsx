@@ -6,6 +6,8 @@ import CreateAccountController from 'screens/auth/CreateAccount/CreateAccountCon
 import UserValidationController from 'screens/auth/UserValidation/UserValidationController';
 import PersonalInformationController from 'screens/auth/PersonalInformation/PersonalInformationController';
 import ApplicationValidationController from 'screens/auth/ApplicationValidation/ApplicationValidationController';
+import ValidatedInformationController from 'screens/auth/ValidatedInformation/ValidatedInformationController';
+import ContractDetailsController from 'screens/auth/ContractDetails/ContractDetailsController';
 
 const Stack = createNativeStackNavigator<AuthStackParams>();
 
@@ -16,6 +18,8 @@ const AuthStack: React.FC = () => (
     <Stack.Screen name="UserValidation" component={UserValidationController} />
     <Stack.Screen name="PersonalInformation" component={PersonalInformationController} />
     <Stack.Screen name="ApplicationValidation" component={ApplicationValidationController} />
+    <Stack.Screen name="ValidatedInformation" component={ValidatedInformationController} />
+    <Stack.Screen name="ContractDetails" component={ContractDetailsController} />
   </Stack.Navigator>
 );
 

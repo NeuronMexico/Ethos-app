@@ -1,8 +1,8 @@
-import { SafeArea } from 'components';
 import React from 'react';
-import { useDispatch } from 'reactRedux';
-import { AuthStackParams } from 'utils';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useDispatch } from 'reactRedux';
+import { SafeArea } from 'components';
+import { AuthStackParams } from 'utils';
 import PersonalInformationScreen from './PersonalInformationScreen';
 
 interface Props extends NativeStackScreenProps<AuthStackParams, 'PersonalInformation'> {}

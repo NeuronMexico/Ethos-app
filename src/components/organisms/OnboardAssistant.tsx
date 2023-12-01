@@ -18,6 +18,7 @@ interface Props {
   buttonIcon?: ReactElement;
   onPress: () => void;
   buttonDisabled?: boolean;
+  enableButton?: boolean;
 }
 
 const OnboardAssistant: React.FC<Props> = ({
@@ -29,6 +30,7 @@ const OnboardAssistant: React.FC<Props> = ({
   buttonIcon,
   onPress,
   buttonDisabled,
+  enableButton = true,
 }) => {
   const { t } = useTranslation();
 
@@ -66,13 +68,17 @@ const OnboardAssistant: React.FC<Props> = ({
         <Container flex>
           {children}
         </Container>
-        <Button
-          label={buttonLabel || t('global:continue')}
-          marginVertical={32}
-          onPress={onPress}
-          icon={buttonIcon}
-          disabled={buttonDisabled}
-        />
+        {
+          enableButton && (
+            <Button
+              label={buttonLabel || t('global:continue')}
+              marginVertical={32}
+              onPress={onPress}
+              icon={buttonIcon}
+              disabled={buttonDisabled}
+            />
+          )
+        }
       </Container>
     </Container>
   );

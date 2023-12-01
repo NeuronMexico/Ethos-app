@@ -67,7 +67,7 @@ const ApplicationValidationScreen: React.FC<Props> = ({
         <CommonScrollView>
           <OnboardAssistant
             title={t('applicationValidation:performingAnalysis')}
-            description={t('applicationValidation:proccesingInfo')}
+            description={t('applicationValidation:processingInfo')}
             messages={[]}
             onPress={() => {
               onContinue();
