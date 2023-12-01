@@ -23,6 +23,7 @@ export * from './PaymentAlertInfo';
 export * from './ServiceButton';
 export * from './NumberCard';
 export * from './CommonScrollView';
+export * from './DotPageIndicator';
 
 export {
   CustomBottomSheet as BottomSheet,

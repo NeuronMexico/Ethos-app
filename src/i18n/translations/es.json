@@ -309,7 +309,9 @@
     "decline": "Rechazar",
     "edit": "Editar",
     "delete": "Eliminar",
-    "join": "Ingresar"
+    "join": "Ingresar",
+    "exit": "salir",
+    "finalize": "finalizar"
   },
   "profile": {
     "titleStack": "Perfil",
@@ -580,6 +582,17 @@
     "oneUppercaseLetter": "Una letra mayúscula",
     "oneNumber": "Un número",
     "oneSpecialCharacter": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)"
+  },
+  "tutorial": {
+    "screen1Title": "¡Tu día a día en un solo lugar!",
+    "screen2Title": "Todo sobre tu tarjeta",
+    "screen3Title": "¿Y cómo la puedes usar?",
+    "screen4Title": "Asistencia personalizada",
+    
+    "screen1Msg": "Consulta fácilmente información vital de tu líneade crédito, apaga tu tarjeta o paga servicios desde la pantalla de inicio. Todo al alcance de tu mano.",
+    "screen2Msg": "Explora tu tarjeta con facilidad: filtra y consulta movimientos, utiliza su versión digital y solicita un aumento a tu línea de crédito. ",
+    "screen3Msg": "Descubre las múltiples funciones que ethoscrédito tiene para ti. Programa pagos, cobra, paga servicios, realiza transferencias a contactos y crea un proyecto personal.",
+    "screen4Msg": "Experimenta la asistencia personalizada con nuestro asistente virtual, impulsado por inteligencia artificial las 24/7. Obtén respuestas precisas y soluciones adaptadas a tus necesidades en tiempo real."
   },
   "personalInformation": {
     "knowAboutYou": "Dentro de ethoscrédito, podrás encontrar diferentes funciones únicas para garantizar la mejor experiencia financiera.\n\nPero antes de eso, necesitamos conocer un poco más sobre ti...",
