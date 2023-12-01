@@ -6,9 +6,10 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
-  // TUTORIAL_FIRST,
+  TUTORIAL_FIRST,
   TUTORIAL_SECOND,
   TUTORIAL_THIRD,
+  TUTORIAL_FOURTH
 } from 'assets/images';
 import PagerView from 'react-native-pager-view';
 import { DotPageIndicator, TouchableText } from 'components/molecules';
@@ -28,10 +29,10 @@ interface StepProps {
 }
 
 const TUTORIAL_IMAGES = [
-  TUTORIAL_SECOND,
+  TUTORIAL_FIRST,
   TUTORIAL_SECOND,
   TUTORIAL_THIRD,
-  TUTORIAL_THIRD,
+  TUTORIAL_FOURTH,
 ];
 
 const Tutorial: React.FC<Props> = (props: Props) => {
