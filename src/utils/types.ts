@@ -31,6 +31,7 @@ export type AuthStackParams = {
   Login: undefined;
   CreateAccount: undefined;
   UserValidation: undefined;
+  PersonalInformation: undefined;
 };
 
 export type CardsGlobalStackParams = {

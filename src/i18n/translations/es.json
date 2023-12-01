@@ -507,7 +507,35 @@
     "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago",
     "phoneCaption": "Escribe tu número celular",
     "passwordCaption": "Escribe tu contraseña",
-    "password": "Contraseña"
+    "password": "Contraseña",
+    "birth": "Fecha de nacimiento",
+    "birthCaption": "Selecciona tu fecha de nacimiento",
+    "countryOfBirth": "País de nacimiento",
+    "countryOfBirthCaption": "Selecciona tu país de nacimiento",
+    "stateOfBirth": "Estado de nacimiento",
+    "stateOfBirthCaption": "Selecciona tu estado de nacimiento",
+    "genre": "Género",
+    "genreCaption": "Selecciona tu género",
+    "rfc": "RFC (con homoclave)",
+    "curp": "CURP",
+    "street": "Calle",
+    "interiorNumber" :"Número interior",
+    "exteriorNumber": "Número exterior",
+    "zipCode":"Código Postal",
+    "neighborhood": "Colonia",
+    "neighborhoodCaption": "Selecciona tu colonia",
+    "city": "Ciudad",
+    "state": "Estado",
+    "occupation": "Ocupación",
+    "taxRegime": "Régimen fiscal",
+    "taxRegimeCaption": "Selecciona tu régimen fiscal",
+    "civilStatus": "Estado civil",
+    "civilStatusCaption": "Selecciona tu estado civil",
+    "numberOfDependents": "Número de dependientes",
+    "typeOfProperty": "Tipo de vivienda",
+    "typeOfPropertyCaption": "Selecciona tu tipo de vivienda",
+    "monthlyIncome": "Ingresos mensuales",
+    "monthlyExpenses": "Gastos mensuales estimados"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",
@@ -538,5 +566,13 @@
     "oneUppercaseLetter": "Una letra mayúscula",
     "oneNumber": "Un número",
     "oneSpecialCharacter": "Un carácter especial (@,#,$,%,&,*,+,-,<,>)"
+  },
+  "personalInformation": {
+    "knowAboutYou": "Dentro de ethoscrédito, podrás encontrar diferentes funciones únicas para garantizar la mejor experiencia financiera.\n\nPero antes de eso, necesitamos conocer un poco más sobre ti...",
+    "personalInformation": "Información Personal",
+    "residence": "Lugar de Residencia",
+    "financial": "Perfil Financiero",
+    "fillInfo": "Porfavor, ingresa la siguiente información",
+    "question": "¿Cómo utilizarás tu tarjeta ethoscrédito?"
   }
 }
