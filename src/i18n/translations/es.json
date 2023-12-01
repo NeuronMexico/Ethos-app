@@ -574,5 +574,13 @@
     "financial": "Perfil Financiero",
     "fillInfo": "Porfavor, ingresa la siguiente información",
     "question": "¿Cómo utilizarás tu tarjeta ethoscrédito?"
+  },
+  "applicationValidation": {
+    "applicationValidation": "Validación de solicitud",
+    "applicationValidationDescription": "Vamos a comprobar tu identidad y validar tu información realizando una consulta a buró de crédito y otras entidades necesarias para nuestro algoritmo.",
+    "authorization": "Autorizo a Bondefi SOFOM a verificar mi información ante buro de crédito y otras entidades regulatorias",
+    "performingAnalysis": "Realizando análisis",
+    "proccesingInfo": "Procesando información",
+    "creditBureau": "Consultando Buró de Crédito"
   }
 }
