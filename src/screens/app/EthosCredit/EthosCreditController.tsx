@@ -17,7 +17,7 @@ const EthosCreditController: React.FC = () => {
   const bottomSheet = useBottomSheet();
 
   const [cardOn, setCardOn] = React.useState<boolean>(false);
-  const [showTutorial, setShowTutorial] = useState<boolean>(true);
+  const [showTutorial, setShowTutorial] = useState<boolean>(false);
 
   const content = (
     <Container>
