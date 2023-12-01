@@ -2,6 +2,17 @@
   "language": {
     "tag": "es"
   },
+  "login": {
+    "welcomeTitle": "Hola, ingresa tus datos para acceder",
+    "loginBiometric": "Ingresar con Face ID",
+    "notHaveAccount": "¿Aún no tienes una cuenta?",
+    "forgotPassword": "Olvidé mi contraseña",
+    "signMe": "Registrarme",
+    "acceptTerms": "Al ingresar acepto los",
+    "termsAndConditions":"Términos y Condiciones",
+    "and": "y el",
+    "privacyNotice": "Aviso de Privacidad"
+  },
   "home": {
     "welcome": "Hola, {{name}}",
     "lastConnection": "Última conexión {{lastConnection}}",
@@ -297,7 +308,8 @@
     "pay": "Pagar",
     "decline": "Rechazar",
     "edit": "Editar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "join": "Ingresar"
   },
   "profile": {
     "titleStack": "Perfil",
@@ -506,7 +518,10 @@
     "singlePayment":"Pago único, a efectuar el:",
     "costPerDisposal": "Costo por disposición:",
     "SPEICost": "Costo por SPEI:",
-    "goToTransactions": "Ir a Transacciones"
+    "goToTransactions": "Ir a Transacciones",
+    "phoneCaption": "Escribe tu número celular",
+    "passwordCaption": "Escribe tu contraseña",
+    "password": "Contraseña"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",
