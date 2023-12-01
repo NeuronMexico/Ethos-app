@@ -19,56 +19,56 @@ const OPTIONS: Array<ButtonGroupOption> = [{
   label: 'Departamental',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.TangledWeb,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.SpaceCadet,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Gastos en general',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.BarberryYellow,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.BossaNovaBlue,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Gasolina',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.HotCoral,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.DarkSoul,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Entretenimiento',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.AdamantineBlue,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.BlueBuzz,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Salud',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.ToyBlue,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.GreatFalls,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Súper',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.PartyPig,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.Wistful,
+    textColor: Theme.Colors.White,
   },
 },
 {
   label: 'Gastos hogar',
   onPress: () => {},
   buttonStyle: {
-    backgroundColor: Theme.Colors.GreenGlow,
-    textColor: Theme.Colors.DarkSoul,
+    backgroundColor: Theme.Colors.DarkBlue,
+    textColor: Theme.Colors.White,
   },
 },
 ];
@@ -103,7 +103,7 @@ const AssignTagsScreen: React.FC<Props> = ({ item }) => {
           title={item?.title}
           label={item?.description}
           rightText={item?.amount}
-          rightTextColor={item?.description === 'Pago TDC' ? Theme.Colors.SpringBouquet : ''}
+          rightTextColor={item?.description === 'Pago TDC' ? Theme.Colors.DarkBlue : ''}
           barColor={item?.color}
           alignContent="space-between"
           marginTop={32}
@@ -172,8 +172,6 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 14,
-    paddingLeft: 8,
-    paddingTop: 8,
     margin: 'auto',
   },
 });

@@ -11,6 +11,23 @@ interface NewTagModalProps {
 }
 
 const colorOptions = [
+  Theme.Colors.MintCream,
+  Theme.Colors.CeladonGreen,
+  Theme.Colors.MagicMint,
+  Theme.Colors.EtonBlue,
+  Theme.Colors.GreenSheen,
+  Theme.Colors.ForestGreenTraditional,
+  Theme.Colors.GlacierBlue,
+  Theme.Colors.CadetBlue,
+  Theme.Colors.SteelBlue,
+  Theme.Colors.RichElectricBlue,
+  Theme.Colors.BlueRibbon,
+  Theme.Colors.PrussianBlue,
+  Theme.Colors.SpaceCadet,
+  Theme.Colors.Wistful,
+  Theme.Colors.DarkBlue,
+  Theme.Colors.Midnight,
+  Theme.Colors.BossaNovaBlue,
   Theme.Colors.DarkSoul,
   Theme.Colors.BarberryYellow,
   Theme.Colors.Purception,
@@ -23,6 +40,7 @@ const colorOptions = [
   Theme.Colors.ShadowSteel,
   Theme.Colors.OranzhewyiOrange,
   Theme.Colors.TangledWeb,
+  Theme.Colors.BlueBuzz,
 ];
 
 const NewTagModal: React.FC<NewTagModalProps> = ({ onClose, onTagCreated }) => {
