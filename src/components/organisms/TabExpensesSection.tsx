@@ -49,10 +49,10 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
   const [untilDate, setUntilDate] = useState(new Date());
 
   const data = [
-    { name: 'Orange', population: 50, color: Theme.Colors.OranzhewyiOrange },
-    { name: 'Green', population: 16, color: Theme.Colors.BarberryYellow },
-    { name: 'Blue', population: 16, color: Theme.Colors.AdamantineBlue },
-    { name: 'Purple', population: 17, color: Theme.Colors.TangledWeb },
+    { name: 'Orange', population: 50, color: Theme.Colors.DarkSoul },
+    { name: 'Green', population: 16, color: Theme.Colors.Wistful },
+    { name: 'Blue', population: 16, color: Theme.Colors.BossaNovaBlue },
+    { name: 'Purple', population: 17, color: Theme.Colors.SpaceCadet },
   ];
 
   const filterCard = () => {

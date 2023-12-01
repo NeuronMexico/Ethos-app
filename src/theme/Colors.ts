@@ -49,7 +49,24 @@ const Colors = {
   TangledWeb: '#B3B3B3',
   OranzhewyiOrange: '#ED6336',
   PartyPig: '#E497FF',
-
+  MintCream: '#EFFAF2',
+  CeladonGreen: '#BEEBCB',
+  MagicMint: '#A3E2B5',
+  EtonBlue: '#7CD696',
+  GreenSheen: '#61CD80',
+  ForestGreenTraditional: '#44905A',
+  GlacierBlue: '#E6F0F5',
+  CadetBlue: '#96C1D6',
+  SteelBlue: '#6BA7C6',
+  RichElectricBlue: '#2B82AD',
+  BlueRibbon: '#00689C',
+  PrussianBlue: '#00496D',
+  SpaceCadet: '#404374',
+  Wistful: '#A1A2BB',
+  DarkBlue: '#12143E',
+  Midnight: '#0F1136',
+  BossaNovaBlue: '#7A7B9E',
+  BlueBuzz: '#A1A2BB',
 };
 
 export default Colors;
