@@ -31,6 +31,8 @@ export type AuthStackParams = {
   Login: undefined;
   CreateAccount: undefined;
   UserValidation: undefined;
+  PersonalInformation: undefined;
+  ApplicationValidation: undefined;
 };
 
 export type CardsGlobalStackParams = {
@@ -82,7 +84,7 @@ export type ChargesGlobalStackParams = {
 
 export type PaymentGlobalStackParams = {
   form: {
-    title: string[],
+    title: string,
     initialPage?: number,
     formComponent: ComponentTypes,
     destinationAccount?: { name: string, account: string, bank: string },

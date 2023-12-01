@@ -10,6 +10,7 @@ export interface PickerUIProps {
   fontSize?: number;
   fontWeight?: FontWeightTypes;
   borderless?: boolean;
+  title?: string;
   value?: string;
   placeholder: string;
   prefixIcon?: ReactElement;
@@ -17,6 +18,7 @@ export interface PickerUIProps {
   paddingLeft?: number;
   paddingRight?: number;
   paddingVertical?: number;
+  marginLeft?: number;
   caption?: string;
 }
 
@@ -26,6 +28,7 @@ const PickerUI: React.FC<PickerUIProps> = ({
   fontSize = 16,
   fontWeight = 'Medium',
   borderless = true,
+  title,
   value,
   placeholder = '',
   prefixIcon,
@@ -33,6 +36,7 @@ const PickerUI: React.FC<PickerUIProps> = ({
   paddingLeft = 16,
   paddingRight = 16,
   paddingVertical = 12,
+  marginLeft = 8,
   caption,
 }) => (
   <Container
@@ -49,7 +53,8 @@ const PickerUI: React.FC<PickerUIProps> = ({
     }}
   >
     {prefixIcon}
-    <Container style={{ marginLeft: prefixIcon ? 8 : 0 }}>
+    <Container style={{ marginLeft: prefixIcon ? marginLeft : 0 }}>
+      {title && <Text text={title} typography="title" marginTop={4} />}
       <Text
         fontSize={fontSize}
         fontWeight={fontWeight}

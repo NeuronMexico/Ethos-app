@@ -40,21 +40,25 @@ const OnboardAssistant: React.FC<Props> = ({
 
   return (
     <Container flex>
-      <Container style={styles.chatContainer}>
-        {renderMessages.map((message, index) => (
-          <ChatBubble
-            key={index}
-            message={message}
-            onFinishMessage={() => {
-              const auxMsgs = [...renderMessages];
-              if (messages[index + 1]) {
-                auxMsgs.push(messages[index + 1]);
-                setRenderMessages(auxMsgs);
-              }
-            }}
-          />
-        ))}
-      </Container>
+      {
+        messages.length > 0 && renderMessages.length > 0 && (
+          <Container style={styles.chatContainer}>
+            {renderMessages.map((message, index) => (
+              <ChatBubble
+                key={index}
+                message={message}
+                onFinishMessage={() => {
+                  const auxMsgs = [...renderMessages];
+                  if (messages[index + 1]) {
+                    auxMsgs.push(messages[index + 1]);
+                    setRenderMessages(auxMsgs);
+                  }
+                }}
+              />
+            ))}
+          </Container>
+        )
+      }
       <Container flex style={styles.contentContainer}>
         <OnboardAssistantBackground style={styles.onboardBackground} />
         <Text text={title} marginTop={12} fontSize={22} fontWeight="Bold" />

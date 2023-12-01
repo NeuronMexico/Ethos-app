@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 
 import {
   Container,
-  SafeArea, SwipeableSwitch, Text,
+  SafeArea, SwipeableSwitch, Text, Tutorial,
 } from 'components';
 import { useBottomSheet } from 'context';
 import EthosCreditScreen from './EthosCreditScreen';
@@ -17,6 +17,7 @@ const EthosCreditController: React.FC = () => {
   const bottomSheet = useBottomSheet();
 
   const [cardOn, setCardOn] = React.useState<boolean>(false);
+  const [showTutorial, setShowTutorial] = useState<boolean>(true);
 
   const content = (
     <Container>
@@ -37,6 +38,11 @@ const EthosCreditController: React.FC = () => {
     }
   };
 
+  const handleTutorialModal = () => {
+    setShowTutorial(false);
+    // dispatch(setTutorialViewed(true));
+  };
+
   return (
     <SafeArea>
       <EthosCreditScreen
@@ -44,6 +50,10 @@ const EthosCreditController: React.FC = () => {
         onPressShortcut={onPressShortcut}
         onPressProfile={() => navigate('ProfileStack', { screen: 'Profile' })}
         onPressNotifications={() => navigate('NotificationStack', { screen: 'Notifications' })}
+      />
+      <Tutorial
+        visible={showTutorial}
+        onDismiss={handleTutorialModal}
       />
     </SafeArea>
   );
