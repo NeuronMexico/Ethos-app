@@ -1,9 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { Animated } from 'react-native';
+import { Animated, Text } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import {
-  Button,
-  Container, DotIndicator, FadeInImage, Text, TouchableText,
+  Button, Container, DotIndicator, FadeInImage, TouchableText,
 } from 'components';
 import { ETHOS_CREDIT_LOGO } from 'assets/images';
 import Theme from 'theme';
@@ -12,7 +11,7 @@ import { RightArrowIcon } from 'assets/svg';
 
 interface HighlightedText {
   text: string;
-  highlightedWords: string;
+  highlightedWords: string[];
 }
 
 const InitialOnboardingPresentation = () => {
@@ -26,28 +25,26 @@ const InitialOnboardingPresentation = () => {
     const words = highlightedText?.text.split(' ');
 
     return (
-      <Text typography="title" fontSize={30} marginBottom={100}>
+      <Text style={{
+        marginBottom: 100,
+        color: '#2B2B2B',
+        fontSize: 32,
+        fontStyle: 'normal',
+        fontWeight: 700,
+      }}
+      >
         {words && words.map((word, index) => {
-          const isHighlighted = highlightedText.highlightedWords.includes(word);
+          const isHighlighted = highlightedText?.highlightedWords.includes(word.toLowerCase());
           return (
-            <Container
+            <Text
               key={index}
-              height={40}
               style={{
                 backgroundColor: isHighlighted ? '#BEEBCB' : 'transparent',
-                borderRadius: 3,
-                paddingHorizontal: 5,
               }}
             >
-              <Text
-                key={index}
-                typography="title"
-                fontSize={31}
-              >
-                {word}
-                {' '}
-              </Text>
-            </Container>
+              {word}
+              {' '}
+            </Text>
           );
         })}
       </Text>
@@ -55,9 +52,9 @@ const InitialOnboardingPresentation = () => {
   };
 
   const sections: HighlightedText[] = [
-    { text: t('onboarding:subtitle1'), highlightedWords: t('onboarding:highlighted1') },
-    { text: t('onboarding:subtitle2'), highlightedWords: t('onboarding:highlighted2') },
-    { text: t('onboarding:subtitle3'), highlightedWords: t('onboarding:highlighted3') },
+    { text: t('onboarding:subtitle1'), highlightedWords: t('onboarding:highlighted1').split(' ') },
+    { text: t('onboarding:subtitle2'), highlightedWords: t('onboarding:highlighted2').split(' ') },
+    { text: t('onboarding:subtitle3'), highlightedWords: t('onboarding:highlighted3').split(' ') },
   ];
 
   const section = (
@@ -83,7 +80,10 @@ const InitialOnboardingPresentation = () => {
     </Container>
   );
 
-  const nextPage = () => { setCurrentPage(0); };
+  const nextPage = () => {
+    setCurrentPage(0);
+  };
+
   const handlePage = (position: number) => {
     if (lastPage) {
       nextPage();
