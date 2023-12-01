@@ -84,7 +84,7 @@ export type ChargesGlobalStackParams = {
 
 export type PaymentGlobalStackParams = {
   form: {
-    title: string[],
+    title: string,
     initialPage?: number,
     formComponent: ComponentTypes,
     destinationAccount?: { name: string, account: string, bank: string },

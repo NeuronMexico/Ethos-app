@@ -1,11 +1,13 @@
 import React from 'react';
 import {
-  Button, Container, OptionButton, Text,
+  Button, Container, FadeInImage, Header, OptionButton, Text,
 } from 'components';
 import { formatDate, formatQuantity } from 'utils';
 import i18n from 'i18n';
 import Theme from 'theme';
 import { ExportIcon, VisaIcon } from 'assets/svg';
+import { ETHOS_CREDIT_LOGO } from 'assets/images';
+import { StyleSheet } from 'react-native';
 
 interface Props {
   amount?: number;
@@ -14,6 +16,7 @@ interface Props {
   showButtons?: boolean;
   onPressBack?: () => void;
   onPressOptionButton?: () => void;
+  checkmark?: boolean;
 }
 
 const Line = () => (
@@ -29,11 +32,12 @@ const Line = () => (
   />
 );
 
-const ComponentInfo: React.FC<Props> = ({
+const ContentModalResponse: React.FC<Props> = ({
   amount,
   showButtons = false,
   reference,
   date,
+  checkmark = true,
   onPressBack = () => {},
   onPressOptionButton = () => {},
 }: Props) => (
@@ -46,20 +50,23 @@ const ComponentInfo: React.FC<Props> = ({
       fontSize={34}
       marginBottom={16}
     />
-    <Text text={i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
-    <Text text={date && formatDate(date, 'MMMM d, yyyy')} textAlign="center" />
-    <Container row center crossCenter style={{ marginTop: 16 }}>
-      <Text text={i18n.t('form:costPerDisposal')} textAlign="center" fontSize={13} />
-      <Text text="$50" textAlign="center" typography="title" fontSize={13} marginLeft={4} />
-    </Container>
-    <Container row center crossCenter>
-      <Text text={i18n.t('form:SPEICost')} textAlign="center" fontSize={13} marginVertical={5} />
-      <Text text="$7.50" textAlign="center" typography="title" fontSize={13} marginLeft={4} marginVertical={5} />
-    </Container>
-    <Container row center crossCenter>
-      <Text text={i18n.t('form:reference')} textAlign="center" fontSize={13} />
-      <Text text={reference} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
-    </Container>
+    {!checkmark && (
+    <>
+      <Container row center crossCenter style={{ marginTop: 16 }}>
+        <Text text={i18n.t('form:costPerDisposal')} textAlign="center" fontSize={13} />
+        <Text text="$50" textAlign="center" typography="title" fontSize={13} marginLeft={4} />
+      </Container>
+      <Container row center crossCenter>
+        <Text text={i18n.t('form:SPEICost')} textAlign="center" fontSize={13} marginVertical={5} />
+        <Text text="$7.50" textAlign="center" typography="title" fontSize={13} marginLeft={4} marginVertical={5} />
+      </Container>
+      <Container row center crossCenter>
+        <Text text={i18n.t('form:reference')} textAlign="center" fontSize={13} />
+        <Text text={reference} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
+      </Container>
+    </>
+    )}
+    {checkmark && (<Text text={date && formatDate(date)} textAlign="center" />)}
     <Button
       label="**** **** **** 531"
       onPress={() => {}}
@@ -88,7 +95,9 @@ const ComponentInfo: React.FC<Props> = ({
       </Container>
     </Container>
     <Line />
-    <Text text={i18n.t('form:contactAdded')} textAlign="center" />
+    <Text text={i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
+    <Text text={date && formatDate(date, 'MMMM d, yyyy')} textAlign="center" />
+
     {
       showButtons && (
         <Container style={{ margin: 16 }}>
@@ -115,4 +124,4 @@ const ComponentInfo: React.FC<Props> = ({
   </Container>
 );
 
-export { ComponentInfo };
+export { ContentModalResponse };

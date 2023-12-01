@@ -15,6 +15,7 @@ import { CustomText as Text } from './CustomText';
 import { PickerUI, PickerUIProps } from './PickerUI';
 
 export interface CustomPickerProps extends Omit<PickerUIProps, 'suffixIcon'> {
+  title?: string;
   label?: string;
   placeholder: string;
   value: string;
@@ -24,12 +25,14 @@ export interface CustomPickerProps extends Omit<PickerUIProps, 'suffixIcon'> {
   useActionSheet?: boolean;
   actionSheetTitle?: string;
   marginTop?: number;
+  marginLeft?: number;
   androidMode?: PickerProps['mode'];
   iconSize?: number;
   width?: ViewStyle['width'];
 }
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
+  title = '',
   label = '',
   placeholder = '',
   value,
@@ -52,6 +55,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   paddingVertical,
   caption,
   width = '100%',
+  marginLeft,
 }) => {
   const { t } = useTranslation();
 
@@ -139,6 +143,8 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
             paddingRight={paddingRight}
             paddingVertical={paddingVertical}
             caption={caption}
+            title={title}
+            marginLeft={marginLeft}
           />
         </Touchable>
       </Container>
