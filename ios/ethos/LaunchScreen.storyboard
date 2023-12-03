@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,18 +56,30 @@
                                     <constraint firstAttribute="width" constant="200" id="v8J-a6-HbI"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca de Grupo Ethos Pay,  S.A.P.I. de C.V." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cns-HA-Yx3">
+                                <rect key="frame" x="133" y="834" width="164" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="e6Z-Ii-zcj"/>
+                                    <constraint firstAttribute="width" constant="164" id="u06-nX-LuP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ii0-Q4-kGA" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="501-40-EaZ"/>
                             <constraint firstAttribute="trailing" secondItem="BMQ-Y7-ZdA" secondAttribute="trailing" id="J3q-zC-G8U"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="Cns-HA-Yx3" secondAttribute="bottom" constant="20" id="OPB-cT-45E"/>
                             <constraint firstItem="1Mx-ev-Vkc" firstAttribute="centerY" secondItem="Bcu-3y-fUS" secondAttribute="centerY" id="Qsa-Xg-1Na"/>
                             <constraint firstItem="ZaE-6I-2ed" firstAttribute="top" secondItem="yCC-eC-SIN" secondAttribute="bottom" constant="-30" id="VVq-WS-2e2"/>
                             <constraint firstItem="yCC-eC-SIN" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="XfY-ej-scj"/>
                             <constraint firstItem="ZaE-6I-2ed" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="ZMf-nN-zbC"/>
                             <constraint firstItem="1Mx-ev-Vkc" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="ZtK-39-NVc"/>
                             <constraint firstItem="pD2-xe-gZv" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="48" id="boV-rb-EhR"/>
+                            <constraint firstItem="Cns-HA-Yx3" firstAttribute="centerX" secondItem="Bcu-3y-fUS" secondAttribute="centerX" id="cQH-EG-24W"/>
                             <constraint firstItem="BMQ-Y7-ZdA" firstAttribute="centerY" secondItem="pD2-xe-gZv" secondAttribute="centerY" id="tZ4-es-8fa"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="Ii0-Q4-kGA" secondAttribute="bottom" id="toy-T0-I8y"/>
                             <constraint firstItem="ZaE-6I-2ed" firstAttribute="top" secondItem="1Mx-ev-Vkc" secondAttribute="bottom" constant="20" id="utk-6g-UDp"/>
@@ -88,8 +99,5 @@
         <image name="splashPatternFirst" width="49" height="162"/>
         <image name="splashPatternSecond" width="69" height="162"/>
         <image name="splashPatternThird" width="85" height="113"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
