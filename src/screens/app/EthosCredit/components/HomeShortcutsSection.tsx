@@ -6,7 +6,18 @@ import i18n from 'i18n';
 import { Container, DirectAccess, OptionButton } from 'components';
 import { ShortcutType } from 'utils';
 import {
-  CardPayIcon, CellphoneIcon, EthosQRIcon, FilmIcon, LampIcon, LockClosedIcon, PawIcon, PeopleIcon, TackIcon, TimeIcon, WaterIcon,
+  CardPayIcon,
+  CellphoneIcon,
+  EthosQRIcon,
+  FilmIcon,
+  LampIcon,
+  LockClosedIcon,
+  PawIcon,
+  PeopleIcon,
+  TackIcon,
+  TimeIcon,
+  UmbrellaIcon,
+  WaterIcon,
 } from 'assets/svg';
 import Theme from 'theme';
 
@@ -35,6 +46,11 @@ const LOCKED_SHORTCUTS: ShortcutType[] = [
     id: 'topUps',
     label: i18n.t('shortcuts:topUps'),
     icon: <CellphoneIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'ethosPlusBenefits',
+    label: i18n.t('shortcuts:ethosPlusBenefits'),
+    icon: <UmbrellaIcon color={Theme.Colors.DarkSoul} />,
   },
   {
     id: '2x1Cinema',

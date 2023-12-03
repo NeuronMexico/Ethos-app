@@ -17,7 +17,6 @@ export const SHORTCUTS_CATEGORIES = {
     'collectViaCODI',
     'collectInCash',
   ],
-  personalProject: ['personalProject'],
   services: [
     'electricityAndGas',
     'water',
@@ -30,7 +29,6 @@ export const SHORTCUTS_CATEGORIES = {
   ],
   ethosCreditBenefits: [
     'ethosPlusBenefits',
-    'ethosProBenefits',
   ],
   lifestyleBenefits: [
     '2x1Cinema',
