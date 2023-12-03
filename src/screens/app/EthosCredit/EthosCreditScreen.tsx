@@ -6,6 +6,7 @@ import {
   Container, ImageCarousel,
 } from 'components';
 import Theme from 'theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeHeader from './components/HomeHeader';
 import HomeTabProducts from './components/HomeTabProducts';
 import HomeShortcutsSection from './components/HomeShortcutsSection';
@@ -13,6 +14,7 @@ import HomeShortcutsSection from './components/HomeShortcutsSection';
 interface Props {
   onPressProfile?: () => void;
   onPressNotifications?: () => void;
+  onPressAssistant?: () => void;
   onPressShortcut?: (id: string) => void;
   onPressShortcuts?: () => void;
 }
@@ -21,19 +23,28 @@ const EthosCreditScreen: React.FC<Props> = (props: Props) => {
   const {
     onPressProfile,
     onPressNotifications,
+    onPressAssistant,
     onPressShortcut,
     onPressShortcuts,
   } = props;
   const { container } = styles;
 
+  const insets = useSafeAreaInsets();
   const offset = useRef(new Animated.Value(0)).current;
 
   return (
     <Container flex>
-      <HomeHeader onPressProfile={onPressProfile} onPressNotifications={onPressNotifications} />
+      <HomeHeader
+        onPressProfile={onPressProfile}
+        onPressNotifications={onPressNotifications}
+        onPressAssistant={onPressAssistant}
+      />
       <ScrollView
-        style={{ flex: 1 }}
-        contentContainerStyle={container}
+        style={{ flex: 1, marginBottom: insets.bottom + 24 }}
+        contentContainerStyle={{
+          ...container,
+          paddingBottom: insets.bottom + 16,
+        }}
         onScroll={Animated.event(
           [{ nativeEvent: { contentOffset: { y: offset } } }],
           { useNativeDriver: false },

@@ -102,6 +102,7 @@ export * from './RejectMarkCircleIcon';
 export * from './ScanIcon';
 export * from './SendIcon';
 export * from './ShieldIcon';
+export * from './TackIcon';
 export * from './TikTokIcon';
 export * from './TicketIcon';
 export * from './TimeIcon';
