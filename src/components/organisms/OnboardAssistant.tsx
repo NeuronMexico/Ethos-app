@@ -104,7 +104,7 @@ const ChatBubble = React.memo(({ message, onFinishMessage }: ChatBubbleProps) =>
         if (auxMsg.length < 5) auxMsg += '.';
         else auxMsg = '.';
         setRenderMessage(auxMsg);
-      }, 200);
+      }, 100);
     } else clearInterval(intervalRef.current);
   }, [loading]);
 
@@ -124,12 +124,12 @@ const ChatBubble = React.memo(({ message, onFinishMessage }: ChatBubbleProps) =>
           finishRenderRef.current = true;
           onFinishMessage();
         }
-      }, 25);
+      }, 20);
     }
   }, [loading, message, onFinishMessage]);
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
 
   return (

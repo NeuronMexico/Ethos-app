@@ -641,5 +641,27 @@
     "creditAdhesion": "Contrato de Adhesión de Crédito",
     "beforeContinue": "Antes de avanzar, es necesario que leas detalladamente los siguientes documentos y deslices para aceptar.\n\n¡Toma todo el tiempo que necesites!",
     "swipeToAccept": "Desliza para aceptar"
+  },
+  "userValidation": {
+    "congratulations": "¡Felicidades!\n\nHas creado una cuenta en nuestra aplicación.\n\nAhora haremos una validación de tu identidad y empezaremos a recopilar información sobre ti para poder personalizar tu experiencia de usuario en nuestra aplicación.",
+    "registrationStepsCompleted": "Primeros pasos completados",
+    "prepareForRegistration": "Para tu registro voy a necesitar que prepares lo siguiente:\n\n• Identificación Oficial (INE)",
+    "clickToContinue": "Da click en continuar para que procedamos a llenar tu información personal y generar tu solicitud.",
+    "securityAndCustomization": "Para garantizar tu seguridad y personalizar tu línea de crédito, requerimos verificar tu identificación (INE). Por favor, selecciona la opción para capturar una foto de tu INE haciendo tap en el botón correspondiente.",
+    "INEValidation": "Validación de INE",
+    "verifyIdentity": "Vamos a verificar tu identidad escaneando el frente de tu identificación oficial. Asegúrate de estar en un lugar bien iluminado, evita sombras y reflejos, y toma una foto clara.",
+    "checkIdentityByScanningBack": "Ahora, vamos a comprobar tu identidad mediante un escaneo de la parte trasera de tu identificación oficial.",
+    "scanBackOfID": "¡Excelente!\n\nAhora necesitamos escanear la parte de atrás de tu INE para terminar la validación de tu identificación.\n\nDa tap en el botón de tomar una fotografía.",
+    "frontOfYourID": "Parte delantera de tu INE",
+    "takePhoto": "Tomar Fotografía",
+    "recapture": "Recapturar",
+    "backOfYourID": "Parte trasera de tu INE",
+    "alignYourDocumentWithMarks": "Alinea tu documento con las marcas",
+    "selfieValidation": "Validación mediante selfie",
+    "takeASelfie": "Necesitamos tomar una selfie de tu rostro para validar tu identidad.",
+    "continueWithValidation": "Para continuar con la validación de tu identidad, es necesario que tomes una selfie de tu rostro.\n\nDa click en continuar y sigue las instrucciones tratando de moverte lo menos posible y alineándote con las marcas mostradas.",
+    "takeSelfie": "Tomar Selfie",
+    "photoUploaded": "¡Fotografía Subida!",
+    "alignYourFaceWithMarks": "Alinea tu rostro con las marcas y mueve tu cara lo menos posible."
   }
 }

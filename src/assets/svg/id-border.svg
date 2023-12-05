@@ -1,0 +1,9 @@
+<svg width="192" height="337" viewBox="0 0 192 337" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2.5" y="334.5" width="332" height="186" transform="rotate(-90 2.5 334.5)"
+    stroke="#005CEF" stroke-width="4" />
+  <path d="M16.5 334.5H2.5L2.5 320.5" stroke="white" stroke-width="4" />
+  <path d="M16.5 2.5L2.5 2.5L2.5 16.5" stroke="white" stroke-width="4" />
+  <path d="M175.5 2.5L189.5 2.5V16.5" stroke="white" stroke-width="4" />
+  <path d="M175.5 334.5H189.5V320.5" stroke="white" stroke-width="4" />
+</svg>
+  

@@ -5,6 +5,7 @@
 import { AppRegistry } from 'react-native';
 import App from './src/App';
 import { name as appName } from './app.json';
+import 'react-native-reanimated';
 
 // eslint-disable-next-line no-undef
 if (__DEV__) {

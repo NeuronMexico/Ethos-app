@@ -13,7 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1B1F524613BD47EEA33A101E /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D8BE4E620AD40C99D849483 /* Inter-Thin.ttf */; };
-		26F4E4127951FC188B33CFC8 /* Pods_ethos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B41798F6C196EDF60BAB1D /* Pods_ethos.framework */; };
+		20C125823E73447C8B0A6413 /* libPods-ethos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0C1A53F72D3807094A8D12 /* libPods-ethos.a */; };
 		38B6A9CDE4204317BF7D302A /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7DCA766B3BF42F19A2B1E4B /* Inter-SemiBold.ttf */; };
 		429F55ED4F5847508082B9C5 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31DA70D358994C64A5EE42CE /* Inter-ExtraLight.ttf */; };
 		52D19278CECB4FF9A1392CD2 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A67C1EBB436E495CA6D5C597 /* Inter-Bold.ttf */; };
@@ -22,7 +22,7 @@
 		80078D8F61F74DEE945F4831 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F151DDADCDE4C989AFDE714 /* Inter-Black.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		ABA90CBD42EA41A1B3F52D4A /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D716015D32814D599AE49681 /* Inter-Regular.ttf */; };
-		C9C320C7BBF89DDFBFF99806 /* Pods_ethos_ethosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C74CA1AAC308723349DCFCD /* Pods_ethos_ethosTests.framework */; };
+		C7F238CEFA230E4231510CF5 /* libPods-ethos-ethosTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 023230588ACC01753E05551C /* libPods-ethos-ethosTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,7 @@
 		00E356EE1AD99517003FC87E /* ethosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ethosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ethosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ethosTests.m; sourceTree = "<group>"; };
-		0C74CA1AAC308723349DCFCD /* Pods_ethos_ethosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethos_ethosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		023230588ACC01753E05551C /* libPods-ethos-ethosTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethos-ethosTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8BFFCE083CAA2164FCDB7D /* Pods-ethos.proddebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethos.proddebug.xcconfig"; path = "Target Support Files/Pods-ethos/Pods-ethos.proddebug.xcconfig"; sourceTree = "<group>"; };
 		0F151DDADCDE4C989AFDE714 /* Inter-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Black.ttf"; path = "../src/assets/fonts/Inter-Black.ttf"; sourceTree = "<group>"; };
 		10912EE45C858250E852B62A /* Pods-ethos-ethosTests.prodrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethos-ethosTests.prodrelease.xcconfig"; path = "Target Support Files/Pods-ethos-ethosTests/Pods-ethos-ethosTests.prodrelease.xcconfig"; sourceTree = "<group>"; };
@@ -61,8 +61,8 @@
 		A67C1EBB436E495CA6D5C597 /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		A7DCA766B3BF42F19A2B1E4B /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		B326695B9C21B508E5CFB60A /* Pods-ethos.prodrelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethos.prodrelease.xcconfig"; path = "Target Support Files/Pods-ethos/Pods-ethos.prodrelease.xcconfig"; sourceTree = "<group>"; };
-		B4B41798F6C196EDF60BAB1D /* Pods_ethos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ethos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D716015D32814D599AE49681 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
+		DB0C1A53F72D3807094A8D12 /* libPods-ethos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ethos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E45BCEB8819746D9BBB04BF4 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EF946D5D1B981A764D55D7F7 /* Pods-ethos-ethosTests.proddebug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ethos-ethosTests.proddebug.xcconfig"; path = "Target Support Files/Pods-ethos-ethosTests/Pods-ethos-ethosTests.proddebug.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9C320C7BBF89DDFBFF99806 /* Pods_ethos_ethosTests.framework in Frameworks */,
+				C7F238CEFA230E4231510CF5 /* libPods-ethos-ethosTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26F4E4127951FC188B33CFC8 /* Pods_ethos.framework in Frameworks */,
+				20C125823E73447C8B0A6413 /* libPods-ethos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				B4B41798F6C196EDF60BAB1D /* Pods_ethos.framework */,
-				0C74CA1AAC308723349DCFCD /* Pods_ethos_ethosTests.framework */,
+				DB0C1A53F72D3807094A8D12 /* libPods-ethos.a */,
+				023230588ACC01753E05551C /* libPods-ethos-ethosTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

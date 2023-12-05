@@ -35,6 +35,8 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Necesitamos tu permiso para acceder a la cámara para escanear tus documentos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Necesitamos tu permiso para acceder a tu galería para seleccionar tu foto de perfil.</string>
 	<key>NSFaceIDUsageDescription</key>

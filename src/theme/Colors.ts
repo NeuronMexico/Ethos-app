@@ -67,6 +67,8 @@ const Colors = {
   Midnight: '#0F1136',
   BossaNovaBlue: '#7A7B9E',
   BlueBuzz: '#A1A2BB',
+  Corbeau: '#0E0F26',
+
 };
 
 export default Colors;

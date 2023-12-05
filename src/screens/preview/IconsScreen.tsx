@@ -4,12 +4,14 @@ import {
   Container, Header, SafeArea, Text, Touchable,
 } from 'components';
 import {
+  ArrowLeftIcon,
   BankIcon,
   BellIcon,
   BellMarkedIcon,
   BenefitsIcon,
   BookOpenIcon,
   CalendarIcon,
+  CameraIcon,
   CardDigitalIcon,
   CardIcon,
   CardPayIcon,
@@ -95,12 +97,14 @@ interface IconProps {
 }
 
 const icons = [
+  { name: 'ArrowLeftIcon', component: <ArrowLeftIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'BankIcon', component: <BankIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'BellIcon', component: <BellIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'BellMarkedIcon', component: <BellMarkedIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'BenefitsIcon', component: <BenefitsIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'BookOpenIcon', component: <BookOpenIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'CalendarIcon', component: <CalendarIcon width={25} height={25} color={Theme.Colors.Encore} /> },
+  { name: 'CameraIcon', component: <CameraIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'CardDigitalIcon', component: <CardDigitalIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'CardIcon', component: <CardIcon width={25} height={25} color={Theme.Colors.Encore} /> },
   { name: 'CardPayIcon', component: <CardPayIcon width={25} height={25} color={Theme.Colors.Encore} /> },
