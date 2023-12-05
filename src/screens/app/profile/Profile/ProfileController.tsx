@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 import {
-  Container, OptionButton, SafeArea, Text,
+  Container, OptionButton, SafeArea, SheetContentProfilePhoto, Text,
 } from 'components';
 import { ProfileStackParams, SOCIAL_LINKS, SocialMediaTypes } from 'utils';
 import { ExportIcon } from 'assets/svg';
@@ -72,6 +72,10 @@ const ProfileController: React.FC = () => {
     </Container>
   );
 
+  const onPressEditPhoto = () => {
+    bottomSheet.show(<SheetContentProfilePhoto onPress={() => bottomSheet.hide()} />);
+  };
+
   return (
     <SafeArea>
       <ProfileScreen
@@ -81,6 +85,7 @@ const ProfileController: React.FC = () => {
         onPressBills={() => navigate('Bills')}
         onPressSecurityAndLegalNotices={() => navigate('Security')}
         onPressLogOut={onPressLogOut}
+        onPressEditPhoto={onPressEditPhoto}
       />
     </SafeArea>
   );
