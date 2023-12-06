@@ -8,11 +8,13 @@ import PersonalInformationController from 'screens/auth/PersonalInformation/Pers
 import ApplicationValidationController from 'screens/auth/ApplicationValidation/ApplicationValidationController';
 import ValidatedInformationController from 'screens/auth/ValidatedInformation/ValidatedInformationController';
 import ContractDetailsController from 'screens/auth/ContractDetails/ContractDetailsController';
+import { InitialOnboardingPresentation } from 'components';
 
 const Stack = createNativeStackNavigator<AuthStackParams>();
 
 const AuthStack: React.FC = () => (
-  <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="UserValidation">
+  <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="FirstSteps">
+    <Stack.Screen name="FirstSteps" component={InitialOnboardingPresentation} />
     <Stack.Screen name="Login" component={LoginController} />
     <Stack.Screen name="CreateAccount" component={CreateAccountController} />
     <Stack.Screen name="UserValidation" component={UserValidationController} />

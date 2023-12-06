@@ -8,6 +8,8 @@ import { ETHOS_CREDIT_LOGO } from 'assets/images';
 import Theme from 'theme';
 import { useTranslation } from 'react-i18next';
 import { RightArrowIcon } from 'assets/svg';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface HighlightedText {
   text: string;
@@ -15,6 +17,7 @@ interface HighlightedText {
 }
 
 const InitialOnboardingPresentation = () => {
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { t } = useTranslation();
   const pagerViewRef = useRef<PagerView>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -80,13 +83,9 @@ const InitialOnboardingPresentation = () => {
     </Container>
   );
 
-  const nextPage = () => {
-    setCurrentPage(0);
-  };
-
   const handlePage = (position: number) => {
     if (lastPage) {
-      nextPage();
+      navigate('Login');
     } else {
       setCurrentPage(position);
     }
