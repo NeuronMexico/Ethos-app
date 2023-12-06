@@ -1,14 +1,18 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useDispatch } from 'reactRedux';
 import { SafeArea } from 'components';
 import { useFloatingAlert } from 'context';
+import { AuthStackParams } from 'utils';
 import UserValidationScreen from './UserValidationScreen';
 import { IDScanner } from './components';
 
 const UserValidationController: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<AuthStackParams, 'UserValidation'>>();
 
   const floatingAlert = useFloatingAlert();
 
@@ -37,6 +41,7 @@ const UserValidationController: React.FC = () => {
         frontIDSaved={!!frontID}
         backIDSaved={!!backID}
         onDetectFace={onDetectFace}
+        onSubmit={() => navigate('PersonalInformation')}
       />
       {showIDScanner && <IDScanner visible={showIDScanner} onDismiss={() => setShowIDScanner(false)} onSave={onSave} />}
     </SafeArea>

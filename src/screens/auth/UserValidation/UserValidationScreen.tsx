@@ -33,10 +33,11 @@ interface Props {
   frontIDSaved: boolean;
   backIDSaved: boolean;
   onDetectFace: (path: string) => void;
+  onSubmit: () => void;
 }
 
 const UserValidationScreen: React.FC<Props> = ({
-  onPressTakePhoto, frontIDSaved, backIDSaved, onDetectFace,
+  onPressTakePhoto, frontIDSaved, backIDSaved, onDetectFace, onSubmit,
 }) => {
   const { t } = useTranslation();
 
@@ -265,7 +266,7 @@ const UserValidationScreen: React.FC<Props> = ({
             <Button
               label={t('global:continue')}
               marginVertical={32}
-              onPress={() => {}}
+              onPress={onSubmit}
               disabled={!photoPath}
             />
           </Container>

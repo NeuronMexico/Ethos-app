@@ -93,6 +93,7 @@ const Tab = forwardRef<TabRef, Props>(({ tabs, onChange }, ref) => {
         ref={scrollViewRef}
         horizontal
         style={{ marginTop: 18 }}
+        contentContainerStyle={{ flexGrow: 1 }}
         showsHorizontalScrollIndicator={false}
         bounces={false}
         onScrollEndDrag={() => {
@@ -114,6 +115,7 @@ const Tab = forwardRef<TabRef, Props>(({ tabs, onChange }, ref) => {
             {currentIndex === idx && !showAnimation && <Container style={styles.indicator} />}
           </Touchable>
         ))}
+        <Container height={4} backgroundColor={Theme.Colors.PlaceboBlue} flex style={{ alignSelf: 'flex-end' }} />
       </ScrollView>
       {showAnimation && <Animated.View style={animatedStyles.indicator} />}
     </Container>
