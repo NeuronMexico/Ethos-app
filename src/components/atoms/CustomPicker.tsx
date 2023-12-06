@@ -29,6 +29,7 @@ export interface CustomPickerProps extends Omit<PickerUIProps, 'suffixIcon'> {
   androidMode?: PickerProps['mode'];
   iconSize?: number;
   width?: ViewStyle['width'];
+  labelWithValue?: boolean;
 }
 
 const CustomPicker: React.FC<CustomPickerProps> = ({
@@ -56,6 +57,7 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
   caption,
   width = '100%',
   marginLeft,
+  labelWithValue,
 }) => {
   const { t } = useTranslation();
 
@@ -72,7 +74,8 @@ const CustomPicker: React.FC<CustomPickerProps> = ({
         {
           title: actionSheetTitle,
           tintColor: Theme.Colors.DarkSoul,
-          options: [...options.map((item) => item.label), t('global:cancel')],
+          options: [...options.map((item) => (labelWithValue ? `${item.label} - ${item.value}` : item.label)),
+            t('global:cancel')],
           cancelButtonIndex: options.length,
           userInterfaceStyle: 'light',
         },

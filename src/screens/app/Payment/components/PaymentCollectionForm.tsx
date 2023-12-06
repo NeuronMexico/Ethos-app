@@ -22,6 +22,7 @@ const PaymentCollectionForm: React.FC<Props> = ({
   const conceptRef = useRef<TextInput>(null);
   const amountRef = useRef<any>(null);
 
+  const [account, setAccount] = useState<string>('');
   const [amount, setAmount] = useState<string>('');
   const [reference, setReference] = useState<string>();
   const [concept, setConcept] = useState<string>();
@@ -33,7 +34,12 @@ const PaymentCollectionForm: React.FC<Props> = ({
       <Picker
         title={destinationAccount?.name}
         label={t('transactions:WhoDoYouWantToSendMoney')}
-        options={[{ label: '**** **** **** 4531', value: '1' }]}
+        options={[
+          { label: 'Santander', value: '*** 3123' },
+          { label: 'Banco Azteca', value: '*** 1312' },
+          { label: 'Ethoscrédito', value: '*** 4323' },
+          { label: 'Ethosmedsalud', value: '*** 1234' },
+        ]}
         placeholder=""
         borderRadius={24}
         backgroundColor={Theme.Colors.DrWhite}
@@ -50,10 +56,11 @@ const PaymentCollectionForm: React.FC<Props> = ({
         )}
         useActionSheet
         actionSheetTitle={t('transactions:whatCard')}
-        caption={destinationAccount?.account}
+        caption={account}
         marginLeft={24}
-        value={destinationAccount?.bank || ''}
-        onValueChange={() => {}}
+        value={account}
+        onValueChange={setAccount}
+        labelWithValue
       />
       {
         destinationAccount && (
