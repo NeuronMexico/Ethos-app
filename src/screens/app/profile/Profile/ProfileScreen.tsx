@@ -26,6 +26,7 @@ interface Props {
   onPressSecurityAndLegalNotices: () => void;
   onPressLink: (type: SocialMediaTypes) => void;
   onPressLogOut: () => void;
+  onPressEditPhoto: () => void;
 }
 
 const ButtonField = ({
@@ -61,6 +62,7 @@ const ProfileScreen: React.FC<Props> = ({
   onPressBills,
   onPressSecurityAndLegalNotices,
   onPressLogOut,
+  onPressEditPhoto
 }) => {
   const { t } = useTranslation();
 
@@ -86,7 +88,7 @@ const ProfileScreen: React.FC<Props> = ({
         bounces={false}
       >
         <Container flex center style={{ marginVertical: 15, marginTop: 50 }}>
-          <ProfilePhoto size={90} withName withId />
+          <ProfilePhoto size={90} withName withId editable onPress={onPressEditPhoto} />
           <Container width="100%" style={{ marginVertical: 25, flex: 1 }}>
             <ButtonField title={t('profile:codeQR')} onPress={onPressCodeQR} icon={<ScanIcon />} />
             <ButtonField title={t('profile:editData')} onPress={onPressEdit} icon={<EditIcon />} />

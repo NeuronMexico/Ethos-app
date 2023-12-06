@@ -316,7 +316,7 @@
   },
   "profile": {
     "titleStack": "Perfil",
-    "codeQR": "Código QR",
+    "codeQR": "QR datos bancarios",
     "editData": "Editar datos",
     "editAddress": "Editar dirección",
     "securityAndLegalNotices": "Seguridad y avisos legales",
