@@ -1,4 +1,4 @@
-import { BellMarkedIcon } from 'assets/svg';
+import { BellMarkedIcon, MessageDotsIcon } from 'assets/svg';
 import {
   Button, Container, ProfilePhoto, Text, Touchable,
 } from 'components';
@@ -10,11 +10,13 @@ import Theme from 'theme';
 interface Props {
   onPressProfile?: () => void;
   onPressNotifications?: () => void;
+  onPressAssistant?: () => void;
 }
 
 const HomeHeader: React.FC<Props> = ({
   onPressProfile = () => {},
   onPressNotifications = () => {},
+  onPressAssistant = () => {},
 }: Props) => {
   const { t } = useTranslation();
   const { container } = styles;
@@ -27,10 +29,16 @@ const HomeHeader: React.FC<Props> = ({
       <Touchable onPress={onPressProfile}>
         <ProfilePhoto size={40} bottomStyle={{ marginTop: 0 }} />
       </Touchable>
-      <Container center>
-        <Text text={t('home:welcome', { name: 'John Smith' })} fontWeight="Bold" fontSize={17} />
+      <Container>
+        <Text
+          text={t('home:welcome', { name: 'John Smith' })}
+          textAlign="left"
+          fontWeight="Bold"
+          fontSize={17}
+        />
         <Text
           text={t('home:lastConnection', { lastConnection: new Date().toISOString() })}
+          textAlign="left"
           fontWeight="Semibold"
           fontSize={11}
         />
@@ -42,6 +50,15 @@ const HomeHeader: React.FC<Props> = ({
         borderRadius={10}
         backgroundColor={Theme.Colors.PlaceboBlue}
         icon={<BellMarkedIcon />}
+        colorless
+      />
+      <Button
+        onPress={onPressAssistant}
+        width={38}
+        height={38}
+        borderRadius={10}
+        backgroundColor={Theme.Colors.PlaceboBlue}
+        icon={<MessageDotsIcon />}
         colorless
       />
     </Container>

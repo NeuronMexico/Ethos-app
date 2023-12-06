@@ -5,7 +5,9 @@ import i18n from 'i18n';
 
 import { Container, DirectAccess, OptionButton } from 'components';
 import { ShortcutType } from 'utils';
-import { LockClosedIcon, PeopleIcon } from 'assets/svg';
+import {
+  CardPayIcon, CellphoneIcon, EthosQRIcon, FilmIcon, LampIcon, LockClosedIcon, PawIcon, PeopleIcon, TackIcon, TimeIcon, WaterIcon,
+} from 'assets/svg';
 import Theme from 'theme';
 
 const LOCKED_SHORTCUTS: ShortcutType[] = [
@@ -18,6 +20,46 @@ const LOCKED_SHORTCUTS: ShortcutType[] = [
     id: 'contacts',
     label: i18n.t('shortcuts:contacts'),
     icon: <PeopleIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'payCard',
+    label: i18n.t('shortcuts:payCard'),
+    icon: <CardPayIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'scheduledPayments',
+    label: i18n.t('shortcuts:scheduledPayments'),
+    icon: <TimeIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'topUps',
+    label: i18n.t('shortcuts:topUps'),
+    icon: <CellphoneIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: '2x1Cinema',
+    label: i18n.t('shortcuts:2x1Cinema'),
+    icon: <FilmIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'petBenefits',
+    label: i18n.t('shortcuts:petBenefits'),
+    icon: <PawIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'electricityAndGas',
+    label: i18n.t('shortcuts:electricityAndGas'),
+    icon: <LampIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'water',
+    label: i18n.t('shortcuts:water'),
+    icon: <WaterIcon color={Theme.Colors.DarkSoul} />,
+  },
+  {
+    id: 'ethosCreditQR',
+    label: i18n.t('shortcuts:ethosCreditQR'),
+    icon: <EthosQRIcon color={Theme.Colors.DarkSoul} />,
   },
 ];
 
@@ -54,7 +96,11 @@ const HomeShortcutsSection: React.FC<Props> = ({
 
   return (
     <Container flex>
-      <DirectAccess label={t('home:shortcuts')} onPress={onPressShortcuts} />
+      <DirectAccess
+        label={t('home:shortcuts')}
+        onPress={onPressShortcuts}
+        customIcon={<TackIcon />}
+      />
       <Container style={{ marginVertical: 18 }}>
         <FlatList
           data={[...LOCKED_SHORTCUTS]}

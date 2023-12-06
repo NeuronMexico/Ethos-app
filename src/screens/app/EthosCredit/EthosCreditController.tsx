@@ -50,6 +50,7 @@ const EthosCreditController: React.FC = () => {
         onPressShortcut={onPressShortcut}
         onPressProfile={() => navigate('ProfileStack', { screen: 'Profile' })}
         onPressNotifications={() => navigate('NotificationStack', { screen: 'Notifications' })}
+        onPressAssistant={() => navigate('VirtualAssistant')}
       />
       <Tutorial
         visible={showTutorial}

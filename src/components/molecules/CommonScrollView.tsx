@@ -6,7 +6,12 @@ interface Props {
 }
 
 const CommonScrollView: React.FC<Props> = ({ children }) => (
-  <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
+  <ScrollView
+    style={{ flex: 1 }}
+    contentContainerStyle={{ flexGrow: 1 }}
+    showsVerticalScrollIndicator={false}
+    bounces={false}
+  >
     {children}
   </ScrollView>
 );

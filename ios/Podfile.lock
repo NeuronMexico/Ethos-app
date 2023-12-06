@@ -13,6 +13,36 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.72.4)
   - fmt (6.2.1)
   - glog (0.3.5)
+  - GoogleDataTransport (9.3.0):
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleMLKit/FaceDetection (4.0.0):
+    - GoogleMLKit/MLKitCore
+    - MLKitFaceDetection (~> 3.0.0)
+  - GoogleMLKit/MLKitCore (4.0.0):
+    - MLKitCommon (~> 9.0.0)
+  - GoogleToolboxForMac/DebugUtils (2.3.2):
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - GoogleToolboxForMac/Defines (2.3.2)
+  - GoogleToolboxForMac/Logger (2.3.2):
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - "GoogleToolboxForMac/NSData+zlib (2.3.2)":
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.3.2)":
+    - GoogleToolboxForMac/DebugUtils (= 2.3.2)
+    - GoogleToolboxForMac/Defines (= 2.3.2)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.3.2)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.3.2)"
+  - GoogleUtilities/Environment (7.12.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.12.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/UserDefaults (7.12.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilitiesComponents (1.1.0):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (2.3.0)
   - hermes-engine (0.72.4):
     - hermes-engine/Pre-built (= 0.72.4)
   - hermes-engine/Pre-built (0.72.4)
@@ -21,6 +51,30 @@ PODS:
   - lottie-react-native (6.2.0):
     - lottie-ios (~> 4.2.0)
     - React-Core
+  - MLImage (1.0.0-beta4)
+  - MLKitCommon (9.0.0):
+    - GoogleDataTransport (~> 9.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - GoogleUtilitiesComponents (~> 1.0)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.1)
+  - MLKitFaceDetection (3.0.0):
+    - MLKitCommon (~> 9.0)
+    - MLKitVision (~> 5.0)
+  - MLKitVision (5.0.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GTMSessionFetcher/Core (< 3.0, >= 1.1)
+    - MLImage (= 1.0.0-beta4)
+    - MLKitCommon (~> 9.0)
+  - nanopb (2.30909.1):
+    - nanopb/decode (= 2.30909.1)
+    - nanopb/encode (= 2.30909.1)
+  - nanopb/decode (2.30909.1)
+  - nanopb/encode (2.30909.1)
+  - PromisesObjC (2.3.1)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -338,6 +392,10 @@ PODS:
     - Toast (~> 4)
   - react-native-slider (4.4.3):
     - React-Core
+  - react-native-worklets-core (0.2.4):
+    - React
+    - React-callinvoker
+    - React-Core
   - React-NativeModulesApple (0.72.4):
     - hermes-engine
     - React-callinvoker
@@ -452,6 +510,8 @@ PODS:
     - React-Core
   - RNCClipboard (1.12.1):
     - React-Core
+  - RNCMaskedView (0.3.0):
+    - React-Core
   - RNCPicker (2.5.0):
     - React-Core
   - RNDateTimePicker (7.5.0):
@@ -503,11 +563,20 @@ PODS:
   - RNScreens (3.23.0):
     - React-Core
     - React-RCTImage
+  - RNSensors (7.3.6):
+    - React-Core
   - RNSVG (13.10.0):
     - React-Core
   - SocketRocket (0.6.1)
   - Toast (4.0.0)
   - TOCropViewController (2.6.1)
+  - vision-camera-face-detector (0.1.8):
+    - GoogleMLKit/FaceDetection
+    - React-Core
+  - VisionCamera (2.16.5):
+    - React
+    - React-callinvoker
+    - React-Core
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -543,6 +612,7 @@ DEPENDENCIES:
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-simple-toast (from `../node_modules/react-native-simple-toast`)
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-worklets-core (from `../node_modules/react-native-worklets-core`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -562,6 +632,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
+  - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
@@ -570,14 +641,29 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNSensors (from `../node_modules/react-native-sensors`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - vision-camera-face-detector (from `../node_modules/vision-camera-face-detector`)
+  - VisionCamera (from `../node_modules/react-native-vision-camera`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - fmt
+    - GoogleDataTransport
+    - GoogleMLKit
+    - GoogleToolboxForMac
+    - GoogleUtilities
+    - GoogleUtilitiesComponents
+    - GTMSessionFetcher
     - libevent
     - lottie-ios
+    - MLImage
+    - MLKitCommon
+    - MLKitFaceDetection
+    - MLKitVision
+    - nanopb
+    - PromisesObjC
     - SocketRocket
     - Toast
     - TOCropViewController
@@ -644,6 +730,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-simple-toast"
   react-native-slider:
     :path: "../node_modules/@react-native-community/slider"
+  react-native-worklets-core:
+    :path: "../node_modules/react-native-worklets-core"
   React-NativeModulesApple:
     :path: "../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios"
   React-perflogger:
@@ -682,6 +770,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCClipboard:
     :path: "../node_modules/@react-native-clipboard/clipboard"
+  RNCMaskedView:
+    :path: "../node_modules/@react-native-masked-view/masked-view"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
   RNDateTimePicker:
@@ -698,8 +788,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSensors:
+    :path: "../node_modules/react-native-sensors"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  vision-camera-face-detector:
+    :path: "../node_modules/vision-camera-face-detector"
+  VisionCamera:
+    :path: "../node_modules/react-native-vision-camera"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -711,20 +807,32 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 3fc2d478e1c4b08276f9dd9128f80ec6d5d85c1f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
+  GoogleDataTransport: 57c22343ab29bc686febbf7cbb13bad167c2d8fe
+  GoogleMLKit: 2bd0dc6253c4d4f227aad460f69215a504b2980e
+  GoogleToolboxForMac: 8bef7c7c5cf7291c687cf5354f39f9db6399ad34
+  GoogleUtilities: 0759d1a57ebb953965c2dfe0ba4c82e95ccc2e34
+  GoogleUtilitiesComponents: 679b2c881db3b615a2777504623df6122dd20afe
+  GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   hermes-engine: 81191603c4eaa01f5e4ae5737a9efcf64756c7b2
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   lottie-ios: 809ecf2d460ed650a6aed7aa88b2ec45fab4779c
   lottie-react-native: b04640d81bfc87915cd5c9058caa1112374691ff
+  MLImage: 7bb7c4264164ade9bf64f679b40fb29c8f33ee9b
+  MLKitCommon: c1b791c3e667091918d91bda4bba69a91011e390
+  MLKitFaceDetection: 4981488f71ea8ed718cda692a29ab562637d9ae5
+  MLKitVision: 8baa5f46ee3352614169b85250574fde38c36f49
+  nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
+  PromisesObjC: c50d2056b5253dadbd6c2bea79b0674bd5a52fa4
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: c0569ecc035894e4a68baecb30fe6a7ea6e399f9
   RCTTypeSafety: e90354072c21236e0bcf1699011e39acd25fea2f
   React: a1be3c6dc0a6e949ccd3e659781aa47bbae1868f
   React-callinvoker: 1020b33f6cb1a1824f9ca2a86609fbce2a73c6ed
-  React-Codegen: d3cabb5a8b9de7b0fc5928c0cf478e73a178d728
-  React-Core: 34da8c952844e21f5a69bf46438fb6bf063900d0
-  React-CoreModules: 621243df8863055ff30f3bb2ff71573ffa7b16c8
+  React-Codegen: a0a26badf098d4a779acda922caf74f6ecabed28
+  React-Core: 52075b80f10c26f62219d7b5d13d7d8089f027b3
+  React-CoreModules: 21abab85d7ad9038ce2b1c33d39e3baaf7dc9244
   React-cxxreact: 4ad1cc861e32fb533dad6ff7a4ea25680fa1c994
-  React-debug: 0bc979d0c274021d9f4bd67853cce22f45730bac
+  React-debug: 17366a3d5c5d2f5fc04f09101a4af38cb42b54ae
   React-hermes: 37377d0a56aa0cf55c65248271866ce3268cde3f
   React-jsi: 6de8b0ccc6b765b58e4eee9ee38049dbeaf5c221
   React-jsiexecutor: c7f826e40fa9cab5d37cab6130b1af237332b594
@@ -737,25 +845,27 @@ SPEC CHECKSUMS:
   react-native-safe-area-context: 9697629f7b2cda43cf52169bb7e0767d330648c2
   react-native-simple-toast: 0c7d14bcad288b5b83ae4b0eea65651b4ca829b0
   react-native-slider: 1cdd6ba29675df21f30544253bf7351d3c2d68c4
-  React-NativeModulesApple: 08795d8cd5b78df3879334304f73f65223a8f338
+  react-native-worklets-core: b4094f51cb2bc649e297206425cb8956f4945e3e
+  React-NativeModulesApple: edb5ace14f73f4969df6e7b1f3e41bef0012740f
   React-perflogger: 496a1a3dc6737f964107cb3ddae7f9e265ddda58
   React-RCTActionSheet: 02904b932b50e680f4e26e7a686b33ebf7ef3c00
-  React-RCTAnimation: e44fe5053708c5be762943087c78dc5a6a3c645c
-  React-RCTAppDelegate: 75566e142d0c325f603790943a38f0e297bcbab3
-  React-RCTBlob: 5577c3542fafbd9241f505bda541f6762996b0eb
-  React-RCTImage: f48859ae6a1e5c2c8659f860efdfcb8b0cb60cde
-  React-RCTLinking: 9b145f380c6b5910e3219bef73e1d7024381ad54
-  React-RCTNetwork: 179f50a80c01fa7d6a515552a24ad2e294f341a1
-  React-RCTSettings: cdc9f538f0f8e72e6f3de7c971fb4fb2f49caff9
+  React-RCTAnimation: 88feaf0a85648fb8fd497ce749829774910276d6
+  React-RCTAppDelegate: 5792ac0f0feccb584765fdd7aa81ea320c4d9b0b
+  React-RCTBlob: 0dbc9e2a13d241b37d46b53e54630cbad1f0e141
+  React-RCTImage: b111645ab901f8e59fc68fbe31f5731bdbeef087
+  React-RCTLinking: 3d719727b4c098aad3588aa3559361ee0579f5de
+  React-RCTNetwork: b44d3580be05d74556ba4efbf53570f17e38f734
+  React-RCTSettings: c0c54b330442c29874cd4dae6e94190dc11a6f6f
   React-RCTText: 9b9f5589d9b649d7246c3f336e116496df28cfe6
-  React-RCTVibration: 35eec7201c8ffdaccdd908a5ec874b7055f975f3
-  React-rncore: 46133d523155fc84572338bd6a7c461c1d873efc
+  React-RCTVibration: 691c67f3beaf1d084ceed5eb5c1dddd9afa8591e
+  React-rncore: 142268f6c92e296dc079aadda3fade778562f9e4
   React-runtimeexecutor: d465ba0c47ef3ed8281143f59605cacc2244d5c7
-  React-runtimescheduler: a73c3a76da84003d141e338f0d0387ed0c401873
-  React-utils: 3a0ff8ee4487aab694b913ba2808a71e5ffa21c8
-  ReactCommon: 63baa8bedeb99b7017e264cabefed3d1784e475b
+  React-runtimescheduler: 4941cc1b3cf08b792fbf666342c9fc95f1969035
+  React-utils: b79f2411931f9d3ea5781404dcbb2fa8a837e13a
+  ReactCommon: 4b2bdcb50a3543e1c2b2849ad44533686610826d
   RNCAsyncStorage: f47fe18526970a69c34b548883e1aeceb115e3e1
   RNCClipboard: d77213bfa269013bf4b857b7a9ca37ee062d8ef1
+  RNCMaskedView: f7c74478c83c4fdfc5cf4df51f80c0dd5cf125c6
   RNCPicker: 32ca102146bc7d34a8b93a998d9938d9f9ec7898
   RNDateTimePicker: b722c23030b744763cf51d80fc22f354653f65e0
   RNDeviceInfo: bf8a32acbcb875f568217285d1793b0e8588c974
@@ -764,12 +874,15 @@ SPEC CHECKSUMS:
   RNLocalize: dbea38dcb344bf80ff18a1757b1becf11f70cae4
   RNReanimated: ab2e96c6d5591c3dfbb38a464f54c8d17fb34a87
   RNScreens: 6a8a3c6b808aa48dca1780df7b73ea524f602c63
+  RNSensors: 117ba71c7eeeea0407ea0c0bb79e3495d602049b
   RNSVG: 80584470ff1ffc7994923ea135a3e5ad825546b9
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
+  vision-camera-face-detector: c1d0ace533f6bcf710a21428efef01e019be42f4
+  VisionCamera: 6b28a5d94ea591d17a8b2da6cf1fcdb52c39aa67
   Yoga: 3efc43e0d48686ce2e8c60f99d4e6bd349aff981
 
-PODFILE CHECKSUM: 01332004717216af1dd24ea17dba05e395f03ea9
+PODFILE CHECKSUM: bb8b6a9d2cc1e0aca9859ab15ad1d7b5ffa3fcb4
 
 COCOAPODS: 1.11.3

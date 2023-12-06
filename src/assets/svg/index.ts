@@ -11,6 +11,9 @@ import CardIncrementIllustration from './card-increment-illustration.svg';
 import PersonalProjectIllustration from './personal-project-illustration.svg';
 import PersonalDispositionIllustration from './personal-disposition-illustration.svg';
 import OnboardAssistantBackground from './onboard-assistant-background.svg';
+import IdentificationFront from './identification-front.svg';
+import IdentificationBack from './identification-back.svg';
+import IDBorder from './id-border.svg';
 
 // Services
 import NetflixIcon from './services/netflix-icon.svg';
@@ -27,12 +30,14 @@ import AssistantB from './avatars/assistant-b.svg';
 
 import ErrorMark from './close_ring.svg';
 
+export * from './ArrowLeftIcon';
 export * from './BankIcon';
 export * from './BellIcon';
 export * from './BellMarkedIcon';
 export * from './BenefitsIcon';
 export * from './BookOpenIcon';
 export * from './CalendarIcon';
+export * from './CameraIcon';
 export * from './CardDigitalIcon';
 export * from './CardIcon';
 export * from './CardPayIcon';
@@ -97,6 +102,7 @@ export * from './RejectMarkCircleIcon';
 export * from './ScanIcon';
 export * from './SendIcon';
 export * from './ShieldIcon';
+export * from './TackIcon';
 export * from './TikTokIcon';
 export * from './TicketIcon';
 export * from './TimeIcon';
@@ -125,6 +131,9 @@ export {
   PersonalProjectIllustration,
   PersonalDispositionIllustration,
   OnboardAssistantBackground,
+  IdentificationFront,
+  IdentificationBack,
+  IDBorder,
   // Services
   NetflixIcon,
   SpotifyIcon,

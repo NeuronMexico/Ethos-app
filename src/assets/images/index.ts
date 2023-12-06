@@ -9,6 +9,7 @@ import TUTORIAL_FIRST from './tutorial-first-img.png';
 import TUTORIAL_SECOND from './tutorial-second-img.png';
 import TUTORIAL_THIRD from './tutorial-third-img.png';
 import TUTORIAL_FOURTH from './tutorial-fourth-img.png';
+import SELFIE_ILLUSTRATION from './selfie-illustration.png';
 
 export {
   TELCEL_LOGO,
@@ -22,4 +23,5 @@ export {
   TUTORIAL_THIRD,
   TUTORIAL_FOURTH,
   DUMMY_CARD,
+  SELFIE_ILLUSTRATION,
 };

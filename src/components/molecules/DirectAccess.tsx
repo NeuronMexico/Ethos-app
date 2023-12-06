@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { ColorValue, ViewStyle } from 'react-native';
 import {
   Container, Text, Touchable,
@@ -16,6 +16,7 @@ interface Props {
   fontWeight?: FontWeightTypes;
   iconSize?: number;
   disabled?: boolean;
+  customIcon?: ReactNode;
   marginVertical?: ViewStyle['marginVertical'];
   marginHorizontal?: ViewStyle['marginHorizontal'];
   marginLeft?: ViewStyle['marginLeft'];
@@ -28,6 +29,7 @@ const DirectAccess: React.FC<Props> = ({
   label,
   onPress,
   disabled,
+  customIcon,
   marginBottom,
   marginHorizontal,
   marginLeft,
@@ -53,7 +55,7 @@ const DirectAccess: React.FC<Props> = ({
   >
     <Container row center>
       <Text typography={typography} text={label} fontSize={fontSize} fontWeight={fontWeight} textColor={color} />
-      <ChevronRightIcon color={color} width={iconSize} height={iconSize} />
+      { customIcon || <ChevronRightIcon color={color} width={iconSize} height={iconSize} />}
     </Container>
   </Touchable>
 );
