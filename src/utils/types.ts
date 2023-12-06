@@ -28,6 +28,7 @@ export interface MarginPropsInterface {
 
 // Navigation types
 export type AuthStackParams = {
+  FirstSteps: undefined;
   Login: undefined;
   CreateAccount: undefined;
   UserValidation: undefined;
