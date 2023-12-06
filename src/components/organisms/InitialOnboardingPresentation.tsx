@@ -1,13 +1,15 @@
 import React, { useRef, useState } from 'react';
-import { Animated, Text } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 import PagerView from 'react-native-pager-view';
 import {
-  Button, Container, DotIndicator, FadeInImage, TouchableText,
+  Button, Container, DotIndicator, FadeInImage, SafeArea, TouchableText,
 } from 'components';
 import { ETHOS_CREDIT_LOGO } from 'assets/images';
 import Theme from 'theme';
 import { useTranslation } from 'react-i18next';
 import { RightArrowIcon } from 'assets/svg';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface HighlightedText {
   text: string;
@@ -15,6 +17,7 @@ interface HighlightedText {
 }
 
 const InitialOnboardingPresentation = () => {
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { t } = useTranslation();
   const pagerViewRef = useRef<PagerView>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -30,7 +33,7 @@ const InitialOnboardingPresentation = () => {
         color: '#2B2B2B',
         fontSize: 32,
         fontStyle: 'normal',
-        fontWeight: 700,
+        fontWeight: 'bold' as TextStyle['fontWeight'],
       }}
       >
         {words && words.map((word, index) => {
@@ -57,59 +60,44 @@ const InitialOnboardingPresentation = () => {
     { text: t('onboarding:subtitle3'), highlightedWords: t('onboarding:highlighted3').split(' ') },
   ];
 
-  const section = (
-    <Container style={{ justifyContent: 'flex-end' }}>
-      {renderHighlightedText(sections[currentPage])}
-      <Container row style={{ justifyContent: 'space-between', marginBottom: 53 }}>
-        <DotIndicator totalDots={totalPages} currentIndex={currentPage} />
-        {lastPage ? (
-          <Button
-            label={t('global:continue')}
-            onPress={() => setCurrentPage(currentPage + 1)}
-            width={132}
-          />
-        ) : (
-          <Button
-            onPress={() => setCurrentPage(currentPage + 1)}
-            icon={<RightArrowIcon />}
-            width={52}
-            backgroundColor={Theme.Colors.DarkSoul}
-          />
-        )}
-      </Container>
-    </Container>
-  );
-
-  const nextPage = () => {
-    setCurrentPage(0);
-  };
-
-  const handlePage = (position: number) => {
-    if (lastPage) {
-      nextPage();
-    } else {
-      setCurrentPage(position);
-    }
-  };
-
   return (
-    <Container flex style={{ marginHorizontal: Theme.Sizes.Padding, marginTop: 13 }}>
-      <Container row style={{ justifyContent: 'space-between', alignItems: 'center' }}>
-        <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />
-        <TouchableText text={t('global:skip')} typography="header" fontSize={13} onPress={() => {}} />
-      </Container>
-      <Container flex>
-        <Animated.View style={{ flex: 1, justifyContent: 'flex-end' }}>
+    <SafeArea bottomSafeArea={false}>
+      <Container flex style={{ marginHorizontal: Theme.Sizes.Padding, marginTop: 13 }}>
+        <Container row style={{ justifyContent: 'space-between', alignItems: 'center' }}>
+          <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />
+          <TouchableText text={t('global:skip')} typography="header" fontSize={13} onPress={() => {}} />
+        </Container>
+        <Container flex={5}>
           <PagerView
             ref={pagerViewRef}
+            initialPage={0}
             style={{ flex: 1 }}
-            onPageSelected={({ nativeEvent: { position } }) => handlePage(position)}
+            onPageScroll={({ nativeEvent: { position } }) => setCurrentPage(position)}
           >
-            {section}
+            <Container style={{ justifyContent: 'flex-end' }}>
+              {renderHighlightedText(sections[currentPage])}
+              <Container row style={{ justifyContent: 'space-between', marginBottom: 53 }}>
+                <DotIndicator totalDots={totalPages} currentIndex={currentPage} />
+                {lastPage ? (
+                  <Button
+                    label={t('global:continue')}
+                    onPress={() => navigate('Login')}
+                    width={132}
+                  />
+                ) : (
+                  <Button
+                    onPress={() => setCurrentPage(currentPage + 1)}
+                    icon={<RightArrowIcon />}
+                    width={52}
+                    backgroundColor={Theme.Colors.DarkSoul}
+                  />
+                )}
+              </Container>
+            </Container>
           </PagerView>
-        </Animated.View>
+        </Container>
       </Container>
-    </Container>
+    </SafeArea>
   );
 };
 
