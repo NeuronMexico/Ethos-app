@@ -1,22 +1,25 @@
 import React from 'react';
 import {
-  Button, Container, FadeInImage, Header, OptionButton, Text,
+  Button, Container, OptionButton, Text,
 } from 'components';
 import { formatDate, formatQuantity } from 'utils';
 import i18n from 'i18n';
 import Theme from 'theme';
 import { ExportIcon, VisaIcon } from 'assets/svg';
-import { ETHOS_CREDIT_LOGO } from 'assets/images';
-import { StyleSheet } from 'react-native';
 
+interface AlertDataItem {
+  label: string;
+  value: string;
+}
 interface Props {
   amount?: number;
-  reference?: string;
   date?: Date;
   showButtons?: boolean;
   onPressBack?: () => void;
   onPressOptionButton?: () => void;
   checkmark?: boolean;
+  references?: AlertDataItem[];
+  paymentDetails?: AlertDataItem[];
 }
 
 const Line = () => (
@@ -35,13 +38,15 @@ const Line = () => (
 const ContentModalResponse: React.FC<Props> = ({
   amount,
   showButtons = false,
-  reference,
+  references,
   date,
   checkmark = true,
+  paymentDetails,
   onPressBack = () => {},
   onPressOptionButton = () => {},
 }: Props) => (
   <Container style={{ marginHorizontal: 32 }}>
+    {!amount && (
     <Text
       text={formatQuantity(Number(amount))}
       textAlign="center"
@@ -50,22 +55,13 @@ const ContentModalResponse: React.FC<Props> = ({
       fontSize={34}
       marginBottom={16}
     />
-    {!checkmark && (
-    <>
-      <Container row center crossCenter style={{ marginTop: 16 }}>
-        <Text text={i18n.t('form:costPerDisposal')} textAlign="center" fontSize={13} />
-        <Text text="$50" textAlign="center" typography="title" fontSize={13} marginLeft={4} />
-      </Container>
-      <Container row center crossCenter>
-        <Text text={i18n.t('form:SPEICost')} textAlign="center" fontSize={13} marginVertical={5} />
-        <Text text="$7.50" textAlign="center" typography="title" fontSize={13} marginLeft={4} marginVertical={5} />
-      </Container>
-      <Container row center crossCenter>
-        <Text text={i18n.t('form:reference')} textAlign="center" fontSize={13} />
-        <Text text={reference} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
-      </Container>
-    </>
     )}
+    {references && references.map((item: AlertDataItem, index: number) => (
+      <Container key={index} row center crossCenter style={{ marginTop: 16 }}>
+        <Text text={i18n.t(item.label)} textAlign="center" fontSize={13} />
+        <Text text={item.value} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
+      </Container>
+    ))}
     {checkmark && (<Text text={date && formatDate(date)} textAlign="center" />)}
     <Button
       label="**** **** **** 531"
@@ -80,19 +76,15 @@ const ContentModalResponse: React.FC<Props> = ({
       marginTop={27}
     />
     <Line />
-    <Container row>
-      <Container width="50%" style={{ marginRight: 12 }}>
-        <Text text={i18n.t('form:name')} textAlign="left" />
-        <Text text="Andrés Lara" typography="title" fontSize={17} marginVertical={8} />
-        <Text text={i18n.t('form:destinationAccount')} textAlign="left" />
-        <Text text="CLABE ***531" typography="title" fontSize={17} marginVertical={8} />
-      </Container>
-      <Container width="50%" style={{ marginLeft: 12 }}>
-        <Text text={i18n.t('form:concept')} textAlign="left" />
-        <Text text="Pago Viaje" typography="title" fontSize={17} marginVertical={8} />
-        <Text text={i18n.t('form:bank')} textAlign="left" />
-        <Text text="STP" typography="title" fontSize={17} marginVertical={8} />
-      </Container>
+    <Container row style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+      {paymentDetails && paymentDetails.map((item: AlertDataItem, index) => (
+        <Container width="50%" key={index}>
+          <Container style={{ marginRight: 12 }}>
+            <Text text={i18n.t(item.label)} textAlign="left" />
+            <Text text={item.value} typography="title" fontSize={17} marginVertical={8} />
+          </Container>
+        </Container>
+      ))}
     </Container>
     <Line />
     <Text text={i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
