@@ -6,11 +6,12 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PreviewStackParams } from 'utils';
 import { useAlert } from 'context';
-import { Container, Text } from 'components';
+import { ContentModalResponse } from 'screens/app/Payment/components';
+import { useTranslation } from 'react-i18next';
 
 const PreviewScreen: React.FC = () => {
   const { navigate } = useNavigation<NativeStackNavigationProp<PreviewStackParams>>();
-
+  const { t } = useTranslation();
   const alert = useAlert();
 
   return (
@@ -50,18 +51,29 @@ const PreviewScreen: React.FC = () => {
         <Button
           title="Alert"
           onPress={() => alert.show({
-            title: 'Title',
-            // All next params are optional
-            reference: '543210',
-            invoice: '12345',
-            date: new Date(),
-            message: 'Message',
-            checkmark: true,
             extraInfo: (
-              <Container>
-                <Text text="$2,000.00" fontSize={34} fontWeight="Bold" />
-              </Container>
+              <ContentModalResponse
+                amount={Number('1234')}
+                date={new Date()}
+                references={[
+                  { label: 'form:costPerDisposal', value: '$50' },
+                  { label: 'form:SPEICost', value: '$7.50' },
+                  { label: 'form:reference', value: 'ABC123' },
+                ]}
+                paymentDetails={[
+                  { label: 'form:name', value: 'Andrés Lara' },
+                  { label: 'form:destinationAccount', value: 'CLABE ***531' },
+                  { label: 'form:concept', value: 'Pago Viaje' },
+                  { label: 'form:bank', value: 'STP' },
+                ]}
+              />
             ),
+            title: t('charges:confirmCharge'),
+            fullscreen: true,
+            checkmark: true,
+            logo: true,
+            reference: '123',
+            invoice: '1234',
             actions: [
               { label: 'Primary', onPress: alert.hide, type: 'primary' },
               { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
