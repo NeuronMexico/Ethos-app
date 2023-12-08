@@ -499,8 +499,7 @@
     "noCardWithdrawal": "Retiro sin tarjeta",
     "desiredWithdrawalAmount": "Monto que deseas retirar",
     "totalAmountToCharge": "Monto total a cobrar: {{amount}}",
-    "iWantToKnowMore": "Quiero saber más",
-    "": ""
+    "iWantToKnowMore": "Quiero saber más"
   },
   "personalProject": {
     "title": "Proyecto personal",
