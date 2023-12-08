@@ -212,10 +212,10 @@
     "scheduledPayments": "Pagos programados",
     "nextPayment": "Siguiente pago",
     "forServices": "De servicios",
-    "toContacts": "A contactos",
+    "toContacts": "Nuevo cobro a contactos",
     "newPayment": "Nuevo pago",
     "viaCODI": "Vía CODI",
-    "inCash": "En efectivo",
+    "inCash": "Cobro en efectivo",
     "singlePayment": "Pago único",
     "directDebit": "Domiciliado",
     "recurringPayment": "Recurrente",
@@ -277,7 +277,8 @@
     "otherActions": "Otras Acciones",
     "WhoDoYouWantToSendMoney": "¿A quién le quieres enviar dinero?",
     "whatCard": "¿Desde que tarjeta?",
-    "payToQR": "Código generado"
+    "payToQR": "Código generado",
+    "qrEthoscreditPayment": "QR Cobro ethoscrédito"
   },
   "alert": {
     "invoice": "Folio:",

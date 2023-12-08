@@ -72,29 +72,29 @@ const CollectionsPage: React.FC<Props> = ({
         rightFontWeight="Semibold"
       />
 
-      <Container row style={{ marginTop: 32 }}>
+      <Text text={t('transactions:otherActions')} typography="header" marginVertical={32} />
+
+      <Container row>
         <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton
-            label="QR ethoscrédito"
-            icon={<EthosQRIcon />}
-            onPress={onPressEthosQR}
-          />
-        </Container>
-        <Container flex style={{ marginLeft: 8 }}>
           <PaymentButton
             label={t('transactions:toContacts')}
             icon={<PeopleIcon />}
             onPress={onPressContactsCollection}
           />
         </Container>
+        <Container flex style={{ marginLeft: 8 }}>
+          <PaymentButton
+            label={t('transactions:qrEthoscreditPayment')}
+            icon={<EthosQRIcon />}
+            onPress={onPressEthosQR}
+          />
+        </Container>
       </Container>
       <Container row style={{ marginTop: 16 }}>
         <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('transactions:viaCODI')} icon={<CoDiIcon />} onPress={onPressCoDiCollection} />
-        </Container>
-        <Container flex style={{ marginLeft: 8 }}>
           <PaymentButton label={t('transactions:inCash')} icon={<MoneyIcon />} onPress={onPressCashCollection} />
         </Container>
+        <Container flex style={{ marginLeft: 8 }} />
       </Container>
     </ScrollView>
   );
