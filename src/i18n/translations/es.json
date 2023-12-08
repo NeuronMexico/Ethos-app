@@ -492,12 +492,29 @@
     "enjoyYourMoney": " ¡Disfruta de tu dinero en efectivo y sigue aprovechando todos los beneficios que nuestra app tiene para ofrecerte!"
   },
   "personalDisposition": {
-    "title": "Disposición personal",
-    "screenMessage": "Retira fondos de tu tarjeta ethoscrédito y envíalos a una CLABE o retíralos en efectivo en nuestros más de 600 estableciminetos",
+    "screenMessage": "Tu tarjeta Ethos Crédito te brinda el respaldo que necesitas para hacer realidad un proyecto personal",
+    "congratulationsMessage": "¡Felicidades, por tu perfil transaccional tienes pre-autorizado un crédito adicional con mensualidades fijas!",
+    "screenMessage2": "¡Utilízala con mayor frecuencia para que puedas acceder a un crédito adicional con mensualidades fijas!",
     "transfer": "Transferir",
     "noCardWithdrawal": "Retiro sin tarjeta",
     "desiredWithdrawalAmount": "Monto que deseas retirar",
-    "totalAmountToCharge": "Monto total a cobrar: {{amount}}"
+    "totalAmountToCharge": "Monto total a cobrar: {{amount}}",
+    "iWantToKnowMore": "Quiero saber más",
+    "": ""
+  },
+  "personalProject": {
+    "title": "Proyecto personal",
+    "howMuchMoney": "¿Cuánto dinero necesitas?",
+    "nameOfProjects": "Nombre de proyecto",
+    "manyPeriods": "¿En cuántos periodos deseas pagar?",
+    "howDoYouWantToUse": "¿Cómo deseas disponer de tu crédito adicional?",
+    "commission": "Comisión",
+    "total": "Total a pagar",
+    "monthlyPayment": "Pago mensual",
+    "accept": "Acepto ",
+    "termsAndConditions": "términos y condiciones ",
+    "termsAndConditions2": "del crédito para mi proyecto personal"
+
   },
   "form": {
     "name": "Nombre",

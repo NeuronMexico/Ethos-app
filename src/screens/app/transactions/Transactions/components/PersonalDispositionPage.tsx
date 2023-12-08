@@ -1,21 +1,20 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Container, Text } from 'components';
+import { Button, Container, Text } from 'components';
 import { useTranslation } from 'react-i18next';
-import { MoneyIcon, PersonalDispositionIllustration, TransferIcon } from 'assets/svg';
+import { PersonalDispositionIllustration } from 'assets/svg';
 import Theme from 'theme';
 import { BOTTOM_TAB_INSET } from 'utils';
-import { PaymentButton } from './PaymentButton';
 
 interface Props {
-  onPressTransfer?: () => void;
-  onPressWithdraw?: () => void;
+  isCandidate: boolean;
+  iWantToKnowMore: () => void;
 }
 
 const PersonalDispositionPage: React.FC<Props> = (props: Props) => {
   const {
-    onPressTransfer = () => {},
-    onPressWithdraw = () => {},
+    isCandidate,
+    iWantToKnowMore,
   } = props;
   const { t } = useTranslation();
   const { container, illustrationContainer } = styles;
@@ -32,16 +31,15 @@ const PersonalDispositionPage: React.FC<Props> = (props: Props) => {
           text={t('personalDisposition:screenMessage')}
           textAlign="center"
           fontSize={17}
+          marginTop={32}
+        />
+        <Text
+          text={t(`personalDisposition:${isCandidate ? 'screenMessage' : 'screenMessage2'}`)}
+          textAlign="center"
+          fontSize={17}
           marginVertical={32}
         />
-      </Container>
-      <Container row style={{ height: 120 }}>
-        <Container flex style={{ marginRight: 8 }}>
-          <PaymentButton label={t('personalDisposition:transfer')} icon={<TransferIcon />} onPress={onPressTransfer} />
-        </Container>
-        <Container flex style={{ marginLeft: 8 }}>
-          <PaymentButton label={t('personalDisposition:noCardWithdrawal')} icon={<MoneyIcon />} onPress={onPressWithdraw} />
-        </Container>
+        {isCandidate && (<Button label={t('personalDisposition:iWantToKnowMore')} onPress={iWantToKnowMore} />)}
       </Container>
     </Container>
   );
