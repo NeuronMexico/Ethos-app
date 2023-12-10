@@ -13,7 +13,6 @@ interface Props {
   onPressCash: () => void;
   onPressScheduledCollections: () => void;
   onPressContactsCollection: () => void;
-  onPressCoDiCollection: () => void;
   onPressCashCollection: () => void;
   onPressEthosQR: () => void;
   onPressTransfer: () => void;
@@ -26,7 +25,6 @@ const TransactionsScreen: React.FC<Props> = ({
   onPressCash,
   onPressNewPayment,
   onPressCashCollection,
-  onPressCoDiCollection,
   onPressContactsCollection,
   onPressEthosQR,
   onPressScheduledCollections,
@@ -67,7 +65,6 @@ const TransactionsScreen: React.FC<Props> = ({
         />
         <CollectionsPage
           onPressCashCollection={onPressCashCollection}
-          onPressCoDiCollection={onPressCoDiCollection}
           onPressContactsCollection={onPressContactsCollection}
           onPressEthosQR={onPressEthosQR}
           onPressScheduledCollections={onPressScheduledCollections}

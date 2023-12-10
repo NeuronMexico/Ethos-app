@@ -20,6 +20,8 @@ const CardShippingForm: React.FC<Props> = ({ onSubmit }) => {
   const postalCodeRef = useRef<TextInput>(null);
   const cityRef = useRef<TextInput>(null);
   const phoneRef = useRef<any>(null);
+  const betweenStreetsRef = useRef<TextInput>(null);
+  const referencesRef = useRef<TextInput>(null);
 
   const [useSameAsCreditCard, setUseSameAsCreditCard] = useState<boolean>(false);
 
@@ -39,6 +41,12 @@ const CardShippingForm: React.FC<Props> = ({ onSubmit }) => {
 
   const [state, setState] = useState<string>('');
   const [stateError, setStateError] = useState<string>('');
+
+  const [betweenStreets, setBetweenStreets] = useState<string>('');
+  const [betweenStreetsError, setBetweenStreetsError] = useState<string>('');
+
+  const [references, setReferences] = useState<string>('');
+  const [referencesError, setReferencesError] = useState<string>('');
 
   const [city, setCity] = useState<string>('');
   const [cityError, setCityError] = useState<string>('');
@@ -114,6 +122,30 @@ const CardShippingForm: React.FC<Props> = ({ onSubmit }) => {
 
     if (validation.error === 'required') setCityError(t('errors:required'));
     else setCityError(t('errors:invalidEmail'));
+
+    return false;
+  };
+
+  const betweenStreetsValidation = (): boolean => {
+    const validation = validations.required(betweenStreets);
+    if (validation.ok) {
+      setBetweenStreetsError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setBetweenStreetsError(t('errors:required'));
+
+    return false;
+  };
+
+  const referencesValidation = (): boolean => {
+    const validation = validations.required(references);
+    if (validation.ok) {
+      setReferencesError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setReferencesError(t('errors:required'));
 
     return false;
   };
@@ -240,10 +272,34 @@ const CardShippingForm: React.FC<Props> = ({ onSubmit }) => {
             autoCorrect
             blurOnSubmit={false}
             error={cityError}
-            onSubmitEditing={() => cityValidation() && phoneRef.current?.getElement()?.focus()}
+            onSubmitEditing={() => cityValidation() && betweenStreetsRef.current?.focus()}
           />
         </Container>
       </Container>
+
+      <Input
+        ref={betweenStreetsRef}
+        label={t('cards:betweenStreets')}
+        value={betweenStreets}
+        onChangeText={setBetweenStreets}
+        autoCorrect
+        autoCapitalize="words"
+        blurOnSubmit={false}
+        error={betweenStreetsError}
+        onSubmitEditing={() => betweenStreetsValidation() && referencesRef.current?.focus()}
+      />
+
+      <Input
+        ref={referencesRef}
+        label={t('cards:references')}
+        value={references}
+        onChangeText={setReferences}
+        autoCorrect
+        autoCapitalize="sentences"
+        blurOnSubmit={false}
+        error={referencesError}
+        onSubmitEditing={() => referencesValidation() && phoneRef.current?.getElement()?.focus()}
+      />
 
       <Input
         ref={phoneRef}

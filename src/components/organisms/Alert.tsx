@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import { ColorValue, ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
-  Container, FadeInImage, Modal, Text,
+  Container, Modal, Text,
 } from 'components/atoms';
 import Theme from 'theme';
 import { Button } from 'components/molecules/Button';
@@ -10,7 +10,6 @@ import i18n from 'i18n';
 import { formatDate } from 'utils';
 import { CheckMarkCircleIcon, ExportIcon, RejectMarkCircleIcon } from 'assets/svg';
 import { OptionButton } from 'components/molecules';
-import { ETHOS_CREDIT_LOGO } from 'assets/images';
 
 export type AlertActionType = 'primary' | 'secondary' | 'destructive-primary' | 'destructive-secondary';
 
@@ -35,7 +34,7 @@ export interface AlertDataInterface {
   extraInfo?: ReactElement;
   customBackgroundColor?: ColorValue;
   fullscreen?: boolean;
-  logo?: boolean;
+  divider?: boolean;
 }
 
 interface Props {
@@ -65,8 +64,8 @@ const Alert: React.FC<Props> = ({
     shareOption,
     extraInfo,
     fullscreen,
-    logo,
     customBackgroundColor = fullscreen ? Theme.Colors.PlaceboBlue : undefined,
+    divider,
   },
 }) => {
   const { t } = useTranslation();
@@ -86,8 +85,20 @@ const Alert: React.FC<Props> = ({
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
-          {!!logo && (<FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} style={styles.ethosCreditLogo} />)}
-          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
+          {!!authorization && (
+            <Text>
+              <Text text={t('alert:authorization')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={authorization} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
+          {!!trackingKey && (
+            <Text>
+              <Text text={t('alert:trackingKey')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={trackingKey} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
           {!!reference && (
             <Text>
               <Text text={t('alert:reference')} typography="caption" fontWeight="Regular" />
@@ -102,17 +113,8 @@ const Alert: React.FC<Props> = ({
               <Text text={invoice} typography="caption" fontWeight="Bold" />
             </Text>
           )}
-          {(checkmark || rejectMarck) && (
-          <Container style={{ marginBottom: 8 }}>
-            {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
-          </Container>
-          )}
           {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
-          {extraInfo && (
-          <Container style={{ marginTop: 2, marginBottom: 8 }}>
-            {extraInfo}
-          </Container>
-          )}
+          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
           {!!message && (
           <Text
             text={message}
@@ -123,19 +125,23 @@ const Alert: React.FC<Props> = ({
             fontWeight="Medium"
           />
           )}
-          {!!authorization && (
-            <Text>
-              <Text text={t('alert:authorization')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={authorization} typography="caption" fontWeight="Bold" />
-            </Text>
+          {(checkmark || rejectMarck) && (
+          <Container style={{ marginBottom: 8 }}>
+            {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
+          </Container>
           )}
-          {!!trackingKey && (
-            <Text>
-              <Text text={t('alert:trackingKey')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={trackingKey} typography="caption" fontWeight="Bold" />
-            </Text>
+          {extraInfo && (
+          <Container style={{ marginTop: 2, marginBottom: 8 }}>
+            {extraInfo}
+          </Container>
+          )}
+          {divider && (
+          <Container
+            width="85%"
+            height={1}
+            backgroundColor={Theme.Colors.PlaceboBlue}
+            style={{ marginVertical: 8 }}
+          />
           )}
           {actions.map(({ label, onPress, type }, index) => {
             let backgroundColor = Theme.Colors.DarkSoul;
@@ -193,7 +199,7 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.Colors.White,
     borderRadius: 16,
     width: '100%',
-    maxHeight: '87%',
+    maxHeight: '80%',
     flexGrow: 0,
     overflow: 'hidden',
   },
@@ -202,10 +208,6 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
     paddingHorizontal: 16,
     alignItems: 'center',
-  },
-  ethosCreditLogo: {
-    marginTop: 16,
-    marginBottom: 16,
   },
 });
 

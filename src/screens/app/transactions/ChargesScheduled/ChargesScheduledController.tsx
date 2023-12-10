@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  Alert, AlertDataInterface, Container, SafeArea,
+  QRModal, SafeArea,
 } from 'components';
-import { useAlert } from 'context';
-import Theme from 'theme';
+import { useAlert, useBottomSheet } from 'context';
+import { formatQuantity } from 'utils';
 import ChargesScheduledScreen from './ChargesScheduledScreen';
-import Component from './Component';
 import ComponentDelete from './ComponentDelete';
 import ComponentConfirmDelete from './ComponentConfirmDelete';
+import { ChargeBottomSheetContent } from './components';
 
 const ChargesScheduledController: React.FC = () => {
   const { t } = useTranslation();
+
+  const bottomSheet = useBottomSheet();
   const alert = useAlert();
 
   const [visible, setVisible] = useState<boolean>(false);
-  const [data, setData] = useState<AlertDataInterface>();
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     alert.show({
       reference: '58432',
       invoice: '12345',
@@ -34,9 +35,9 @@ const ChargesScheduledController: React.FC = () => {
         onPress: alert.hide,
       }],
     });
-  };
+  }, [alert, t]);
 
-  const onDelete = () => {
+  const onDelete = useCallback(() => {
     setVisible(false);
     alert.show({
       title: t('charges:chargeScheduledDeleteQuestion'),
@@ -58,35 +59,36 @@ const ChargesScheduledController: React.FC = () => {
         <ComponentDelete />
       ),
     });
-  };
+  }, [alert, handleDelete, t]);
 
-  const onPressCharge = () => {
-    setData({
-      customBackgroundColor: Theme.Colors.PlaceboBlue,
-      reference: '534332',
-      invoice: '12345',
-      date: new Date(),
-      title: t('charges:successCharge'),
-      extraInfo: (
-        <Component
-          onDismiss={() => setVisible(false)}
-          onDelete={onDelete}
-        />
-      ),
-    });
-    setVisible(true);
-  };
+  const onPressCharge = useCallback((type: string) => {
+    if (type === 'charge') {
+      bottomSheet.show(<ChargeBottomSheetContent
+        onPressEdit={bottomSheet.hide}
+        onPressDelete={() => {
+          bottomSheet.hide();
+        }}
+      />);
+    } else if (type === 'qr') {
+      setVisible(true);
+    }
+  }, [bottomSheet]);
 
   return (
     <SafeArea>
       <ChargesScheduledScreen onPressCharge={onPressCharge} />
-      {
-        visible && (
-          <Container style={{ position: 'absolute', backgroundColor: Theme.Colors.PlaceboBlue }}>
-            <Alert visible={visible} data={data!} onDismiss={() => setVisible(false)} />
-          </Container>
-        )
-      }
+      <QRModal
+        visible={visible}
+        title="Código QR"
+        message={t('transactions:goToAffiliatedStore')}
+        amount={`${formatQuantity(2500)} MXN`}
+        flow="code-payment"
+        onPressCheckEstablishment={() => {
+          setVisible(false);
+          console.log('establishment');
+        }}
+        onPressBack={() => setVisible(false)}
+      />
     </SafeArea>
   );
 };

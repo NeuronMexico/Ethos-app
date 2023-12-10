@@ -6,15 +6,12 @@ import {
 } from 'components';
 import Theme from 'theme';
 import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
-import {
-  CoDiIcon, EthosQRIcon, MoneyIcon, PeopleIcon,
-} from 'assets/svg';
+import { EthosQRIcon, MoneyIcon, PeopleIcon } from 'assets/svg';
 import { PaymentButton } from './PaymentButton';
 
 interface Props {
   onPressScheduledCollections: () => void;
   onPressContactsCollection: () => void;
-  onPressCoDiCollection: () => void;
   onPressCashCollection: () => void;
   onPressEthosQR: () => void;
 }
@@ -22,7 +19,6 @@ interface Props {
 const CollectionsPage: React.FC<Props> = ({
   onPressScheduledCollections,
   onPressContactsCollection,
-  onPressCoDiCollection,
   onPressCashCollection,
   onPressEthosQR,
 }) => {

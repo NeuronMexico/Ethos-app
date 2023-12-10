@@ -3,12 +3,13 @@ import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-naviga
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { useDispatch } from 'reactRedux';
 import { useTranslation } from 'react-i18next';
-import { Container, SafeArea, Text } from 'components';
+import {
+  Container, QRModal, SafeArea, Text,
+} from 'components';
 import { AppStackParams, formatQuantity } from 'utils';
 import { usePaymentFlow } from 'hooks';
 import { useAlert } from 'context';
 import CashPaymentScreen from './PaymentScreen';
-import { QRModal } from './components';
 
 interface Props extends NativeStackScreenProps<AppStackParams, 'PaymentFlow'> {}
 

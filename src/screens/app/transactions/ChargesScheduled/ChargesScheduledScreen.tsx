@@ -9,7 +9,8 @@ import Theme from 'theme';
 import { formatQuantity } from 'utils';
 
 interface Props {
-  onPressCharge: () => void;
+  // TODO: Define correct type
+  onPressCharge: (type: string) => void;
 }
 
 const ChargesScheduledScreen: React.FC<Props> = ({
@@ -28,7 +29,7 @@ const ChargesScheduledScreen: React.FC<Props> = ({
           textColor={Theme.Colors.GreatFalls}
         />
         <MultipleTextButton
-          onPress={onPressCharge}
+          onPress={() => onPressCharge('charge')}
           title="Andrés Lara"
           label="Septiembre 29, 2023 19:14:23 hr"
           rightText={formatQuantity(2500)}
@@ -41,9 +42,22 @@ const ChargesScheduledScreen: React.FC<Props> = ({
           rightFontWeight="Semibold"
         />
         <MultipleTextButton
-          onPress={onPressCharge}
+          onPress={() => onPressCharge('charge')}
           title="Cobro en efectivo"
           label="Septiembre 19, 2023 10:14:23 hr"
+          rightText={formatQuantity(2000)}
+          borderColor={Theme.Colors.PlaceboBlue}
+          borderRadius={24}
+          marginTop={16}
+          alignContent="space-between"
+          fontSize={Theme.Sizes.Body}
+          fontWeight="Regular"
+          rightFontWeight="Semibold"
+        />
+        <MultipleTextButton
+          onPress={() => onPressCharge('qr')}
+          title="QR cobro ethoscrédito"
+          label="Folio: 432452"
           rightText={formatQuantity(2000)}
           borderColor={Theme.Colors.PlaceboBlue}
           borderRadius={24}
@@ -61,7 +75,7 @@ const ChargesScheduledScreen: React.FC<Props> = ({
           marginTop={16}
         />
         <MultipleTextButton
-          onPress={onPressCharge}
+          onPress={() => onPressCharge('charge')}
           title="Julio Mercado"
           label="Junio 29, 2023 19:04:23 hr"
           rightText={formatQuantity(350)}
@@ -74,7 +88,7 @@ const ChargesScheduledScreen: React.FC<Props> = ({
           rightFontWeight="Semibold"
         />
         <MultipleTextButton
-          onPress={onPressCharge}
+          onPress={() => onPressCharge('charge')}
           title="Rafael Montoya"
           label="Marzo 15, 2023 19:04:23 hr"
           rightText={formatQuantity(240)}

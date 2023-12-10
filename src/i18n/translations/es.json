@@ -181,7 +181,13 @@
     "cvv": "CVV",
     "or": "o",
     "card8Digits": "8 dígitos de tu tarjeta",
-    "editDirectDebitPayment": "Editar domiciliación pago"
+    "editDirectDebitPayment": "Editar domiciliación pago",
+    "betweenStreets": "Entre calles",
+    "references": "Referencias",
+    "distantZone": "La dirección está en una zona distante",
+    "additionalCost": "El envío implica un costo adicional de {{amount}}",
+    "editAddress": "Editar dirección",
+    "confirmDeliveryAddress": "Confirmar dirección de entrega"
   },
   "virtualAssistant": {
     "virtualAssistant": "Asistente Virtual",
@@ -278,7 +284,8 @@
     "WhoDoYouWantToSendMoney": "¿A quién le quieres enviar dinero?",
     "whatCard": "¿Desde que tarjeta?",
     "payToQR": "Código generado",
-    "qrEthoscreditPayment": "QR Cobro ethoscrédito"
+    "qrEthoscreditPayment": "QR Cobro ethoscrédito",
+    "chargeType": "Tipo de cobro"
   },
   "alert": {
     "invoice": "Folio:",

@@ -2,9 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
-  Button, Container, SafeArea, Text,
+  Button, Container, QRModal, SafeArea, Text,
 } from 'components';
-import { QRModal } from 'screens/app/Payment/components';
 import { useAlert } from 'context';
 import { useTranslation } from 'react-i18next';
 import { formatQuantity } from 'utils';
