@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
@@ -7,8 +7,9 @@ import {
   Container,
   SafeArea, SwipeableSwitch, Text, Tutorial,
 } from 'components';
-import { useBottomSheet } from 'context';
+import { useAlert, useBottomSheet } from 'context';
 import EthosCreditScreen from './EthosCreditScreen';
+import { ContentModalResponse } from '../Payment/components';
 
 const EthosCreditController: React.FC = () => {
   const { t } = useTranslation();
@@ -17,7 +18,8 @@ const EthosCreditController: React.FC = () => {
   const bottomSheet = useBottomSheet();
 
   const [cardOn, setCardOn] = React.useState<boolean>(false);
-  const [showTutorial, setShowTutorial] = useState<boolean>(true);
+  const [showTutorial, setShowTutorial] = useState<boolean>(false);
+  const alert = useAlert();
 
   const content = (
     <Container>
@@ -42,6 +44,31 @@ const EthosCreditController: React.FC = () => {
     setShowTutorial(false);
     // dispatch(setTutorialViewed(true));
   };
+
+  const paymentRequest = () => {
+    alert.show({
+      extraInfo: (
+        <ContentModalResponse
+          amount={2500}
+          pickerCard
+          references={[
+            { label: 'Disposición de línea de crédito', value: '$50' },
+            { label: 'Costo por Transferencia', value: '$7.50' },
+          ]}
+        />
+      ),
+      title: 'Catherine Daran te envió una solicitud de cobro',
+      actions: [
+        { label: 'Pagar', onPress: alert.hide, type: 'primary' },
+        { label: 'Pendiente', onPress: alert.hide, type: 'secondary' },
+        { label: t('global:decline'), onPress: alert.hide, type: 'destructive-secondary' },
+      ],
+    });
+  };
+
+  useEffect(() => {
+    paymentRequest();
+  }, []);
 
   return (
     <SafeArea>
