@@ -5,6 +5,7 @@ import ScheduledPaymentsController from 'screens/app/transactions/ScheduledPayme
 import PaymentController from 'screens/app/transactions/Payment/PaymentController';
 import BillPaymentController from 'screens/app/transactions/BillPayment/BillPaymentController';
 import CashPaymentController from 'screens/app/transactions/CashPayment/CashPaymentController';
+import PersonalProjectController from 'screens/app/transactions/PersonalProject/PersonalProjectController';
 
 const Stack = createNativeStackNavigator<TransactionsGlobalStackParams>();
 
@@ -14,6 +15,7 @@ const TransactionsGlobalStack: React.FC = () => (
     <Stack.Screen name="Payment" component={PaymentController} />
     <Stack.Screen name="BillPayment" component={BillPaymentController} />
     <Stack.Screen name="CashPayment" component={CashPaymentController} />
+    <Stack.Screen name="PersonalProject" component={PersonalProjectController} />
   </Stack.Navigator>
 );
 

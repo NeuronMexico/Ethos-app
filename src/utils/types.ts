@@ -76,6 +76,7 @@ export type TransactionsGlobalStackParams = {
   Payment: { edition?: boolean; scheduled?: boolean } | undefined;
   BillPayment: undefined;
   CashPayment: undefined;
+  PersonalProject: undefined;
 };
 
 export type ChargesGlobalStackParams = {

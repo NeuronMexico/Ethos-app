@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import PagerView from 'react-native-pager-view';
 import { Container, Header } from 'components';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import {
   CollectionsPage, PaymentsPage, PersonalDispositionPage, Tab, TabRef,
 } from './components';
@@ -15,8 +17,6 @@ interface Props {
   onPressContactsCollection: () => void;
   onPressCashCollection: () => void;
   onPressEthosQR: () => void;
-  onPressTransfer: () => void;
-  onPressWithdrawalNoCard: () => void;
 }
 
 const TransactionsScreen: React.FC<Props> = ({
@@ -28,13 +28,13 @@ const TransactionsScreen: React.FC<Props> = ({
   onPressContactsCollection,
   onPressEthosQR,
   onPressScheduledCollections,
-  onPressTransfer,
-  onPressWithdrawalNoCard,
 }) => {
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   const pagerViewRef = useRef<PagerView>(null);
   const tabRef = useRef<TabRef>(null);
+  const isCandidate = true;
 
   const tabs = [
     t('transactions:payments'),
@@ -70,8 +70,8 @@ const TransactionsScreen: React.FC<Props> = ({
           onPressScheduledCollections={onPressScheduledCollections}
         />
         <PersonalDispositionPage
-          onPressTransfer={onPressTransfer}
-          onPressWithdraw={onPressWithdrawalNoCard}
+          isCandidate={isCandidate}
+          iWantToKnowMore={() => navigate('TransactionsGlobalStack', { screen: 'PersonalProject' })}
         />
       </PagerView>
     </Container>
