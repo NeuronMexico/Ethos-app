@@ -34,7 +34,7 @@ const PersonalDispositionPage: React.FC<Props> = (props: Props) => {
           marginTop={32}
         />
         <Text
-          text={t(`personalDisposition:${isCandidate ? 'screenMessage' : 'screenMessage2'}`)}
+          text={t(`personalDisposition:${isCandidate ? 'congratulationsMessage' : 'screenMessage2'}`)}
           textAlign="center"
           fontSize={17}
           marginVertical={32}
