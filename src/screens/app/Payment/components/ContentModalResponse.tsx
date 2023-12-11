@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Button, Container, OptionButton, Text,
+  Button, Container, OptionButton, Picker, Text,
 } from 'components';
 import { formatDate, formatQuantity } from 'utils';
 import i18n from 'i18n';
@@ -20,6 +20,8 @@ interface Props {
   checkmark?: boolean;
   references?: AlertDataItem[];
   paymentDetails?: AlertDataItem[];
+  cardButton?: boolean;
+  pickerCard?: boolean;
 }
 
 const Line = () => (
@@ -30,7 +32,6 @@ const Line = () => (
       borderBottomWidth: 1,
       borderBottomColor: Theme.Colors.PlaceboBlue,
       marginTop: 16,
-      marginBottom: 24,
     }}
   />
 );
@@ -44,9 +45,11 @@ const ContentModalResponse: React.FC<Props> = ({
   paymentDetails,
   onPressBack = () => {},
   onPressOptionButton = () => {},
+  cardButton,
+  pickerCard,
 }: Props) => (
-  <Container style={{ marginHorizontal: 32 }}>
-    {!amount && (
+  <Container>
+    {amount && (
     <Text
       text={formatQuantity(Number(amount))}
       textAlign="center"
@@ -57,25 +60,42 @@ const ContentModalResponse: React.FC<Props> = ({
     />
     )}
     {references && references.map((item: AlertDataItem, index: number) => (
-      <Container key={index} row center crossCenter style={{ marginTop: 16 }}>
+      <Container key={index} row center crossCenter>
         <Text text={i18n.t(item.label)} textAlign="center" fontSize={13} />
         <Text text={item.value} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
       </Container>
     ))}
     {checkmark && (<Text text={date && formatDate(date)} textAlign="center" />)}
+    { cardButton && (
     <Button
       label="**** **** **** 531"
       onPress={() => {}}
       marginBottom={16}
       backgroundColor={Theme.Colors.PlaceboBlue}
       icon={<VisaIcon />}
-      colorless
       marginHorizontal="auto"
       paddingVertical={10}
       paddingHorizontal={16}
       marginTop={27}
     />
+    )}
     <Line />
+    { pickerCard && (
+    <Picker
+      title="TDC ethoscrédito"
+      label={i18n.t('transactions:myCreditCard')}
+      options={[{ label: '**** **** **** 4531', value: '1', caption: 'hey' }]}
+      placeholder=""
+      borderRadius={24}
+      backgroundColor={Theme.Colors.DrWhite}
+      prefixIcon={<VisaIcon />}
+      useActionSheet
+      actionSheetTitle={i18n.t('transactions:myCreditCard')}
+      caption="**** **** **** 4531"
+      value="$16,801.08"
+      onValueChange={() => {}}
+    />
+    )}
     <Container row style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
       {paymentDetails && paymentDetails.map((item: AlertDataItem, index) => (
         <Container width="50%" key={index}>
@@ -87,7 +107,7 @@ const ContentModalResponse: React.FC<Props> = ({
       ))}
     </Container>
     <Line />
-    <Text text={i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
+    <Text text={date && i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
     <Text text={date && formatDate(date, 'MMMM d, yyyy')} textAlign="center" />
 
     {
