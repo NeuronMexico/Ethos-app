@@ -8,6 +8,7 @@ import Theme from 'theme';
 interface Props {
   title?: string;
   enableNewContact?: boolean;
+  from: string;
   onPressNewContact?: () => void;
   onPressContact: (id: number) => void;
   onPressFastCollect?: () => void;
@@ -16,18 +17,23 @@ interface Props {
 const ChargesContactsScreen: React.FC<Props> = ({
   title,
   enableNewContact = false,
+  from,
   onPressNewContact,
   onPressContact,
   onPressFastCollect = () => {},
 }: Props) => (
   <Container flex>
     <Header title={title ?? ''} />
-    <Container style={{ marginHorizontal: Theme.Sizes.Padding, marginTop: Theme.Sizes.MarginTop, marginBottom: 16 }}>
-      <Button
-        label={i18n.t('charges:fastCollect')}
-        onPress={onPressFastCollect}
-      />
-    </Container>
+    {
+      from !== 'pay' && (
+        <Container style={{ marginHorizontal: Theme.Sizes.Padding, marginTop: Theme.Sizes.MarginTop, marginBottom: 16 }}>
+          <Button
+            label={i18n.t('charges:fastCollect')}
+            onPress={onPressFastCollect}
+          />
+        </Container>
+      )
+    }
     <ListScreen
       showHeader={false}
       enableNewContact={enableNewContact}

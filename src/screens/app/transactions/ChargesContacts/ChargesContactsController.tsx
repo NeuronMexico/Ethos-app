@@ -58,6 +58,7 @@ const ChargesContactsController = () => {
             ? t('transactions:payToContacts')
             : t('charges:chargeWithContacts')
         }
+        from={from}
         onPressNewContact={onPressNewContact}
         onPressContact={onPressContact}
         enableNewContact={from === 'pay'}

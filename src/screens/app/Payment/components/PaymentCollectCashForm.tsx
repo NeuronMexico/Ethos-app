@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { MapIcon, VisaIcon } from 'assets/svg';
 import {
-  Button, Container, Input, Picker,
+  Button, Container, Input, MultipleTextButton, Picker,
 } from 'components';
 import Theme from 'theme';
 import { formatQuantity } from 'utils';
@@ -19,7 +19,6 @@ const PaymentCollectCashForm: React.FC<Props> = ({
   onPressEstablishments = () => {},
 }: Props) => {
   const { t } = useTranslation();
-  const { iconContainer } = styles;
 
   const amountRef = useRef<TextInput>(null);
 
@@ -37,15 +36,14 @@ const PaymentCollectCashForm: React.FC<Props> = ({
 
   return (
     <Container flex>
-      <Button
-        label={t('cards:checkEstablishments')}
-        onPress={onPressEstablishments}
-        height={72}
-        icon={<Container style={iconContainer}><MapIcon /></Container>}
-        borderRadius={24}
-        textColor={Theme.Colors.DarkSoul}
-        backgroundColor={Theme.Colors.White}
+      <MultipleTextButton
+        title={t('transactions:checkEstablishments')}
         borderColor={Theme.Colors.PlaceboBlue}
+        borderRadius={24}
+        marginTop={Theme.Sizes.MarginTop}
+        alignContent="space-between"
+        onPress={onPressEstablishments}
+        icon={<Container style={styles.iconContainer}><MapIcon /></Container>}
       />
       <Container style={{ height: 1, backgroundColor: Theme.Colors.PlaceboBlue, marginTop: 16 }} />
       <Picker

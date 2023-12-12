@@ -108,10 +108,14 @@ const PaymentForm: React.FC = () => {
       reference: '123',
       invoice: '1234',
       actions: [
-        { label: 'Primary', onPress: () => {
-          alert.hide();
-          goBack();
-        }, type: 'primary' },
+        {
+          label: 'Primary',
+          onPress: () => {
+            alert.hide();
+            goBack();
+          },
+          type: 'primary',
+        },
         { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
         { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
         { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
@@ -123,8 +127,8 @@ const PaymentForm: React.FC = () => {
     switch (formComponent) {
       case 'PaymentCollectCash':
         setFormComponentType(<PaymentCollectCashForm
-          onPressEstablishments={() => navigate('CardsGlobalStack', { screen: 'Establishments' })}
-          onSubmit={() => {}}
+          onPressEstablishments={() => navigate('Establishments')}
+          onSubmit={onSubmit}
         />);
         break;
       case 'PaymentCollectQR':
