@@ -5,14 +5,14 @@ import React, {
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 
 import {
-  Container, Header, SafeArea, Text,
+  Container, Header, SafeArea,
 } from 'components';
 import Theme from 'theme';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAlert } from 'context';
 import { useTranslation } from 'react-i18next';
-import { formatQuantity } from 'utils';
+import ReactNativeBiometrics from 'react-native-biometrics';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import {
   AmountSecondaryForm,
@@ -27,6 +27,8 @@ import {
   PaymentTransferAccountForm,
   WithdrawalNoCardForm,
 } from './components';
+
+const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
 const PaymentForm: React.FC = () => {
   const alert = useAlert();
@@ -65,9 +67,12 @@ const PaymentForm: React.FC = () => {
         {
           label: t('global:continue'),
           type: 'primary',
-          onPress: () => {
+          onPress: async () => {
             alert.hide();
-            showConfirmAlert();
+            const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+            if (result.success) {
+              showConfirmAlert();
+            }
           },
         },
         {
