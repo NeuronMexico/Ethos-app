@@ -17,6 +17,7 @@ interface Props {
   onPressContactsCollection: () => void;
   onPressCashCollection: () => void;
   onPressEthosQR: () => void;
+  onPressPaymentQR: () => void;
 }
 
 const TransactionsScreen: React.FC<Props> = ({
@@ -28,6 +29,7 @@ const TransactionsScreen: React.FC<Props> = ({
   onPressContactsCollection,
   onPressEthosQR,
   onPressScheduledCollections,
+  onPressPaymentQR,
 }) => {
   const { t } = useTranslation();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
@@ -62,6 +64,7 @@ const TransactionsScreen: React.FC<Props> = ({
           onPressServices={onPressServices}
           onPressWithdrawalNoCard={onPressCash}
           onPressNewPayment={onPressNewPayment}
+          onPressPaymentQR={onPressPaymentQR}
         />
         <CollectionsPage
           onPressCashCollection={onPressCashCollection}

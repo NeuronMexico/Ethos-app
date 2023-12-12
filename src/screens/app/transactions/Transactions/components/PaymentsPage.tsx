@@ -7,7 +7,7 @@ import {
 import Theme from 'theme';
 import { BOTTOM_TAB_INSET, formatDate, formatQuantity } from 'utils';
 import {
-  AmazonIcon, CFEIcon, DisneyIcon, HBOIcon, MoneyIcon, NetflixIcon, SpotifyIcon, TransferIcon,
+  AmazonIcon, CFEIcon, DisneyIcon, EthosQRIcon, HBOIcon, MoneyIcon, NetflixIcon, SpotifyIcon, TransferIcon,
 } from 'assets/svg';
 import { PaymentButton } from './PaymentButton';
 
@@ -16,6 +16,7 @@ interface Props {
   onPressServices: () => void;
   onPressNewPayment: () => void;
   onPressWithdrawalNoCard: () => void;
+  onPressPaymentQR: () => void;
 }
 
 const PaymentsPage: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const PaymentsPage: React.FC<Props> = ({
   onPressServices,
   onPressWithdrawalNoCard,
   onPressNewPayment,
+  onPressPaymentQR,
 }) => {
   const { t } = useTranslation();
 
@@ -125,6 +127,12 @@ const PaymentsPage: React.FC<Props> = ({
             onPress={onPressWithdrawalNoCard}
           />
         </Container>
+      </Container>
+      <Container row style={{ marginTop: 16 }}>
+        <Container flex style={{ marginRight: 8 }}>
+          <PaymentButton label={t('transactions:paymentQR')} icon={<EthosQRIcon />} onPress={onPressPaymentQR} />
+        </Container>
+        <Container flex style={{ marginLeft: 8 }} />
       </Container>
     </ScrollView>
   );

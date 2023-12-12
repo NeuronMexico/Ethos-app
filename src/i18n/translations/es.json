@@ -285,7 +285,8 @@
     "whatCard": "¿Desde que tarjeta?",
     "payToQR": "Código generado",
     "qrEthoscreditPayment": "QR Cobro ethoscrédito",
-    "chargeType": "Tipo de cobro"
+    "chargeType": "Tipo de cobro",
+    "paymentQR": "QR Pago ethoscrédito"
   },
   "alert": {
     "invoice": "Folio:",

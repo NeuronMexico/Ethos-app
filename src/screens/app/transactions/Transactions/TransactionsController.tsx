@@ -30,6 +30,16 @@ const TransactionsController: React.FC = () => {
     });
   };
 
+  const onPressPaymentQR = () => {
+    navigate('PaymentStack', {
+      screen: 'form',
+      params: {
+        title: i18n.t('transactions:paymentQR'),
+        formComponent: ComponentTypes.PaymentQR,
+      },
+    });
+  };
+
   return (
     <SafeArea>
       <TransactionsScreen
@@ -56,6 +66,7 @@ const TransactionsController: React.FC = () => {
         onPressEthosQR={onPressEthosQR}
         onPressScheduledCollections={() => navigate('ChargesGlobalStack', { screen: 'ChargesScheduled' })}
         onPressTransfer={onPressTransfer}
+        onPressPaymentQR={onPressPaymentQR}
         onPressWithdrawalNoCard={() => navigate('ChargesGlobalStack', { screen: 'WithdrawalNoCard' })}
       />
     </SafeArea>
