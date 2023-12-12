@@ -25,7 +25,7 @@ const TransactionsController: React.FC = () => {
       screen: 'form',
       params: {
         title: i18n.t('personalDisposition:title'),
-        formComponent: ComponentTypes.PaymentTransfer,
+        formComponent: ComponentTypes.PaymentTransferAccountForm,
       },
     });
   };

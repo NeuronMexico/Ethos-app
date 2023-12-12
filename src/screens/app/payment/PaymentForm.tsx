@@ -174,7 +174,7 @@ const PaymentForm: React.FC = () => {
       <Container useKeyboard flex>
         <Header title={title} />
         <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
-          <ScrollView>
+          <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
             {formComponentType}
           </ScrollView>
         </Container>
