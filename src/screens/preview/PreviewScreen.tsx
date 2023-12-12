@@ -83,6 +83,7 @@ const PreviewScreen: React.FC = () => {
           })}
         />
         <Button title="Icons" onPress={() => navigate('Icons')} />
+        <Button title="Forms" onPress={() => navigate('Forms')} />
       </ScrollView>
     </SafeAreaView>
   );

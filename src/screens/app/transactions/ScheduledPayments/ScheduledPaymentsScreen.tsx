@@ -4,24 +4,20 @@ import { useTranslation } from 'react-i18next';
 import {
   Container, Header, MultipleTextButton, Text,
 } from 'components';
-import { MoreIcon } from 'assets/svg';
 import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
 
 interface Props {
   onPressPayment: (type: string) => void;
-  onPressAdd: () => void;
 }
 
-const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment, onPressAdd }) => {
+const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
   const { t } = useTranslation();
 
   return (
     <Container flex>
       <Header
         title={t('transactions:scheduledPayments')}
-        rightIcon={<MoreIcon width={22} height={22} />}
-        rightAction={onPressAdd}
       />
       <ScrollView
         style={{ flex: 1, marginTop: 4 }}

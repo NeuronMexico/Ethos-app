@@ -42,6 +42,14 @@ const ChargesContactsController = () => {
     },
   });
 
+  const onPressFastCollect = () => navigate('PaymentStack', {
+    screen: 'form',
+    params: {
+      title: t('charges:fastCollect'),
+      formComponent: ComponentTypes.PaymentFastCollect,
+    },
+  });
+
   return (
     <SafeArea>
       <ChargesContactsScreen
@@ -53,6 +61,7 @@ const ChargesContactsController = () => {
         onPressNewContact={onPressNewContact}
         onPressContact={onPressContact}
         enableNewContact={from === 'pay'}
+        onPressFastCollect={onPressFastCollect}
       />
     </SafeArea>
   );

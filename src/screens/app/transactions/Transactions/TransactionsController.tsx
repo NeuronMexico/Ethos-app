@@ -40,7 +40,15 @@ const TransactionsController: React.FC = () => {
           screen: 'ChargesContacts',
           params: { from: 'pay' },
         })}
-        onPressCashCollection={() => navigate('ChargesGlobalStack', { screen: 'ChargesCash' })}
+        onPressCashCollection={() => {
+          navigate('PaymentStack', {
+            screen: 'form',
+            params: {
+              title: 'Cobro en efectivo',
+              formComponent: ComponentTypes.PaymentCollectCash,
+            },
+          });
+        }}
         onPressContactsCollection={() => navigate('ChargesGlobalStack', {
           screen: 'ChargesContacts',
           params: { from: 'collect' },

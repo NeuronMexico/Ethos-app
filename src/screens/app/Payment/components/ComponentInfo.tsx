@@ -16,7 +16,7 @@ interface Props {
   onPressOptionButton?: () => void;
 }
 
-const Line = () => (
+export const Line = () => (
   <Container
     style={{
       width: 'auto',

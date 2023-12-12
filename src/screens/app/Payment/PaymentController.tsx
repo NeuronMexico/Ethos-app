@@ -1,7 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import { useDispatch } from 'reactRedux';
 import { useTranslation } from 'react-i18next';
 import {
   Container, QRModal, SafeArea, Text,
@@ -14,7 +13,6 @@ import CashPaymentScreen from './PaymentScreen';
 interface Props extends NativeStackScreenProps<AppStackParams, 'PaymentFlow'> {}
 
 const PaymentController: React.FC<Props> = () => {
-  const dispatch = useDispatch();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { params } = useRoute<RouteProp<AppStackParams, 'PaymentFlow'>>();
 
@@ -77,7 +75,6 @@ const PaymentController: React.FC<Props> = () => {
     QRModalTitle,
     QRModalMsg,
     QRModalAmount,
-    QRTransactionCost,
     onConfirm,
   } = usePaymentFlow(params.flow, onFinishTransaction);
 
@@ -94,7 +91,6 @@ const PaymentController: React.FC<Props> = () => {
         title={QRModalTitle}
         message={QRModalMsg}
         amount={QRModalAmount(2500)}
-        transactionCost={QRTransactionCost}
         flow={flow}
         onPressCheckEstablishment={() => {
           setShowQRModal(false);

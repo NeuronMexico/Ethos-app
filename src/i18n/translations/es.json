@@ -474,7 +474,7 @@
   "charges": {
     "chargeWithCash": "Cobro en efectivo",
     "chargeWithCODI": "Cobro vía CODI",
-    "chargeWithContacts": "Cobrar a contactos",
+    "chargeWithContacts": "Cobro a contactos",
     "chargeTo": "Cobrar a {{to}}",
     "payTo": "Pagar a {{to}}",
     "chargesScheduled": "Cobros programados",
@@ -484,7 +484,8 @@
     "confirmCharge": "Confirmar pago",
     "chargeScheduledDeleteQuestion": "¿Estás seguro eliminar el cobro programado?",
     "chargeScheduledDeletedSuccessfully": "Cobro programado eliminado correctamente",
-    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago"
+    "accountWhereChargesWillBeMade": "Cuenta donde quiero recibir el pago",
+    "fastCollect": "Cobro rápido"
   },
   "payment": {
     "collectViaCODI": "Cobro QR ethoscrédito",
@@ -576,7 +577,16 @@
     "typeOfProperty": "Tipo de vivienda",
     "typeOfPropertyCaption": "Selecciona tu tipo de vivienda",
     "monthlyIncome": "Ingresos mensuales",
-    "monthlyExpenses": "Gastos mensuales estimados"
+    "monthlyExpenses": "Gastos mensuales estimados",
+    "cardWhereYouWantToReceive": "¿En que tarjeta quieres recibir el dinero?",
+    "cardWhereTouWantToReceiveCollect": "¿En que tarjeta quiero recibir el cobro?",
+    "cardWhereYouWantToReceiveDeposit": "¿A que tarjeta quieres que te depositen?",
+    "howMuchWantToCollect": "¿Cuánto quieres cobrar?",
+    "accountToCollect": "¿A quién le quieres realizar el cobro?",
+    "CCethos": "TDC ethoscrédito",
+    "withdrawalWithoutCard": "Retiro sin tarjeta",
+    "whereMonthlyPayment": "¿En que tarjeta quieres que se carguen tus mensualidades?",
+    "whatAccountGonnaPay": "¿Desde que tarjeta quieres hacer el pago?"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",

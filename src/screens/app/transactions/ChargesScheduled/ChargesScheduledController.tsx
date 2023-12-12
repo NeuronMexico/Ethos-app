@@ -6,6 +6,9 @@ import {
 } from 'components';
 import { useAlert, useBottomSheet } from 'context';
 import { formatQuantity } from 'utils';
+import { ComponentTypes } from 'screens/app/Payment/PaymentsForms';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ChargesScheduledScreen from './ChargesScheduledScreen';
 import ComponentDelete from './ComponentDelete';
 import ComponentConfirmDelete from './ComponentConfirmDelete';
@@ -13,6 +16,7 @@ import { ChargeBottomSheetContent } from './components';
 
 const ChargesScheduledController: React.FC = () => {
   const { t } = useTranslation();
+  const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
 
   const bottomSheet = useBottomSheet();
   const alert = useAlert();
@@ -64,7 +68,16 @@ const ChargesScheduledController: React.FC = () => {
   const onPressCharge = useCallback((type: string) => {
     if (type === 'charge') {
       bottomSheet.show(<ChargeBottomSheetContent
-        onPressEdit={bottomSheet.hide}
+        onPressEdit={() => {
+          bottomSheet.hide();
+          navigate('PaymentStack', {
+            screen: 'form',
+            params: {
+              title: 'Editar cobro',
+              formComponent: ComponentTypes.PaymentCollectScheduled,
+            },
+          });
+        }}
         onPressDelete={() => {
           bottomSheet.hide();
         }}

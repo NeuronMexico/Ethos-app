@@ -8,7 +8,6 @@ export type ErrorType = 'invalid-format' | 'required' | 'not-match' | undefined;
 
 export type SocialMediaTypes = 'facebook' | 'instagram' | 'tikTok' | 'x' | 'linkedIn';
 
-export type PaymentFlowType = 'cash-payment' | 'contact-payment' | 'code-payment' | 'personal-project-payment';
 export type DomiciliaryPaymentFlowType = 'card' | 'personal-project';
 
 export type ShortcutType = {
@@ -59,7 +58,7 @@ export type AppStackParams = {
   ContactsGlobalStack: undefined;
   VirtualAssistant: undefined;
   TransactionsGlobalStack: undefined;
-  PaymentFlow: { flow: PaymentFlowType };
+  PaymentFlow: { flow: ComponentTypes };
   Establishments: undefined;
   DomiciliaryPayment: { edition?: boolean; flow: DomiciliaryPaymentFlowType };
   ChargesGlobalStack: undefined;
@@ -142,6 +141,7 @@ export type PreviewStackParams = {
   SwipeableSwitch: undefined;
   Icons: undefined;
   RadioButtonGroup: undefined;
+  Forms: undefined;
 };
 
 export type ConfirmationCodeScreenParams = {

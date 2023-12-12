@@ -8,6 +8,7 @@ import { PaymentAlertInfo, SafeArea } from 'components';
 import { useAlert, useBottomSheet } from 'context';
 import ScheduledPaymentsScreen from './ScheduledPaymentsScreen';
 import { DirectDebitBottomSheetContent, PaymentBottomSheetContent } from './components';
+import { ComponentTypes } from 'screens/app/Payment/PaymentsForms';
 
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
@@ -42,8 +43,15 @@ const ScheduledPaymentsController: React.FC = () => {
 
   const onPressEdit = useCallback((stack: string, screen: string) => {
     bottomSheet.hide();
-    navigate(stack, { screen, params: { edition: true } });
-  }, [bottomSheet, navigate]);
+    navigate('PaymentStack', {
+      screen: 'form',
+      params: {
+        title: 'Editar pago',
+        formComponent: ComponentTypes.PaymentEdit,
+      },
+    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onPressDelete = useCallback((domiciliary: boolean) => {
     bottomSheet.hide();
@@ -86,7 +94,7 @@ const ScheduledPaymentsController: React.FC = () => {
       type === 'single' ? (
         <PaymentBottomSheetContent
           onPressDelete={() => onPressDelete(false)}
-          onPressEdit={() => onPressEdit('TransactionsGlobalStack', 'Payment')}
+          onPressEdit={() => onPressEdit('PaymentGlobalStack', 'form')}
         />
       ) : (
         <DirectDebitBottomSheetContent
@@ -101,7 +109,6 @@ const ScheduledPaymentsController: React.FC = () => {
     <SafeArea>
       <ScheduledPaymentsScreen
         onPressPayment={onPressPayment}
-        onPressAdd={() => navigate('TransactionsGlobalStack', { screen: 'Payment', params: { scheduled: true } })}
       />
     </SafeArea>
   );
