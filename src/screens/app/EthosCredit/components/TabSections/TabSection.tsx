@@ -17,7 +17,7 @@ interface Props {
 const TabSection: React.FC<Props> = ({ product }: Props) => {
   const { t } = useTranslation();
 
-  const [isBlurred, setIsBlurred] = useState<boolean>(false);
+  const [isBlurred, setIsBlurred] = useState<boolean>(true);
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

@@ -40,8 +40,8 @@
     "personalDisposition": "Disposición personal",
     "payCard": "Pagar tarjeta",
     "scheduledPayments": "Cobros programados",
-    "ethosCreditQR": "QR ethoscrédito",
-    "collectContacts": "Cobrar a contactos",
+    "ethosCreditQR": "QR Pago ethoscrédito",
+    "collectContacts": "Cobro a contactos",
     "collectViaCODI": "Cobrar vía CODI",
     "collectInCash": "Cobrar en efectivo",
     "personalProject": "Proyecto personal",
@@ -55,8 +55,8 @@
     "catalogSales": "Venta por catálogo",
     "ethosPlusBenefits": "Beneficios ethos plus",
     "ethosProBenefits": "Beneficios ethos pro",
-    "2x1Cinema": "2x1 Cine",
-    "petBenefits": "Beneficios mascotas"
+    "2x1Cinema": "Cupones de Descuento",
+    "petBenefits": "Asistencia de mascotas"
   },   
   "tabBar": {
     "ethosCredit": "ethos crédito",

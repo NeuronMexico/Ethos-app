@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Marca de Grupo Ethos Pay,\nS.A.P.I. de C.V."
+        android:text="Marca de Ethos Pay,\nS.A.P.I. de C.V."
         android:gravity="center"
         android:textColor="#979797"
         android:textSize="12sp"

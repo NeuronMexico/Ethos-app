@@ -21,7 +21,7 @@ import {
 } from 'assets/svg';
 import Theme from 'theme';
 
-const LOCKED_SHORTCUTS: ShortcutType[] = [
+export const LOCKED_SHORTCUTS: ShortcutType[] = [
   {
     id: 'turnOffCard',
     label: i18n.t('shortcuts:turnOffCard'),

@@ -8,10 +8,11 @@ import { Container } from '../atoms/Container';
 
 interface EditFormProps {
   label: string;
+  type: string;
   onSubmit: () => void;
 }
 
-const EditProfileDataForm: React.FC<EditFormProps> = ({ label, onSubmit }) => {
+const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit }) => {
   const { t } = useTranslation();
   const formattedLabel = label.toLowerCase();
 
@@ -29,6 +30,8 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, onSubmit }) => {
       <Input
         onChangeText={undefined}
         value={undefined}
+        maxLength={type === 'phone' ? 10 : 30}
+        keyboardType={type === 'phone' ? 'phone-pad' : 'default'}
         placeholder={`${t('global:new')} ${formattedLabel}`}
       />
       {label !== 'Alias' && (
@@ -36,6 +39,7 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, onSubmit }) => {
         onChangeText={undefined}
         value={undefined}
         placeholder={`${t('global:confirm')} ${formattedLabel}`}
+        maxLength={30}
       />
       )}
       <Button

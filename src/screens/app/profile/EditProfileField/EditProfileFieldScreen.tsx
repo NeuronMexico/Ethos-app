@@ -59,6 +59,7 @@ const EditProfileFieldScreen: React.FC<Props> = () => {
         <ProfilePhoto size={90} withName />
         <EditProfileDataForm
           label={field.label}
+          type={field.type}
           onSubmit={() => handleUpdateData()}
         />
       </Container>

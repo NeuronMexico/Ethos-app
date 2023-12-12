@@ -3,14 +3,12 @@ import React, {
 } from 'react';
 import { Animated, View } from 'react-native';
 import PagerView from 'react-native-pager-view';
-import i18n from 'i18n';
 import {
   Card, Tab,
 } from 'components';
 import Theme from 'theme';
 import { Easing } from 'utils';
 import TabSection from './TabSections/TabSection';
-import PersonalProjectInfoSection from './TabSections/PersonalProjectInfoSection';
 
 const DUMMY_DATA = [
   {
@@ -20,10 +18,6 @@ const DUMMY_DATA = [
       usedBalance: 3957,
       availableBalance: 66043,
     },
-  },
-  {
-    title: i18n.t('tabProducts:personalProject'),
-    type: 'personalProject',
   },
   {
     title: '** *543',
@@ -60,9 +54,7 @@ const HomeTabProducts = () => {
       key={`${item.type}-${index}`}
       style={{ padding: Theme.Sizes.Padding }}
     >
-      { item.info
-        ? (<TabSection product={item} />)
-        : (<PersonalProjectInfoSection />) }
+      <TabSection product={item} />
     </View>
   )), []);
 

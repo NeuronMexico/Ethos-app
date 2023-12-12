@@ -20,7 +20,7 @@ const ImageCarousel: React.FC<Props> = ({ images }: Props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       pagerViewRef.current?.setPage(currentIndex === (images.length - 1) ? 0 : currentIndex + 1);
-    }, 3000);
+    }, 8000);
 
     return () => {
       clearTimeout(timer);

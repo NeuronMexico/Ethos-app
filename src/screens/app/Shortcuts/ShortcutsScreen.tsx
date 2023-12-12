@@ -8,8 +8,11 @@ import {
 } from 'components';
 import Theme from 'theme';
 import { SHORTCUTS_ARRAY, ShortcutType } from 'utils';
-import { MoreIcon } from 'assets/svg';
+import { LessIcon, MoreIcon } from 'assets/svg';
 import { SearchInput } from 'components/molecules/SearchInput';
+import { LOCKED_SHORTCUTS } from '../EthosCredit/components/HomeShortcutsSection';
+
+const HOME_SHORTCUTS: Array<string> = LOCKED_SHORTCUTS.map((shortcut) => shortcut.id);
 
 interface Props {
   onPressShortcutAction?: (id: string) => void;
@@ -35,19 +38,23 @@ const ShortcutsScreen: React.FC<Props> = ({
         style={{ flex: 1 }}
         contentContainerStyle={{ flexGrow: 1, paddingLeft: Theme.Sizes.Padding }}
       >
-        {item.value.map((shortcut) => (
-          <Container
-            key={shortcut.id}
-            style={{ marginTop: 19, marginRight: 24 }}
-          >
-            <OptionButton
-              icon={shortcut.icon}
-              label={shortcut.label}
-              onPress={() => onPressShortcutAction(shortcut.id)}
-              actionIcon={<MoreIcon color={Theme.Colors.PlaceboBlue} />}
-            />
-          </Container>
-        ))}
+        {
+          item.value.map((shortcut) => (
+            <Container
+              key={shortcut.id}
+              style={{ marginTop: 19, marginRight: 24 }}
+            >
+              <OptionButton
+                icon={shortcut.icon}
+                label={shortcut.label}
+                onPress={() => onPressShortcutAction(shortcut.id)}
+                actionIcon={HOME_SHORTCUTS.includes(shortcut.id)
+                  ? <LessIcon color={Theme.Colors.PlaceboBlue} />
+                  : <MoreIcon color={Theme.Colors.PlaceboBlue} />}
+              />
+            </Container>
+          ))
+        }
       </ScrollView>
     </Container>
   );
