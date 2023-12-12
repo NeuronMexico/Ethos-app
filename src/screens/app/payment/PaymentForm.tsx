@@ -108,7 +108,10 @@ const PaymentForm: React.FC = () => {
       reference: '123',
       invoice: '1234',
       actions: [
-        { label: 'Primary', onPress: alert.hide, type: 'primary' },
+        { label: 'Primary', onPress: () => {
+          alert.hide();
+          goBack();
+        }, type: 'primary' },
         { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
         { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
         { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
