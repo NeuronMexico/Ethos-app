@@ -88,7 +88,7 @@ const ListController: React.FC = () => {
 
     if (result.success) {
       alert.show({
-        title: t('contacts:deleteAccount'),
+        title: t('contacts:contactDeleted'),
         invoice: '12345',
         date: new Date(),
         checkmark: true,
