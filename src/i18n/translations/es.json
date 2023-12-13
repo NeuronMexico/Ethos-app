@@ -466,7 +466,7 @@
     "newAccount": "Nueva tarjeta / CLABE",
     "deleteAccountMsg": "¿Estás seguro que deseas eliminar la cuenta {{account}}?",
     "deleteContactMsg": "¿Estás seguro que deseas eliminar a {{contact}} de tus contactos?",
-    "deleteDesc": "Las operaciones programadas para {{text}} también se eliminarán.",
+    "deleteDesc": "Las cuentas y operaciones programadas para {{text}} también se eliminarán.",
     "thisContact": "este contacto",
     "thisAccount": "esta cuenta",
     "confirmationDelete": "Si, eliminar",
