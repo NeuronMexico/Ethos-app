@@ -10,7 +10,7 @@ import {
   Button,
   CheckBox, Container, Input, ProfilePhoto, Text,
 } from 'components';
-import { fieldValidation } from 'utils';
+import { fieldValidation, validations } from 'utils';
 import Theme from 'theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useKeyboard } from 'hooks';
@@ -43,7 +43,7 @@ const ContactForm: React.FC<Props> = ({
 
   const aliasRef = useRef<TextInput>(null);
   const emailRef = useRef<TextInput>(null);
-  const phoneRef = useRef<TextInput>(null);
+  const phoneRef = useRef<any>(null);
 
   const maxAmountRef = useRef<TextInput>(null);
   const accountNumberRef = useRef<TextInput>(null);
@@ -89,9 +89,51 @@ const ContactForm: React.FC<Props> = ({
   const nameValidation = (): boolean => fieldValidation('name', name, setNameError);
   const firstLastNameValidation = (): boolean => fieldValidation('firstLastName', firstLastName, setFirstLastNameError);
   const secondLastNameValidation = (): boolean => fieldValidation('secondLastName', secondLastName, setSecondLastNameError);
-  const emailValidation = (): boolean => fieldValidation('email', email, setEmailError);
-  const phoneValidation = (): boolean => fieldValidation('phone', phone, setPhoneError);
-  const accountValidation = (): boolean => fieldValidation('accountNumber', accountNumber, setAccountNumberError);
+
+  const emailValidation = (): boolean => {
+    const validation = validations.email(email);
+    if (validation.ok) {
+      setEmailError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setEmailError(t('errors:required'));
+    else setEmailError(t('errors:invalidFormat'));
+
+    return false;
+  };
+
+  const phoneValidation = (): boolean => {
+    const validation = validations.phone(phone);
+    if (validation.ok) {
+      setPhoneError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setPhoneError(t('errors:required'));
+    else setPhoneError(t('errors:invalidFormat'));
+
+    return false;
+  };
+
+  const accountValidation = (): boolean => {
+    let validation = validations.cardNumber(accountNumber);
+    if (validation.ok) {
+      setAccountNumberError('');
+      return true;
+    }
+
+    validation = validations.clabeNumber(accountNumber);
+    if (validation.ok) {
+      setAccountNumberError('');
+      return true;
+    }
+
+    if (validation.error === 'required') setAccountNumberError(t('errors:required'));
+    else setAccountNumberError(t('errors:invalidFormat'));
+
+    return false;
+  };
   const bankValidation = (): boolean => fieldValidation('bank', bank, setBankError);
 
   const submit = async () => {
@@ -138,13 +180,27 @@ const ContactForm: React.FC<Props> = ({
 
   const NEW_ACCOUNT = (
     <>
-      <Input
+      {/* <Input
         ref={accountNumberRef}
         value={accountNumber}
         onChangeText={setAccountNumber}
         error={accountNumberError}
         label={t('form:account')}
         keyboardType="numeric"
+        onSubmitEditing={() => accountValidation() && bankRef.current?.focus()}
+      /> */}
+      <Input
+        ref={accountNumberRef}
+        label={t('form:account')}
+        placeholder=""
+        value={accountNumber}
+        onChangeText={setAccountNumber}
+        keyboardType="numeric"
+        error={accountNumberError}
+        mask="custom"
+        options={{ mask: accountNumber.length <= 17 ? '9999 999999 999999' : '9999 9999 9999 999999' }}
+        maxLength={21}
+        blurOnSubmit={false}
         onSubmitEditing={() => accountValidation() && bankRef.current?.focus()}
       />
       <Input
@@ -243,16 +299,21 @@ const ContactForm: React.FC<Props> = ({
             error={emailError}
             label={t('form:email')}
             keyboardType="email-address"
-            onSubmitEditing={() => emailValidation() && phoneRef.current?.focus()}
+            blurOnSubmit={false}
+            onSubmitEditing={() => emailValidation() && phoneRef.current?.getElement()?.focus()}
           />
           <Input
             ref={phoneRef}
+            label={t('form:phone')}
             value={phone}
             onChangeText={setPhone}
-            error={phoneError}
-            label={t('form:phone')}
+            autoCorrect
             keyboardType="phone-pad"
-            maxLength={10}
+            mask="custom"
+            options={{ mask: '(999) 999 9999' }}
+            maxLength={14}
+            blurOnSubmit={false}
+            error={phoneError}
             onSubmitEditing={() => phoneValidation() && maxAmountRef.current?.focus()}
           />
           <Container center row style={{ marginTop: Theme.Sizes.Padding }}>

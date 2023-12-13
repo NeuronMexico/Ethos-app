@@ -55,7 +55,7 @@ const ListScreen: React.FC<Props> = ({
         enableNewContact && (
           <Container style={button}>
             <Button
-              label={t('contacts:quickPayment')}
+              label={t('contacts:newContact')}
               onPress={onPressNewContact}
             />
           </Container>

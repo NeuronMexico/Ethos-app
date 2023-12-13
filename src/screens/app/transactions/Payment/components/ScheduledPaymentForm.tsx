@@ -184,7 +184,7 @@ const ScheduledPaymentForm: React.FC<Props> = ({
             keyboardType="numeric"
             error={cardNumberError}
             mask="custom"
-            options={{ mask: '9999 9999 9999 999999' }}
+            options={{ mask: cardNumber.length <= 17 ? '9999 999999 999999' : '9999 9999 9999 999999' }}
             maxLength={21}
             blurOnSubmit={false}
             marginTop={4}
