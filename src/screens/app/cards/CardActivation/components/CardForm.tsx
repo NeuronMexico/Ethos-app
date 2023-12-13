@@ -29,7 +29,6 @@ const CardForm: React.FC<Props> = ({ onSubmit }) => {
   return (
     <Container flex>
       <Input
-        label={t('cards:card8Digits')}
         placeholder="**** ****"
         value={cardNumber}
         onChangeText={setCardNumber}

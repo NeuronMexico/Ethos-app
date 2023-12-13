@@ -85,7 +85,7 @@ const ChargesScheduledController: React.FC = () => {
     } else if (type === 'qr') {
       setVisible(true);
     }
-  }, [bottomSheet]);
+  }, [bottomSheet, navigate]);
 
   return (
     <SafeArea>
