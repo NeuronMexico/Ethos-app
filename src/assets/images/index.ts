@@ -11,6 +11,10 @@ import TUTORIAL_THIRD from './tutorial-third-img.png';
 import TUTORIAL_FOURTH from './tutorial-fourth-img.png';
 import SELFIE_ILLUSTRATION from './selfie-illustration.png';
 
+import BANNER_1 from './banners/banner-1-illustration.png';
+import BANNER_2 from './banners/banner-2-illustration.png';
+import BANNER_3 from './banners/banner-3-illustration.png';
+
 export {
   TELCEL_LOGO,
   ETHOS_LOGO,
@@ -24,4 +28,8 @@ export {
   TUTORIAL_FOURTH,
   DUMMY_CARD,
   SELFIE_ILLUSTRATION,
+
+  BANNER_1,
+  BANNER_2,
+  BANNER_3,
 };

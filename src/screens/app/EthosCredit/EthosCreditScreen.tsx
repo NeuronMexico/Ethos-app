@@ -7,6 +7,7 @@ import {
 } from 'components';
 import Theme from 'theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { BANNER_1, BANNER_2, BANNER_3 } from 'assets/images';
 import HomeHeader from './components/HomeHeader';
 import HomeTabProducts from './components/HomeTabProducts';
 import HomeShortcutsSection from './components/HomeShortcutsSection';
@@ -55,10 +56,9 @@ const EthosCreditScreen: React.FC<Props> = (props: Props) => {
           <HomeTabProducts />
           <Container style={{ marginVertical: 18 }}>
             <ImageCarousel images={[
-              'https://via.placeholder.com/1200x300.png?text=Mountain',
-              'https://via.placeholder.com/1200x300.png?text=Beach',
-              'https://via.placeholder.com/1200x300.png?text=Forest',
-              'https://via.placeholder.com/1200x300.png?text=Mountain',
+              BANNER_1,
+              BANNER_2,
+              BANNER_3,
             ]}
             />
           </Container>

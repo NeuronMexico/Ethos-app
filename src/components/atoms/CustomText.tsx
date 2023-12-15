@@ -106,7 +106,7 @@ const CustomText: React.FC<CustomTextProps> = ({
       }]}
       ellipsizeMode="tail"
       numberOfLines={numberOfLines}
-      allowFontScaling={allowFontScaling}
+      allowFontScaling={allowFontScaling ?? false}
       adjustsFontSizeToFit={adjustsFontSizeToFit}
       onPress={onPress}
       onTextLayout={onTextLayout}
