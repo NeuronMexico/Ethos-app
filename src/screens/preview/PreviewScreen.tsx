@@ -48,40 +48,7 @@ const PreviewScreen: React.FC = () => {
         <Button title="DirectAccess" onPress={() => navigate('DirectAccess')} />
         <Button title="Slider" onPress={() => navigate('Slider')} />
         <Button title="SwipeableSwitch" onPress={() => navigate('SwipeableSwitch')} />
-        <Button
-          title="Alert"
-          onPress={() => alert.show({
-            extraInfo: (
-              <ContentModalResponse
-                amount={Number('1234')}
-                date={new Date()}
-                references={[
-                  { label: 'form:costPerDisposal', value: '$50' },
-                  { label: 'form:SPEICost', value: '$7.50' },
-                  { label: 'form:reference', value: 'ABC123' },
-                ]}
-                paymentDetails={[
-                  { label: 'form:name', value: 'Andrés Lara' },
-                  { label: 'form:destinationAccount', value: 'CLABE ***531' },
-                  { label: 'form:concept', value: 'Pago Viaje' },
-                  { label: 'form:bank', value: 'STP' },
-                ]}
-              />
-            ),
-            title: t('charges:confirmCharge'),
-            fullscreen: true,
-            checkmark: true,
-            logo: true,
-            reference: '123',
-            invoice: '1234',
-            actions: [
-              { label: 'Primary', onPress: alert.hide, type: 'primary' },
-              { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
-              { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
-              { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
-            ],
-          })}
-        />
+        <Button title="Alert" onPress={() => navigate('AlertsScreen')} />
         <Button title="Icons" onPress={() => navigate('Icons')} />
         <Button title="Forms" onPress={() => navigate('Forms')} />
       </ScrollView>
