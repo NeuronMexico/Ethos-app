@@ -22,6 +22,7 @@ interface Props {
   paymentDetails?: AlertDataItem[];
   cardButton?: boolean;
   pickerCard?: boolean;
+  label?: string;
 }
 
 const Line = () => (
@@ -47,6 +48,7 @@ const ContentModalResponse: React.FC<Props> = ({
   onPressOptionButton = () => {},
   cardButton,
   pickerCard,
+  label,
 }: Props) => (
   <Container>
     {amount && (
@@ -66,6 +68,7 @@ const ContentModalResponse: React.FC<Props> = ({
       </Container>
     ))}
     {checkmark && (<Text text={date && formatDate(date)} textAlign="center" />)}
+    {label && (<Text text={label} textAlign="center" />)}
     { cardButton && (
     <Button
       label="**** **** **** 531"
@@ -77,6 +80,7 @@ const ContentModalResponse: React.FC<Props> = ({
       paddingVertical={10}
       paddingHorizontal={16}
       marginTop={27}
+      textColor={Theme.Colors.DarkSoul}
     />
     )}
     <Line />
@@ -96,9 +100,9 @@ const ContentModalResponse: React.FC<Props> = ({
       onValueChange={() => {}}
     />
     )}
-    <Container row style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+    <Container row center style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
       {paymentDetails && paymentDetails.map((item: AlertDataItem, index) => (
-        <Container width="50%" key={index}>
+        <Container center width="50%" key={index}>
           <Container style={{ marginRight: 12 }}>
             <Text text={i18n.t(item.label)} textAlign="left" />
             <Text text={item.value} typography="title" fontSize={17} marginVertical={8} />

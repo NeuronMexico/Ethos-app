@@ -5,14 +5,9 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { PreviewStackParams } from 'utils';
-import { useAlert } from 'context';
-import { ContentModalResponse } from 'screens/app/Payment/components';
-import { useTranslation } from 'react-i18next';
 
 const PreviewScreen: React.FC = () => {
   const { navigate } = useNavigation<NativeStackNavigationProp<PreviewStackParams>>();
-  const { t } = useTranslation();
-  const alert = useAlert();
 
   return (
     <SafeAreaView style={styles.flex}>
@@ -48,7 +43,7 @@ const PreviewScreen: React.FC = () => {
         <Button title="DirectAccess" onPress={() => navigate('DirectAccess')} />
         <Button title="Slider" onPress={() => navigate('Slider')} />
         <Button title="SwipeableSwitch" onPress={() => navigate('SwipeableSwitch')} />
-        <Button title="Alert" onPress={() => navigate('AlertsScreen')} />
+        <Button title="Alert" onPress={() => navigate('Alerts')} />
         <Button title="Icons" onPress={() => navigate('Icons')} />
         <Button title="Forms" onPress={() => navigate('Forms')} />
       </ScrollView>

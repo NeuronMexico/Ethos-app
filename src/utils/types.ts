@@ -142,6 +142,7 @@ export type PreviewStackParams = {
   Icons: undefined;
   RadioButtonGroup: undefined;
   Forms: undefined;
+  Alerts: undefined;
 };
 
 export type ConfirmationCodeScreenParams = {
