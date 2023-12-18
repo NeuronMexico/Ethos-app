@@ -90,6 +90,7 @@ const Alert: React.FC<Props> = ({
         >
           {!!logo && (<FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} style={styles.ethosCreditLogo} />)}
           <Text text={title} typography="title" textAlign="center" marginBottom={8} />
+          {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
           {!!reference && (
             <Text>
               <Text text={t('alert:reference')} typography="caption" fontWeight="Regular" />
@@ -109,7 +110,6 @@ const Alert: React.FC<Props> = ({
             {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
           </Container>
           )}
-          {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
           {extraInfo && (
           <Container style={{ marginTop: 2, marginBottom: 8 }}>
             {extraInfo}

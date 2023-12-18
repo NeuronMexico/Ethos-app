@@ -547,6 +547,7 @@
     "singlePayment":"Pago único, a efectuar el:",
     "costPerDisposal": "Costo por disposición:",
     "SPEICost": "Costo por SPEI:",
+    "montly": "En 6 mensualidades de:",
     "goToTransactions": "Ir a Transacciones",
     "phoneCaption": "Escribe tu número celular",
     "passwordCaption": "Escribe tu contraseña",
@@ -587,7 +588,12 @@
     "CCethos": "TDC ethoscrédito",
     "withdrawalWithoutCard": "Retiro sin tarjeta",
     "whereMonthlyPayment": "¿En que tarjeta quieres que se carguen tus mensualidades?",
-    "whatAccountGonnaPay": "¿Desde que tarjeta quieres hacer el pago?"
+    "whatAccountGonnaPay": "¿Desde que tarjeta quieres hacer el pago?",
+    "successfulPayment": "Pago exitoso",
+    "rejectedPayment": "Tu contacto ha rechazado el cobro",
+    "cardLabel": "Tarjeta donde se cargarán\n tus mensualidades:",
+    "confirmWithoutCard": "Confirmar retiro sin tarjeta",
+    "deleteQREthoscrédito": "Eliminar QR cobro ethoscrédito"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",
