@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Image, StyleSheet } from 'react-native';
+import React, {
+  useEffect, useRef, useState,
+} from 'react';
+import { Image, ImageSourcePropType, StyleSheet } from 'react-native';
 import { Container } from 'components/atoms';
 import Theme from 'theme';
 import PagerView from 'react-native-pager-view';
 import { DotIndicator } from './DotIndicator';
 
 interface Props {
-  images: string[];
+  images: Array<string | ImageSourcePropType>;
 }
 
 const ImageCarousel: React.FC<Props> = ({ images }: Props) => {
@@ -38,11 +40,20 @@ const ImageCarousel: React.FC<Props> = ({ images }: Props) => {
             setCurrentIndex(event.nativeEvent.position);
           }}
         >
-          {images.map((url, index) => (
-            <Container middle center key={index} style={slide}>
-              <Image source={{ uri: url }} style={image} />
-            </Container>
-          ))}
+          {images.map((url, index) => {
+            if (typeof url === 'string') {
+              return (
+                <Container middle center key={index} style={slide}>
+                  <Image source={{ uri: url }} style={image} />
+                </Container>
+              );
+            }
+            return (
+              <Container middle center key={index} style={slide}>
+                <Image source={url} style={image} />
+              </Container>
+            );
+          })}
         </PagerView>
       </Container>
       <DotIndicator
