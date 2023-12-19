@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
@@ -42,10 +42,11 @@ const EthosCreditController: React.FC = () => {
 
   const handleTutorialModal = () => {
     setShowTutorial(false);
+    paymentRequest();
     // dispatch(setTutorialViewed(true));
   };
 
-  const paymentRequest = () => {
+  const paymentRequest = useCallback(() => {
     alert.show({
       extraInfo: (
         <ContentModalResponse
@@ -64,11 +65,7 @@ const EthosCreditController: React.FC = () => {
         { label: t('global:decline'), onPress: alert.hide, type: 'destructive-secondary' },
       ],
     });
-  };
-
-  useEffect(() => {
-    paymentRequest();
-  }, []);
+  }, [alert, t]);
 
   return (
     <SafeArea>
