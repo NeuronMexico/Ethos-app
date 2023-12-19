@@ -6,11 +6,15 @@ import ContractDetailsScreen from './ContractDetailsScreen';
 
 interface Props extends NativeStackScreenProps<AuthStackParams, 'ContractDetails'> {}
 
-const ContractDetailsController: React.FC<Props> = ({ navigation: { goBack } }) => (
+const ContractDetailsController: React.FC<Props> = ({ navigation: { goBack, navigate } }) => (
   <SafeArea>
     <ContractDetailsScreen
       onBack={goBack}
-      onAccept={console.log}
+      onAccept={() => navigate('CreateAlias', {
+        label: 'Alias',
+        value: 'Mario Bárcenas',
+        type: 'alias',
+      })}
     />
   </SafeArea>
 );

@@ -35,6 +35,11 @@ export type AuthStackParams = {
   ApplicationValidation: undefined;
   ValidatedInformation: { success: boolean };
   ContractDetails: undefined;
+  CreateAlias: {
+    label: string,
+    value: string,
+    type: string,
+  };
 };
 
 export type CardsGlobalStackParams = {
