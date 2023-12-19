@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAlert } from 'context';
+import { setIsLogged, useDispatch } from 'reactRedux';
 
 interface Props { onSubmit: () => void;}
 
@@ -23,32 +24,37 @@ interface RouteParams {
 
 const EditProfileFieldScreen: React.FC<Props> = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const route = useRoute<RouteProp<Record<string, RouteParams>>>();
-  const { field } = route.params;
+  const { field } = route.params || {};
   const alert = useAlert();
 
   const handleUpdateData = () => {
-    if (field.type === 'phone' || field.type === 'email') {
-      navigate('ConfirmationCode', { type: field.type, value: field.value });
-    }
-    if (field.type === 'alias') {
-      alert.show({
-        title: t(`profile:${field.type}ResponseTitle`),
-        invoice: '12345',
-        date: new Date(),
-        checkmark: true,
-        actions: [
-          {
-            label: t('global:accept'),
-            onPress: () => {
-              alert.hide();
-              navigate('ProfileEdit');
+    if (!field) {
+      dispatch(setIsLogged(true));
+    } else {
+      if (field.type === 'phone' || field.type === 'email') {
+        navigate('ConfirmationCode', { type: field.type, value: field.value });
+      }
+      if (field.type === 'alias') {
+        alert.show({
+          title: t(`profile:${field.type}ResponseTitle`),
+          invoice: '12345',
+          date: new Date(),
+          checkmark: true,
+          actions: [
+            {
+              label: t('global:accept'),
+              onPress: () => {
+                alert.hide();
+                navigate('ProfileEdit');
+              },
+              type: 'primary',
             },
-            type: 'primary',
-          },
-        ],
-      });
+          ],
+        });
+      }
     }
   };
 
@@ -58,8 +64,8 @@ const EditProfileFieldScreen: React.FC<Props> = () => {
       <Container style={{ marginTop: 55 }}>
         <ProfilePhoto size={90} withName />
         <EditProfileDataForm
-          label={field.label}
-          type={field.type}
+          label={field?.label}
+          type={field?.type}
           onSubmit={() => handleUpdateData()}
         />
       </Container>

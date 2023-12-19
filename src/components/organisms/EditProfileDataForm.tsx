@@ -14,7 +14,7 @@ interface EditFormProps {
 
 const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit }) => {
   const { t } = useTranslation();
-  const formattedLabel = label.toLowerCase();
+  const formattedLabel = label?.toLowerCase();
 
   return (
     <Container
