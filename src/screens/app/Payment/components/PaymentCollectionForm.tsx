@@ -102,7 +102,6 @@ const PaymentCollectionForm: React.FC<Props> = ({
         }}
         keyboardType="decimal-pad"
         blurOnSubmit={false}
-        autoFocus
       />
       <Input
         ref={referenceRef}

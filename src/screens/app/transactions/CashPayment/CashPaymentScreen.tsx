@@ -71,7 +71,6 @@ const CashPaymentScreen: React.FC<Props> = ({ onSubmit, onPressEstablishments })
           }}
           keyboardType="decimal-pad"
           blurOnSubmit={false}
-          autoFocus
         />
         <Input
           ref={conceptRef}

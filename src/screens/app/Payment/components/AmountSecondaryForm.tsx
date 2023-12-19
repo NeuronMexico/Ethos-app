@@ -46,7 +46,6 @@ const AmountSecondaryForm: React.FC<Props> = ({ onSubmit, onChange }: Props) => 
             unit: '$',
             suffixUnit: '',
           }}
-          autoFocus
           keyboardType="numeric"
           minWidth={100}
         />

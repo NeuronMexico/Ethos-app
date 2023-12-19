@@ -277,7 +277,6 @@ const ScheduledPaymentForm: React.FC<Props> = ({
         blurOnSubmit={false}
         onSubmitEditing={() => amountValidation() && conceptRef.current?.focus()}
         error={amountError}
-        autoFocus
       />
       <Input
         ref={conceptRef}
