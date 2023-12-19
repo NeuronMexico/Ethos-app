@@ -2,6 +2,7 @@ import { BellMarkedIcon, MessageDotsIcon } from 'assets/svg';
 import {
   Button, Container, ProfilePhoto, Text, Touchable,
 } from 'components';
+import { format } from 'date-fns';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native';
@@ -29,7 +30,7 @@ const HomeHeader: React.FC<Props> = ({
       <Touchable onPress={onPressProfile}>
         <ProfilePhoto size={40} bottomStyle={{ marginTop: 0 }} />
       </Touchable>
-      <Container>
+      <Container flex style={{ marginLeft: 8 }}>
         <Text
           text={t('home:welcome', { name: 'John Smith' })}
           textAlign="left"
@@ -37,7 +38,7 @@ const HomeHeader: React.FC<Props> = ({
           fontSize={17}
         />
         <Text
-          text={t('home:lastConnection', { lastConnection: new Date().toISOString() })}
+          text={t('home:lastConnection', { lastConnection: format(new Date(), 'dd-MM-yyyy hh:ii:ss') })}
           textAlign="left"
           fontWeight="Semibold"
           fontSize={11}
@@ -51,6 +52,7 @@ const HomeHeader: React.FC<Props> = ({
         backgroundColor={Theme.Colors.PlaceboBlue}
         icon={<BellMarkedIcon />}
         colorless
+        marginRight={8}
       />
       <Button
         onPress={onPressAssistant}
