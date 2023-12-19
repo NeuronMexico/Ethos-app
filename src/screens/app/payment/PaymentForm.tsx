@@ -45,6 +45,41 @@ const PaymentForm: React.FC = () => {
   const [formComponentType, setFormComponentType] = useState<ReactNode>();
 
   const onSubmit = () => {
+    switch (formComponent) {
+      case 'PaymentCollectCash':
+        // TODO: Add alert
+        break;
+      case 'PaymentCollectQR':
+        // TODO: Add alert
+        break;
+      case 'PaymentCollectScheduled':
+        // TODO: Add alert
+        break;
+      case 'PaymentCollectToContact':
+        // TODO: Add alert
+        break;
+      case 'PaymentEdit':
+        // TODO: Add alert
+        break;
+      case 'PaymentFastCollect':
+        // TODO: Add alert
+        break;
+      case 'PaymentQR':
+        // TODO: Add alert
+        break;
+      case 'PaymentTransferAccountForm':
+        // TODO: Add alert
+        break;
+      case 'WithdrawalNoCard':
+        // TODO: Add alert
+        break;
+      case 'none':
+        // TODO: Add alert
+        break;
+      default:
+        break;
+    }
+
     alert.show({
       title: 'Alerta de Confirmación',
       checkmark: false,
@@ -174,7 +209,7 @@ const PaymentForm: React.FC = () => {
       <Container useKeyboard flex>
         <Header title={title} />
         <Container flex style={{ marginHorizontal: Theme.Sizes.Padding }}>
-          <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
+          <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false}>
             {formComponentType}
           </ScrollView>
         </Container>
