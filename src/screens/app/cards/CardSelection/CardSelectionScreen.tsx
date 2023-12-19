@@ -2,7 +2,7 @@ import React, {
   useCallback, useMemo, useRef, useState,
 } from 'react';
 import {
-  Button, Container, DotIndicator, Header, Text, Touchable,
+  Button, CheckBoxField, Container, DotIndicator, Header, Text, Touchable,
 } from 'components';
 import { useTranslation } from 'react-i18next';
 import Theme from 'theme';
@@ -16,17 +16,17 @@ import { AnimatedCard } from './components';
 const CARD_OPTIONS = [
   {
     id: '1',
-    includesName: true,
     cardCost: 250,
     shippingCost: 0,
     deliveryTime: 10,
+    expressDelivery: false,
   },
   {
     id: '2',
-    includesName: false,
     cardCost: 0,
     shippingCost: 0,
     deliveryTime: 1,
+    expressDelivery: true,
   },
 ];
 
@@ -41,6 +41,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
 
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [flipCard, setFlipCard] = useState<Array<boolean>>([false, false]);
+  const [includesName, setIncludesName] = useState<boolean>(false);
 
   const selectedCard = useMemo(() => CARD_OPTIONS[selectedIndex], [selectedIndex]);
 
@@ -61,7 +62,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
       <Header title={t('cards:selectLayout')} backButtonBorderless />
       <Container flex style={{ marginTop: Theme.Sizes.MarginTop }}>
         <Text
-          text={selectedCard.includesName ? t('cards:customBlue') : t('cards:plainBlue')}
+          text={selectedCard.expressDelivery ? t('cards:expressDelivery') : t('cards:standardDelivery')}
           textAlign="center"
           typography="header"
           marginBottom={32}
@@ -74,7 +75,7 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
             showsHorizontalScrollIndicator={false}
             contentContainerStyle={{ marginHorizontal: -9, marginBottom: 32, paddingHorizontal: Theme.Sizes.Padding }}
             onScroll={onScroll}
-            renderItem={({ item: { includesName }, index }) => (
+            renderItem={({ item, index }) => (
               <Container onLayout={({ nativeEvent: { layout } }) => { itemWidthRef.current = layout.width; }}>
                 <AnimatedCard flip={flipCard[index]} includesName={includesName} onPressCard={() => onFlipCard(index)} />
               </Container>
@@ -115,6 +116,16 @@ const CardSelectionScreen: React.FC<Props> = ({ onPressContinue }) => {
                 fontWeight="Semibold"
               />
             </Container>
+
+            <CheckBoxField
+              label={t('cards:customized')}
+              position="right"
+              typography="subtitle"
+              fontWeight="Medium"
+              marginVertical={2}
+              selected={includesName}
+              onChange={setIncludesName}
+            />
 
             <Container row style={{ marginTop: 16 }}>
               <Container flex>

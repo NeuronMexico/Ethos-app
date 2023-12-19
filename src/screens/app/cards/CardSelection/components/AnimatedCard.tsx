@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   numberContainer: {
     position: 'absolute',
-    right: 13.5,
+    right: 17.5,
     bottom: 76,
   },
 });
