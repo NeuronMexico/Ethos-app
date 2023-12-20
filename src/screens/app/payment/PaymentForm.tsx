@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {
-  ReactNode, useEffect, useState,
+  ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 
@@ -44,7 +44,48 @@ const PaymentForm: React.FC = () => {
 
   const [formComponentType, setFormComponentType] = useState<ReactNode>();
 
-  const onSubmit = () => {
+  const showConfirmAlert = useCallback(() => {
+    alert.show({
+      extraInfo: (
+        <ContentModalResponse
+          amount={Number('1234')}
+          date={new Date()}
+          references={[
+            { label: 'form:costPerDisposal', value: '$50' },
+            { label: 'form:SPEICost', value: '$7.50' },
+            { label: 'form:reference', value: 'ABC123' },
+          ]}
+          paymentDetails={[
+            { label: 'form:name', value: 'Andrés Lara' },
+            { label: 'form:destinationAccount', value: 'CLABE ***531' },
+            { label: 'form:concept', value: 'Pago Viaje' },
+            { label: 'form:bank', value: 'STP' },
+          ]}
+        />
+      ),
+      title: t('charges:confirmCharge'),
+      fullscreen: true,
+      checkmark: true,
+      logo: true,
+      reference: '123',
+      invoice: '1234',
+      actions: [
+        {
+          label: 'Primary',
+          onPress: () => {
+            alert.hide();
+            goBack();
+          },
+          type: 'primary',
+        },
+        { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
+        { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
+        { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
+      ],
+    });
+  }, [alert, goBack, t]);
+
+  const onSubmit = useCallback(() => {
     switch (formComponent) {
       case 'PaymentCollectCash':
         // TODO: Add alert
@@ -120,50 +161,10 @@ const PaymentForm: React.FC = () => {
         },
       ],
     });
-  };
-
-  const showConfirmAlert = () => {
-    alert.show({
-      extraInfo: (
-        <ContentModalResponse
-          amount={Number('1234')}
-          date={new Date()}
-          references={[
-            { label: 'form:costPerDisposal', value: '$50' },
-            { label: 'form:SPEICost', value: '$7.50' },
-            { label: 'form:reference', value: 'ABC123' },
-          ]}
-          paymentDetails={[
-            { label: 'form:name', value: 'Andrés Lara' },
-            { label: 'form:destinationAccount', value: 'CLABE ***531' },
-            { label: 'form:concept', value: 'Pago Viaje' },
-            { label: 'form:bank', value: 'STP' },
-          ]}
-        />
-      ),
-      title: t('charges:confirmCharge'),
-      fullscreen: true,
-      checkmark: true,
-      logo: true,
-      reference: '123',
-      invoice: '1234',
-      actions: [
-        {
-          label: 'Primary',
-          onPress: () => {
-            alert.hide();
-            goBack();
-          },
-          type: 'primary',
-        },
-        { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
-        { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
-        { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
-      ],
-    });
-  };
+  }, [alert, formComponent, goBack, showConfirmAlert, t]);
 
   useEffect(() => {
+    console.log({ formComponent });
     switch (formComponent) {
       case 'PaymentCollectCash':
         setFormComponentType(<PaymentCollectCashForm
@@ -202,7 +203,7 @@ const PaymentForm: React.FC = () => {
       default:
         break;
     }
-  }, [formComponent, destinationAccount]);
+  }, [formComponent, destinationAccount, onSubmit, navigate]);
 
   return (
     <SafeArea>
