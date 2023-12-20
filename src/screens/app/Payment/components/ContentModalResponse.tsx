@@ -73,7 +73,6 @@ const ContentModalResponse: React.FC<Props> = ({
     <Button
       label="**** **** **** 531"
       onPress={() => {}}
-      marginBottom={16}
       backgroundColor={Theme.Colors.PlaceboBlue}
       icon={<VisaIcon />}
       marginHorizontal="auto"
@@ -83,7 +82,6 @@ const ContentModalResponse: React.FC<Props> = ({
       textColor={Theme.Colors.DarkSoul}
     />
     )}
-    <Line />
     { pickerCard && (
     <Picker
       title="TDC ethoscrédito"
@@ -116,7 +114,7 @@ const ContentModalResponse: React.FC<Props> = ({
 
     {
       showButtons && (
-        <Container style={{ margin: 16 }}>
+        <Container style={{ marginTop: 8 }}>
           <Button
             label={i18n.t('global:goBack')}
             onPress={onPressBack}

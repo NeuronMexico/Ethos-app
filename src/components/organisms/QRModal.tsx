@@ -93,6 +93,7 @@ const QRModal: React.FC<Props> = ({
             )}
             {flow !== 'personal-project-payment' && (
             <>
+              <Text text={t('form:sendMoneyCard')} typography="subtitle" fontWeight="Medium" />
               <Button
                 label="**** **** **** 531"
                 onPress={() => {}}
@@ -112,6 +113,7 @@ const QRModal: React.FC<Props> = ({
                   borderBottomColor: Theme.Colors.PlaceboBlue,
                 }}
               />
+              <Text text={t('form:shareQR')} typography="subtitle" fontWeight="Medium" />
               <Button
                 label={t('form:goToTransactions')}
                 onPress={onPressBack}
