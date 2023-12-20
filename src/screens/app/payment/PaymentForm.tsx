@@ -115,7 +115,14 @@ const PaymentForm: React.FC = () => {
           title: t('form:confirmCharge'),
           fullscreen: false,
           actions: [
-            { label: t('global:confirm'), onPress: alert.hide, type: 'primary' },
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                goBack();
+              },
+              type: 'primary',
+            },
             { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
           ],
         });
