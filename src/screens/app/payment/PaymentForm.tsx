@@ -86,6 +86,40 @@ const PaymentForm: React.FC = () => {
     });
   }, [alert, goBack, t]);
 
+  const showSuccessPaymentEditAlert = () => {
+    alert.show({
+      extraInfo: (
+        <ContentModalResponse
+          amount={Number('1234')}
+          paymentDetails={[
+            { label: 'form:name', value: 'Andrés Lara' },
+            { label: 'form:destinationAccount', value: 'CLABE ***531' },
+            { label: 'form:concept', value: 'Pago Viaje' },
+            { label: 'form:bank', value: 'STP' },
+          ]}
+          cardButton
+        />
+      ),
+      title: t('form:editedScheduledPayment'),
+      fullscreen: false,
+      checkmark: true,
+      logo: true,
+      invoice: '1234',
+      date: new Date(),
+      actions: [
+        {
+          label: t('form:goToTransactions'),
+          onPress: async () => {
+            alert.hide();
+            goBack();
+          },
+          type: 'secondary',
+        },
+        { label: t('global:share'), onPress: alert.hide, type: 'primary' },
+      ],
+    });
+  };
+
   const onSubmit = useCallback(() => {
     switch (formComponent) {
       case 'PaymentCollectCash':
@@ -121,7 +155,18 @@ const PaymentForm: React.FC = () => {
           fullscreen: false,
           logo: true,
           actions: [
-            { label: t('global:confirm'), onPress: alert.hide, type: 'primary' },
+            {
+              label: t('global:confirm'),
+              onPress: async () => {
+                alert.hide();
+                const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+                if (result.success) {
+                  alert.hide();
+                  showSuccessPaymentEditAlert();
+                }
+              },
+              type: 'primary',
+            },
             { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
           ],
         });

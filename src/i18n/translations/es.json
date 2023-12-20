@@ -604,7 +604,8 @@
     "sendMoneyCard": "Tarjeta con la que mandarás el dinero:",
     "shareQR": "Comparte el código QR a quién desees pagar",
     "confirmEdition": "Confirmar edición",
-    "costPerTransfer": "Costo por transferencia"
+    "costPerTransfer": "Costo por transferencia",
+    "editedScheduledPayment": "Pago programado editado "
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",
