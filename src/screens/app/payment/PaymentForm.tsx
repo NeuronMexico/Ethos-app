@@ -101,7 +101,30 @@ const PaymentForm: React.FC = () => {
         // TODO: Add alert
         break;
       case 'PaymentEdit':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={Number('1234')}
+              paymentDetails={[
+                { label: 'form:name', value: 'Andrés Lara' },
+                { label: 'form:destinationAccount', value: 'CLABE ***531' },
+              ]}
+              references={[
+                { label: 'form:costPerTransfer', value: '$50' },
+                { label: 'form:costPerDisposal', value: '$7.50' },
+              ]}
+              label={t('form:cardLabel')}
+              cardButton
+            />
+          ),
+          title: t('form:confirmEdition'),
+          fullscreen: false,
+          logo: true,
+          actions: [
+            { label: t('global:confirm'), onPress: alert.hide, type: 'primary' },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentFastCollect':
         // TODO: Add alert
