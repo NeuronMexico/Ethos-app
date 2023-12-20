@@ -151,6 +151,7 @@ const PaymentForm: React.FC = () => {
                 const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
                 if (result.success) {
                   setShowQRPaymentModal(true);
+                  goBack();
                 }
               },
             },
