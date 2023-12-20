@@ -14,7 +14,7 @@ const persistConfig: PersistConfig<any> = {
   key: 'root',
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2,
-  whitelist: ['session'],
+  blacklist: ['session'],
 };
 
 const enhancers: StoreEnhancer[] = [];

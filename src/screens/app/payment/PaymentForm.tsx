@@ -97,7 +97,28 @@ const PaymentForm: React.FC = () => {
         // TODO: Add alert
         break;
       case 'PaymentCollectToContact':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              paymentDetails={[
+                { label: 'form:name', value: 'Andrés Lara' },
+                { label: 'form:concept', value: 'Pago Cena' },
+              ]}
+              references={[
+                { label: 'form:chargeCommission', value: '$50' },
+              ]}
+              label={t('form:receiveMoneyCard')}
+              cardButton
+            />
+          ),
+          title: t('form:confirmCharge'),
+          fullscreen: false,
+          actions: [
+            { label: t('global:confirm'), onPress: alert.hide, type: 'primary' },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentEdit':
         // TODO: Add alert
@@ -121,46 +142,46 @@ const PaymentForm: React.FC = () => {
         break;
     }
 
-    alert.show({
-      title: 'Alerta de Confirmación',
-      checkmark: false,
-      extraInfo: (<ContentModalResponse
-        amount={Number('1234')}
-        date={new Date()}
-        references={[
-          { label: 'form:costPerDisposal', value: '$50' },
-          { label: 'form:SPEICost', value: '$7.50' },
-          { label: 'form:reference', value: 'ABC123' },
-        ]}
-        paymentDetails={[
-          { label: 'form:name', value: 'Andrés Lara' },
-          { label: 'form:destinationAccount', value: 'CLABE ***531' },
-          { label: 'form:concept', value: 'Pago Viaje' },
-          { label: 'form:bank', value: 'STP' },
-        ]}
-      />),
-      actions: [
-        {
-          label: t('global:continue'),
-          type: 'primary',
-          onPress: async () => {
-            alert.hide();
-            const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
-            if (result.success) {
-              showConfirmAlert();
-            }
-          },
-        },
-        {
-          label: t('global:cancel'),
-          type: 'secondary',
-          onPress: () => {
-            alert.hide();
-            goBack();
-          },
-        },
-      ],
-    });
+    // alert.show({
+    //   title: 'Alerta de Confirmación',
+    //   checkmark: false,
+    //   extraInfo: (<ContentModalResponse
+    //     amount={Number('1234')}
+    //     date={new Date()}
+    //     references={[
+    //       { label: 'form:costPerDisposal', value: '$50' },
+    //       { label: 'form:SPEICost', value: '$7.50' },
+    //       { label: 'form:reference', value: 'ABC123' },
+    //     ]}
+    //     paymentDetails={[
+    //       { label: 'form:name', value: 'Andrés Lara' },
+    //       { label: 'form:destinationAccount', value: 'CLABE ***531' },
+    //       { label: 'form:concept', value: 'Pago Viaje' },
+    //       { label: 'form:bank', value: 'STP' },
+    //     ]}
+    //   />),
+    //   actions: [
+    //     {
+    //       label: t('global:continue'),
+    //       type: 'primary',
+    //       onPress: async () => {
+    //         alert.hide();
+    //         const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+    //         if (result.success) {
+    //           showConfirmAlert();
+    //         }
+    //       },
+    //     },
+    //     {
+    //       label: t('global:cancel'),
+    //       type: 'secondary',
+    //       onPress: () => {
+    //         alert.hide();
+    //         goBack();
+    //       },
+    //     },
+    //   ],
+    // });
   }, [alert, formComponent, goBack, showConfirmAlert, t]);
 
   useEffect(() => {

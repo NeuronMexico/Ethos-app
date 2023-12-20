@@ -13,7 +13,9 @@ const AppNavigator: React.FC = () => {
     console.info(`Environment: ${ENVIRONMENT}`);
   }, []);
 
-  if (isLogged) {
+  // return <PreviewStack />;
+
+  if (!isLogged) {
     return (<AppStack />);
   }
 
