@@ -73,7 +73,6 @@ const PaymentController: React.FC<Props> = () => {
     showQRModal,
     setShowQRModal,
     QRModalTitle,
-    QRModalMsg,
     QRModalAmount,
     onConfirm,
   } = usePaymentFlow(params.flow, onFinishTransaction);
@@ -89,14 +88,26 @@ const PaymentController: React.FC<Props> = () => {
       <QRModal
         visible={showQRModal}
         title={QRModalTitle}
-        message={QRModalMsg}
-        amount={QRModalAmount(2500)}
-        flow={flow}
-        onPressCheckEstablishment={() => {
-          setShowQRModal(false);
-          navigate('Establishments');
-        }}
-        onPressBack={() => setShowQRModal(false)}
+        amount={formatQuantity(2500)}
+        date={new Date()}
+        validity={t('cards:hours', { hours: 24 })}
+        code="328572"
+        buttonsCaption={t('qr:costOfTransaction', { amount: formatQuantity(0) })}
+        actions={[
+          {
+            label: t('cards:checkEstablishments'),
+            type: 'primary',
+            onPress: () => {
+              setShowQRModal(false);
+              navigate('Establishments');
+            },
+          },
+          {
+            label: t('global:goBack'),
+            type: 'secondary',
+            onPress: () => setShowQRModal(false),
+          },
+        ]}
       />
     </SafeArea>
   );
