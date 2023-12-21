@@ -1,18 +1,20 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import ReactNativeBiometrics from 'react-native-biometrics';
 
 import {
+  ContentModalResponse,
   QRModal, SafeArea,
 } from 'components';
 import { useAlert, useBottomSheet } from 'context';
 import { formatQuantity } from 'utils';
 import { ComponentTypes } from 'screens/app/Payment/PaymentsForms';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ChargesScheduledScreen from './ChargesScheduledScreen';
-import ComponentDelete from './ComponentDelete';
-import ComponentConfirmDelete from './ComponentConfirmDelete';
 import { ChargeBottomSheetContent } from './components';
+
+const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
 const ChargesScheduledController: React.FC = () => {
   const { t } = useTranslation();
@@ -25,43 +27,63 @@ const ChargesScheduledController: React.FC = () => {
 
   const handleDelete = useCallback(() => {
     alert.show({
-      reference: '58432',
-      invoice: '12345',
-      date: new Date(),
-      title: t('charges:chargeScheduledDeletedSuccessfully'),
-      checkmark: true,
+      extraInfoContainerWidth: '100%',
       extraInfo: (
-        <ComponentConfirmDelete />
+        <ContentModalResponse
+          amount={2500}
+          cardButton
+        />
       ),
-      actions: [{
-        label: t('global:accept'),
-        type: 'primary',
-        onPress: alert.hide,
-      }],
-    });
-  }, [alert, t]);
-
-  const onDelete = useCallback(() => {
-    setVisible(false);
-    alert.show({
-      title: t('charges:chargeScheduledDeleteQuestion'),
+      title: t('form:deletedQRCobro'),
+      fullscreen: true,
+      checkmark: true,
+      logo: true,
+      invoice: '437437',
+      date: new Date(),
       actions: [
         {
-          label: t('global:delete'),
-          type: 'destructive-primary',
+          label: t('form:goToTransactions'),
           onPress: () => {
-            handleDelete();
+            alert.hide();
+            navigate('TransactionsStack');
+          },
+          type: 'secondary',
+        },
+        { label: t('global:share'), onPress: alert.hide, type: 'primary' },
+      ],
+    });
+  }, [alert, navigate, t]);
+
+  const onDelete = useCallback(() => {
+    alert.show({
+      title: t('form:confirmQrPayment'),
+      checkmark: false,
+      extraInfo: (<ContentModalResponse
+        amount={Number('2500')}
+        cardButton
+      />),
+      extraInfoContainerWidth: '100%',
+      actions: [
+        {
+          label: t('global:confirm'),
+          type: 'primary',
+          onPress: async () => {
+            alert.hide();
+            const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+            if (result.success) {
+              alert.hide();
+              handleDelete();
+            }
           },
         },
         {
           label: t('global:cancel'),
           type: 'secondary',
-          onPress: () => alert.hide(),
+          onPress: () => {
+            alert.hide();
+          },
         },
       ],
-      extraInfo: (
-        <ComponentDelete />
-      ),
     });
   }, [alert, handleDelete, t]);
 
@@ -80,12 +102,13 @@ const ChargesScheduledController: React.FC = () => {
         }}
         onPressDelete={() => {
           bottomSheet.hide();
+          onDelete();
         }}
       />);
     } else if (type === 'qr') {
       setVisible(true);
     }
-  }, [bottomSheet, navigate]);
+  }, [bottomSheet, navigate, onDelete]);
 
   return (
     <SafeArea>
@@ -93,14 +116,31 @@ const ChargesScheduledController: React.FC = () => {
       <QRModal
         visible={visible}
         title="Código QR"
-        message={t('transactions:goToAffiliatedStore')}
+        invoice="437437"
         amount={`${formatQuantity(2500)} MXN`}
-        flow="code-payment"
-        onPressCheckEstablishment={() => {
-          setVisible(false);
-          console.log('establishment');
-        }}
-        onPressBack={() => setVisible(false)}
+        validity={t('cards:hours', { hours: 24 })}
+        date={new Date()}
+        cardNumber="**** **** **** 4531"
+        cardLabel={t('form:receiveMoneyCard')}
+        buttonsCaption={t('form:shareQRCode')}
+        actions={[
+          {
+            label: t('form:goToTransactions'),
+            type: 'secondary',
+            onPress: () => {
+              setVisible(false);
+              navigate('TransactionsStack');
+            },
+          },
+          {
+            label: t('global:delete'),
+            type: 'destructive-secondary',
+            onPress: () => {
+              setVisible(false);
+              onDelete();
+            },
+          },
+        ]}
       />
     </SafeArea>
   );

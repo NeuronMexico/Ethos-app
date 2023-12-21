@@ -12,3 +12,4 @@ export * from './FloatingAlert';
 export * from './InitialOnboardingPresentation';
 export * from './Tutorial';
 export * from './QRModal';
+export * from './ContentModalResponse';

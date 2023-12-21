@@ -3,12 +3,11 @@ import {
   Animated, Button, ScrollView,
 } from 'react-native';
 import {
-  Container, Header, QRModal, SafeArea,
+  Container, ContentModalResponse, Header, QRModal, SafeArea,
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
 import { useTranslation } from 'react-i18next';
-import { ContentModalResponse } from 'screens/app/Payment/components';
 import { formatQuantity } from 'utils';
 
 const AlertsScreen: React.FC = () => {
@@ -192,14 +191,27 @@ const AlertsScreen: React.FC = () => {
           <Button title="Variantes de componentes en alertas" onPress={showAlert} />
           <QRModal
             visible={showQRModal}
-            title={t('transactions:code')}
-            message={t('cards:visitAnAffiliatedEstablishment')}
-            amount={`${formatQuantity(2500)} MXN`}
-            flow="code-payment"
-            onPressCheckEstablishment={() => {
-              setShowQRModal(false);
-            }}
-            onPressBack={() => setShowQRModal(false)}
+            title={t('form:generatedQRCode')}
+            invoice="437437"
+            amount={formatQuantity(2500)}
+            validity={t('cards:hours', { hours: 24 })}
+            cardNumber="**** **** **** 4531"
+            cardLabel={t('form:receiveMoneyCard')}
+            buttonsCaption={t('form:shareQRCode')}
+            actions={[
+              {
+                label: t('form:goToTransactions'),
+                type: 'secondary',
+                onPress: () => {
+                  setShowQRModal(false);
+                },
+              },
+              {
+                label: t('global:share'),
+                type: 'primary',
+                onPress: () => setShowQRModal(false),
+              },
+            ]}
           />
         </Container>
       </ScrollView>

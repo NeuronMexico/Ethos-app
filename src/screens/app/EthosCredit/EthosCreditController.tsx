@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 
 import {
   Container,
+  ContentModalResponse,
   SafeArea, SwipeableSwitch, Text, Tutorial,
 } from 'components';
 import { useAlert, useBottomSheet } from 'context';
 import EthosCreditScreen from './EthosCreditScreen';
-import { ContentModalResponse } from '../Payment/components';
 
 const EthosCreditController: React.FC = () => {
   const { t } = useTranslation();

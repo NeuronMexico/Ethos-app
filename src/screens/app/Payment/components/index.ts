@@ -1,7 +1,6 @@
 export * from './AmountSecondaryForm';
 export * from './ComponentInfo';
 export * from './PaymentCollectionForm';
-export * from './ContentModalResponse';
 
 // FORMS
 export * from './PaymentCollectCashForm';

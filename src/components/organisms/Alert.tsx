@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
-import { ColorValue, ScrollView, StyleSheet } from 'react-native';
+import {
+  ColorValue, ScrollView, StyleSheet, ViewStyle,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
   Container, FadeInImage, Modal, Text,
@@ -33,6 +35,7 @@ export interface AlertDataInterface {
   rejectMarck?: boolean;
   shareOption?: boolean;
   extraInfo?: ReactElement;
+  extraInfoContainerWidth?: ViewStyle['width'];
   customBackgroundColor?: ColorValue;
   fullscreen?: boolean;
   logo?: boolean;
@@ -65,6 +68,7 @@ const Alert: React.FC<Props> = ({
     rejectMarck,
     shareOption,
     extraInfo,
+    extraInfoContainerWidth,
     fullscreen,
     logo,
     customBackgroundColor = fullscreen ? Theme.Colors.PlaceboBlue : undefined,
@@ -111,7 +115,7 @@ const Alert: React.FC<Props> = ({
           </Container>
           )}
           {extraInfo && (
-          <Container style={{ marginTop: 2, marginBottom: 8 }}>
+          <Container style={{ marginTop: 2, marginBottom: 8, width: extraInfoContainerWidth }}>
             {extraInfo}
           </Container>
           )}

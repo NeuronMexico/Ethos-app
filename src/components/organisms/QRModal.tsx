@@ -71,7 +71,7 @@ const QRModal: React.FC<Props> = ({
           <Text
             text={message}
             typography="header"
-            marginVertical={16}
+            marginTop={!invoice && !date ? 0 : 16}
             textAlign="center"
             fontWeight="Regular"
           />

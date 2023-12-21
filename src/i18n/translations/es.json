@@ -604,12 +604,14 @@
     "sendMoneyCard": "Tarjeta con la que mandarás el dinero:",
     "shareQR": "Comparte el código QR a quién desees pagar",
     "confirmEdition": "Confirmar edición",
-    "costPerTransfer": "Costo por transferencia",
+    "costPerTransfer": "Costo por transferencia:",
     "editedScheduledPayment": "Pago programado editado",
     "confirmEthoscreditQRPayment": "Confirmar QR cobro ethoscrédito",
     "commission": "Comisión:",
     "chargeSent": "Cobro enviado",
-    "shareQRCode": "Comparte el código QR a quién desees cobrar"
+    "editedCharge": "Cobro editado",
+    "shareQRCode": "Comparte el código QR a quién desees cobrar",
+    "deletedQRCobro": "QR cobro eliminado"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",

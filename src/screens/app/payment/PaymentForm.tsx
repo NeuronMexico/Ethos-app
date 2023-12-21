@@ -8,7 +8,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import {
-  Container, Header, QRModal, SafeArea,
+  Container, ContentModalResponse, Header, QRModal, SafeArea,
 } from 'components';
 import Theme from 'theme';
 import { useAlert } from 'context';
@@ -16,7 +16,6 @@ import { formatQuantity } from 'utils';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import {
   AmountSecondaryForm,
-  ContentModalResponse,
   PaymentCollectCashForm,
   PaymentCollectQRForm,
   PaymentCollectScheduledForm,
@@ -62,6 +61,7 @@ const PaymentForm: React.FC = () => {
             { label: 'form:concept', value: 'Pago Cena' },
           ]}
           cardButton
+          label={t('form:receiveMoneyCard')}
         />
       ),
       title: successTitle,
@@ -152,7 +152,36 @@ const PaymentForm: React.FC = () => {
         });
         break;
       case 'PaymentCollectScheduled':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              paymentDetails={[
+                { label: 'form:name', value: 'Andrés Lara' },
+                { label: 'form:concept', value: 'Pago Cena' },
+              ]}
+              references={[
+                { label: 'form:costPerTransfer', value: '$50' },
+                { label: 'form:costPerDisposal', value: '$7.50' },
+              ]}
+              label={t('form:receiveMoneyCard')}
+              cardButton
+            />
+          ),
+          title: t('form:confirmEdition'),
+          fullscreen: false,
+          actions: [
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                biometricsAuth(() => showCollectSuccessAlert(t('form:editedCharge')));
+              },
+              type: 'primary',
+            },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentCollectToContact':
         alert.show({
