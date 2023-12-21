@@ -23,8 +23,12 @@ import {
 } from 'assets/svg';
 import { SELFIE_ILLUSTRATION } from 'assets/images';
 
-const UMBRAL_ANGLE = 5;
+const UMBRAL_ANGLE = 8;
 const UMBRAL_EYE_OPEN = 0.90;
+const UMBRAL_SENSOR = Platform.select({
+  default: { umbralX: 0.15, umbralY: 0.80, umbralZ: 0.35 },
+  android: { umbralX: 1.20, umbralY: 8.5, umbralZ: 4.0 },
+});
 
 setUpdateIntervalForType(SensorTypes.accelerometer, 400);
 
@@ -99,10 +103,7 @@ const UserValidationScreen: React.FC<Props> = ({
   useEffect(() => {
     const subscription = accelerometer.subscribe(({ x, y, z }) => {
       if (currentPage === 4 && !validFaceDetectedRef.current) {
-        const { umbralX, umbralY, umbralZ } = Platform.select({
-          default: { umbralX: 0.05, umbralY: 0.95, umbralZ: 0.2 },
-          android: { umbralX: 0.5, umbralY: 9.0, umbralZ: 3.5 },
-        });
+        const { umbralX, umbralY, umbralZ } = UMBRAL_SENSOR;
         if (Math.abs(x) > umbralX || Math.abs(y) < umbralY || Math.abs(z) > umbralZ) {
           setDeviceOk(false);
         } else setDeviceOk(true);
@@ -267,7 +268,7 @@ const UserValidationScreen: React.FC<Props> = ({
               label={t('global:continue')}
               marginVertical={32}
               onPress={onSubmit}
-              disabled={!photoPath}
+              // disabled={!photoPath}
             />
           </Container>
         </CommonScrollView>
