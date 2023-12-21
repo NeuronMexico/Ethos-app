@@ -73,7 +73,6 @@ const PaymentController: React.FC<Props> = () => {
     showQRModal,
     setShowQRModal,
     QRModalTitle,
-    QRModalAmount,
     onConfirm,
   } = usePaymentFlow(params.flow, onFinishTransaction);
 
