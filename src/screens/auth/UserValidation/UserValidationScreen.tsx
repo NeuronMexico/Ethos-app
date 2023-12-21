@@ -23,11 +23,11 @@ import {
 } from 'assets/svg';
 import { SELFIE_ILLUSTRATION } from 'assets/images';
 
-const UMBRAL_ANGLE = 8;
+const UMBRAL_ANGLE = 10;
 const UMBRAL_EYE_OPEN = 0.90;
 const UMBRAL_SENSOR = Platform.select({
-  default: { umbralX: 0.15, umbralY: 0.80, umbralZ: 0.35 },
-  android: { umbralX: 1.20, umbralY: 8.5, umbralZ: 4.0 },
+  default: { umbralX: 0.15, umbralY: 0.85, umbralZ: 0.50 },
+  android: { umbralX: 1.20, umbralY: 8.0, umbralZ: 5.5 },
 });
 
 setUpdateIntervalForType(SensorTypes.accelerometer, 400);

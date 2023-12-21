@@ -12,7 +12,7 @@ import { IDScanner } from './components';
 const UserValidationController: React.FC = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { navigate } = useNavigation<NativeStackNavigationProp<AuthStackParams, 'UserValidation'>>();
+  const { replace } = useNavigation<NativeStackNavigationProp<AuthStackParams, 'UserValidation'>>();
 
   const floatingAlert = useFloatingAlert();
 
@@ -41,7 +41,7 @@ const UserValidationController: React.FC = () => {
         frontIDSaved={!!frontID}
         backIDSaved={!!backID}
         onDetectFace={onDetectFace}
-        onSubmit={() => navigate('PersonalInformation')}
+        onSubmit={() => replace('PersonalInformation')}
       />
       {showIDScanner && <IDScanner visible={showIDScanner} onDismiss={() => setShowIDScanner(false)} onSave={onSave} />}
     </SafeArea>
