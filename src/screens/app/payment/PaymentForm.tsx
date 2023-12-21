@@ -1,18 +1,18 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {
   ReactNode, useCallback, useEffect, useState,
 } from 'react';
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
+import ReactNativeBiometrics from 'react-native-biometrics';
+import { ScrollView } from 'react-native-gesture-handler';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import {
   Container, Header, QRModal, SafeArea,
 } from 'components';
 import Theme from 'theme';
-import { ScrollView } from 'react-native-gesture-handler';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useAlert } from 'context';
-import { useTranslation } from 'react-i18next';
-import ReactNativeBiometrics from 'react-native-biometrics';
+import { formatQuantity } from 'utils';
 import { PaymentGlobalStackParams } from '../../../utils/types';
 import {
   AmountSecondaryForm,
@@ -45,48 +45,46 @@ const PaymentForm: React.FC = () => {
   const [formComponentType, setFormComponentType] = useState<ReactNode>();
   const [showQRPaymentModal, setShowQRPaymentModal] = useState(false);
 
-  const showConfirmAlert = useCallback(() => {
+  const biometricsAuth = useCallback(async (callback: () => void) => {
+    const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+    if (result.success) {
+      callback();
+    }
+  }, [t]);
+
+  const showCollectSuccessAlert = useCallback((successTitle: string) => {
     alert.show({
       extraInfo: (
         <ContentModalResponse
-          amount={Number('1234')}
-          date={new Date()}
-          references={[
-            { label: 'form:costPerDisposal', value: '$50' },
-            { label: 'form:SPEICost', value: '$7.50' },
-            { label: 'form:reference', value: 'ABC123' },
-          ]}
+          amount={2500}
           paymentDetails={[
             { label: 'form:name', value: 'Andrés Lara' },
-            { label: 'form:destinationAccount', value: 'CLABE ***531' },
-            { label: 'form:concept', value: 'Pago Viaje' },
-            { label: 'form:bank', value: 'STP' },
+            { label: 'form:concept', value: 'Pago Cena' },
           ]}
+          cardButton
         />
       ),
-      title: t('charges:confirmCharge'),
+      title: successTitle,
       fullscreen: true,
       checkmark: true,
       logo: true,
-      reference: '123',
-      invoice: '1234',
+      invoice: '437437',
+      date: new Date(),
       actions: [
         {
-          label: 'Primary',
+          label: t('form:goToTransactions'),
           onPress: () => {
             alert.hide();
-            goBack();
+            navigate('TransactionsStack');
           },
-          type: 'primary',
+          type: 'secondary',
         },
-        { label: 'Secondary', onPress: alert.hide, type: 'secondary' },
-        { label: 'Destructive Primary', onPress: alert.hide, type: 'destructive-primary' },
-        { label: 'Destructive Secondary', onPress: alert.hide, type: 'destructive-secondary' },
+        { label: t('global:share'), onPress: alert.hide, type: 'primary' },
       ],
     });
-  }, [alert, goBack, t]);
+  }, [alert, navigate, t]);
 
-  const showSuccessPaymentEditAlert = () => {
+  const showSuccessPaymentEditAlert = useCallback(() => {
     alert.show({
       extraInfo: (
         <ContentModalResponse
@@ -118,21 +116,74 @@ const PaymentForm: React.FC = () => {
         { label: t('global:share'), onPress: alert.hide, type: 'primary' },
       ],
     });
-  };
+  }, [alert, goBack, t]);
 
   const onSubmit = useCallback(() => {
+    console.log({ formComponent });
     switch (formComponent) {
       case 'PaymentCollectCash':
         // TODO: Add alert
         break;
       case 'PaymentCollectQR':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              references={[
+                { label: 'form:commission', value: formatQuantity(7.5) },
+              ]}
+              label={t('form:receiveMoneyCard')}
+              cardButton
+            />
+          ),
+          title: t('form:confirmEthoscreditQRPayment'),
+          fullscreen: false,
+          actions: [
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                biometricsAuth(() => setShowQRPaymentModal(true));
+              },
+              type: 'primary',
+            },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentCollectScheduled':
         // TODO: Add alert
         break;
       case 'PaymentCollectToContact':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              paymentDetails={[
+                { label: 'form:name', value: 'Andrés Lara' },
+                { label: 'form:concept', value: 'Pago Cena' },
+              ]}
+              references={[
+                { label: 'form:chargeCommission', value: '$50' },
+              ]}
+              label={t('form:receiveMoneyCard')}
+              cardButton
+            />
+          ),
+          title: t('form:confirmCharge'),
+          fullscreen: false,
+          actions: [
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                biometricsAuth(() => showCollectSuccessAlert(t('form:chargeSent')));
+              },
+              type: 'primary',
+            },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentEdit':
         alert.show({
@@ -223,10 +274,9 @@ const PaymentForm: React.FC = () => {
       default:
         break;
     }
-  }, [alert, formComponent, goBack, showConfirmAlert, t]);
+  }, [alert, biometricsAuth, formComponent, goBack, showCollectSuccessAlert, showSuccessPaymentEditAlert, t]);
 
   useEffect(() => {
-    console.log({ formComponent });
     switch (formComponent) {
       case 'PaymentCollectCash':
         setFormComponentType(<PaymentCollectCashForm
@@ -280,13 +330,27 @@ const PaymentForm: React.FC = () => {
       <QRModal
         visible={showQRPaymentModal}
         title={t('form:generatedQRCode')}
-        message=""
-        amount="$2,500.00"
-        flow="code-payment"
-        onPressCheckEstablishment={() => {
-
-        }}
-        onPressBack={() => { setShowQRPaymentModal(false); goBack(); }}
+        invoice="437437"
+        amount={formatQuantity(2500)}
+        validity={t('cards:hours', { hours: 24 })}
+        cardNumber="**** **** **** 4531"
+        cardLabel={t('form:receiveMoneyCard')}
+        buttonsCaption={t('form:shareQRCode')}
+        actions={[
+          {
+            label: t('form:goToTransactions'),
+            type: 'secondary',
+            onPress: () => {
+              setShowQRPaymentModal(false);
+              navigate('TransactionsStack');
+            },
+          },
+          {
+            label: t('global:share'),
+            type: 'primary',
+            onPress: () => setShowQRPaymentModal(false),
+          },
+        ]}
       />
     </SafeArea>
   );

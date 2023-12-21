@@ -24,6 +24,7 @@ interface Props extends TouchableProps {
   outsideWidth?: ViewStyle['width'];
   colorless?: boolean;
   textAlign?: TextStyle['textAlign'];
+  disabledUI?: boolean;
 }
 
 const Button: React.FC<Props> = ({
@@ -55,6 +56,7 @@ const Button: React.FC<Props> = ({
   outsideLabel,
   outsideWidth,
   textAlign = 'center',
+  disabledUI = true,
 }: Props) => (
   <Container style={{
     width: outsideWidth || width || '100%',
@@ -79,13 +81,13 @@ const Button: React.FC<Props> = ({
           borderStyle: borderStyle ? 'dashed' : 'solid',
           borderColor,
           borderRadius,
-          opacity: disabled ? 0.35 : 1,
+          opacity: disabledUI && disabled ? 0.35 : 1,
           width,
           height,
           alignSelf: outsideWidth ? 'center' : 'auto',
         }}
       >
-        <Container row={!colum} middle style={{ opacity: disabled ? 0.3 : 1 }}>
+        <Container row={!colum} middle style={{ opacity: disabledUI && disabled ? 0.3 : 1 }}>
           {icon}
           {!!label && !outsideLabel && (
           <CustomText

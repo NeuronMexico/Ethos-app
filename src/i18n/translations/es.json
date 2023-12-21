@@ -160,7 +160,7 @@
     "desiredDepositAmount": "Monto que deseas depositar",
     "codeValidFor": "Código válido por",
     "hours": "{{hours}} horas",
-    "visitAnAffiliatedEstablishment": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código",
+    "visitAnAffiliatedEstablishment": "Dirígete a uno de nuestros establecimientos afiliados y presenta el siguiente código para tu retiro",
     "depositAmount": "Depósito de {{amount}} MXN",
     "transactionCost": "Costo de transacción:",
     "checkEstablishments": "Consultar establecimientos",
@@ -605,7 +605,11 @@
     "shareQR": "Comparte el código QR a quién desees pagar",
     "confirmEdition": "Confirmar edición",
     "costPerTransfer": "Costo por transferencia",
-    "editedScheduledPayment": "Pago programado editado "
+    "editedScheduledPayment": "Pago programado editado",
+    "confirmEthoscreditQRPayment": "Confirmar QR cobro ethoscrédito",
+    "commission": "Comisión:",
+    "chargeSent": "Cobro enviado",
+    "shareQRCode": "Comparte el código QR a quién desees cobrar"
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",

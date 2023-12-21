@@ -2,25 +2,33 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import {
+  AlertAction,
   Button,
   Container,
-  Header,
+  FadeInImage,
   Modal,
   QRCode,
   Text,
 } from 'components';
 import Theme from 'theme';
-import { PaymentFlowType, formatDate } from 'utils';
-import { ExportIcon, VisaIcon } from 'assets/svg';
+import { formatDate } from 'utils';
+import { VisaIcon } from 'assets/svg';
+import { ETHOS_CREDIT_LOGO } from 'assets/images';
 
 interface Props {
   visible: boolean;
   title: string;
-  message: string;
+  message?: string;
   amount: string;
-  flow: PaymentFlowType;
-  onPressCheckEstablishment: () => void;
-  onPressBack: () => void;
+  invoice?: string;
+  date?: Date;
+  logo?: boolean;
+  code?: string;
+  validity: string;
+  cardNumber?: string;
+  cardLabel?: string;
+  actions?: Array<AlertAction>;
+  buttonsCaption?: string;
 }
 
 const QRModal: React.FC<Props> = ({
@@ -28,9 +36,15 @@ const QRModal: React.FC<Props> = ({
   title,
   message,
   amount,
-  flow,
-  onPressCheckEstablishment,
-  onPressBack,
+  invoice,
+  date,
+  logo,
+  code,
+  validity,
+  cardNumber,
+  cardLabel,
+  actions = [],
+  buttonsCaption,
 }) => {
   const { t } = useTranslation();
 
@@ -43,15 +57,17 @@ const QRModal: React.FC<Props> = ({
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
-          <Header title={title} showBackButton={false} />
-          {flow === 'code-payment' && (
+          {!!logo && (<FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />)}
+          <Text text={title} typography="title" textAlign="center" marginVertical={16} />
+          {!!invoice && (
           <Text>
             <Text text={t('alert:invoice')} typography="subtitle" fontWeight="Medium" />
             {' '}
             <Text text="43743" typography="subtitle" fontWeight="Bold" />
           </Text>
           )}
-          <Text text={formatDate(new Date())} transform="capitalize" typography="subtitle" />
+          {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" />}
+          {!!message && (
           <Text
             text={message}
             typography="header"
@@ -59,8 +75,19 @@ const QRModal: React.FC<Props> = ({
             textAlign="center"
             fontWeight="Regular"
           />
-          <Text text="328572" fontSize={34} fontWeight="Bold" marginBottom={16} />
-          <QRCode value="Ethos QR" />
+          )}
+          {!!code && (
+          <>
+            <Text
+              text={t('cards:visitAnAffiliatedEstablishment')}
+              typography="subtitle"
+              textAlign="center"
+              marginVertical={16}
+            />
+            <Text text="328572" fontSize={34} fontWeight="Bold" />
+          </>
+          )}
+          <Container style={{ marginTop: 16 }}><QRCode value="Ethos QR" /></Container>
           <Text
             text={amount}
             typography="header"
@@ -71,63 +98,78 @@ const QRModal: React.FC<Props> = ({
           <Text>
             <Text text={t('cards:codeValidFor')} typography="subtitle" fontWeight="Medium" />
             {' '}
-            <Text text={t('cards:hours', { hours: 24 })} typography="subtitle" fontWeight="Bold" />
+            <Text text={validity} typography="subtitle" fontWeight="Bold" />
           </Text>
           <Container flex alignment="end" center width="100%">
-            {flow === 'personal-project-payment' && (
-            <Button
-              label={t('global:accept')}
-              onPress={onPressBack}
+            {!!cardNumber && !!cardLabel && (
+            <Text
+              text={cardLabel}
+              typography="caption"
               marginTop={16}
             />
             )}
-            {(flow === 'cash-payment' || flow === 'personal-project-payment') && (
+            {!!cardNumber && (
             <Button
-              label={t('cards:checkEstablishments')}
-              onPress={onPressCheckEstablishment}
+              label={cardNumber}
+              onPress={() => {}}
+              backgroundColor={Theme.Colors.PlaceboBlue}
+              icon={<VisaIcon />}
+              colorless
+              paddingVertical={10}
               marginTop={16}
-              marginBottom={flow === 'personal-project-payment' ? 16 : 0}
-              backgroundColor={flow === 'personal-project-payment' ? Theme.Colors.WhiteSmoke : undefined}
-              textColor={flow === 'personal-project-payment' ? Theme.Colors.DarkSoul : undefined}
+              width="95%"
+              disabled
+              disabledUI={false}
             />
             )}
-            {flow !== 'personal-project-payment' && (
-            <>
-              <Text text={t('form:sendMoneyCard')} typography="subtitle" fontWeight="Medium" />
-              <Button
-                label="**** **** **** 531"
-                onPress={() => {}}
-                backgroundColor={Theme.Colors.PlaceboBlue}
-                icon={<VisaIcon />}
-                colorless
-                paddingVertical={10}
-                marginTop={27}
-                marginBottom={16}
-                width="95%"
-              />
-              <Container
-                style={{
-                  width: '90%',
-                  height: 0,
-                  borderBottomWidth: 1,
-                  borderBottomColor: Theme.Colors.PlaceboBlue,
-                }}
-              />
-              <Text text={t('form:shareQR')} typography="subtitle" fontWeight="Medium" />
-              <Button
-                label={t('form:goToTransactions')}
-                onPress={onPressBack}
-                marginVertical={16}
-                backgroundColor={Theme.Colors.WhiteSmoke}
-                textColor={Theme.Colors.DarkSoul}
-              />
-              <Button
-                label={t('global:share')}
-                onPress={onPressBack}
-                icon={<ExportIcon color={Theme.Colors.White} />}
-              />
-            </>
+            <Container
+              style={{
+                width: '90%',
+                height: 0,
+                borderBottomWidth: 1,
+                borderBottomColor: Theme.Colors.PlaceboBlue,
+                marginTop: 16,
+              }}
+            />
+            {buttonsCaption && (
+            <Text
+              text={buttonsCaption}
+              typography="subtitle"
+              marginTop={16}
+            />
             )}
+            {actions.map(({ label, onPress, type }, index) => {
+              let backgroundColor = Theme.Colors.DarkSoul;
+              let textColor = Theme.Colors.White;
+
+              switch (type) {
+                case 'secondary':
+                  backgroundColor = Theme.Colors.WhiteSmoke;
+                  textColor = Theme.Colors.DarkSoul;
+                  break;
+                case 'destructive-primary':
+                  backgroundColor = Theme.Colors.HotCoral;
+                  textColor = Theme.Colors.White;
+                  break;
+                case 'destructive-secondary':
+                  backgroundColor = Theme.Colors.WhiteSmoke;
+                  textColor = Theme.Colors.HotCoral;
+                  break;
+                default:
+                  break;
+              }
+
+              return (
+                <Button
+                  key={index}
+                  label={label}
+                  onPress={onPress}
+                  backgroundColor={backgroundColor}
+                  textColor={textColor}
+                  marginTop={16}
+                />
+              );
+            })}
           </Container>
         </ScrollView>
       </Container>
@@ -145,14 +187,10 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   contentContainer: {
-    // paddingTop: 32,
+    paddingTop: 32,
     paddingBottom: 24,
     paddingHorizontal: 16,
     alignItems: 'center',
-  },
-  ethosCreditLogo: {
-    marginTop: 16,
-    marginBottom: 16,
   },
 });
 

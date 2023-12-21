@@ -80,6 +80,8 @@ const ContentModalResponse: React.FC<Props> = ({
       paddingHorizontal={16}
       marginTop={27}
       textColor={Theme.Colors.DarkSoul}
+      disabled
+      disabledUI={false}
     />
     )}
     { pickerCard && (
