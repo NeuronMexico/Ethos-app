@@ -597,7 +597,15 @@
     "deleteQREthoscrédito": "Eliminar QR cobro ethoscrédito",
     "confirmCharge": "Confirmar cobro",
     "chargeCommission": "Comisión por cobro:",
-    "receiveMoneyCard": "Tarjeta donde recibirás el dinero:"
+    "receiveMoneyCard": "Tarjeta donde recibirás el dinero:",
+    "confirmQrPayment": "Confirmar pago QR ethoscrédito",
+    "cardToSendMoney": "Tarjeta con la que mandarás el dinero:",
+    "generatedQRCode": "Código QR generado",
+    "sendMoneyCard": "Tarjeta con la que mandarás el dinero:",
+    "shareQR": "Comparte el código QR a quién desees pagar",
+    "confirmEdition": "Confirmar edición",
+    "costPerTransfer": "Costo por transferencia",
+    "editedScheduledPayment": "Pago programado editado "
   },
   "createAccount": {
     "createEthoscreditAccount": "Crea tu cuenta ethoscrédito",

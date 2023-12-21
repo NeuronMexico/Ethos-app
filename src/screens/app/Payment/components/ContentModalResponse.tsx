@@ -73,7 +73,6 @@ const ContentModalResponse: React.FC<Props> = ({
     <Button
       label="**** **** **** 531"
       onPress={() => {}}
-      marginBottom={16}
       backgroundColor={Theme.Colors.PlaceboBlue}
       icon={<VisaIcon />}
       marginHorizontal="auto"
@@ -83,7 +82,6 @@ const ContentModalResponse: React.FC<Props> = ({
       textColor={Theme.Colors.DarkSoul}
     />
     )}
-    <Line />
     { pickerCard && (
     <Picker
       title="TDC ethoscrédito"
@@ -100,7 +98,14 @@ const ContentModalResponse: React.FC<Props> = ({
       onValueChange={() => {}}
     />
     )}
-    <Container row center style={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}>
+    <Line />
+    <Container
+      row
+      center
+      style={{
+        display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap', marginTop: 16,
+      }}
+    >
       {paymentDetails && paymentDetails.map((item: AlertDataItem, index) => (
         <Container center width="50%" key={index}>
           <Container style={{ marginRight: 12 }}>
@@ -110,13 +115,12 @@ const ContentModalResponse: React.FC<Props> = ({
         </Container>
       ))}
     </Container>
-    <Line />
     <Text text={date && i18n.t('form:singlePayment')} typography="title" textAlign="center" fontSize={17} />
     <Text text={date && formatDate(date, 'MMMM d, yyyy')} textAlign="center" />
 
     {
       showButtons && (
-        <Container style={{ margin: 16 }}>
+        <Container style={{ marginTop: 8 }}>
           <Button
             label={i18n.t('global:goBack')}
             onPress={onPressBack}

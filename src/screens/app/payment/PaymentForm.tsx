@@ -5,7 +5,7 @@ import React, {
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
 
 import {
-  Container, Header, SafeArea,
+  Container, Header, QRModal, SafeArea,
 } from 'components';
 import Theme from 'theme';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -43,6 +43,7 @@ const PaymentForm: React.FC = () => {
   } = useRoute<RouteProp<PaymentGlobalStackParams, 'form'>>();
 
   const [formComponentType, setFormComponentType] = useState<ReactNode>();
+  const [showQRPaymentModal, setShowQRPaymentModal] = useState(false);
 
   const showConfirmAlert = useCallback(() => {
     alert.show({
@@ -85,6 +86,40 @@ const PaymentForm: React.FC = () => {
     });
   }, [alert, goBack, t]);
 
+  const showSuccessPaymentEditAlert = () => {
+    alert.show({
+      extraInfo: (
+        <ContentModalResponse
+          amount={Number('1234')}
+          paymentDetails={[
+            { label: 'form:name', value: 'Andrés Lara' },
+            { label: 'form:destinationAccount', value: 'CLABE ***531' },
+            { label: 'form:concept', value: 'Pago Viaje' },
+            { label: 'form:bank', value: 'STP' },
+          ]}
+          cardButton
+        />
+      ),
+      title: t('form:editedScheduledPayment'),
+      fullscreen: false,
+      checkmark: true,
+      logo: true,
+      invoice: '1234',
+      date: new Date(),
+      actions: [
+        {
+          label: t('form:goToTransactions'),
+          onPress: async () => {
+            alert.hide();
+            goBack();
+          },
+          type: 'secondary',
+        },
+        { label: t('global:share'), onPress: alert.hide, type: 'primary' },
+      ],
+    });
+  };
+
   const onSubmit = useCallback(() => {
     switch (formComponent) {
       case 'PaymentCollectCash':
@@ -97,29 +132,38 @@ const PaymentForm: React.FC = () => {
         // TODO: Add alert
         break;
       case 'PaymentCollectToContact':
+        // TODO: Add alert
+        break;
+      case 'PaymentEdit':
         alert.show({
           extraInfo: (
             <ContentModalResponse
-              amount={2500}
+              amount={Number('1234')}
               paymentDetails={[
                 { label: 'form:name', value: 'Andrés Lara' },
-                { label: 'form:concept', value: 'Pago Cena' },
+                { label: 'form:destinationAccount', value: 'CLABE ***531' },
               ]}
               references={[
-                { label: 'form:chargeCommission', value: '$50' },
+                { label: 'form:costPerTransfer', value: '$50' },
+                { label: 'form:costPerDisposal', value: '$7.50' },
               ]}
-              label={t('form:receiveMoneyCard')}
+              label={t('form:cardLabel')}
               cardButton
             />
           ),
-          title: t('form:confirmCharge'),
+          title: t('form:confirmEdition'),
           fullscreen: false,
+          logo: true,
           actions: [
             {
               label: t('global:confirm'),
-              onPress: () => {
+              onPress: async () => {
                 alert.hide();
-                goBack();
+                const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+                if (result.success) {
+                  alert.hide();
+                  showSuccessPaymentEditAlert();
+                }
               },
               type: 'primary',
             },
@@ -127,14 +171,45 @@ const PaymentForm: React.FC = () => {
           ],
         });
         break;
-      case 'PaymentEdit':
-        // TODO: Add alert
-        break;
       case 'PaymentFastCollect':
         // TODO: Add alert
         break;
       case 'PaymentQR':
-        // TODO: Add alert
+        alert.show({
+          title: t('form:confirmQrPayment'),
+          checkmark: false,
+          extraInfo: (<ContentModalResponse
+            amount={Number('2500')}
+            references={[
+              { label: 'form:costPerDisposal', value: '$50' },
+              { label: 'form:SPEICost', value: '$7.50' },
+            ]}
+            label={t('form:cardToSendMoney')}
+            cardButton
+          />),
+          actions: [
+            {
+              label: t('global:confirm'),
+              type: 'primary',
+              onPress: async () => {
+                alert.hide();
+                const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+                if (result.success) {
+                  setShowQRPaymentModal(true);
+                  goBack();
+                }
+              },
+            },
+            {
+              label: t('global:cancel'),
+              type: 'secondary',
+              onPress: () => {
+                alert.hide();
+                goBack();
+              },
+            },
+          ],
+        });
         break;
       case 'PaymentTransferAccountForm':
         // TODO: Add alert
@@ -148,47 +223,6 @@ const PaymentForm: React.FC = () => {
       default:
         break;
     }
-
-    // alert.show({
-    //   title: 'Alerta de Confirmación',
-    //   checkmark: false,
-    //   extraInfo: (<ContentModalResponse
-    //     amount={Number('1234')}
-    //     date={new Date()}
-    //     references={[
-    //       { label: 'form:costPerDisposal', value: '$50' },
-    //       { label: 'form:SPEICost', value: '$7.50' },
-    //       { label: 'form:reference', value: 'ABC123' },
-    //     ]}
-    //     paymentDetails={[
-    //       { label: 'form:name', value: 'Andrés Lara' },
-    //       { label: 'form:destinationAccount', value: 'CLABE ***531' },
-    //       { label: 'form:concept', value: 'Pago Viaje' },
-    //       { label: 'form:bank', value: 'STP' },
-    //     ]}
-    //   />),
-    //   actions: [
-    //     {
-    //       label: t('global:continue'),
-    //       type: 'primary',
-    //       onPress: async () => {
-    //         alert.hide();
-    //         const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
-    //         if (result.success) {
-    //           showConfirmAlert();
-    //         }
-    //       },
-    //     },
-    //     {
-    //       label: t('global:cancel'),
-    //       type: 'secondary',
-    //       onPress: () => {
-    //         alert.hide();
-    //         goBack();
-    //       },
-    //     },
-    //   ],
-    // });
   }, [alert, formComponent, goBack, showConfirmAlert, t]);
 
   useEffect(() => {
@@ -243,6 +277,17 @@ const PaymentForm: React.FC = () => {
           </ScrollView>
         </Container>
       </Container>
+      <QRModal
+        visible={showQRPaymentModal}
+        title={t('form:generatedQRCode')}
+        message=""
+        amount="$2,500.00"
+        flow="code-payment"
+        onPressCheckEstablishment={() => {
+
+        }}
+        onPressBack={() => { setShowQRPaymentModal(false); goBack(); }}
+      />
     </SafeArea>
   );
 };
