@@ -122,7 +122,31 @@ const PaymentForm: React.FC = () => {
     console.log({ formComponent });
     switch (formComponent) {
       case 'PaymentCollectCash':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              references={[
+                { label: 'Comisión por disposición', value: formatQuantity(7.5) },
+              ]}
+              label="Tarjeta donde recibirás el dinero:"
+              cardButton
+            />
+          ),
+          title: 'Confirmar cobro en efectivo',
+          fullscreen: false,
+          actions: [
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                biometricsAuth(() => setShowQRPaymentModal(true));
+              },
+              type: 'primary',
+            },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'PaymentCollectQR':
         alert.show({
@@ -294,7 +318,34 @@ const PaymentForm: React.FC = () => {
         // TODO: Add alert
         break;
       case 'WithdrawalNoCard':
-        // TODO: Add alert
+        alert.show({
+          extraInfo: (
+            <ContentModalResponse
+              amount={2500}
+              references={[
+                { label: 'Comisiones', value: formatQuantity(50) },
+                { label: 'Total a pagar', value: formatQuantity(7.5) },
+                { label: 'En 8 mensualidades de', value: formatQuantity(534.332) },
+              ]}
+              label="Tarjeta donde se cargarán
+              tus mensualidades:"
+              cardButton
+            />
+          ),
+          title: 'Confirmar retiro sin tarjeta',
+          fullscreen: false,
+          actions: [
+            {
+              label: t('global:confirm'),
+              onPress: () => {
+                alert.hide();
+                biometricsAuth(() => setShowQRPaymentModal(true));
+              },
+              type: 'primary',
+            },
+            { label: t('global:cancel'), onPress: alert.hide, type: 'secondary' },
+          ],
+        });
         break;
       case 'none':
         // TODO: Add alert
