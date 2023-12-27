@@ -93,7 +93,13 @@ const Alert: React.FC<Props> = ({
           bounces={false}
         >
           {!!logo && (<FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} style={styles.ethosCreditLogo} />)}
-          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
+          {!!invoice && (
+            <Text marginBottom={10}>
+              <Text text={t('alert:invoice')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={invoice} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
           {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
           {!!reference && (
             <Text>
@@ -102,13 +108,7 @@ const Alert: React.FC<Props> = ({
               <Text text={reference} typography="caption" fontWeight="Bold" />
             </Text>
           )}
-          {!!invoice && (
-            <Text marginBottom={10}>
-              <Text text={t('alert:invoice')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={invoice} typography="caption" fontWeight="Bold" />
-            </Text>
-          )}
+          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
           {(checkmark || rejectMarck) && (
           <Container style={{ marginBottom: 8 }}>
             {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
