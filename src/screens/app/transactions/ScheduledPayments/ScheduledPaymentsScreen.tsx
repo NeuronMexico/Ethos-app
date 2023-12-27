@@ -7,11 +7,9 @@ import {
 import Theme from 'theme';
 import { formatDate, formatQuantity } from 'utils';
 
-interface Props {
-  onPressPayment: (type: string) => void;
-}
+interface Props {}
 
-const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
+const ScheduledPaymentsScreen: React.FC<Props> = () => {
   const { t } = useTranslation();
 
   return (
@@ -38,7 +36,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
-          onPress={() => onPressPayment('single')}
+          onPress={() => {}}
         />
         <MultipleTextButton
           title="Pago de TDC ** *334"
@@ -58,7 +56,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
-          onPress={() => onPressPayment('single')}
+          onPress={() => {}}
         />
 
         <Text
@@ -77,7 +75,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = ({ onPressPayment }) => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
-          onPress={() => onPressPayment('single')}
+          onPress={() => {}}
         />
       </ScrollView>
     </Container>
