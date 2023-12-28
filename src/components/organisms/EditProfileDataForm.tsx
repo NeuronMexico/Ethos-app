@@ -1,6 +1,4 @@
 import React from 'react';
-import { CustomText } from 'components/atoms/CustomText';
-import Theme from 'theme';
 import { Input } from 'components/atoms';
 import { Button } from 'components/molecules';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +12,7 @@ interface EditFormProps {
 
 const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit }) => {
   const { t } = useTranslation();
-  const formattedLabel = label?.toLowerCase();
+  const formattedLabel = label?.toLowerCase() || '';
 
   return (
     <Container
@@ -22,12 +20,8 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit })
         marginTop: 30,
       }}
     >
-      <CustomText
-        text={label}
-        typography="subtitle"
-        textColor={Theme.Colors.Carbon}
-      />
       <Input
+        label={label || 'Alias'}
         onChangeText={undefined}
         value={undefined}
         maxLength={type === 'phone' ? 10 : 30}

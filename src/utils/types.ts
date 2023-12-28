@@ -40,6 +40,7 @@ export type AuthStackParams = {
     value: string,
     type: string,
   };
+  CompanyCodeLabel: undefined;
 };
 
 export type CardsGlobalStackParams = {

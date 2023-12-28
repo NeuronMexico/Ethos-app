@@ -27,12 +27,10 @@ const CardReportScreen: React.FC<Props> = ({ onPressDisableCard }) => {
       <Header title={t('cards:reportCard')} showVirtualAssistantAction />
       <ScrollView contentContainerStyle={{ paddingHorizontal: Theme.Sizes.Padding, paddingTop: 32, flexGrow: 1 }}>
         <Text text={t('cards:selectReportReason')} typography="title" fontWeight="Semibold" />
-        <Text text={t('cards:disableCurrentCard')} typography="subtitle" fontWeight="Medium" marginTop={16} />
-
-        <RadioButtonGroup options={options} value={reason} onChange={setReason} />
+        <RadioButtonGroup options={options} value={reason} onChange={setReason} marginVertical={16} />
 
         <Container flex alignment="end">
-          <Text text={t('cards:cardReplacementCost')} typography="subtitle" fontWeight="Medium" />
+          <Text text={t('cards:disableCurrentCard')} typography="subtitle" fontWeight="Medium" />
           <Button label={t('cards:disableCard')} onPress={onPressDisableCard} marginVertical={16} />
         </Container>
       </ScrollView>

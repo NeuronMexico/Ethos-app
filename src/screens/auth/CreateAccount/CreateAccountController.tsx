@@ -12,7 +12,7 @@ const CreateAccountController: React.FC<Props> = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <CreateAccountScreen onSubmit={() => navigation.navigate('UserValidation')} />
+      <CreateAccountScreen onSubmit={() => navigation.navigate('CompanyCodeLabel')} />
     </SafeArea>
   );
 };

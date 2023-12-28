@@ -26,12 +26,6 @@ const CardReportController: React.FC<Props> = ({ navigation }) => {
         invoice: '58432',
         date: new Date(),
         checkmark: true,
-        extraInfo: (<Text
-          text={t('cards:youCanRequestACardAgain')}
-          typography="header"
-          fontWeight="Medium"
-          textAlign="center"
-        />),
         actions: [
           {
             label: t('cards:requestNow'),

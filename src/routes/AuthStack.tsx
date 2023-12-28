@@ -10,6 +10,7 @@ import ValidatedInformationController from 'screens/auth/ValidatedInformation/Va
 import ContractDetailsController from 'screens/auth/ContractDetails/ContractDetailsController';
 import { InitialOnboardingPresentation } from 'components';
 import EditProfileFieldController from 'screens/app/profile/EditProfileField/EditProfileFieldController';
+import CompanyCodeLabelController from 'screens/auth/CompanyCodeLabel/CompanyCodeLabelController';
 
 const Stack = createNativeStackNavigator<AuthStackParams>();
 
@@ -24,6 +25,7 @@ const AuthStack: React.FC = () => (
     <Stack.Screen name="ValidatedInformation" component={ValidatedInformationController} />
     <Stack.Screen name="ContractDetails" component={ContractDetailsController} />
     <Stack.Screen name="CreateAlias" component={EditProfileFieldController} />
+    <Stack.Screen name="CompanyCodeLabel" component={CompanyCodeLabelController} />
   </Stack.Navigator>
 );
 

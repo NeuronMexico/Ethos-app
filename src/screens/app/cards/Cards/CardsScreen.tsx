@@ -6,9 +6,10 @@ import Theme from 'theme';
 
 interface Props {
   onSelectCard: () => void;
+  onPressReportCard: () => void;
 }
 
-const CardsScreen: React.FC<Props> = ({ onSelectCard }) => {
+const CardsScreen: React.FC<Props> = ({ onSelectCard, onPressReportCard }) => {
   const { t } = useTranslation();
 
   return (
@@ -18,6 +19,7 @@ const CardsScreen: React.FC<Props> = ({ onSelectCard }) => {
         showBackButton={false}
         rightIcon={<ShieldIcon />}
         rightIconContainerBackgroundColor={Theme.Colors.White}
+        rightAction={onPressReportCard}
       />
 
       <Container center style={{ marginTop: 32 }}>

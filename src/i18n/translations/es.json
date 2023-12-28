@@ -136,8 +136,8 @@
     "statementDate": "Fecha de corte",
     "limits": "Límites",
     "personalDispositionLimit": "Límite de disposición personal",
-    "cashWithdrawalLimitAtm": "Límite de disposición de efectivo en cajeros",
-    "cashWithdrawalLimitCorrespondents": "Límite de disposición de efectivo en corresponsales",
+    "cashDepositLimit": "Límite de depósitos en efectivo",
+    "withdrawalLimitWithoutCard": "Límite de retiro sin tarjeta",
     "withdrawalAccount": "Cuenta de retiro",
     "reportMovement": "Reportar movimiento",
     "assignTags": "Asignar etiquetas",
@@ -147,16 +147,15 @@
     "confirmNewPin": "Confirmar nuevo NIP",
     "pinChangedSuccessfully": "NIP cambiado correctamente",
     "selectReportReason": "Elige el motivo de tu reporte",
-    "disableCurrentCard": "A continuación deshabilitaremos tu tarjeta actual y podrás pedir una nueva",
+    "disableCurrentCard": "Deshabilitaremos tu tarjeta actual para compras físicas y online. Se te asignará una nueva tarjeta digital y podrás solicitar una nueva tarjeta física al terminar de levantar el reporte",
     "theft": "Robo",
     "loss": "Extravío",
     "damaged": "Dañada",
     "atmRetained": "Retenida en el cajero",
-    "cardReplacementCost": "El reemplazo de tu tarjeta física tiene un costo de $250.00, IVA incluido.",
     "disableCard": "Deshabilitar tarjeta",
-    "physicalCardDisabledSuccessfully": "Tarjeta física deshabilitada correctamente",
+    "physicalCardDisabledSuccessfully": "Tarjeta deshabilitada correctamente",
     "youCanRequestACardAgain": "Puedes solicitar una tarjeta nuevamente",
-    "requestNow": "Solicitar ahora",
+    "requestNow": "Solicitar tarjeta física",
     "desiredDepositAmount": "Monto que deseas depositar",
     "codeValidFor": "Código válido por",
     "hours": "{{hours}} horas",
@@ -722,5 +721,12 @@
     "takeSelfie": "Tomar Selfie",
     "photoUploaded": "¡Fotografía Subida!",
     "alignYourFaceWithMarks": "Alinea tu rostro con las marcas y mueve tu cara lo menos posible."
+  },
+  "companyCodeLabel": {
+    "expansionProgramAndReferralMessage": "Como parte de nuestro programa de expansión, en ethoscrédito tenemos empresas afiliadas para poder ofrecer nuestras soluciones a sus colaboradores.\n\nSi tu empresa forma parte de la red, ingresa tu código de referido a continuación.",
+    "companyCodeLabel": "Código de empresa",
+    "companyCodeDescription": "Si eres parte de una empresa afiliada a ethoscrédito, ingresa tu código de referido",
+    "enterCompanyCode": "Ingresa tu código de empresa",
+    "noCodeMessage": "No tengo código"
   }
 }

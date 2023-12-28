@@ -9,7 +9,10 @@ const CardsController: React.FC = () => {
 
   return (
     <SafeArea backgroundColor={Theme.Colors.PlaceboBlue} safeBGColor={Theme.Colors.PlaceboBlue}>
-      <CardsScreen onSelectCard={() => navigate('CardsGlobalStack', { screen: 'Card' })} />
+      <CardsScreen
+        onSelectCard={() => navigate('CardsGlobalStack', { screen: 'Card' })}
+        onPressReportCard={() => navigate('CardsGlobalStack', { screen: 'CardReport' })}
+      />
     </SafeArea>
   );
 };

@@ -97,9 +97,12 @@ const CardController: React.FC = () => {
             />,
           );
         }}
-        onPressAccountStatement={() => {
+        onPressAccountStatement={async () => {
           bottomSheet.hide();
-          navigate('AccountStatement');
+          const result = await rnBiometrics.simplePrompt({ promptMessage: t('global:confirmYourIdentity') });
+          if (result.success) {
+            navigate('AccountStatement');
+          }
         }}
       />,
     );

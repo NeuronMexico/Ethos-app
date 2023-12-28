@@ -37,8 +37,8 @@ const CreditDetailScreen: React.FC<Props> = (props: Props) => {
   ];
 
   const LIMITS_INFO_1 = [
-    { label: t('cards:personalDispositionLimit'), value: formatQuantity(30000) },
-    { label: t('cards:cashWithdrawalLimitCorrespondents'), value: formatQuantity(30000) },
+    { label: t('cards:cashDepositLimit'), value: formatQuantity(30000) },
+    { label: t('cards:withdrawalLimitWithoutCard'), value: formatQuantity(30000) },
   ];
 
   const LIMITS_INFO_2 = [
