@@ -62,7 +62,7 @@ const ProfileScreen: React.FC<Props> = ({
   onPressBills,
   onPressSecurityAndLegalNotices,
   onPressLogOut,
-  onPressEditPhoto
+  onPressEditPhoto,
 }) => {
   const { t } = useTranslation();
 
