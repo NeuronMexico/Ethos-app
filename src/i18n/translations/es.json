@@ -359,7 +359,10 @@
     "addressResponseTitle": "Dirección cambiada correctamente",
     "emailResponseTitle": "Correo electrónico cambiado correctamente",
     "phoneResponseTitle": "Número celular cambiado correctamente",
-    "aliasResponseTitle": "Alias cambiado correctamente"
+    "aliasResponseTitle": "Alias cambiado correctamente",
+    "sensitiveInformation": "Información sensible",
+    "sensitiveInfoDescription": "Recuerda que estás compartiendo datos personales y de tu cuenta de crédito.",
+    "dontShowAgain": "No volver a mostrar"
   },
   "notifications": {
     "titlePage": "Notificaciones",

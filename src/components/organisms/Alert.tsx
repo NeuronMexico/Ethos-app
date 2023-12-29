@@ -40,6 +40,7 @@ export interface AlertDataInterface {
   fullscreen?: boolean;
   logo?: boolean;
   divider?: boolean;
+  extraInfoDown?: ReactElement;
 }
 
 interface Props {
@@ -73,6 +74,7 @@ const Alert: React.FC<Props> = ({
     logo,
     customBackgroundColor = fullscreen ? Theme.Colors.PlaceboBlue : undefined,
     divider,
+    extraInfoDown,
   },
 }) => {
   const { t } = useTranslation();
@@ -150,6 +152,11 @@ const Alert: React.FC<Props> = ({
               backgroundColor={Theme.Colors.PlaceboBlue}
               style={{ marginVertical: 8 }}
             />
+          )}
+          {extraInfoDown && (
+          <Container style={{ marginTop: 2, marginBottom: 8, width: extraInfoContainerWidth }}>
+            {extraInfoDown}
+          </Container>
           )}
           {actions.map(({ label, onPress, type }, index) => {
             let backgroundColor = Theme.Colors.DarkSoul;
