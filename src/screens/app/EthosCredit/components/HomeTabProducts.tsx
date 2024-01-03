@@ -12,7 +12,7 @@ import TabSection from './TabSections/TabSection';
 
 const DUMMY_DATA = [
   {
-    title: '*** 334',
+    title: '***334',
     type: 'card',
     info: {
       usedBalance: 3957,
@@ -20,7 +20,7 @@ const DUMMY_DATA = [
     },
   },
   {
-    title: '*** 543',
+    title: '***543',
     type: 'card',
     info: {
       usedBalance: 50000,

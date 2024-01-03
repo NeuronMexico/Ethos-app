@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { EyeIcon, EyeSlashIcon } from 'assets/svg';
@@ -6,8 +6,6 @@ import {
   Container, ProgressBar, Text, Touchable,
 } from 'components';
 import Theme from 'theme';
-import { Animated, StyleSheet } from 'react-native';
-import { BlurView } from '@react-native-community/blur';
 
 interface Props {
   // TODO: Implementation
@@ -18,7 +16,6 @@ const TabSection: React.FC<Props> = ({ product }: Props) => {
   const { t } = useTranslation();
 
   const [isBlurred, setIsBlurred] = useState<boolean>(true);
-  const opacity = useRef(new Animated.Value(0)).current;
 
   return (
     <Container flex>
