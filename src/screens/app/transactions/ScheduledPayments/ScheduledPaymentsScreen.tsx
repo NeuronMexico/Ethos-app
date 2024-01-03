@@ -46,7 +46,7 @@ const ScheduledPaymentsScreen: React.FC<Props> = () => {
           borderRadius={24}
           marginTop={16}
           alignContent="space-between"
-          onPress={() => onPressPayment('direct-debit')}
+          onPress={() => {}}
         />
         <MultipleTextButton
           title="Netflix"
