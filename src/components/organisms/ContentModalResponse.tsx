@@ -23,6 +23,7 @@ interface Props {
   cardButton?: boolean;
   pickerCard?: boolean;
   label?: string;
+  spaceBetweenReferences?: number;
 }
 
 const Line = () => (
@@ -50,6 +51,7 @@ const ContentModalResponse: React.FC<Props> = ({
   cardButton,
   pickerCard,
   label,
+  spaceBetweenReferences,
 }: Props) => (
   <Container width="100%">
     {amount && (
@@ -64,7 +66,7 @@ const ContentModalResponse: React.FC<Props> = ({
     {references && (
     <Container style={{ marginTop: 16 }}>
       {references.map((item: AlertDataItem, index: number) => (
-        <Container key={index} row center crossCenter>
+        <Container key={index} row center crossCenter style={{ marginTop: spaceBetweenReferences }}>
           <Text text={i18n.t(item.label)} textAlign="center" fontSize={13} />
           <Text text={item.value} textAlign="center" typography="title" fontSize={13} marginLeft={4} />
         </Container>

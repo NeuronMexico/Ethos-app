@@ -12,6 +12,7 @@ import {
 import {
   CardDigitalIcon,
   CardPayIcon,
+  DeferIcon,
   DotsIcon,
   EyeIcon,
   EyeSlashIcon,
@@ -35,6 +36,7 @@ interface Props {
   onPressPin: () => void;
   onPressSeeMore: () => void;
   onPressTransaction: () => void;
+  onPressDeferPurchases: () => void;
   onPressReportCard: () => void;
 }
 
@@ -47,6 +49,7 @@ const CardScreen: React.FC<Props> = ({
   onPressPin,
   onPressSeeMore,
   onPressTransaction,
+  onPressDeferPurchases,
   onPressReportCard,
 }) => {
   const { t } = useTranslation();
@@ -132,6 +135,12 @@ const CardScreen: React.FC<Props> = ({
             label={t('cards:pin')}
             icon={<KeyIcon />}
             onPress={onPressPin}
+          />
+          <CardAction
+            label={t('cards:deferPurchases')}
+            icon={<DeferIcon />}
+            width={65}
+            onPress={onPressDeferPurchases}
           />
           <CardAction
             label={t('cards:reportCard')}

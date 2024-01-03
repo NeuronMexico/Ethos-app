@@ -123,6 +123,7 @@ const CardController: React.FC = () => {
         onPressPin={onPressPin}
         onPressSeeMore={onPressSeeMore}
         onPressTransaction={onPressTransaction}
+        onPressDeferPurchases={() => navigate('DeferPurchases')}
         onPressReportCard={() => navigate('CardReport')}
       />
     </SafeArea>

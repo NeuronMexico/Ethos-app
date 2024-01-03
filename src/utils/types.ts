@@ -53,6 +53,7 @@ export type CardsGlobalStackParams = {
   CardReport: undefined;
   AccountStatement: undefined;
   PDFViewer: undefined;
+  DeferPurchases: undefined;
 };
 
 export type AppStackParams = {

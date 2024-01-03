@@ -76,6 +76,7 @@
     "payCard": "Pagar tarjeta",
     "digitalCard": "Tarjeta digital",
     "pin": "NIP",
+    "deferPurchases": "Diferir compras",
     "reportCard": "Reportar tarjeta",
     "seeMore": "Ver más",
     "requestPhysicalCard": "Solicitar tarjeta física",
@@ -187,7 +188,18 @@
     "distantZone": "La dirección está en una zona distante",
     "additionalCost": "El envío implica un costo adicional de {{amount}}",
     "editAddress": "Editar dirección",
-    "confirmDeliveryAddress": "Confirmar dirección de entrega"
+    "confirmDeliveryAddress": "Confirmar dirección de entrega",
+    "payYourWayAndPace": "Paga a tu manera y ritmo",
+    "selectFromParticipatingPurchases": "Selecciona entre las compras participantes, elige el plan de pagos y disfruta",
+    "purchase": "Compra",
+    "defermentMonths": "Meses a diferir",
+    "totalAmountToDefer": "Monto total a diferir",
+    "interestRate": "Tasa de interés",
+    "totalToPay": "Total a pagar",
+    "monthlyInstallmentsOf": "{{months}} mensualidades de",
+    "deferPurchaseTo3InstallmentsOf": "Diferir compra a {{months}} mensualidades de",
+    "purchaseDeferredSuccessfully": "Compra diferida correctamente",
+    "totalAmountToPay": "Monto total a pagar"
   },
   "virtualAssistant": {
     "virtualAssistant": "Asistente Virtual",

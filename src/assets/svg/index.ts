@@ -51,6 +51,7 @@ export * from './ChevronRightIcon';
 export * from './ClipIcon';
 export * from './CoDiIcon';
 export * from './CopyIcon';
+export * from './DeferIcon';
 export * from './DotsIcon';
 export * from './DownloadIcon';
 export * from './EditIcon';

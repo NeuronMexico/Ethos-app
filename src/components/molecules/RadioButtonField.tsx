@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ColorValue } from 'react-native';
 import { RadioButton, Text } from 'components/atoms';
 import { FontWeightTypes, TypographyTypes } from '../atoms/CustomText';
 import { Container } from '../atoms/Container';
@@ -14,6 +15,11 @@ export interface RadioButtonFieldProps {
   marginVertical?: number;
   value?: string;
   caption?: string;
+  centerRadio?: boolean;
+  captionSize?: number;
+  captionFontWeight?: FontWeightTypes;
+  captionTextColor?: ColorValue;
+  captionValue?: string;
 }
 
 const RadioButtonField: React.FC<RadioButtonFieldProps> = ({
@@ -26,13 +32,18 @@ const RadioButtonField: React.FC<RadioButtonFieldProps> = ({
   marginVertical = 8,
   value,
   caption,
+  centerRadio = false,
+  captionSize = 15,
+  captionFontWeight = 'Regular',
+  captionTextColor,
+  captionValue,
 }: RadioButtonFieldProps) => {
   const [centerText, setCenterText] = useState<boolean>(true);
 
   return (
     <Container style={{ marginVertical }}>
       <Touchable onPress={() => onChange(!selected)} opacityEffect>
-        <Container row center={!caption && centerText}>
+        <Container row center={(!caption && centerText) || centerRadio}>
           <RadioButton
             selected={selected}
           />
@@ -58,15 +69,30 @@ const RadioButtonField: React.FC<RadioButtonFieldProps> = ({
               />
               )}
             </Container>
-            {!!caption && (
-            <Text
-              text={caption}
-              typography="subtitle"
-              fontWeight="Regular"
-              marginLeft={8}
-              marginTop={12}
-            />
-            )}
+            <Container row space="between">
+              <Container>
+                {!!caption && (
+                <Text
+                  text={caption}
+                  fontSize={captionSize}
+                  fontWeight={captionFontWeight}
+                  textColor={captionTextColor}
+                  marginLeft={8}
+                  marginTop={12}
+                />
+                )}
+              </Container>
+              {!!captionValue && (
+                <Text
+                  text={captionValue}
+                  fontSize={captionSize}
+                  fontWeight={captionFontWeight}
+                  textColor={captionTextColor}
+                  marginLeft={8}
+                  marginTop={12}
+                />
+              )}
+            </Container>
           </Container>
         </Container>
       </Touchable>
