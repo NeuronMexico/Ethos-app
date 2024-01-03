@@ -4,6 +4,7 @@ import CARD_REVERSE from './card-reverse.png';
 import ETHOS_CREDIT_LOGO from './ethos-credit-logo.png';
 import ETHOS_CREDIT_CARDS from './ethos-credit-cards.png';
 import DUMMY_CARD from './dummy-card.png';
+import GIFT_IMG from './gift-img.png';
 
 import TUTORIAL_FIRST from './tutorial-first-img.png';
 import TUTORIAL_SECOND from './tutorial-second-img.png';
@@ -21,6 +22,7 @@ export {
   CARD_REVERSE,
   ETHOS_CREDIT_LOGO,
   ETHOS_CREDIT_CARDS,
+  GIFT_IMG,
 
   TUTORIAL_FIRST,
   TUTORIAL_SECOND,

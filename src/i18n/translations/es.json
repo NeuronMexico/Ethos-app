@@ -728,5 +728,14 @@
     "companyCodeDescription": "Si eres parte de una empresa afiliada a ethoscrédito, ingresa tu código de referido",
     "enterCompanyCode": "Ingresa tu código de empresa",
     "noCodeMessage": "No tengo código"
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "rewards": "Recompensas",
+    "currentBalance": "Saldo actual",
+    "validUntil": "Válido hasta el 09/09/2023",
+    "refer": "Refiere ethoscrédito",
+    "win": "¡Y gana hasta $10,000 MXN!",
+    "packages": "Paquetes"
   }
 }
