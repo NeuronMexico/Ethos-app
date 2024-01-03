@@ -25,6 +25,8 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit })
         onChangeText={undefined}
         value={undefined}
         maxLength={type === 'phone' ? 10 : 30}
+        mask={type === 'phone' ? 'custom' : undefined}
+        options={type === 'phone' ? { mask: '(999) 999-9999' } : undefined}
         keyboardType={type === 'phone' ? 'phone-pad' : 'default'}
         placeholder={`${t('global:new')} ${formattedLabel}`}
       />
@@ -33,6 +35,8 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit })
         onChangeText={undefined}
         value={undefined}
         placeholder={`${t('global:confirm')} ${formattedLabel}`}
+        mask={type === 'phone' ? 'custom' : undefined}
+        options={type === 'phone' ? { mask: '(999) 999-9999' } : undefined}
         maxLength={type === 'phone' ? 10 : 30}
         keyboardType={type === 'phone' ? 'phone-pad' : 'default'}
       />

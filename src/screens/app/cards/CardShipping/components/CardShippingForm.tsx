@@ -310,7 +310,7 @@ const CardShippingForm: React.FC<Props> = ({ onSubmit }) => {
         keyboardType="phone-pad"
         autoComplete="tel"
         mask="custom"
-        options={{ mask: '(999) 999 9999' }}
+        options={{ mask: '+52 (999) 999 9999' }}
         maxLength={14}
         blurOnSubmit={false}
         error={phoneError}

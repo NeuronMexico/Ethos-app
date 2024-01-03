@@ -163,8 +163,9 @@ const CreateAccountScreen: React.FC<Props> = ({ onSubmit }) => {
                 value={phone}
                 onChangeText={setPhone}
                 mask="custom"
-                options={{ mask: '(999) 999 9999' }}
+                options={{ mask: '+52 (999) 999 9999' }}
                 placeholder={t('createAccount:enterYourPhoneNumber')}
+                keyboardType="phone-pad"
                 marginTop={38}
                 onSubmitEditing={() => phoneValidation()}
                 error={phoneError}

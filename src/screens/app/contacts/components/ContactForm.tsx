@@ -310,7 +310,7 @@ const ContactForm: React.FC<Props> = ({
             autoCorrect
             keyboardType="phone-pad"
             mask="custom"
-            options={{ mask: '(999) 999 9999' }}
+            options={{ mask: '+52 (999) 999 9999' }}
             maxLength={14}
             blurOnSubmit={false}
             error={phoneError}

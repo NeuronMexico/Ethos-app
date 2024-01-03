@@ -91,6 +91,8 @@ const LoginForm: React.FC<Props> = ({
           onChangeText={(value) => setPhoneNumber(value)}
           onSubmitEditing={() => phoneValidation() && passwordRef.current?.blur()}
           returnKeyType="next"
+          mask="custom"
+          options={{ mask: '+52 (999) 999 9999' }}
           keyboardType="phone-pad"
           error={phoneNumberError}
         />

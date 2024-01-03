@@ -35,7 +35,7 @@ export const confirmPassword = (value: string, compareValue: string): Validation
 
 export const phone = (value: string): ValidationInterface => {
   let error: ErrorType;
-  const auxValue = value.replace('(', '').replace(') ', '').replace(' ', '');
+  const auxValue = value.replace('+52', '').replace('(', '').replace(') ', '').replace(' ', '');
 
   if (!auxValue) error = 'required';
   else if (!/^[0-9]+$/.test(auxValue) || auxValue.length !== 10) error = 'invalid-format';
