@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { EyeIcon, EyeSlashIcon } from 'assets/svg';
@@ -20,52 +20,21 @@ const TabSection: React.FC<Props> = ({ product }: Props) => {
   const [isBlurred, setIsBlurred] = useState<boolean>(true);
   const opacity = useRef(new Animated.Value(0)).current;
 
-  useEffect(() => {
-    if (!isBlurred) {
-      Animated.timing(opacity, {
-        toValue: 1,
-        duration: 500,
-        useNativeDriver: false,
-      }).start();
-    } else {
-      Animated.timing(opacity, {
-        toValue: 0.3,
-        duration: 500,
-        useNativeDriver: false,
-      }).start();
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isBlurred]);
-
   return (
     <Container flex>
       <ProgressBar progress={0.5} />
       <Container flex row space="between" style={{ paddingTop: 16 }}>
         <Container flex={1.5} style={{ marginRight: 16 }}>
-          <Animated.View style={{ opacity, alignSelf: 'flex-start' }}>
-            <Text
-              text={`$ ${product.info.usedBalance.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true,
-              })}`}
-              textColor={Theme.Colors.White}
-              fontWeight="ExtraBold"
-              fontSize={17}
-            />
-            {
-              isBlurred
-                ? (
-                  <BlurView
-                    style={[StyleSheet.absoluteFill, { borderRadius: 8 }]}
-                    blurType="light"
-                    blurAmount={3}
-                    reducedTransparencyFallbackColor="white"
-                  />
-                )
-                : null
-            }
-          </Animated.View>
+          <Text
+            text={`$ ${isBlurred ? '******' : product.info.usedBalance.toLocaleString('en-US', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            })}`}
+            textColor={Theme.Colors.White}
+            fontWeight="ExtraBold"
+            fontSize={17}
+          />
           <Text
             text={
               product.type === 'card'
@@ -78,30 +47,16 @@ const TabSection: React.FC<Props> = ({ product }: Props) => {
           />
         </Container>
         <Container flex style={{ marginRight: 16 }}>
-          <Animated.View style={{ opacity, alignSelf: 'flex-start' }}>
-            <Text
-              text={`$ ${product.info.availableBalance.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true,
-              })}`}
-              textColor={Theme.Colors.White}
-              fontWeight="ExtraBold"
-              fontSize={17}
-            />
-            {
-              isBlurred
-                ? (
-                  <BlurView
-                    style={[StyleSheet.absoluteFill, { borderRadius: 8 }]}
-                    blurType="light"
-                    blurAmount={3}
-                    reducedTransparencyFallbackColor="white"
-                  />
-                )
-                : null
-            }
-          </Animated.View>
+          <Text
+            text={`$ ${isBlurred ? '******' : product.info.availableBalance.toLocaleString('en-US', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            })}`}
+            textColor={Theme.Colors.White}
+            fontWeight="ExtraBold"
+            fontSize={17}
+          />
           <Text
             text={t('tabProducts:balanceAvailable')}
             textColor={Theme.Colors.White}
