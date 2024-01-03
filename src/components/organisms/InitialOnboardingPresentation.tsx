@@ -65,7 +65,7 @@ const InitialOnboardingPresentation = () => {
       <Container flex style={{ marginHorizontal: Theme.Sizes.Padding, marginTop: 13 }}>
         <Container row style={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />
-          <TouchableText text={t('global:skip')} typography="header" fontSize={13} onPress={() => {}} />
+          <TouchableText text={t('global:skip')} typography="header" fontSize={13} onPress={() => navigate('Login')} />
         </Container>
         <Container flex={5}>
           <PagerView
