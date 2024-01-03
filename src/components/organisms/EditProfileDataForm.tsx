@@ -33,7 +33,8 @@ const EditProfileDataForm: React.FC<EditFormProps> = ({ label, type, onSubmit })
         onChangeText={undefined}
         value={undefined}
         placeholder={`${t('global:confirm')} ${formattedLabel}`}
-        maxLength={30}
+        maxLength={type === 'phone' ? 10 : 30}
+        keyboardType={type === 'phone' ? 'phone-pad' : 'default'}
       />
       )}
       <Button

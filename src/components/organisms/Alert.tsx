@@ -40,6 +40,7 @@ export interface AlertDataInterface {
   fullscreen?: boolean;
   logo?: boolean;
   divider?: boolean;
+  extraInfoDown?: ReactElement;
 }
 
 interface Props {
@@ -73,6 +74,7 @@ const Alert: React.FC<Props> = ({
     logo,
     customBackgroundColor = fullscreen ? Theme.Colors.PlaceboBlue : undefined,
     divider,
+    extraInfoDown,
   },
 }) => {
   const { t } = useTranslation();
@@ -93,7 +95,13 @@ const Alert: React.FC<Props> = ({
           bounces={false}
         >
           {!!logo && (<FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} style={styles.ethosCreditLogo} />)}
-          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
+          {!!invoice && (
+            <Text marginBottom={10}>
+              <Text text={t('alert:invoice')} typography="caption" fontWeight="Regular" />
+              {' '}
+              <Text text={invoice} typography="caption" fontWeight="Bold" />
+            </Text>
+          )}
           {date && <Text text={formatDate(date)} transform="capitalize" typography="subtitle" marginBottom={10} />}
           {!!reference && (
             <Text>
@@ -102,13 +110,7 @@ const Alert: React.FC<Props> = ({
               <Text text={reference} typography="caption" fontWeight="Bold" />
             </Text>
           )}
-          {!!invoice && (
-            <Text marginBottom={10}>
-              <Text text={t('alert:invoice')} typography="caption" fontWeight="Regular" />
-              {' '}
-              <Text text={invoice} typography="caption" fontWeight="Bold" />
-            </Text>
-          )}
+          <Text text={title} typography="title" textAlign="center" marginBottom={8} />
           {(checkmark || rejectMarck) && (
           <Container style={{ marginBottom: 8 }}>
             {checkmark ? <CheckMarkCircleIcon /> : <RejectMarkCircleIcon />}
@@ -150,6 +152,11 @@ const Alert: React.FC<Props> = ({
               backgroundColor={Theme.Colors.PlaceboBlue}
               style={{ marginVertical: 8 }}
             />
+          )}
+          {extraInfoDown && (
+          <Container style={{ marginTop: 2, marginBottom: 8, width: extraInfoContainerWidth }}>
+            {extraInfoDown}
+          </Container>
           )}
           {actions.map(({ label, onPress, type }, index) => {
             let backgroundColor = Theme.Colors.DarkSoul;
