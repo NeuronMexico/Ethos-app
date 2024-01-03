@@ -8,12 +8,14 @@ import LoginForm from './components/LoginForm';
 interface Props {
   onPressLogin?: () => void;
   onPressRegister?: () => void;
+  onPressForgotPassword?: () => void;
 }
 
 const LoginScreen: React.FC<Props> = (props: Props) => {
   const {
     onPressLogin = () => {},
     onPressRegister = () => {},
+    onPressForgotPassword = () => {},
   } = props;
   const { container } = styles;
 
@@ -23,7 +25,7 @@ const LoginScreen: React.FC<Props> = (props: Props) => {
         <FadeInImage source={ETHOS_CREDIT_LOGO} width={84} height={13.5} />
       </Container>
       <LoginForm
-        onPressForgotPassword={() => {}}
+        onPressForgotPassword={onPressForgotPassword}
         onPressLogin={onPressLogin}
         onPressBiometricLogin={() => {}}
         onPressRegister={onPressRegister}

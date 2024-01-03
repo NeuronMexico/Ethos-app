@@ -12,12 +12,14 @@ const LoginController: React.FC = () => {
 
   const onPressLogin = () => {};
   const onPressRegister = () => navigate('CreateAccount');
+  const onPressForgotPassword = () => navigate('ForgotPassword');
 
   return (
     <SafeArea>
       <LoginScreen
         onPressLogin={onPressLogin}
         onPressRegister={onPressRegister}
+        onPressForgotPassword={onPressForgotPassword}
       />
     </SafeArea>
   );

@@ -11,6 +11,7 @@ import ContractDetailsController from 'screens/auth/ContractDetails/ContractDeta
 import { InitialOnboardingPresentation } from 'components';
 import EditProfileFieldController from 'screens/app/profile/EditProfileField/EditProfileFieldController';
 import CompanyCodeLabelController from 'screens/auth/CompanyCodeLabel/CompanyCodeLabelController';
+import ForgotPasswordController from 'screens/auth/ForgotPassword/ForgotPasswordController';
 
 const Stack = createNativeStackNavigator<AuthStackParams>();
 
@@ -18,6 +19,7 @@ const AuthStack: React.FC = () => (
   <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="FirstSteps">
     <Stack.Screen name="FirstSteps" component={InitialOnboardingPresentation} />
     <Stack.Screen name="Login" component={LoginController} />
+    <Stack.Screen name="ForgotPassword" component={ForgotPasswordController} />
     <Stack.Screen name="CreateAccount" component={CreateAccountController} />
     <Stack.Screen name="UserValidation" component={UserValidationController} />
     <Stack.Screen name="PersonalInformation" component={PersonalInformationController} />
