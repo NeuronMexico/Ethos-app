@@ -166,7 +166,7 @@ const HireBenefitFlowScreen: React.FC<Props> = ({ benefit }) => {
                   </Collapsible>
                 </Container>
               </Container>
-              {true && (
+              {isActive && (
               <Container style={{ marginVertical: 18 }}>
                 <Container
                   backgroundColor={!collapsedInfo
