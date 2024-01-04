@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import {
-  Card, Container, FadeInImage, Header, Input, Text,
+  Card, Container, FadeInImage, Header, Input, Modal, Text, Touchable,
 } from 'components';
 import { useTranslation } from 'react-i18next';
 import { ChevronRightIcon, LensIcon, MessageDotsIcon } from 'assets/svg';
 import Theme from 'theme';
-import { StyleSheet } from 'react-native';
-import { GIFT_IMG } from 'assets/images';
+import { ScrollView, StyleSheet } from 'react-native';
+import {
+  FAMILY_IMG,
+  OFF_IMG,
+  BIKE_IMG,
+  OLDER_PEOPLE_IMG,
+  PETS_IMG,
+  PREGNANT_IMG, GIFT_IMG,
+} from 'assets/images';
 
 interface Props {
   prop?: string
@@ -16,6 +23,16 @@ const BenefitsScreen: React.FC<Props> = () => {
   const { t } = useTranslation();
   const { blueContainer, card } = styles;
   const [search, setSearch] = useState('');
+  const [showModal, setShowModal] = useState(false);
+
+  const packages = [
+    { title: t('benefits:package1'), img: FAMILY_IMG },
+    { title: t('benefits:package2'), img: OFF_IMG },
+    { title: t('benefits:package3'), img: PREGNANT_IMG },
+    { title: t('benefits:package4'), img: PETS_IMG },
+    { title: t('benefits:package5'), img: OLDER_PEOPLE_IMG },
+    { title: t('benefits:package6'), img: BIKE_IMG },
+  ];
 
   const rewardsCardContent = (
     <Container row center space="between">
@@ -39,8 +56,60 @@ const BenefitsScreen: React.FC<Props> = () => {
     </Container>
   );
 
+  const onPressPackage = () => {
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+    }, 3000);
+  };
+
+  const modalContent = (
+    <Container
+      middle
+      style={{
+        flex: 1,
+        paddingHorizontal: Theme.Sizes.Padding,
+      }}
+    >
+      <Card backgroundColor={Theme.Colors.White} style={{ padding: 32 }}>
+        <Text
+          text={t('benefits:redirectMessage')}
+          textAlign="center"
+          fontWeight="Semibold"
+        />
+      </Card>
+    </Container>
+  );
+
+  const packageItem = (item: any) => (
+    <Touchable key={item.title} onPress={() => onPressPackage()}>
+      <Container center width={110} style={{ display: 'flex', flexWrap: 'wrap', marginHorizontal: 6 }}>
+        <Container
+          circle
+          center
+          crossCenter
+          style={{ alignContent: 'center', padding: 'auto' }}
+          backgroundColor={Theme.Colors.PlaceboBlue}
+          width={110}
+          height={110}
+        >
+          <FadeInImage source={item.img} width={90} height={90} resizeMode="contain" style={{ margin: 'auto' }} />
+        </Container>
+        <Text
+          text={item.title}
+          textAlign="center"
+          fontWeight="Semibold"
+          marginTop={15}
+        />
+      </Container>
+    </Touchable>
+  );
+
   return (
     <Container>
+      <Modal visible={showModal} animationType="slide">
+        {modalContent}
+      </Modal>
       <Container style={blueContainer}>
         <Header
           title={t('benefits:title')}
@@ -77,8 +146,14 @@ const BenefitsScreen: React.FC<Props> = () => {
               fontSize={21}
               typography="header"
               marginTop={32}
+              marginBottom={23}
             />
           </Container>
+          <ScrollView horizontal style={{ marginTop: 32 }} showsHorizontalScrollIndicator={false}>
+            <Container row>
+              {packages.map((item) => (packageItem(item)))}
+            </Container>
+          </ScrollView>
         </Container>
       </Container>
     </Container>

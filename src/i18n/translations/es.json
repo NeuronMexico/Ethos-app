@@ -736,6 +736,14 @@
     "validUntil": "Válido hasta el 09/09/2023",
     "refer": "Refiere ethoscrédito",
     "win": "¡Y gana hasta $10,000 MXN!",
-    "packages": "Paquetes"
+    "packages": "Paquetes",
+    "package1": "Ethos Beneficios Plus",
+    "package2": "Cupones de Descuento",
+    "package3": "Asistencia Nuevos Padres",
+    "package4": "Asistencia Mascotas",
+    "package5": "Asistencia al Adulto Mayor",
+    "package6": "Asistencia Moto/ Bici",
+    "redirectMessage": "Serás redireccionado a la página de Ethos Beneficios"
+
   }
 }
