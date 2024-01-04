@@ -11,6 +11,7 @@ import BIKE_IMG from './bike-img.png';
 import OLDER_PEOPLE_IMG from './older-people-img.png';
 import PETS_IMG from './pets-img.png';
 import PREGNANT_IMG from './pregnant-img.png';
+import BENEFIT_IMG from './benefit-img.png';
 
 import TUTORIAL_FIRST from './tutorial-first-img.png';
 import TUTORIAL_SECOND from './tutorial-second-img.png';
@@ -35,6 +36,7 @@ export {
   OLDER_PEOPLE_IMG,
   PETS_IMG,
   PREGNANT_IMG,
+  BENEFIT_IMG,
 
   TUTORIAL_FIRST,
   TUTORIAL_SECOND,

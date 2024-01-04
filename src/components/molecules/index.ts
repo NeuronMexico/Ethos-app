@@ -24,6 +24,7 @@ export * from './ServiceButton';
 export * from './NumberCard';
 export * from './CommonScrollView';
 export * from './DotPageIndicator';
+export * from './ImageLargeCarousel';
 
 export {
   CustomBottomSheet as BottomSheet,
