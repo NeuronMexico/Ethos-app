@@ -133,6 +133,7 @@ const DeferPurchasesScreen: React.FC<Props> = ({ onSubmit }) => {
           <Text
             text={t('cards:defermentMonths')}
             marginTop={32}
+            marginBottom={16}
             typography="header"
             marginHorizontal={Theme.Sizes.Padding}
           />
