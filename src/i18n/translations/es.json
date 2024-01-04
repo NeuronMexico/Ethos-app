@@ -138,6 +138,7 @@
     "personalDispositionLimit": "Límite de disposición personal",
     "cashDepositLimit": "Límite de depósitos en efectivo",
     "withdrawalLimitWithoutCard": "Límite de retiro sin tarjeta",
+    "cashWithdrawalLimitAtm": "Límite de disposición de efectivo en cajeros",
     "withdrawalAccount": "Cuenta de retiro",
     "reportMovement": "Reportar movimiento",
     "assignTags": "Asignar etiquetas",
