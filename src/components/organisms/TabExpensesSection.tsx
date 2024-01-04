@@ -178,7 +178,7 @@ const TabExpensesSection: React.FC<Props> = ({ product }: Props) => {
           <Container
             row
             style={{
-              display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'space-around',
+              display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'space-between',
             }}
           >
             {product.categories.map((category: any, index: number) => (

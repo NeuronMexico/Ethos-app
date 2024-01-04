@@ -114,6 +114,7 @@ const ExpensesScreen: React.FC<Props> = () => {
         title={t('expenses:title')}
         rightAction={() => {}}
         rightIcon={<MessageDotsIcon />}
+        showBackButton={false}
       />
       <ScrollView
         contentContainerStyle={{ paddingTop: 16, paddingHorizontal: Theme.Sizes.Padding }}
