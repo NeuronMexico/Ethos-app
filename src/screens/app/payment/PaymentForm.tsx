@@ -26,6 +26,7 @@ import {
   PaymentTransferAccountForm,
   WithdrawalNoCardForm,
 } from './components';
+import PaymentScreen from './PaymentScreen';
 
 const rnBiometrics = new ReactNativeBiometrics({ allowDeviceCredentials: true });
 
@@ -392,6 +393,7 @@ const PaymentForm: React.FC = () => {
         setFormComponentType(<AmountSecondaryForm onChange={() => {}} onSubmit={onSubmit} />);
         break;
       default:
+        setFormComponentType(<PaymentCollectToContactForm onSubmit={onSubmit} />);
         break;
     }
   }, [formComponent, destinationAccount, onSubmit, navigate]);
