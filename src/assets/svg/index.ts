@@ -117,6 +117,7 @@ export * from './WalletIcon';
 export * from './WaterIcon';
 export * from './XTwitterIcon';
 export * from './RightArrowIcon';
+export * from './ArrowUpIcon';
 
 export {
   DefaultCard,
