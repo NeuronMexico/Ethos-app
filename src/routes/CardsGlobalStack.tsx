@@ -10,6 +10,7 @@ import CreditDetailController from 'screens/app/cards/CreditDetail/CreditDetailC
 import CardReportController from 'screens/app/cards/CardReport/CardReportController';
 import AccountStatementController from 'screens/app/cards/AccountStatement/AccountStatementController';
 import PDFViewerController from 'screens/app/cards/PDFViewer/PDFViewerController';
+import DeferPurchasesController from 'screens/app/cards/DeferPurchases/DeferPurchasesController';
 
 const Stack = createNativeStackNavigator<CardsGlobalStackParams>();
 
@@ -24,6 +25,7 @@ const CardsGlobalStack: React.FC = () => (
     <Stack.Screen name="CardReport" component={CardReportController} />
     <Stack.Screen name="AccountStatement" component={AccountStatementController} />
     <Stack.Screen name="PDFViewer" component={PDFViewerController} />
+    <Stack.Screen name="DeferPurchases" component={DeferPurchasesController} />
   </Stack.Navigator>
 );
 
