@@ -745,6 +745,16 @@
     "enterCompanyCode": "Ingresa tu código de empresa",
     "noCodeMessage": "No tengo código"
   },
+  "social": {
+    "whatsapp": "WhatsApp",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "messenger": "Facebook Messenger",
+    "sms": "SMS",
+    "email": "Correo electrónico",
+    "other": "Otras opciones"
+  },
   "benefits": {
     "title": "Beneficios",
     "rewards": "Recompensas",

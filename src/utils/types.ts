@@ -216,4 +216,6 @@ export type FileType = {
 export type BenefitsStackParams = {
   Benefits: undefined;
   HireBenefit: { benefit: any };
+  Rewards: undefined;
+  Refer: undefined;
 };

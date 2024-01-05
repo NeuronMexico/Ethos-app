@@ -18,10 +18,14 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface Props {
-  prop?: string
+  onPressRewards: () => void;
+  onPressRefer: () => void;
 }
 
-const BenefitsScreen: React.FC<Props> = () => {
+const BenefitsScreen: React.FC<Props> = ({
+  onPressRewards = () => {},
+  onPressRefer = () => {},
+}: Props) => {
   const { t } = useTranslation();
   const { navigate } = useNavigation<NativeStackNavigationProp<any>>();
   const { blueContainer, card } = styles;
@@ -242,25 +246,27 @@ const BenefitsScreen: React.FC<Props> = () => {
   ];
 
   const rewardsCardContent = (
-    <Container row center space="between">
-      <Container style={{ width: '90%' }}>
-        <Text text={t('benefits:rewards')} fontSize={20} />
-        <Text text={t('benefits:currentBalance')} marginTop={14} marginBottom={4} />
-        <Text
-          text="$1,500.00 MXN"
-          textColor={Theme.Colors.SpringBouquet}
-          fontWeight="Bold"
-          fontSize={19}
-        />
-        <Text
-          text={t('benefits:validUntil')}
-          textColor={Theme.Colors.Encore}
-          fontSize={13}
-          marginTop={8}
-        />
+    <Touchable onPress={onPressRewards}>
+      <Container row center space="between">
+        <Container style={{ width: '90%' }}>
+          <Text text={t('benefits:rewards')} fontSize={20} />
+          <Text text={t('benefits:currentBalance')} marginTop={14} marginBottom={4} />
+          <Text
+            text="$1,500.00 MXN"
+            textColor={Theme.Colors.SpringBouquet}
+            fontWeight="Bold"
+            fontSize={19}
+          />
+          <Text
+            text={t('benefits:validUntil')}
+            textColor={Theme.Colors.Encore}
+            fontSize={13}
+            marginTop={8}
+          />
+        </Container>
+        <ChevronRightIcon height={40} width={40} />
       </Container>
-      <ChevronRightIcon height={40} width={40} />
-    </Container>
+    </Touchable>
   );
 
   const onPressPackage = (item: any) => {
@@ -338,7 +344,7 @@ const BenefitsScreen: React.FC<Props> = () => {
             paddingVertical={16}
           />
           <Container style={card}>
-            <Card backgroundColor={Theme.Colors.White} padding={20}>
+            <Card backgroundColor={Theme.Colors.White} padding={20} onPress={onPressRefer}>
               <Container row center space="between">
                 <Container style={{ width: '78%' }}>
                   <Text text={t('benefits:refer')} fontSize={21} fontWeight="Bold" />

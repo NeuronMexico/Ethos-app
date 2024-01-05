@@ -1,11 +1,18 @@
 import React from 'react';
 import { SafeArea } from 'components';
 import Theme from 'theme';
+import { BenefitsStackParams } from 'utils';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import BenefitsScreen from './BenefitsScreen';
 
-const BenefitsController: React.FC = () => (
+interface Props extends NativeStackScreenProps<BenefitsStackParams, 'Benefits'> {}
+
+const BenefitsController: React.FC<Props> = ({ navigation }: Props) => (
   <SafeArea topBGColor={Theme.Colors.PlaceboBlue}>
-    <BenefitsScreen />
+    <BenefitsScreen
+      onPressRewards={() => navigation.navigate('Rewards')}
+      onPressRefer={() => navigation.navigate('Refer')}
+    />
   </SafeArea>
 );
 
