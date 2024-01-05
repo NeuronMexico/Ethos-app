@@ -314,11 +314,11 @@ const BenefitsScreen: React.FC<Props> = () => {
   );
 
   return (
-    <Container>
-      <Modal visible={showModal} animationType="slide">
+    <Container flex>
+      <Modal visible={showModal} animationType="fade">
         {modalContent}
       </Modal>
-      <Container style={blueContainer}>
+      <Container flex style={blueContainer}>
         <Header
           title={t('benefits:title')}
           rightAction={() => {}}
@@ -357,13 +357,17 @@ const BenefitsScreen: React.FC<Props> = () => {
               marginBottom={23}
             />
           </Container>
-          <ScrollView horizontal style={{ marginTop: 32 }} showsHorizontalScrollIndicator={false}>
-            <Container row>
-              {packages.map((item) => (packageItem(item)))}
-            </Container>
-          </ScrollView>
         </Container>
       </Container>
+      <ScrollView
+        horizontal
+        contentContainerStyle={{ flexGrow: 1, alignSelf: 'center' }}
+        showsHorizontalScrollIndicator={false}
+      >
+        <Container row>
+          {packages.map((item) => (packageItem(item)))}
+        </Container>
+      </ScrollView>
     </Container>
   );
 };
