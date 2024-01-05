@@ -30,6 +30,12 @@ import AssistantB from './avatars/assistant-b.svg';
 
 import ErrorMark from './close_ring.svg';
 
+// Social
+import WhatsappIcon from './whatsapp-icon.svg';
+import SMSIcon from './sms-icon.svg';
+import MessengerIcon from './messenger-icon.svg';
+import MailIcon from './mail-icon.svg';
+
 export * from './ArrowLeftIcon';
 export * from './BankIcon';
 export * from './BellIcon';
@@ -149,4 +155,9 @@ export {
   AssistantA,
   AssistantB,
   ErrorMark,
+  // Social
+  WhatsappIcon,
+  SMSIcon,
+  MessengerIcon,
+  MailIcon,
 };

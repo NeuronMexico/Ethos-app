@@ -6,6 +6,9 @@ import {
 } from 'components';
 import Theme from 'theme';
 import { formatQuantity } from 'utils';
+import {
+  DotsIcon, MailIcon, MessengerIcon, SMSIcon, WhatsappIcon,
+} from 'assets/svg';
 
 interface Props {
   onPressAction: (id: string) => void;
@@ -16,9 +19,25 @@ const ReferScreen: React.FC<Props> = ({
 }: Props) => {
   const { t } = useTranslation();
 
+  const getIcon = (id: string) => {
+    switch (id) {
+      case 'whatsapp':
+        return <WhatsappIcon />;
+      case 'email':
+        return <MailIcon />;
+      case 'sms':
+        return <SMSIcon />;
+      case 'messenger':
+        return <MessengerIcon />;
+      default:
+        return <DotsIcon />;
+    }
+  };
+
   const referElement = (id: string) => (
-    <Touchable onPress={() => onPressAction('id')}>
-      <Container style={{ paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: Theme.Colors.PlaceboBlue }}>
+    <Touchable onPress={() => onPressAction(id)}>
+      <Container row style={{ paddingVertical: 20, borderBottomWidth: 1, borderBottomColor: Theme.Colors.PlaceboBlue }}>
+        {getIcon(id)}
         <Text text={t(`social:${id}`)} typography="body" fontWeight="Semibold" marginHorizontal={18} />
       </Container>
     </Touchable>
